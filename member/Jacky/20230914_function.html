@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar bg-dark text-white">
+      <h1>hello, 20230914</h1>
+    </nav>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <form class="border border-primary p-3">
+            <div class="mb-3">
+              <label for="name" class="form-label">姓名</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="請輸入姓名" />
+            </div>
+            <div class="mb-3">
+              <label for="age" class="form-label">年齡</label>
+              <input
+                type="number"
+                class="form-control"
+                id="age"
+                placeholder="請輸入年齡" />
+            </div>
+
+            <button type="submit" class="mybtn btn btn-primary">送出</button>
+          </form>
+          <p class="output fs-2 mt-5 p-3"></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      function sayHi(name, age) {
+        console.log(`你好，我的名字是${name}`);
+        console.log(`我今年${age}歲`);
+      }
+
+      sayHi('Jacky', 47);
+
+      // 網頁呈現
+      const name = document.querySelector('#name');
+      const age = document.querySelector('#age');
+      const mybtn = document.querySelector('.mybtn');
+      const output = document.querySelector('.output');
+
+      mybtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        output.textContent = `Hi, 我是${name.value}, 今年${age.value}歲`;
+      });
+    </script>
+  </body>
+</html>
