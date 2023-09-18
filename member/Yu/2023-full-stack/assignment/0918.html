@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yu | 0918</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 0.25rem 0.75rem;
+        border: 2px solid #bbb;
+        text-align: center;
+      }
+      .true {
+        color: navy;
+      }
+      .false {
+        color: darkred;
+      }
+      .mb-3 {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>2023 網頁全端開發</h1>
+    <h2>變數與賦值＆數字運算</h2>
+    <p>作業日期：<datetime>2023/09/18</datetime></p>
+    <table class="mb-3">
+      <thead>
+        <tr>
+          <th></th>
+          <th>重複宣告</th>
+          <th>重複賦值</th>
+          <th>初始值</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>let</td>
+          <td class="false">不行</td>
+          <td class="true">可以</td>
+          <td>不需要</td>
+        </tr>
+        <tr>
+          <td>const</td>
+          <td class="false">不行</td>
+          <td class="false">不行</td>
+          <td>需要</td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="../contents.html">回到作業分享區</a>
+    <script>
+      let num1 = 20;
+      let num2 = 6;
+      console.log(num1 + num2);
+      console.log(num1 - num2);
+      console.log(num1++); //=> num1 = 20+1
+      console.log((num1 += 1)); // => num1 + 1
+    </script>
+  </body>
+</html>
