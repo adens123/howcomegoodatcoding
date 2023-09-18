@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia | 0915</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark " data-bs-theme="dark">
+        <div class="container">
+          <a class="navbar-brand" href="../../../../index.html">怎麼會-前端coding</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" href="../index.html">Sonia 作業分享首頁</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <!-- 學習內容 -->
+    <div class="container mt-5">
+        <!-- 常見 JavaScript 函數 -->
+        <h4 class="mb-5">2023-09-15</h4>
+        <div class="mb-5">
+            <h5 class="border-bottom fw-bold ">常見 JavaScript 函數</h5>
+            <ol>
+                <li>console.log("今天是個不錯的一天");</li>
+                <li>window.alert("歡迎來到網站")</li>
+                <li>window.prompt("請輸入你的姓名")</li>
+                <li>let user_name = window.prompt("請輸入你的姓名");<br>
+                    window.alert("歡迎來到網站" + user_name);</li>
+            </ol>
+        </div>
+        <!-- Lexical Structure -->
+        <div class="mb-5">
+            <h5 class="border-bottom fw-bold ">常見 JavaScript 函數</h5>
+            <ol>
+                <li>Case Sensitive - JavaScript 中的大小寫是有差別的。</li>
+                <li>空白鍵、換行鍵等等在 JavaScript當中會全部被忽略。<br>通常來說，放到伺服器上的 JavaScript 程式碼都會被做 minification (刪除空白鍵、換行鍵)。<br>Minification 可少量的減少 JS 檔案大小。</li>
+                <li>JS 的註解:  單行 // 、 多行則包在 ? /* */ 內部。</li>
+                <li>JS 的變數名稱開頭:
+                    <ul>
+                        <li>文字</li>
+                        <li>underscore (_)</li>
+                        <li>dollar sign ($)</li>
+                        <li>[不能用數字開頭] !!</li>
+                    </ul>
+                </li>
+                <li>JS 內鍵關鍵字 (reserved words、keywords)，例如：null, of, if, then, in, finally, for, while, break, continue, switch, try, let, const , var 等等，不能當作變數名稱。</li>
+                <li>JS 使用 Unicode 字元集合，所以 String 內部可由任何 Unicode 文字組成。</li>
+                <li>Semicolons (；) 可用來分隔程式語句。Semicolons的使用是 optional。</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <script>
+        // console.log("今天是個不錯的一天");
+        // window.alert("歡迎來到網站")
+        // window.prompt("請輸入你的姓名")
+
+        let user_name = window.prompt("請輸入你的姓名");
+        window.alert("歡迎來到網站" + user_name);
+    </script>
+</body>
+
+</html>
