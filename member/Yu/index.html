@@ -4,89 +4,167 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yu的頁面</title>
+    <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <style></style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSShake -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://csshake.surge.sh/csshake.min.css"
+    />
+    <style>
+      .logo-yu {
+        background: url(./assets/images/2.png) no-repeat;
+        max-height: 100px;
+        max-width: 100px;
+        background-size: contain;
+        text-indent: 101%;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .bg-theme-yu {
+        background: url(./assets/images/clay-banks-min.jpg) no-repeat;
+        height: 100%;
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+      }
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      .clock {
+        font-family: "Share Tech Mono", monospace;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 75%;
+        transform: translate(-50%, -50%);
+        color: #daf6ff;
+        text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+      }
+
+      #time {
+        letter-spacing: 0.05em;
+        font-size: 80px;
+        padding: 5px 0;
+      }
+      #date {
+        letter-spacing: 0.1em;
+        font-size: 24px;
+      }
+      @media (max-width: 390px) {
+        .clock {
+          top: 70%;
+        }
+        #time {
+          font-size: 3.5rem;
+        }
+        #date {
+          font-size: 1.25rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header class="bg-body-tertiary">
-      <nav class="navbar navbar-expand-lg container">
+    <header class="bg-theme-yu">
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand logo-yu shake" href="./index.html">Yuchen</a>
           <button
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">首頁</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                <a class="nav-link" href="./2023-full-stack/contents.html"
+                  >作業分享區</a
                 >
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="../../index.html">回到頂層</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>
-    </header>
-    <main class="mt-3">
       <div class="container">
         <div class="row">
           <div class="col">
-            <h1 class="fw-bold">測試Pull</h1>
+            <div class="clock">
+              <p id="date"></p>
+              <p id="time"></p>
+            </div>
           </div>
         </div>
       </div>
-    </main>
+    </header>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
+    <script>
+      //時鐘
+      const WEEK = [
+        "日曜日",
+        "月曜日",
+        "火曜日",
+        "水曜日",
+        "木曜日",
+        "金曜日",
+        "土曜日",
+      ];
+
+      function updateTime() {
+        let now = new Date();
+
+        document.getElementById("time").innerText =
+          zeroPadding(now.getHours(), 2) +
+          ":" +
+          zeroPadding(now.getMinutes(), 2) +
+          ":" +
+          zeroPadding(now.getSeconds(), 2);
+
+        document.getElementById("date").innerText =
+          now.getFullYear() +
+          "-" +
+          zeroPadding(now.getMonth() + 1, 2) +
+          "-" +
+          zeroPadding(now.getDate(), 2) +
+          " " +
+          WEEK[now.getDay()];
+      }
+
+      updateTime();
+      setInterval(updateTime, 1000);
+
+      function zeroPadding(num, digit) {
+        return String(num).padStart(digit, "0");
+      }
+    </script>
   </body>
 </html>
