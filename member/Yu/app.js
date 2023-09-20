@@ -1,3 +1,4 @@
+// 作業分享區
 const assignments = [
   {
     date: "2023/09/15",
@@ -6,6 +7,10 @@ const assignments = [
   {
     date: "2023/09/18",
     link: "0918.html",
+  },
+  {
+    date: "2023/09/19",
+    link: "0919.html",
   },
 ];
 
