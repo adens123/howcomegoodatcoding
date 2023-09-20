@@ -12,6 +12,11 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+      /* * {
+        outline: 1px solid black;
+      } */
+    </style>
   </head>
   <body class="bg-dark">
     <header>
@@ -42,16 +47,16 @@
     </header>
 
     <div class="container mt-5 text-white">
-      <h2 class="mb-5">JavaScript</h2>
-      <div class="row">
-        <div class="col-10">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <h2 class="mb-5">JavaScript</h2>
           <h3 class="border-bottom">if statement</h3>
           <div class="row">
-            <div class="col-5">
+            <div class="col-md-5 mb-5">
               <div class="mt-3">
                 <h4>票價查詢</h4>
                 <p class="mt-5">請輸入年齡，查詢適用的票價</p>
-                <div class="input-group w-75">
+                <div class="input-group">
                   <input
                     id="age"
                     class="age form-control"
@@ -63,8 +68,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-7 d-flex flex-column justify-content-end">
-              <p class="output fs-1 fw-bolder text-info"></p>
+            <div class="col-md-7 d-flex flex-column justify-content-center">
+              <p class="output fs-1 fw-bolder text-info text-center"></p>
             </div>
           </div>
         </div>
@@ -83,10 +88,10 @@
       ticketBtn.addEventListener('click', function (e) {
         e.preventDefault();
 
-        output.classList.add('animate__animated', 'animate__fadeInDown');
+        output.classList.add('animate__animated', 'animate__fadeInUp');
 
         setTimeout(function () {
-          output.classList.remove('animate__animated', 'animate__fadeInDown');
+          output.classList.remove('animate__animated', 'animate__fadeInUp');
         }, 1000);
 
         ticketPrice(Number(age.value));
