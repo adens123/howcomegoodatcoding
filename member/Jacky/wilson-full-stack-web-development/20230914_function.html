@@ -8,13 +8,37 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet" />
   </head>
-  <body>
-    <nav class="navbar bg-dark text-white">
-      <h1>hello, 20230914</h1>
-    </nav>
+  <body class="bg-dark">
+    <header>
+      <nav class="navbar navbar-expand-lg bg-secondary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../../../index.html"
+            >怎麼會-前端coding</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Jacky's Home</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
     <div class="container mt-5">
       <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-md-6">
           <form class="border border-primary p-3">
             <div class="mb-3">
               <label for="name" class="form-label">姓名</label>

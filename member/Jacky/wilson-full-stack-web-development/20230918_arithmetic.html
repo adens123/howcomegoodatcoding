@@ -10,18 +10,57 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous" />
   </head>
-  <body>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-6">
-          <div class="card text-bg-info mt-3">
-            <div class="card-header">
-              <h1>hello, 2013/09/18</h1>
-            </div>
-            <card class="body">
-              <p class="card-text">數學運算</p>
-            </card>
+
+  <body class="bg-dark">
+    <header>
+      <nav class="navbar navbar-expand-lg bg-secondary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../../../index.html"
+            >怎麼會-前端coding</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Jacky's Home</a>
+              </li>
+            </ul>
           </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <h2 class="border-bottom text-white mb-3">數學運算</h2>
+          <code>
+            <pre class="text-bg-light p-3 fs-5">
+let x = 100;
+let y = 25;
+
+console.log(x + y);
+console.log(x - y);
+console.log(x * y);
+console.log(x / y);
+console.log(x % y);
+console.log(x++);
+console.log(x--);
+console.log((x += y));
+console.log((x -= y));
+console.log((x *= y));
+console.log((x /= y));
+            </pre>
+          </code>
         </div>
       </div>
     </div>
