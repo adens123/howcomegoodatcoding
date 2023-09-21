@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2023/09/19</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+  </head>
+  <body class="bg-dark">
+    <header>
+      <nav class="navbar navbar-expand-lg bg-secondary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../../../index.html"
+            >怎麼會-前端coding</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Jacky's Home</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container mt-5 text-white">
+      <h2 class="mb-5">JavaScript</h2>
+      <div class="row">
+        <div class="col-10">
+          <h3 class="border-bottom">String 基本介紹</h3>
+          <code class="mb-3">
+            <pre class="shadow bg-gradient p-3 rounded">
+let n1 = 10;
+let n2 = 15;
+let name = 'Jacky';
+let n3 = 30;
+let n4 = 40;
+
+console.log('n1 + n2 + name + n3 + n4 = ', n1 + n2 + name + n3 + n4);
+            </pre>
+          </code>
+
+          <h3 class="border-bottom">Number Methods</h3>
+          <code class="mb-3">
+            <pre class="shadow bg-gradient p-3 rounded">
+// toString()
+let age = 27;
+console.log('----------');
+console.log('age的type是：', typeof age);
+console.log('age.toString()的type是：', typeof age.toString());
+
+// toFixed(n)
+let pi = 3.1415926535;
+console.log('----------');
+console.log('pi.toFixed(2)是：', pi.toFixed(2));
+console.log('pi.toFixed(2)的type是：', typeof pi.toFixed(2));
+            </pre>
+          </code>
+
+          <h3 class="border-bottom">String Attributes and Methods</h3>
+          <code class="mb-3">
+            <pre class="shadow bg-gradient p-3 rounded">
+// length
+let str = 'Jacky Wu';
+console.log('---------');
+console.log('變數str的長度是：', str.length);
+
+// [n] index
+let str1 = 'My name is Jacky Wu';
+console.log('----------');
+console.log('str1的第4個字是：', str1[3]);
+console.log('str1的最後一個字是：', str1[str1.length - 1]);
+console.log('str1的第100個字是：', str1[99]);
+
+// slice(indexStart [, indexEnd])
+let str2 = 'Iamlearningjavascript';
+console.log('----------');
+console.log('str2從第4個字開始切：', str2.slice(3));
+console.log('str2從第1個字開始切到第10個字：', str2.slice(0, 11));
+
+// indexOf(substring) if true return index, else return -1
+let str3 = 'wearefamily';
+console.log('----------');
+console.log(
+  'str3是否包含are，有return index，沒有return -1：',
+  str3.indexOf('are')
+);
+console.log(
+  'str3是否包含ccc，有return index，沒有return -1：',
+  str3.indexOf('ccc')
+);
+
+// toUpperCase(), toLowerCase()
+let str4 = 'Uppercaseandlowercase';
+console.log('----------');
+console.log('str4轉換大寫，原str4不變：', str4.toUpperCase(), str4);
+console.log('str4轉換小寫，原str4不變：', str4.toLowerCase(), str4);
+str4 = str4.toUpperCase();
+console.log('str4轉換大寫，並取代原str4', str4);
+
+// split() return an array
+let sentance = 'Today is a good day';
+let result = sentance.split(' ');
+console.log('sentance分拆為單字：', sentance.split(' '));
+
+// startsWith(), endsWith(), includes(), charCodeAt(index)
+let sentance1 = 'I am a good student';
+console.log('sentance1開頭是否包含good：', sentance1.startsWith('I'));
+console.log('sentance1開頭是否包含Good：', sentance1.startsWith('i'));
+console.log('sentance1結尾是否包含student：', sentance1.endsWith('student'));
+console.log('sentance1結尾是否包含Student：', sentance1.endsWith('Student'));
+console.log('sentance1是否包含am：', sentance1.includes('am'));
+console.log('sentance1是否包含are：', sentance1.includes('are'));
+console.log('sentance1的index 0的uft-16的編碼：', sentance1.charCodeAt(0));
+            </pre>
+          </code>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script>
+      // String 基本介紹
+      let n1 = 10;
+      let n2 = 15;
+      let name = 'Jacky';
+      let n3 = 30;
+      let n4 = 40;
+
+      console.log('n1 + n2 + name + n3 + n4 = ', n1 + n2 + name + n3 + n4);
+
+      // Number Methods
+      // toString()
+      let age = 27;
+      console.log('----------');
+      console.log('age的type是：', typeof age);
+      console.log('age.toString()的type是：', typeof age.toString());
+
+      // toFixed(n)
+      let pi = 3.1415926535;
+      console.log('----------');
+      console.log('pi.toFixed(2)是：', pi.toFixed(2));
+      console.log('pi.toFixed(2)的type是：', typeof pi.toFixed(2));
+
+      // String Attributes and Methods
+      // length
+      let str = 'Jacky Wu';
+      console.log('---------');
+      console.log('變數str的長度是：', str.length);
+
+      // [n] index
+      let str1 = 'My name is Jacky Wu';
+      console.log('----------');
+      console.log('str1的第4個字是：', str1[3]);
+      console.log('str1的最後一個字是：', str1[str1.length - 1]);
+      console.log('str1的第100個字是：', str1[99]);
+
+      // slice(indexStart [, indexEnd])
+      let str2 = 'Iamlearningjavascript';
+      console.log('----------');
+      console.log('str2從第4個字開始切：', str2.slice(3));
+      console.log('str2從第1個字開始切到第10個字：', str2.slice(0, 11));
+
+      // indexOf(substring) if true return index, else return -1
+      let str3 = 'wearefamily';
+      console.log('----------');
+      console.log(
+        'str3是否包含are，有return index，沒有return -1：',
+        str3.indexOf('are')
+      );
+      console.log(
+        'str3是否包含ccc，有return index，沒有return -1：',
+        str3.indexOf('ccc')
+      );
+
+      // toUpperCase(), toLowerCase()
+      let str4 = 'Uppercaseandlowercase';
+      console.log('----------');
+      console.log('str4轉換大寫，原str4不變：', str4.toUpperCase(), str4);
+      console.log('str4轉換小寫，原str4不變：', str4.toLowerCase(), str4);
+      str4 = str4.toUpperCase();
+      console.log('str4轉換大寫，並取代原str4', str4);
+
+      // split() return an array
+      let sentance = 'Today is a good day';
+      let result = sentance.split(' ');
+      console.log('sentance分拆為單字：', sentance.split(' '));
+
+      // startsWith(), endsWith(), includes(), charCodeAt(index)
+      let sentance1 = 'I am a good student';
+      console.log('sentance1開頭是否包含good：', sentance1.startsWith('I'));
+      console.log('sentance1開頭是否包含Good：', sentance1.startsWith('i'));
+      console.log(
+        'sentance1結尾是否包含student：',
+        sentance1.endsWith('student')
+      );
+      console.log(
+        'sentance1結尾是否包含Student：',
+        sentance1.endsWith('Student')
+      );
+      console.log('sentance1是否包含am：', sentance1.includes('am'));
+      console.log('sentance1是否包含are：', sentance1.includes('are'));
+      console.log(
+        'sentance1的index 0的uft-16的編碼：',
+        sentance1.charCodeAt(0)
+      );
+    </script>
+  </body>
+</html>
