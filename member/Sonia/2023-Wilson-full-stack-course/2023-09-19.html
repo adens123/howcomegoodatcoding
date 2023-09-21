@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia | 0915</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark " data-bs-theme="dark">
+        <div class="container">
+          <a class="navbar-brand" href="../../../index.html">怎麼會-前端coding</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" href="../index.html">Sonia 作業分享首頁</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <!-- 學習內容 -->
+    <div class="container mt-5">
+        <h4 class="mb-5">2023-09-19</h4>
+
+        <!-- String -->
+        <div class="mb-5">
+            <h5 class="border-bottom fw-bold ">String 基本介紹</h5>
+            <ol>
+                <li>String由字母或數字串接組成。</li>
+                <li>String需使用單<span class="fw-bold text-decoration-underline ">引號</span> 或 <span class="fw-bold text-decoration-underline">雙引號</span>。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            <p>let name = "Sonia Wu";  // Sonia</p>
+                            <p>let name = 'Sonia Wu';  // Sonia</p>
+                            <p>let sentence = "he's a good guy";  // 當混用時，例如:句子中有單引號時，外面就用雙引號</p>
+                        </code>
+                    </div> 
+                </li>
+                <li>兩個String之間的串接，使用 「+」。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            <p>let first_name = "Sonia";<br>
+                                let last_name = "Wu";<br>
+                                <span class="text-secondary">// + is not addition, instead, + is string concatenation</span><br>
+                                console.log(first_name + last_name); <span class="text-secondary ">// SoniaWu</span><br>
+                                console.log(first_name + " " + last_name); <span class="text-secondary ">// Sonia Wu</span><br>
+                            </p>
+                        </code>
+                    </div> 
+                </li>
+                <li>String之間的串接稱為 concatenation。<span class="text-info ">簡稱 concat。</span></li>
+                <li>String與String之間<span class="fw-bold text-decoration-underline ">不能做「-」、「*」、「/」運算</span>，若作此類運算，則會出現NaN，代表 Not a Number。(這是因為，JS還是會嘗試試算出某個數字結果，但兩個operand的值都不是數字，無法算出一個數字結果，所以會出現NaN)。<br>
+                   <span class="text-secondary fst-italic "> [ 3 + 4 ； 3、4為operand；+ 為operator]</span>
+                   <div class="bg-body-tertiary border p-3 m-3">
+                    <code>
+                        <p>let first_name = "Sonia";<br>
+                            let last_name = "Wu";<br>
+                            console.log(first_name * 5); <span class="text-secondary ">// NaN</span>
+                        </p>
+                    </code>
+                </div> 
+                
+                </li>
+
+                <li class="text-danger ">String與Number之間，若是做「+」運算，則會變成String與String之間的concatenation。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            <span class="text-secondary ">// 範例一</span><br>
+                            let x = 10;<br>
+                            let y = "10";<br>
+                            <span class="text-secondary">// x data type is number, y data is String</span><br>
+                            console.log(x + x);  <span class="text-secondary">// 20</span><br>
+                            console.log(y + y);  <span class="text-secondary">// 1010</span><br>
+                            console.log(x + y);  <span class="text-secondary">// 1010</span><br>
+                            console.log(y + x);  <span class="text-secondary">// 1010</span><br>
+                            <br>
+                        </code>
+                        <code>
+                            <span class="text-secondary ">// 範例二</span><br>                
+                            let n1 = 20;<br>
+                            let n2 = 30;<br>
+                            let name = "Johnson";<br>
+                            let n3 = 10;<br>
+                            let n4 = 15;<br>
+                            <br>
+                            console.log(n1 + n2 + name); <span class="text-secondary">// 50Johnson，程式碼由上到下、由左到右讀取</span><br>
+                            console.log(n1 + n2 + name + n3 + n4); <span class="text-secondary">// 50Johnson1015 </span>
+                        </code>
+                    </div> 
+                </li>
+                <li>\n可以換行。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            console.log("Sonia\nWu");<br>
+                            <span class="text-secondary ">Sonia<br>Wu</span>
+                        </code>
+                    </div> 
+                    
+                </li>
+            </ol>
+            
+
+        </div>
+        <!-- Number Methods -->
+        <div class="mb-5">
+            <h5 class="border-bottom fw-bold ">Number Methods</h5>
+            <p>JS是<span class="text-info">物件導向(OOP - Object-oriented programming)</span>的程式語言，所以JS當中的數字可被視為是物件。數字常見可用的methods:</p>
+            <ol>
+                <li>toString() - returen 一個數字的 String。<span class="text-primary ">要記得加上()。</span>
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            let age = 27;<br>
+                            console.log(age.toString());<span class="text-secondary "> // 27</span><br>
+                            console.log(typeof age.toString())<span class="text-secondary "> // string</span><br>
+                        </code>
+                    </div> 
+                </li>
+                <li>toFixed(n) - return 被轉換後的數字，到小數點後第 n 位數。
+                    <ul>
+                        <li class="text-danger ">return值為String。<span class="text-success ">若希望return為數字，需要自己另外寫設定。</span></li>
+                        <li  class="text-success  ">注意! 0.1 + 0.2 === 0.3 為 false，因為二進制不能精確表示所有小數。<span class="text-secondary fst-italic "> // 直接計算 0.1 + 0.2 結果會是 0.30000000000000004</span></li>
+                    </ul>
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            const pi = 3.1415926535;<br>
+                            console.log(pi.toFixed(2));<span class="text-secondary "> // 小數點後第二位，結果為 3.14</span><br>
+                            console.log(typeof pi.toFixed(2));<span class="text-secondary "> // string</span><br>
+                        </code>
+                    </div>                     
+                </li>
+            </ol>
+        </div>
+        <!-- String Attributes -->
+        <div class="mb-5">
+            <h5 class="border-bottom fw-bold ">String Attributes(屬性) and Methods</h5>
+            <p>String有可用的attributes以及methods。常見的有下列11個：</p>
+            <p class="text-secondary fst-italic ">// 其餘可至 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">MDN string </a>看。</p>
+            <ol>
+                <li>length - return String 的長度。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            let str1 = "SoniaWu";<br>
+                            console.log(str1.length); <span class="text-secondary ">  // 7</span><br>
+                            <br>
+                            let str2 = "Sonia Wu";<br>
+                            console.log(str2.length); <span class="text-secondary "> // 8, 空白鍵也算</span><br>
+                            <br>
+                            let str3 = "";<br>
+                            console.log(str3.length); <span class="text-secondary ">   // empty string，則 0</span><br>
+                        </code>
+                    </div> 
+                </li>
+                <li>[n] - return index 第 n 項的字。<span class="text-primary">(index(索引)從0開始計算)</span>。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            let str = "Sonia";<br>
+                            <div class="text-secondary fst-italic ">
+                                S = [0]<br>
+                                o = [1]<br>
+                                n = [2]<br>
+                                i = [3]<br>
+                                a = [4]<br>
+                            </div>
+                            console.log(str[0]);<span class="text-secondary ">   // S</span><br>
+                            <br>
+                            console.log(str[-1]);<span class="text-secondary ">   // undefined</span><br>
+                            console.log(str[10]);<span class="text-secondary ">   // undefined</span><br>
+                            <br>
+                            <span class="text-secondary ">// 對於任意一個String，若string的長度為x，則最後一個文字的index會是 x-1。</span><br>
+                            console.log(str[str.length - 1]);<span class="text-secondary ">  // a</span>
+                        </code>
+                    </div> 
+                </li>
+                <li>slice(indexStart [, indexEnd]) - 提取字符串的一部分並將其作為新String返回，而不修改原始字符串。indexStart是inclusive，indexEnd是optional, exclusive。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            let str = "Sonia";<br>
+                            <br>
+                            console.log(str.slice(3));<span class="text-secondary ">  // ia, 以index從0開始算，從第3個開始取值</span><br>
+                            <br>
+                            console.log(str.slice(0,3));<span class="text-secondary ">  // Son, 以index從0開始算，從0開始取值，取到3之前，不包含3</span><br>
+                        </code>
+                    </div> 
+                </li>
+                <li>indexOf(substring) - return substring的index位置。若找不到substring，則return -1。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            let str = "Sonia";<br>
+                            <br>
+                            console.log(str.indexOf("ia")); <span class="text-secondary ">// 3</span><br>
+                            <br>
+                            console.log(str.indexOf("woo")); <span class="text-secondary ">// -1</span><br>
+                        </code>
+                    </div> 
+                </li>
+                <li>toUpperCase() - return 轉換為大寫的 String。此方法不影響String本身。</li>
+                <li>toLowerCase() - return 轉換為小寫的 String。此方法不影響String本身。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            let str = "Donaldson";<br>
+                            <br>
+                            console.log(str.toLowerCase());<span class="text-secondary "> // donaldson</span><br>
+                            console.log(str.toUpperCase());<span class="text-secondary "> // DONALDSON</span><br>
+                            <br>
+                            str.toUpperCase();<br>
+                            console.log(str);<span class="text-secondary ">  // Donaldson，此方法不影響String本身，所以仍是 Donaldson</span><br>
+                            <br>
+                            <span class="text-secondary ">// 如要把str裡面的內容都要大寫，則用 reassignment：</span><br>
+                            str = str.toLocaleUpperCase();<span class="text-secondary "> // reassignment</span>
+                            <br>
+                            console.log(str);<span class="text-secondary "> // DONALDSON</span>
+                            
+                        </code>
+                    </div>
+                </li>
+                <li>split(pattern) - 將一個字符串分成一個有序的array，然後return該array。 
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            let sentence = "Today is a good day";<br>
+                            <span class="text-secondary fst-italic ">// "Today", "is", "a", "good", "day"</span><br>
+                            <br>
+                            let result = sentence.split(" ");<span class="text-secondary">// 每一個空白鍵，就切一刀</span><br>
+                            console.log(result);<br>
+                        </code>
+                        <code class="text-secondary fst-italic ">
+                            (5) ['Today', 'is', 'a', 'good', 'day']<br>
+                                0: "Today"<br>
+                                1: "is"<br>
+                                2: "a"<br>
+                                3: "good"<br>
+                                4: "day"<br>
+                                length: 5<br>
+                        </code>
+                    </div> 
+                </li>
+                <li>startsWidth("s") - 確定String是否以指定字串s開頭，根據需要返回 true 或 false。</li>
+                <li>endsWith("s") - 與startsWith()相同，但確認結尾。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            let sentence = "Today is a good day";<br>
+                            <br>
+                            console.log(sentence.startsWith("Today"));<span class="text-secondary ">// true</span>  <br>
+                            console.log(sentence.startsWith("today"));<span class="text-secondary ">// false，大小寫有差別</span>  <br>
+                        </code>
+                    </div> 
+                </li>
+                <li>includes("str") - return true 如果String 內部包含str。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            let sentence = "Today is a good day";<br>
+                            <br>
+                            console.log(sentence.includes("good"));<span class="text-secondary ">// true</span>  <br><br>
+                        </code>
+                    </div> 
+                </li>
+                <li>charCodeAt(n) - 返回一個介於 0 和 65535 之間的整數，表示給定索引處n的 UTF-16 code unit。
+                    <a href="https://en.wikipedia.org/wiki/ASCII">ASCII 維基百科</a>
+                    <div class="bg-body-tertiary border p-3 m-3">
+                        <code>
+                            let sentence = "Today is a good day";<br>
+                            console.log(sentence.charCodeAt(0));<span class="text-secondary "> // 84, 查詢 "T" 的 UTF 16 Code</span>
+                        </code>
+                    </div> 
+                </li>
+            </ol>
+
+        </div>
+
+    </div>
+
+    <script>
+        // // 1
+        // let name = "Sonia Wu";
+        // let sentence = "he's a good guy";
+        // console.log(sentence);
+
+        // // 2
+        // let first_name = "Sonia";
+        // let last_name = "Wu";
+        // // + is not addition, instead, + is string concatenation
+        // console.log(first_name + last_name);
+        // console.log(first_name + " " + last_name);
+
+        // // 5
+        // console.log(first_name * 5);
+
+        // // 6
+        // let x = 10;
+        // let y = "10";
+        // // x data type is number, y data is String
+        // console.log(x + x);  // 20
+        // console.log(y + y);  // 1010
+        // console.log(x + y);  // 1010
+        // console.log(y + x);  // 1010
+
+        // let n1 = 20;
+        // let n2 = 30;
+        // let name = "Johnson";
+        // let n3 = 10;
+        // let n4 = 15;
+
+        // console.log(n1 + n2 + name); // 50Johnson，程式碼由上到下、由左到右讀取
+        // console.log(n1 + n2 + name + n3 + n4); // 50Johnson1015 
+        // // 7
+        // console.log("Sonia\nWu");
+
+        // // 2-1
+        // let age = 27;
+        // console.log(age.toString());
+        // console.log(typeof age.toString())
+        // // 2-2
+        // const pi = 3.1415926535;
+        // console.log(pi.toFixed(2)); // 小數點後第二位
+        // console.log(typeof pi.toFixed(2)); // string
+
+        // let x = 10; // x is a number (x is an object)
+        // console.log(x.toString()); // 對 x 來說，toString是一個 method or function
+
+        // // 3-1
+        // let str1 = "SoniaWu";
+        // console.log(str1.length);  // 7
+
+        // let str2 = "Sonia Wu";
+        // console.log(str2.length);  // 8, 空白鍵也算
+
+        // let str3 = "";
+        // console.log(str3.length);  // empty string，則 0
+
+        // // 3-2
+        // let str = "Sonia";
+
+        // console.log(str[0]);
+        // console.log(str[-1]);
+        // console.log(str[10]);
+        // console.log(str[str.length - 1]); // a
+
+        // // 3-3
+        // let str = "Sonia";
+        // console.log(str.slice(3));  // ia, 以index從0開始算，從第3個開始取值
+        // console.log(str.slice(0,3)); // Son, 以index從0開始算，從0開始取值，取到3之前，不包含3
+
+        // // 3-4
+        // let str = "Sonia";
+        // console.log(str.indexOf("ia")); // 3
+        // console.log(str.indexOf("woo")); // -1
+
+        // // 3-5
+        // let str = "Donaldson";
+        // console.log(str.toLowerCase()); // donaldson
+        // console.log(str.toUpperCase()); // DONALDSON
+
+        // str.toUpperCase();
+        // console.log(str);  // Donaldson
+
+        // str = str.toLocaleUpperCase();
+        // console.log(str); // DONALDSON
+
+        // 3-6
+        // let sentence = "Today is a good day";
+        // // "Today", "is", "a", "good", "day"
+        // let result = sentence.split(" "); // 每一個空白鍵，就切一刀
+        // console.log(result);
+        // // console.log(sentence.split(" "));
+
+        // // 3-7
+        // let sentence = "Today is a good day";
+
+        // console.log(sentence.startsWith("Today"));  // true
+        // console.log(sentence.startsWith("today"));  // false
+
+        // // 3-8
+        // console.log(sentence.includes("good"));  // true
+
+        // 3-11
+        let sentence = "Today is a good day";
+        console.log(sentence.charCodeAt(0)); // 84, 查詢 "T" 的 UTF 16 Code
+
+    </script>
+    <script src="../app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>
