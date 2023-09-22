@@ -1,4 +1,4 @@
-// 作業分享區
+// 課程資料
 const assignments = [
   {
     date: "2023/09/15",
@@ -27,8 +27,14 @@ const assignments = [
       "Truthy and Falsy Values, Logical Operator與其他資料類型處理, Coding Convention and Restrictions",
     link: "20230921.html",
   },
+  {
+    date: "2023/09/22",
+    chapter: "認識函式、return關鍵字",
+    link: "20230922.html",
+  },
 ];
 
+// 加入表格內容
 let el = document.querySelector("tbody");
 
 let str = "";
