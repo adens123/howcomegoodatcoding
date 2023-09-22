@@ -39,16 +39,20 @@
     color:#343331;
     padding: 20px;
     border:3px solid transparent;
-    background-color: #c8baa7;
+    /* background-color: #c8baa7; */
+    background-color:#efe5ca;
+    
     border-radius: 12px;
     font-weight: 700; 
   }
  .nav-link{
-    color:#ac8b5b ;
+    /* color:#84909b ; */
+    /* color: #c49a69; */
+    color: #d2b74e;
     font-weight: 500;
   }
   .date-item a:hover{
-    border:3px dashed #c8baa7;
+    border:3px dashed #c49a69;
     background-color: transparent;
   }
   .date-item li{

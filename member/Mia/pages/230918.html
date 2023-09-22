@@ -36,13 +36,22 @@
           <code >
             x=x+1  也可寫成  x+=1
           </code>
+          <h5 class="pt-5">Lexical Structure</h5>
+          <p class="small text-secondary">JavaScript 基本規則、語法</p>
+          <ol class="pb-5">
+            <li>JavaScript有大小寫分別</li>
+            <li>空白鍵、換行鍵都會被自動忽略</li>
+            <li>單行註解是<code class="ps-3">//</code></li>
+            <li>段落註解是<code class="ps-3">/* */</code></li>
+            <li>用來分開語句<code class="ps-3">;</code></li>
+          </ol>
           <h5 class="mt-4">規則</h5>
           <ol class="pb-5">
             <li>let、const都是用來宣告變數</li>
             <li>若變數的值會變動，用let宣告</li>
             <li>若變數的值不會變動，或不希望被更改，用const宣告</li>
             <li>請勿用var宣告變數</li>
-            <li>變數名稱的開頭可以用文字、底線、金錢符號，但 <span class="font-color2">不可用數字</span>作為開頭</li>
+            <li>變數名稱的開頭可以用文字、底線_、金錢符號$，但 <span class="font-color2">不可用數字</span>作為開頭</li>
             <li>有特殊涵義的字(關鍵字)不可當變數名稱，例如:null、of、if、then、in、finally、for、while、break、continue、switch、try、let、const、var等等</li>
           </ol>
           <h5 >注意</h5>
@@ -59,10 +68,40 @@
             console.log(x);
           </code>
           </pre>
+          <div class="row">
+            <div class="col-8">
+              <table class="table table-bordered table-light table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">重複宣告變數</th>
+                    <th scope="col">重新賦值</th>
+                    <th scope="col">賦予初始值</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">let</th>
+                    <td class="text-danger">不行</td>
+                    <td>可以</td>
+                    <td>非必要</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">const</th>
+                    <td class="text-danger">不行</td>
+                    <td class="text-danger">不行</td>
+                    <td class="text-danger">必須</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
           
           
-          <h6 class="mt-3">後面章節會說明的概念</h6>
-          <ul class="pb-5">
+          
+          <h6 class="mt-5">後面章節會說明的概念</h6>
+          <ul class="pt-3 pb-5">
             <li>請勿用var宣告變數</li>
             <li>JavaScript引擎中有一個garbage collector的後台程式，會監視所有物件並刪除無法訪問的object。</li>
           </ul>
