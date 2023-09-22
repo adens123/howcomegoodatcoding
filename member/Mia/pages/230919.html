@@ -9,16 +9,55 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Mia's page</title>
   </head>
   <body>
-    <div class="page1 bg-blue">
-      <div class="container bg-white content">
-        <h1 class="py-5">Coding 練習</h1>
-        <p class="py-3">2023 網頁全端開發0919</p>
+    <div class="page1 bg-gray ">
+      <div class="px-5 container bg-white content">
+        <ul class="py-4 nav justify-content-end ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/member/Mia/index.html">Back</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            
+          </ul>
+          <p class="text-center py-3 mb-5">網頁全端開發JavaScript_0919</p>
+          
+          <h4>字串基本介紹</h4>
+          <hr>
+          <ul>
+            <li>需要放在單或雙引號裡</li>
+            <li>字串與字串可以用+來連接，但不能使用其他運算符號</li>
+          </ul>
+          <code>
+            let first_name = "wilson";<br>
+            let last_name = "Ren";<br>
+
+            console.log(first_name + " " + last_name); <span class="font-color3">為了讓中間有空格可以加空白引號</span>
+          </code>
+          <p class="pt-4">將數字與字串做+運算，數字會轉成字串，等於2個字串連接</p>
+          <p>例如:將 <code>"10"+20</code> 數字會被轉成字串，結果會等於 <code>1020</code></p>
+          <pre class="bg-light-blue ">
+            <code class="font-color1 ">
+              Let n1 = 20;
+              Let n2 = 30;
+              Let text = “hello”;
+              Let n3 = 40;
+              Let n4 = 50; 
+              console.log ( n1 + n2 );  <span class="font-color3">數字相加，結果是</span> 50
+              console.log ( n1 + n2 + text );  <span class="font-color3">會先做數字相加，50再轉成字串，結果是</span> 50hello
+              console.log ( n1 + n2 + text + n3 + n4 );  <span class="font-color3">只要與字串相加，數字都會轉成字串，結果是</span> 50hello4050
+            </code>
+          </pre>
+          <p>/n 可以換行</p>
+          
+
+
         
-       
+        
       </div>
     </div>
     
