@@ -34,7 +34,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="../../pages/index.html">首頁</a>
+                <a class="nav-link" href="../../index.html">首頁</a>
               </li>
               <li class="nav-item">
                 <a
@@ -118,7 +118,7 @@
                   <p>
                     如果左邊的值能夠被轉換型態後是true，則結果會回傳左側的值。如
                     <code class="bg-body-tertiary px-2 py-1 rounded"
-                      >console.log(5 && 100);
+                      >console.log(5 || 100);
                       <span class="text-secondary">// 結果：5</span></code
                     >
                   </p>
@@ -127,7 +127,7 @@
                   <p>
                     否則會回傳右側的值。（常見於用在後端處理資料是否有取得）如
                     <code class="bg-body-tertiary px-2 py-1 rounded"
-                      >console.log(data && "資料遺失或錯誤");
+                      >console.log(data || "資料遺失或錯誤");
                       <span class="text-secondary"
                         >// 結果：資料遺失或錯誤</span
                       ></code
