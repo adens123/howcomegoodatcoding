@@ -20,20 +20,16 @@
   overflow: hidden;
 }
 
-.bg-theme-fuji {
-  background: url(../images/clay-banks-min.jpg) no-repeat;
+.bg-theme-tokyo {
+  background: url(../images/louie-martinez-min.jpg) no-repeat;
   height: 100%;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
 }
 
-.bg-theme-city {
-  background: url(../images/payphone.jpg) no-repeat;
-  height: 100%;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
+.bg-dark-mode {
+  background-color: #121212;
 }
 
 .clock {
@@ -79,4 +75,14 @@
 
 .cap {
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.splide__slide {
+  height: calc(100vh - 3.5rem);
+}
+.splide__slide img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=all.css.map */
