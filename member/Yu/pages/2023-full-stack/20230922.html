@@ -70,9 +70,9 @@
     </main>
     <script>
       function tempConvert() {
-        let celTemp = prompt("請輸入須轉換的溫度：");
+        let celTemp = Number(prompt("請輸入須轉換的溫度："));
         let freTemp = celTemp * 1.8 + 32;
-        alert(`攝氏： ${celTemp}C；華氏： ${freTemp}F`);
+        alert(`攝氏： ${celTemp}°C；華氏： ${freTemp}°F`);
       }
     </script>
     <script
