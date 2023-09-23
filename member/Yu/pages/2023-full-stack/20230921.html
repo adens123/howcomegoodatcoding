@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20230921 | 2023 網頁全端開發</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../CSS/all.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>
+              Truthy and Falsy Values, Logical Operator與其他資料類型處理,
+              Coding Convention and Restrictions
+            </h1>
+            <p class="text-secondary">作業日期：2023/09/21</p>
+            <!-- Truthy and Falsy Values -->
+            <div class="mb-5">
+              <h2 class="border-bottom">Truthy and Falsy Values</h2>
+              <h3>Falsy values</h3>
+              <ul>
+                <li>
+                  <p>false</p>
+                </li>
+                <li>
+                  <p>0,-0,0n(bigint)</p>
+                </li>
+                <li>
+                  <p>"",'',``(empty string)</p>
+                </li>
+                <li>
+                  <p>null</p>
+                </li>
+                <li>
+                  <p>undefined</p>
+                </li>
+                <li>
+                  <p>NaN</p>
+                </li>
+              </ul>
+              <p>
+                除此之外都是truthy values，包含[ ]empty array, { }empty
+                object等等
+              </p>
+            </div>
+
+            <!-- Logical Operator與其他資料類型處理 -->
+            <div class="mb-5">
+              <h2 class="border-bottom">Logical Operator與其他資料類型處理</h2>
+              <h3>&&</h3>
+              <ul>
+                <li>
+                  <p>
+                    如果左邊的值是true，則結果會回傳右側的值。如
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >console.log(5 && 100);
+                      <span class="text-secondary">// 結果：100</span></code
+                    >
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    如果左邊的值不是true，則結果會回傳左側的值。如
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >console.log(0 && 100);
+                      <span class="text-secondary">// 結果：0</span></code
+                    >
+                  </p>
+                </li>
+              </ul>
+              <h3>||</h3>
+              <ul>
+                <li>
+                  <p>
+                    如果左邊的值能夠被轉換型態後是true，則結果會回傳左側的值。如
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >console.log(5 || 100);
+                      <span class="text-secondary">// 結果：5</span></code
+                    >
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    否則會回傳右側的值。（常見於用在後端處理資料是否有取得）如
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >console.log(data || "資料遺失或錯誤");
+                      <span class="text-secondary"
+                        >// 結果：資料遺失或錯誤</span
+                      ></code
+                    >
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <h2 class="border-bottom">Coding Convention and Restrictions</h2>
+              <h3>Convention習慣</h3>
+              <ul>
+                <li>
+                  <p>
+                    變數與函數以小寫命名，若由兩個以上單字組成，則使用camelCase或underline
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Operators周圍加上空白鍵。如：<code
+                      class="bg-body-tertiary rounded px-2 py-1"
+                      >console.log(3 + 4);</code
+                    >
+                  </p>
+                </li>
+                <li>
+                  <p>用分號結束一個statement</p>
+                </li>
+                <li>
+                  <p>
+                    常數constant全部大寫。如：<code
+                      class="bg-body-tertiary rounded px-2 py-1"
+                      >const PI = 3.1415;</code
+                    >
+                  </p>
+                </li>
+              </ul>
+              <h3>Restrictions限制</h3>
+              <ul>
+                <li>
+                  <p>不可由數字開頭</p>
+                </li>
+                <li>
+                  <p>不可包含hyphen(-)，已作為減法運算符</p>
+                </li>
+                <li>
+                  <p>不可使用保留字</p>
+                </li>
+              </ul>
+            </div>
+
+            <a class="btn btn-secondary" href="../contents.html">回到分享區</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      let data = null;
+      console.log(data || "資料遺失");
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

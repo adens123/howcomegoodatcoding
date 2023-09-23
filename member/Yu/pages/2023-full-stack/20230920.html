@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20230920 | 2023 網頁全端開發</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../CSS/all.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../pages/index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>Boolean, Undefined, Null & logical, comparison operator</h1>
+            <p class="text-secondary">作業日期：2023/09/20</p>
+            <div class="mb-3">
+              <!-- Boolean -->
+              <h2 class="border-bottom">Boolean</h2>
+              <ul>
+                <li>
+                  <p>true以及false為保留字，不可作為變數名稱</p>
+                </li>
+                <li>
+                  <p>"true"與true的資料型別不同，分別為string及boolean</p>
+                </li>
+                <li>
+                  <p>在布林值前加上"!"，可使其反轉</p>
+                </li>
+              </ul>
+
+              <!-- Undefined, Null -->
+              <h2 class="border-bottom">Undefined & Null</h2>
+              <ul>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >undefined</code
+                    >：有宣告但沒初始值
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded">null</code
+                    >：刻意不存在的值
+                  </p>
+                </li>
+              </ul>
+
+              <!-- comparison operator -->
+              <h2 class="border-bottom">Comparison operator</h2>
+              <p>運算元為兩個任意資料型態，結果為布林值</p>
+              <ul>
+                <li>
+                  <p>==：兩者 equal</p>
+                </li>
+                <li>
+                  <p>!=：兩者 not equal</p>
+                </li>
+                <li>
+                  <p>===：兩者 equal 且資料型別一樣</p>
+                </li>
+                <li>
+                  <p>!==：兩者 not equal 且資料型別一樣或不一樣</p>
+                </li>
+                <li>
+                  <p>>、<：是否大於或小於</p>
+                </li>
+                <li>
+                  <p>>＝、<＝：是否大於等於或小於等於</p>
+                </li>
+              </ul>
+
+              <!-- Logical operator -->
+              <h2 class="border-bottom">Logical operator</h2>
+              <p>運算元為兩個任意資料型態，結果為布林值</p>
+              <ul>
+                <li>
+                  <p>&&：假設 A 與 B 兩者皆為true，結果才為true</p>
+                </li>
+                <li>
+                  <p>||：假設 A 與 B 兩者任一者為true，結果為true</p>
+                </li>
+              </ul>
+
+              <!-- if statement -->
+              <h2 class="border-bottom">if statement</h2>
+              <p>
+                用於決定是否執行某個某個語句或語句塊，即如果某個條件為真，則執行一個語句塊，否則不執行。if
+                statement的語法如下：
+              </p>
+              <ol>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary rounded px-2 py-1"
+                      >if (condition) statement1;</code
+                    >
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary rounded px-2 py-1"
+                      >if (condition) { statement1; }else{ statement2; }</code
+                    >
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary rounded px-2 py-1"
+                      >if (condition) { statement1; }else if{ statement2; }else{
+                      statementN; }</code
+                    >
+                  </p>
+                </li>
+              </ol>
+            </div>
+            <a class="btn btn-secondary" href="../contents.html">回到分享區</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      // Boolean
+      console.log(typeof "true", typeof true); // string, boolean
+      let chkBool = true;
+      console.log(chkBool); // true
+
+      console.log(!chkBool); // false
+
+      // Undefined
+      let chkUndefined;
+      console.log(chkUndefined); // undefined
+
+      // null
+      let chkNull = null;
+      console.log(chkNull);
+
+      // Comparison operator
+      let a = "20";
+      let b = 20;
+
+      console.log(a == b); // true
+      console.log(a != b); // false
+      console.log(a === b); // false
+      console.log(a !== b); // true
+      console.log(a > b); // false
+      console.log(a < b); // false
+      console.log(a >= b); // true
+      console.log(a <= b); // true
+
+      // Logical operator
+      let logicA = true;
+      let logicB = false;
+      console.log(logicA && logicB); // false
+      console.log(logicA || logicB); // true
+
+      // if statement 練習題
+      // 製作一個系統，可以讓使用者輸入年齡，並打印出相對應票價。規則如下：
+      // 12歲（含）以下為兒童票：100元
+      // 12歲以上65歲（含）以下為成人票：250元
+      // 65歲以上為敬老票：150元
+
+      let user_age = prompt("請輸入您的年齡：");
+      user_age = Number(user_age);
+      let ticket = "";
+
+      if (user_age > 0 && user_age <= 12) {
+        ticket = "票價為兒童票100元";
+      } else if (user_age > 12 && user_age <= 65) {
+        ticket = "票價為成人票250元";
+      } else if (user_age > 65 && user_age <= 100) {
+        ticket = "票價為敬老票150元";
+      }
+
+      alert(ticket);
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

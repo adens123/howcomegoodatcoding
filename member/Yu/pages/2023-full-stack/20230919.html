@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20230919 | 2023 網頁全端開發</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../CSS/all.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>String基本介紹 & Number Methods</h1>
+            <p class="text-secondary">作業日期：2023/09/19</p>
+            <!-- 筆記 -->
+            <div class="mb-3">
+              <h2 class="border-bottom">String Attributes(屬性) and Methods</h2>
+              <ul>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >.length</code
+                    >：傳回字串長度
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded">[n]</code
+                    >：回傳索引值第n項，索引值從0開始(若string的長度為x，最後一個文字的index是x-1)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >.slice(indexStart[,indexEnd])</code
+                    >：提取字符串的一部分並將其作為新String返回，而不修改原始字符串。indexStart是inclusive，indexEnd是optional,
+                    exclusive
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >.indexOf(substring)</code
+                    >：回傳 substring的索引值，若找不到則回傳 -1
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >.toUppercase()</code
+                    >：回傳轉換成大寫的string(此方法不會影響string本身，可以利用reassignment變更)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >.toLowercase()</code
+                    >：回傳轉換成小寫的string(此方法不會影響string本身，可以利用reassignment變更)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >.split(pattern)</code
+                    >：將一個字符串變成一個有序的陣列，並回傳
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >.startsWith("")</code
+                    >：確認字串是否以指定字串開頭，根據需要返回true or false
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >.endsWith("")</code
+                    >：確認字串是否以指定字串結尾，根據需要返回true or false
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >.includes(str)</code
+                    >：確認字串是否包含指定字串，根據需要返回true or false
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary px-2 py-1 rounded"
+                      >.charCodeAt(n)</code
+                    >：返回一個介於 0 和 65535 之間的整數，表示給定索引處n的
+                    UTF-16 code unit。<a
+                      href="https://en.wikipedia.org/wiki/ASCII"
+                      >ASCII 維基百科</a
+                    >
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <a class="btn btn-secondary" href="../contents.html">回到分享區</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      let a = 12;
+      let b = 30;
+      let str = "這是字串";
+      let enStr = "this is JS";
+
+      // string & number concatenation
+      console.log(a + b + str); // 結果：42這是字串
+      console.log(str + a + b); // 結果：這是字串1230
+
+      console.log(str.length); // 4
+
+      console.log(str[2]); // 字
+
+      console.log(str.slice(2, 4)); // 字串
+
+      console.log(str.indexOf("字")); // 2
+
+      console.log(enStr.toUpperCase()); // THIS IS JS
+
+      console.log(enStr.toLowerCase()); // this is js
+
+      console.log(enStr.split(" ")); // ['this', 'is', 'JS']
+
+      console.log(enStr.startsWith("t")); // true
+
+      console.log(enStr.endsWith("t")); // false
+
+      console.log(enStr.includes("is")); // true
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

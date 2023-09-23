@@ -1,0 +1,29 @@
+.logo-yu-dark {
+  background: url(../images/2.png) no-repeat;
+  max-height: 100px;
+  max-width: 100px;
+  background-size: contain;
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.logo-yu {
+  background: url(../images/1.png) no-repeat;
+  max-height: 100px;
+  max-width: 100px;
+  background-size: contain;
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.bg-theme-tokyo {
+  background: url(../images/louie-martinez-min.jpg) no-repeat;
+  height: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-dark-mode {
+  background-color: #121212;
+}
