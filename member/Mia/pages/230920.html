@@ -18,10 +18,10 @@
         <div class="px-5 container bg-white content">
             <ul class="py-4 nav justify-content-end ">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/member/Mia/index.html">Back</a>
+                  <a class="nav-link active" aria-current="page" href="../index.html">Back</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/index.html">Home</a>
+                  <a class="nav-link" href="#">Home</a>
                 </li>
                 
             </ul>
@@ -30,15 +30,15 @@
               <h4>邏輯判斷</h4>
               <hr>
               <div class="fw-300">
-                <p class="bg-light py-2 "><code class="me-4">AND(&&)</code>運算子只有在兩邊的運算元為true時，整個運算式的結果才為true</p>
-                <p >例--<code class="me-4">A and B</code>AB都必須是true，只要AB有1個是false，結果是false</p>
+                <p class="bg-light py-2 "><code class="me-4">AND(&&)</code>運算子只有在兩邊的運算結果為true時，整個運算式的結果才為true</p>
+                <p >例--<code class="me-4">A and B</code>AB都必須是true， <span class="mark-red"> 只要AB有1個是false</span>，結果是false</p>
                 <div class="row">
-                    <div class="col-5">
-                        <table class="table table-hover fw-400">
-                            <thead>
+                    <div class="col-12">
+                        <table class="table table-hover ">
+                            <thead class="fw-300">
                               <tr>
                                 <th scope="col"></th>
-                                <th scope="col"></th>
+                                <th scope="col">運算式1 && 運算式2</th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
                               </tr>
@@ -48,24 +48,28 @@
                                 <th scope="row">1</th>
                                 <td>true && true</td>
                                 <td class="font-color2 fw-400">true</td>
+                                <td>先判斷運算式1 為 true，接著判斷運算式2 也為 true，結果為 true</td>
                                 
                               </tr>
                               <tr>
                                 <th scope="row">2</th>
                                 <td>true && false</td>
                                 <td>false</td>
+                                <td>先判斷運算式1 為 true，接著判斷運算式2 為 false，結果為 false</td>
                                 
                               </tr>
                               
                               <tr>
                                 <th scope="row">3</th>
                                 <td>false && true</td>
-                                <td>false</td> 
+                                <td>false</td>
+                                <td>先判斷運算式1 為 false，不判斷運算式2，結果為 false</td>  
                               </tr>
                               <tr>
                                 <th scope="row">4</th>
                                 <td>false && false</td>
                                 <td>false</td>
+                                <td>先判斷運算式1 為 false，不判斷運算式2，結果為 false</td> 
                               </tr>
                               
                             </tbody>
@@ -73,17 +77,25 @@
                     </div>
                 </div>
                 <br>
+                <p>使用於 布林值時會回傳布林型態的值，用於非布林型態值時，回傳兩指定運算元之一</p>
+                <ul>
+                  <li class="font-color1 me-4 ">AND &&</li>
+                  <li>假如 左邊運算式 可以被轉換成 false 的話，回傳 左邊的值</li>
+                  <li>假如 左邊運算式 可以被轉換成 True 的話，回傳 右邊的值</li>
+                </ul>
+                <small>下圖截自 MDN</small>
+                <div><img src="../images/js01.png" alt="" width="350px" height="210px"></div>
                 <br>
-                
+                <br>
                 <p class="bg-light py-2 "><code  class="me-4" >OR( || )</code>任一個運算元為true就回傳true，若全部的運算元為false則回傳false。</p>
                 <p >例--<code class="me-4">A or B</code>只要AB有1個是true，結果都會是true</p>
                 <div class="row">
-                    <div class="col-5">
-                        <table class="table table-hover fw-400">
-                            <thead>
+                    <div class="col-12">
+                        <table class="table table-hover">
+                            <thead class="fw-300">
                               <tr>
                                 <th scope="col"></th>
-                                <th scope="col"></th>
+                                <th scope="col">運算式1 || 運算式2</th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
                               </tr>
@@ -93,31 +105,44 @@
                                 <th scope="row">1</th>
                                 <td>true  || true</td>
                                 <td >true</td>
+                                <td >先判斷運算式1 為 true，不判斷運算式2，結果為 true</td>
                                 
                               </tr>
                               <tr>
                                 <th scope="row">2</th>
                                 <td>true  || false</td>
                                 <td>true</td>
+                                <td>先判斷運算式1 為 true，不判斷運算式2，結果為 true</td>
                                 
                               </tr>
                               
                               <tr>
                                 <th scope="row">3</th>
                                 <td>false  || true</td>
-                                <td>true</td> 
+                                <td>true</td>
+                                <td>先判斷運算式1 為 false，接著判斷運算式2 為 true，結果為 true</td> 
                               </tr>
                               <tr>
                                 <th scope="row">4</th>
                                 <td>false  || false</td>
                                 <td class="font-color2 fw-400">false</td>
+                                <td>先判斷運算式1 為 false，接著判斷運算式2 為 false，結果為 false</td>
                               </tr>
                               
                             </tbody>
                         </table>
                     </div>
                 </div>
+                <ul>
+                  <li class="font-color1 me-4 ">OR  || </li>
+                  <li>假如 左邊運算式 可以被轉換成 True 的話，回傳 左邊的值</li>
+                  <li>假如 左邊運算式 可以被轉換成 false 的話，回傳 右邊的值</li>
+                </ul>
+                <small>下圖截自 MDN</small>
+                <div><img src="../images/js02.png" alt="" width="350px" height="210px"></div>
                 <br>
+                <br>
+                <p class="bg-light py-2 "><code class="me-4">NOT ( ! )</code>使結果相反，將原本為 true 的轉換為 false，原本為 false 的轉換為 true</p>
                 <p class="bg-light py-2 "><code class="me-4">Number( ) </code>將類型轉成數字</p>
                 <br>
                 <br>
@@ -144,6 +169,15 @@
                           }     
                       </code>
                   </pre>
+                <br>
+                  <h4>比較運算子</h4>  
+                  <hr>
+                <pre>
+                  <code class="font-color1 me-3 fw-400">==</code>  一般相等
+                  <code class="font-color1 me-3 fw-400">!=</code>  一般不相等
+                  <code class="font-color1 me-3 fw-400">===</code>  嚴格相等
+                  <code class="font-color1 me-3 fw-400">!==</code>  嚴格不相等
+                </pre>
                 
                   
               </div>
