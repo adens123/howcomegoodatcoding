@@ -32,6 +32,8 @@
               <div class="fw-300">
                 <p class="bg-light py-2 "><code class="me-4">AND(&&)</code>運算子只有在兩邊的運算結果為true時，整個運算式的結果才為true</p>
                 <p >例--<code class="me-4">A and B</code>AB都必須是true， <span class="mark-red"> 只要AB有1個是false</span>，結果是false</p>
+                <br>
+                
                 <div class="row">
                     <div class="col-12">
                         <table class="table table-hover ">
@@ -83,6 +85,7 @@
                   <li>假如 左邊運算式 可以被轉換成 false 的話，回傳 左邊的值</li>
                   <li>假如 左邊運算式 可以被轉換成 True 的話，回傳 右邊的值</li>
                 </ul>
+                <br>
                 <small>下圖截自 MDN</small>
                 <div><img src="../images/js01.png" alt="" width="350px" height="210px"></div>
                 <br>
@@ -133,6 +136,8 @@
                         </table>
                     </div>
                 </div>
+                <br>
+                <br>
                 <ul>
                   <li class="font-color1 me-4 ">OR  || </li>
                   <li>假如 左邊運算式 可以被轉換成 True 的話，回傳 左邊的值</li>
@@ -143,6 +148,48 @@
                 <br>
                 <br>
                 <p class="bg-light py-2 "><code class="me-4">NOT ( ! )</code>使結果相反，將原本為 true 的轉換為 false，原本為 false 的轉換為 true</p>
+                <div class="row">
+                  <div class="col-6">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col"></th>
+                          <th scope="col">結果</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody class="fw-400">
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>! true</td>
+                          <td>false</td>
+                          
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>! false</td>
+                          <td>true</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>! 0</td>
+                          <td>true</td>
+                        </tr>  
+                        <tr>
+                          <th scope="row">4</th>
+                          <td>! 1 （或其他非零的數值）</td>
+                          <td>false</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">5</th>
+                          <td>! "字串"</td>
+                          <td>false</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
                 <p class="bg-light py-2 "><code class="me-4">Number( ) </code>將類型轉成數字</p>
                 <br>
                 <br>
@@ -170,14 +217,7 @@
                       </code>
                   </pre>
                 <br>
-                  <h4>比較運算子</h4>  
-                  <hr>
-                <pre>
-                  <code class="font-color1 me-3 fw-400">==</code>  一般相等
-                  <code class="font-color1 me-3 fw-400">!=</code>  一般不相等
-                  <code class="font-color1 me-3 fw-400">===</code>  嚴格相等
-                  <code class="font-color1 me-3 fw-400">!==</code>  嚴格不相等
-                </pre>
+                  
                 
                   
               </div>
