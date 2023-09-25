@@ -19,6 +19,7 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link" aria-current="page" href="../index.html">Sonia 作業分享首頁</a>
+              <a class="nav-link" aria-current="page" href="https://github.com/adens123/howcomegoodatcoding" target="_blank">怎麼會 repo</a>
             </div>
           </div>
         </div>
@@ -147,6 +148,50 @@
             <li>arithmetic operator： +, -, *, /, +=, -=, /=, *=, **, %</li>
           </ol>
         </div>
+        <!-- if statement -->
+        <div class="mb-5">
+          <h5 class="border-bottom fw-bold ">if statement</h5>
+              <ol>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary p-2 rounded ">
+                      if (condition) statement1;
+                    </code>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary p-2 rounded ">
+                      if (condition) {statement1;} else {statement2};
+                    </code>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary p-2 rounded ">
+                      if (condition1) {statement1;} else if {statement2} ... else {statementN};
+                    </code>
+                  </p>
+                </li>
+              </ol>
+              <div class="bg-body-tertiary border p-3 m-3">
+                <code>
+                  let age = prompt("請輸入您的年齡：(阿拉伯數字)");<br>
+                  <span class="text-secondary ">// console.log(typeof age);  // string</span><br>
+                  age = Number(age);<span class="text-secondary ">  // 將 age 從 string 轉換為 number</span><br>
+                  console.log(age);<span class="text-secondary ">// 若使用者於 prompt 輸入中文，會顯示 NaN</span><br> 
+                  <br>
+                  if (age>=0 && age <= 12){<br>
+                    &nbsp&nbsp alert("您的兒童票一張100元");<br>
+                  }else if (age > 12 && age <= 65){<br>
+                    &nbsp&nbsp alert("您的成人票一張250元");<br>
+                  }else if (age > 65 && age <=125){<br>
+                    &nbsp&nbsp alert("您的敬老票一張150元");<br>
+                  };<br>
+                </code>
+              </div>
+            </div>
+        </div>
 
     </div>
 
@@ -161,9 +206,29 @@
       // console.log(typeof true); // boolean
 
       // console.log(3 == 3); // true
-      console.log(5 > 3 && 100 > 99); // true
-      console.log(3 == 6 && 100 > 99); // false
+      // console.log(5 > 3 && 100 > 99); // true
+      // console.log(3 == 6 && 100 > 99); // false
 
+      // if (false) console.log("This is true.");
+      // if (false) {
+      //   console.log("condition is true");
+      // } else {
+      //   console.log("condition is false");
+      // }
+      //練習題
+    
+      let age = prompt("請輸入您的年齡：(阿拉伯數字)");
+      // console.log(typeof age);  // string
+      age = Number(age);  // 將 age 從 string 轉換為 number
+      console.log(age);   // 若使用者於 prompt 輸入中文，會顯示 NaN 
+
+      if (age>=0 && age <= 12){
+        alert("您的兒童票一張100元")
+      }else if (age > 12 && age <= 65){
+        alert("您的成人票一張250元")
+      }else if (age > 65 && age <=125){
+        alert("您的敬老票一張150元")
+      };
 
     </script>
     <script src="../app.js"></script>
