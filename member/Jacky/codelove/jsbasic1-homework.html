@@ -45,16 +45,29 @@
           <h3 class="border-bottom">基本的函數操作、onclick 事件</h3>
 
           <h4 class="text-bg-primary p-3">成衣工廠線上下單</h4>
-          <ul class="list-unstyled p-3">
-            <li class="mb-3">
-              <button class="btn btn-success" onclick="order()">
-                我要訂購
+          <form>
+            <div class="mb-3">
+              <label class="form-label" for="name">姓名：</label>
+              <input
+                class="form-control w-auto"
+                type="text"
+                id="name"
+                placeholder="請輸入姓名" />
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-success mb-3"
+              onclick="order()">
+              我要訂購
+            </button>
+
+            <div>
+              <button type="button" class="btn btn-info" onclick="about()">
+                認識工廠
               </button>
-            </li>
-            <li>
-              <button class="btn btn-info" onclick="about()">認識工廠</button>
-            </li>
-          </ul>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -65,8 +78,11 @@
       crossorigin="anonymous"></script>
     <script>
       function order() {
+        const cname = document.getElementById('name').value;
+
         alert(
-          '謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！'
+          cname +
+            '您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！'
         );
       }
 

@@ -8,7 +8,8 @@
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans:wght@200;300;400;500;700&family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+    <!-- css -->
     <link rel="stylesheet" href="../style.css">
     <title>Mia's page</title>
   </head>
@@ -17,10 +18,10 @@
       <div class="px-5 container bg-white content">
         <ul class="py-4 nav justify-content-end ">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/member/Mia/index.html">Back</a>
+              <a class="nav-link active" aria-current="page" href="../index.html">Back</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/index.html">Home</a>
+              <a class="nav-link" href="../../../index.html">Home</a>
             </li>
             
           </ul>
@@ -56,7 +57,7 @@
           <h4 class="pt-5">Number methods</h4>
           
           <hr> 
-          <p class="bg-light py-2"><code class="me-4">.toString()</code>將數字轉成字串<br>  
+          <p class="bg-light py-2"><code class="me-4">.toString()</code>將數字轉成字串  </p>
           <p class="bg-light py-2"><code class="me-4">.toFixed(n)</code>將數字取到小數點第n位數， <span class="mark-red">原本類型是數字會轉成字串</span> </p>
           
           <p>例 : 將圓周率取到小數第2位<br>
@@ -116,16 +117,25 @@
             若只有1個數會視為終點值，從最前面0開始取
           </p>
           <br>
-          <p class="bg-light py-2"><code class="me-4">.indexOf(“ ”) </code>索引的意思，回傳該字的位置(索引值)</p>
+          <p class="bg-light py-2"><code class="me-4">.indexOf(“ ”) </code>索引的意思，輸入內容查詢位置，回傳該字的位置(索引值)</p>
           <p>*若找不到該字會回傳-1</p>
           <p>
             let str = “simple”;<br>
-            console.log ( str. indexOf ( “s” ) );<br>
+            console.log ( str .indexOf ( “s” ) );<br>
             結果為0 <br>
-            console.log ( str. indexOf ( “a” ) ); <br>
+            console.log ( str .indexOf ( “a” ) ); <br>
             結果為-1
           </p>
           <br>
+          <p class="bg-light py-2"><code class="me-4">.charAt( )  </code>輸入位置(索引值)查詢內容、字元</p>
+          <p>
+            let sentence = “Today is a good day”;<br>
+            console.log ( sentence .charAt ( 2 ) );<br>
+            結果為 <code>d</code>
+                
+          </p>
+          <br>
+
           <p class="bg-light py-2"><code class="me-4">.toLowerCase()</code>暫時將字母都轉成小寫<br>
             <code class="me-4">.toUpperCase()</code>暫時將字母都轉成大寫</p>
             <p>
@@ -152,7 +162,7 @@
                   
             </p>
             <br>
-            <p class="bg-light py-2"><code class="me-4">.split ()</code>切割字串，依照括號內放的內容來切割字串<br>
+            <p class="bg-light py-2"><code class="me-4">.split ()</code>切割字串，依照括號內放的內容來切割字串</p>
             <p>
               let sentence = “Today is a good day”;<br>
               let result = sentence.split (“  ”);<br>
@@ -160,8 +170,8 @@
             </p>
             <p>*放空字串可切割每個單字</p>
             <br>
-            <p class="bg-light py-2"><code class="me-4">.startsWith(“s”) </code>查開頭是否為s，有大小寫之分<br>
-            <p class="bg-light py-2"><code class="me-4">.endsWith(“s”) </code>查結尾是否為s，有大小寫之分<br>
+            <p class="bg-light py-2"><code class="me-4">.startsWith(“s”) </code>查開頭是否為s，有大小寫之分<br></p>
+            <p class="bg-light py-2"><code class="me-4">.endsWith(“s”) </code>查結尾是否為s，有大小寫之分<br></p>
             <p>*會回傳true 或 false</p>
             <p>
               let sentence = “Today is a good day”;<br>
@@ -169,7 +179,7 @@
               結果是 <code>true</code>                
             </p>
             <br>
-            <p class="bg-light py-2"><code class="me-4">.includes(str)  </code>查詢字串是否包含str<br>
+            <p class="bg-light py-2"><code class="me-4">.includes(str)  </code>查詢字串是否包含str<br></p>
             <p>*會回傳true 或 false</p>
             <p>
               let sentence = “Today is a good day”;<br>
@@ -177,15 +187,18 @@
               結果是 <code>true</code>               
             </p>
             <br>
+            <p class="bg-light py-2"><code class="me-4"> .charCodeAt( ) </code>用位置(索引值)來取得字元的 Unicode 編碼</p>
+            
+            
 
-          
+            <ul class="py-4 nav justify-content-end ">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index.html">Back</a>
+            </li>
+                         
+          </ul>
 
-         
-          
-          
-
-
-        
+        <br>
         
       </div>
     </div>

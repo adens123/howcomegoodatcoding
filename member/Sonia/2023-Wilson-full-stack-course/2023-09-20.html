@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia | 0920</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark " data-bs-theme="dark">
+        <div class="container">
+          <a class="navbar-brand" href="../../../index.html">怎麼會-前端coding</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" href="../index.html">Sonia 作業分享首頁</a>
+              <a class="nav-link" aria-current="page" href="https://github.com/adens123/howcomegoodatcoding" target="_blank">怎麼會 repo</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <!-- 學習內容 -->
+    <div class="container mt-5">
+        <h4 class="mb-5">2023-09-20</h4>
+        <!-- XXXXXX -->
+        <div class="mb-5">
+            <h5 class="border-bottom fw-bold ">Boolean, Undefined, Null</h5>
+            <ol>
+              <li>Boolean：true, false。
+                <div class="bg-body-tertiary border p-3 m-3">
+                  <code>
+                    let isPremium = true;<br>
+                    console.log(isPremium);<span class="text-secondary ">// true</span><br>
+                  </code>
+                </div>
+                <ul>
+                  <li class="text-secondary ">binary 2, decimal 10, unary 1。</li>
+                  <li>Unary operator [！] 可以將Boolean的值反轉。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                      <code>
+                        console.log(true);<span class="text-secondary "> // true</span><br>
+                        console.log(!true);<span class="text-secondary ">  // false</span><br>
+                        console.log(!false);<span class="text-secondary ">  // true</span><br>
+                      </code>
+                    </div>
+                  </li>
+                  <li>JS 中的 unary operator typeof 可用來確認資料類型。
+                    <div class="bg-body-tertiary border p-3 m-3">
+                      <code>
+                        console.log(typeof true);<span class="text-secondary "> // boolean</span><br>
+                      </code>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>Undefined：
+                <ul>
+                  <li>
+                    已經宣告變數，卻沒有賦予initializer時，就會出現 undefined。
+                  </li>
+                  <li>undefined 也是 JS 中的 functions 的預設 return value。</li>
+                </ul>
+              </li>
+              <li>null ： 用來代表某個故意不存在的值。</li>
+              
+
+            </ol>
+        </div>
+        <!-- logical, comparison operator -->
+        <div class="mb-5">
+            <h5 class="border-bottom fw-bold ">logical, comparison operator</h5>
+          <p>常見運算符(operator)：</p>
+          <ol>
+            <li>assignment operator： = </li>
+            <li class="text-primary">compasrison operator：其運算原是兩個任意資料型態，且運算結果為Boolean值。
+              <ol class="text-dark ">
+                <li>== return true if the operands are equal。等於。
+                  <div class="bg-body-tertiary border p-3 m-3">
+                    <code>
+                
+                    </code>
+                  </div>
+                </li>
+                <li>!= return true if the operands are not equal。不等於。
+                   </li>
+                <li>=== 檢查operands的值，也檢查data type，兩者皆相同才return true。</li>
+                <li>!== return true if the operands are of the same type but not equal, or are of different type。 </li>
+                <li>></li>
+                <li>>=</li>
+                <li><</li>
+                <li><=</li>
+              </ol>
+            </li>
+            <li class="text-primary">logical operator
+              <table class="table table-striped w-50">
+                <thead>
+                  <tr>
+                    <th scope="col">A</th>
+                    <th scope="col">B</th>
+                    <th scope="col">A&&B</th>
+                    <th scope="col">A||B</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">true</td>
+                    <td>true</td>
+                    <td>true</td>
+                    <td>true</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">true</td>
+                    <td>false</td>
+                    <td>false</td>
+                    <td>true</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">false</td>
+                    <td>true</td>
+                    <td>false</td>
+                    <td>true</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">false</td>
+                    <td>false</td>
+                    <td>false</td>
+                    <td>false</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="bg-body-tertiary border p-3 m-3">
+                <code>
+                  console.log(5 > 3 && 100 > 99);<span class="text-secondary "> // true</span><br>
+                  console.log(3 == 6 && 100 > 99);<span class="text-secondary ">  // false</span><br>
+                </code>
+              </div>
+            </li>
+            <li>typeof operator (unary)</li>
+            <li>negation operator (unary)： ！</li>
+            <li>increment operator (unary)： x++, x--</li>
+            <li>bitwise operator</li>
+            <li>arithmetic operator： +, -, *, /, +=, -=, /=, *=, **, %</li>
+          </ol>
+        </div>
+        <!-- if statement -->
+        <div class="mb-5">
+          <h5 class="border-bottom fw-bold ">if statement</h5>
+              <ol>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary p-2 rounded ">
+                      if (condition) statement1;
+                    </code>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary p-2 rounded ">
+                      if (condition) {statement1;} else {statement2};
+                    </code>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <code class="bg-body-tertiary p-2 rounded ">
+                      if (condition1) {statement1;} else if {statement2} ... else {statementN};
+                    </code>
+                  </p>
+                </li>
+              </ol>
+              <div class="bg-body-tertiary border p-3 m-3">
+                <code>
+                  let age = prompt("請輸入您的年齡：(阿拉伯數字)");<br>
+                  <span class="text-secondary ">// console.log(typeof age);  // string</span><br>
+                  age = Number(age);<span class="text-secondary ">  // 將 age 從 string 轉換為 number</span><br>
+                  console.log(age);<span class="text-secondary ">// 若使用者於 prompt 輸入中文，會顯示 NaN</span><br> 
+                  <br>
+                  if (age>=0 && age <= 12){<br>
+                    &nbsp&nbsp alert("您的兒童票一張100元");<br>
+                  }else if (age > 12 && age <= 65){<br>
+                    &nbsp&nbsp alert("您的成人票一張250元");<br>
+                  }else if (age > 65 && age <=125){<br>
+                    &nbsp&nbsp alert("您的敬老票一張150元");<br>
+                  };<br>
+                </code>
+              </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+      // let isPremium = true;
+      // console.log(isPremium); // true
+
+      // console.log(true); // true
+      // console.log(!true); // false
+      // console.log(!false); // true
+
+      // console.log(typeof true); // boolean
+
+      // console.log(3 == 3); // true
+      // console.log(5 > 3 && 100 > 99); // true
+      // console.log(3 == 6 && 100 > 99); // false
+
+      // if (false) console.log("This is true.");
+      // if (false) {
+      //   console.log("condition is true");
+      // } else {
+      //   console.log("condition is false");
+      // }
+      //練習題
+    
+      let age = prompt("請輸入您的年齡：(阿拉伯數字)");
+      // console.log(typeof age);  // string
+      age = Number(age);  // 將 age 從 string 轉換為 number
+      console.log(age);   // 若使用者於 prompt 輸入中文，會顯示 NaN 
+
+      if (age>=0 && age <= 12){
+        alert("您的兒童票一張100元")
+      }else if (age > 12 && age <= 65){
+        alert("您的成人票一張250元")
+      }else if (age > 65 && age <=125){
+        alert("您的敬老票一張150元")
+      };
+
+    </script>
+    <script src="../app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>
