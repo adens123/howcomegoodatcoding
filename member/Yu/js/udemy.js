@@ -1,5 +1,5 @@
 // 課程資料
-const assignments = [
+const data_udemy_01 = [
   {
     date: "2023/09/15",
     chapter: "JS簡介、Lexical Structure",
@@ -35,17 +35,18 @@ const assignments = [
 ];
 
 // 加入表格內容
-let el = document.querySelector("tbody");
+
+let el = document.querySelector(".udemy-01");
 
 let str = "";
 
-for (let i = 0; i < assignments.length; i++) {
+for (let i = 0; i < data_udemy_01.length; i++) {
   str += `<tr>
   <th scope="row">${i + 1}</th>
-  <td>${assignments[i].date}</td>
-  <td>${assignments[i].chapter}</td>
+  <td>${data_udemy_01[i].date}</td>
+  <td>${data_udemy_01[i].chapter}</td>
   <td><a class="btn btn-outline-secondary text-nowrap" href="./2023-full-stack/${
-    assignments[i].link
+    data_udemy_01[i].link
   }">點此前往</a></td>
 </tr>`;
 }
