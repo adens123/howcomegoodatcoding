@@ -7,8 +7,9 @@
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet" />
+    <link rel="stylesheet" href="./style/all.css" />
   </head>
-  <body class="bg-dark text-white">
+  <body class="home-bg text-white vh-100">
     <header>
       <nav class="navbar navbar-expand-lg bg-secondary">
         <div class="container-fluid">
@@ -36,41 +37,76 @@
 
     <div class="container mt-5">
       <h1 class="mb-5">Jacky's Home</h1>
-
-      <h2 class="border-bottom">每日coding練習</h2>
-      <ul>
-        <li class="mb-2">
-          <a href="./wilson-full-stack-web-development/20230914_function.html"
-            >2023-09-14</a
-          >
-        </li>
-        <li class="mb-2">
-          <a href="./wilson-full-stack-web-development/20230915.html"
-            >2023-09-15</a
-          >
-        </li>
-        <li class="mb-2">
-          <a href="./wilson-full-stack-web-development/20230918_arithmetic.html"
-            >2023-09-18</a
-          >
-        </li>
-        <li class="mb-2">
-          <a
-            href="./wilson-full-stack-web-development/20230919_string&number.html"
-            >2023-09-19</a
-          >
-        </li>
-        <li class="mb-2">
-          <a
-            href="./wilson-full-stack-web-development/20230920_if_statement.html"
-            >2023-09-20</a
-          >
-        </li>
-        <li class="mb-2">
-          <a href="./codelove/jsbasic1-homework.html">2023-09-22 ~ </a>
-          (codelove jsbasic1-homework)
-        </li>
-      </ul>
+      <div class="row gy-3">
+        <div class="col-md-6">
+          <div class="card bg-transparent h-100">
+            <div class="card-header text-bg-dark opacity-75 rounded-top-1">
+              <h2 class="card-title fw-bold">2023網頁全端開發</h2>
+              <h5 class="card-subtitle">coding練習</h5>
+            </div>
+            <div
+              class="card-body text-bg-secondary opacity-75 rounded-bottom-1">
+              <ul class="list-unstyled">
+                <li class="mb-3">
+                  <a
+                    class="p-2 rounded"
+                    href="./wilson-full-stack-web-development/20230914_function.html"
+                    >2023-09-14</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="p-2 rounded"
+                    href="./wilson-full-stack-web-development/20230915.html"
+                    >2023-09-15</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="p-2 rounded"
+                    href="./wilson-full-stack-web-development/20230918_arithmetic.html"
+                    >2023-09-18</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="p-2 rounded"
+                    href="./wilson-full-stack-web-development/20230919_string&number.html"
+                    >2023-09-19</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="p-2 rounded"
+                    href="./wilson-full-stack-web-development/20230920_if_statement.html"
+                    >2023-09-20</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card bg-transparent h-100">
+            <div class="card-header text-bg-dark opacity-75 rounded-top-1">
+              <h2 class="card-title fw-bold">Code Love</h2>
+              <h5 class="card-subtitle">練功作業</h5>
+            </div>
+            <div
+              class="card-body text-bg-secondary opacity-75 rounded-bottom-1">
+              <ul class="list-unstyled">
+                <li class="mb-3">
+                  <a
+                    class="p-2 rounded"
+                    href="./codelove/jsbasic1-homework.html">
+                    幫衣服工廠做個好用表單
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
