@@ -106,7 +106,7 @@ for (let i = 0; i < ASSIGNMENTS.length; i++) {
       str_01 += `<tr>
       <th scope="row">${j + 1}</th>
       <td>${ASSIGNMENTS[i][j].date}</td>
-      <td class="text-nowrap">${ASSIGNMENTS[i][j].chapter}</td>
+      <td>${ASSIGNMENTS[i][j].chapter}</td>
       <td><a class="btn btn-outline-secondary text-nowrap" href="${
         ASSIGNMENTS[i][j].link
       }">點此前往</a></td>
