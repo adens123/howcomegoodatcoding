@@ -41,30 +41,46 @@
     <div class="container mt-5 text-white">
       <div class="row justify-content-center">
         <div class="col-md-10">
-          <h2 class="mb-5">JavaScript</h2>
-          <h3 class="text-bg-primary p-3">成衣工廠線上下單</h3>
-          <form>
-            <div class="mb-3">
-              <label class="form-label" for="name">姓名：</label>
-              <input
-                class="form-control w-auto"
-                type="text"
-                id="name"
-                placeholder="請輸入姓名" />
+          <nav>
+            <div class="navbar text-bg-primary p-3">
+              <h1 class="m-0">成衣工廠線上下單</h1>
+              <ul class="navbar-nav list-unstyled">
+                <li>
+                  <button type="button" class="btn btn-info" onclick="about()">
+                    認識工廠
+                  </button>
+                </li>
+              </ul>
             </div>
-
+          </nav>
+          <div class="d-flex align-items-center my-3">
+            <label class="form-label mb-0" for="name">姓名：</label>
+            <input
+              class="form-control w-auto"
+              type="text"
+              id="name"
+              placeholder="請輸入姓名" />
+          </div>
+          <form>
             <button
               type="button"
-              class="btn btn-success mb-3"
+              class="btn btn-success mb-5"
               onclick="order()">
               我要訂購
             </button>
-
-            <div>
-              <button type="button" class="btn btn-info" onclick="about()">
-                認識工廠
-              </button>
-            </div>
+            <hr />
+            <section>
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">您的訂單</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled">
+                    <li>顧客姓名：<span class="order-cname"></span></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
           </form>
         </div>
       </div>
@@ -77,11 +93,12 @@
     <script>
       function order() {
         const cname = document.getElementById('name').value;
-
+        const orderCname = document.querySelector('.order-cname');
         alert(
           cname +
             '您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！'
         );
+        orderCname.textContent = cname;
       }
 
       function about() {
