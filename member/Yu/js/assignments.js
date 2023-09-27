@@ -58,6 +58,20 @@ const ASSIGNMENTS = [
       chapter: "基本的變數操作、從 html 取得內容",
       link: "https://jsfiddle.net/kulimusoda/cuh8wyrL/104/",
     },
+    {
+      title: "前端練功作業包",
+      date: "2023/09/27",
+      chapter: "修改 html 的內容",
+      link: "https://jsfiddle.net/kulimusoda/wuLntymf/23/",
+    },
+  ],
+  [
+    {
+      title: "作業成果",
+      date: "2023/09/27",
+      chapter: "愛寫扣學院-幫衣服工廠做個好用表單",
+      link: "./codeLove/clothFactory.html",
+    },
   ],
 ];
 
@@ -88,6 +102,15 @@ for (let i = 0; i < ASSIGNMENTS.length; i++) {
           ASSIGNMENTS[i][j].link
         }" target="_blank">點此前往</a></td>
       </tr>`;
+    } else {
+      str_01 += `<tr>
+      <th scope="row">${j + 1}</th>
+      <td>${ASSIGNMENTS[i][j].date}</td>
+      <td class="text-nowrap">${ASSIGNMENTS[i][j].chapter}</td>
+      <td><a class="btn btn-outline-secondary text-nowrap" href="${
+        ASSIGNMENTS[i][j].link
+      }">點此前往</a></td>
+    </tr>`;
     }
   }
   // 加入html
