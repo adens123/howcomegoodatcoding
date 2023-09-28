@@ -53,35 +53,60 @@
               </ul>
             </div>
           </nav>
-          <div class="d-flex align-items-center my-3">
-            <label class="form-label mb-0" for="name">姓名：</label>
-            <input
-              class="form-control w-auto"
-              type="text"
-              id="name"
-              placeholder="請輸入姓名" />
-          </div>
           <form>
+            <div class="d-flex align-items-center my-3">
+              <label class="form-label mb-0" for="name">姓名：</label>
+              <input
+                class="form-control w-auto"
+                type="text"
+                id="name"
+                placeholder="請輸入姓名" />
+            </div>
+            <div class="d-flex align-items-center my-3">
+              <label class="form-label mb-0" for="clothes-style">分類：</label>
+              <select
+                class="form-select w-auto"
+                name="clothes-style"
+                id="clothes-style">
+                <option value="men">MEN</option>
+                <option value="women">WOMEN</option>
+                <option value="kids">KIDS</option>
+                <option value="sports">SPORTS</option>
+              </select>
+            </div>
+            <div class="d-flex align-items-center my-3">
+              <label class="form-label mb-0" for="clothes-type">類型：</label>
+              <select
+                class="form-select w-auto"
+                name="clothes-type"
+                id="clothes-type">
+                <option value="upperBody">上衣</option>
+                <option value="coat">外套</option>
+                <option value="lowerBody">下身</option>
+              </select>
+            </div>
             <button
               type="button"
               class="btn btn-success mb-5"
               onclick="order()">
               我要訂購
             </button>
-            <hr />
-            <section>
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">您的訂單</h3>
-                </div>
-                <div class="card-body">
-                  <ul class="list-unstyled">
-                    <li>顧客姓名：<span class="order-cname"></span></li>
-                  </ul>
-                </div>
-              </div>
-            </section>
           </form>
+          <hr />
+          <section>
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">您的訂單</h3>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled">
+                  <li>顧客姓名：<span class="order-cname"></span></li>
+                  <li>服裝分類：<span class="order-style"></span></li>
+                  <li>服裝類型：<span class="order-type"></span></li>
+                </ul>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -93,12 +118,20 @@
     <script>
       function order() {
         const cname = document.getElementById('name').value;
+        const clothesStyle = document.getElementById('clothes-style');
+        const clothesType = document.getElementById('clothes-type');
         const orderCname = document.querySelector('.order-cname');
+        const orderStyle = document.querySelector('.order-style');
+        const orderType = document.querySelector('.order-type');
         alert(
           cname +
             '您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！'
         );
         orderCname.textContent = cname;
+        orderStyle.textContent =
+          clothesStyle.options[clothesStyle.selectedIndex].text;
+        orderType.textContent =
+          clothesType.options[clothesType.selectedIndex].text;
       }
 
       function about() {
