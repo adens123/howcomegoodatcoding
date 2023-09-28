@@ -31,3 +31,12 @@
 .bg-dark-mode {
   background-color: #121212;
 }
+
+.splide__slide {
+  height: calc(100vh - 3.5rem);
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}

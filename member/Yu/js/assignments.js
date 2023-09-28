@@ -58,6 +58,12 @@ const ASSIGNMENTS = [
       chapter: "Function的時間複雜度、Object語法",
       link: "20230926.html",
     },
+    {
+      title: "2023 網頁全端開發",
+      date: "2023/09/27",
+      chapter: "For loop, while loop",
+      link: "20230927.html",
+    },
   ],
   [
     {
