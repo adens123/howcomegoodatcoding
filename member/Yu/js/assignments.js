@@ -52,6 +52,12 @@ const ASSIGNMENTS = [
       chapter: "Array陣列、Reference Data Type 比較、Array Methods",
       link: "20230925.html",
     },
+    {
+      title: "2023 網頁全端開發",
+      date: "2023/09/26",
+      chapter: "Function的時間複雜度、Object語法",
+      link: "20230926.html",
+    },
   ],
   [
     {
