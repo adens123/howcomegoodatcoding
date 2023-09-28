@@ -1,6 +1,14 @@
 const ASSIGNMENTS = [
   [
     {
+      title: "作業成果",
+      date: "2023/09/27",
+      chapter: "愛寫扣學院-幫衣服工廠做個好用表單",
+      link: "./codeLove/clothFactory.html",
+    },
+  ],
+  [
+    {
       title: "2023 網頁全端開發",
       date: "2023/09/15",
       chapter: "JS簡介、Lexical Structure",
@@ -63,14 +71,6 @@ const ASSIGNMENTS = [
       date: "2023/09/27",
       chapter: "修改 html 的內容",
       link: "https://jsfiddle.net/kulimusoda/wuLntymf/23/",
-    },
-  ],
-  [
-    {
-      title: "作業成果",
-      date: "2023/09/27",
-      chapter: "愛寫扣學院-幫衣服工廠做個好用表單",
-      link: "./codeLove/clothFactory.html",
     },
   ],
 ];
