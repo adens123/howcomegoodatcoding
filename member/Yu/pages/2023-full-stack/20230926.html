@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20230926 | 2023 網頁全端開發</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../CSS/all.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>Function的時間複雜度、Object語法</h1>
+            <p class="text-secondary">作業日期：2023/09/26</p>
+            <!-- Function的時間複雜度 -->
+            <div class="mb-5">
+              <h2 class="border-bottom">Function的時間複雜度</h2>
+              <ul>
+                <li>
+                  <p>
+                    在電腦科學中，演算法的時間複雜度（Time
+                    complexity）可以描述該演算法的執行時間。
+                    時間複雜度常用大O符號表述，不包括這個函式的低階項和首項係數。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    直觀上來說，<span class="text-danger"
+                      >時間複雜度就是，在參數逐漸變大的情況下，Function執行完畢所需要的時間的成長速度。</span
+                    >
+                  </p>
+                </li>
+                <li>
+                  <p>JavaScript陣列中的常見method相對應的時間複雜度為：</p>
+                  <ul>
+                    <li>
+                      <p>push – O(1)</p>
+                    </li>
+                    <li>
+                      <p>pop – O(1)</p>
+                    </li>
+                    <li>
+                      <p>shift – O(n)</p>
+                    </li>
+                    <li>
+                      <p>unshift – O(n)</p>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p>
+                    每個瀏覽器的 JavaScript
+                    引擎內部對於陣列的實現方法略有差異。對於不同大小的陣列，可能會採用其他更好的資料結構，例如double-linked
+                    list, binary search tree (BST)等等，來增強表現。
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <h2 class="border-bottom">Object 物件</h2>
+              <ul>
+                <li>
+                  <p>
+                    每個 JavaScript
+                    物件都有properties以及method。屬於物件的function被稱為method。
+                    物件的屬性與相對應的值是一種key-value
+                    pair。獲取物件屬性的方式可以透過dot notation或是
+                    []。JavaScript Object是一種hashtable。
+                  </p>
+                  <div class="bg-body-tertiary px-1 py-2 mb-3">
+                    <code>
+                      let Panda = { <br />&nbsp;name : "Fubo",<br />
+                      &nbsp;age: 5,<br />
+                      &nbsp;sayHello(){<br />
+                      &nbsp;&nbsp;alert("Hi, I'm Fubo!") <br />
+                      &nbsp;} <br />}
+                      <span class="text-secondary"
+                        >//
+                        建立一個Panda的物件，sayHello()是這個物件裡面的function，並且是一個method。</span
+                      ><br />
+                      console.log(Panda.age);
+                      <span class="text-secondary">// 5</span><br />
+                      console.log(Panda["name"]);<span class="text-secondary"
+                        >// Fubo</span
+                      >
+                    </code>
+                  </div>
+                </li>
+                <li>
+                  <p>
+                    在method中的this關鍵字指的是調用該方法的物件。若某個function沒有調用該function的物件，則this關鍵字則是指向window物件。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    在 JavaScript 當中的function、array
+                    其實都是物件(Object)。Array以及Function都是special type of
+                    objects。
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <a class="btn btn-secondary" href="../contents.html">回到分享區</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      // Object method
+      let Panda = {
+        name: "Fubo",
+        age: 5,
+        sayHello() {
+          alert("Hi, I'm Fubo!");
+        },
+      };
+      // console.log(Panda.age);
+      // console.log(Panda["name"]);
+      // console.log(Panda.sayHello());
+
+      let doggy = {
+        name: "Lucky",
+        age: 5,
+        sayHello() {
+          alert("Hi, I'm " + this.name);
+        },
+      };
+      // console.log(doggy.sayHello()); // Hi, I'm Lucky
+      function sayHi() {
+        console.log("Hi");
+      }
+      console.log(typeof Panda); // object
+      console.log(typeof sayHi); // function
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
