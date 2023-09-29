@@ -51,7 +51,7 @@
     </header>
     <main class="py-3">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-lg-6 mb-5 d-flex justify-content-between flex-wrap">
             <h2 class="mb-0">JS 成衣批發工廠</h2>
             <button class="btn btn-primary text-nowrap" onclick="ourInfo()">
@@ -59,23 +59,37 @@
             </button>
           </div>
         </div>
-        <div class="row mb-3">
+        <div class="row mb-3 justify-content-center">
           <div class="col-lg-6">
-            <div
-              class="mb-3 d-flex flex-wrap align-items-stretch flex-column flex-sm-row"
-            >
-              <label for="cName"
+            <div class="mb-3 d-flex flex-wrap align-items-stretch flex-column">
+              <label for="cName" class="mb-3"
                 >請輸入名字：
                 <input
                   type="text"
                   id="cName"
                   name="cName"
-                  class="rounded px-2 py-1"
+                  class="rounded px-2 py-1 border-1"
                   placeholder="例：陳大明"
                 />
               </label>
+              <label for="cType" class="mb-3">
+                請選擇分類：
+                <select name="cType" id="cType" class="rounded px-2 py-1">
+                  <option value="men">男裝</option>
+                  <option value="women">女裝</option>
+                  <option value="kid">童裝</option>
+                </select>
+              </label>
+              <label for="cProduct" class="mb-3">
+                請選擇類型：
+                <select name="cProduct" id="cProduct" class="rounded px-2 py-1">
+                  <option value="top">上身類</option>
+                  <option value="bottom">下身類</option>
+                  <option value="shoes">鞋款</option>
+                </select>
+              </label>
               <button
-                class="btn btn-danger text-nowrap ms-sm-1 mt-3 mt-sm-0"
+                class="btn btn-danger text-nowrap align-self-lg-end"
                 onclick="addPurchase()"
               >
                 我要訂購
@@ -83,12 +97,20 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
             <div class="card p-3 order-card">
               <div class="card-title h4 text-center bold">您的訂單</div>
-              <div class="card-text fw-light">
-                顧客姓名：<span id="customerName"></span>
+              <div class="card-text">
+                <p class="fw-light">
+                  顧客姓名：<span id="orderName" class="text-success"></span>
+                </p>
+                <p class="fw-light">
+                  服裝分類：<span id="orderType" class="text-success"></span>
+                </p>
+                <p class="fw-light">
+                  服裝類型：<span id="orderProduct" class="text-success"></span>
+                </p>
               </div>
             </div>
           </div>
@@ -107,11 +129,18 @@
       }
 
       function addPurchase() {
-        let str = document.getElementById("cName").value;
+        let cName = document.getElementById("cName").value;
+        let cType = document.getElementById("cType");
+        let cProduct = document.getElementById("cProduct");
+
+        document.getElementById("orderName").textContent = cName;
+        document.getElementById("orderType").textContent =
+          cType.options[cType.selectedIndex].text;
+        document.getElementById("orderProduct").textContent =
+          cProduct.options[cProduct.selectedIndex].text;
         alert(
-          `${str} 您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！`
+          `${cName} 您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！`
         );
-        document.getElementById("customerName").textContent = str;
       }
     </script>
   </body>

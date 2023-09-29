@@ -84,6 +84,12 @@ const ASSIGNMENTS = [
       chapter: "修改 html 的內容",
       link: "https://jsfiddle.net/kulimusoda/wuLntymf/23/",
     },
+    {
+      title: "前端練功作業包",
+      date: "2023/09/28",
+      chapter: "基本的陣列操作",
+      link: "https://jsfiddle.net/kulimusoda/gqxut4cr/58/",
+    },
   ],
 ];
 
