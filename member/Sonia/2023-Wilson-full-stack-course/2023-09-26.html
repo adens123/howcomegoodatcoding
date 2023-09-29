@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia | 0926</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark " data-bs-theme="dark">
+        <div class="container">
+          <a class="navbar-brand" href="../../../index.html">怎麼會-前端coding</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" href="../index.html">Sonia 作業分享首頁</a>
+              <a class="nav-link" aria-current="page" href="https://github.com/adens123/howcomegoodatcoding" target="_blank">怎麼會 repo</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <!-- 學習內容 -->
+    <div class="container mt-5">
+        <h4 class="mb-5">2023-09-26</h4>
+        <!-- Function 的時間複雜度 -->
+        <div class="mb-5">
+          <h5 class="border-bottom fw-bold ">Function 的時間複雜度</h5>
+          <ul>
+            <li>
+              <p>在電腦科學中，演算法的時間複雜度 (Time complexity) 可以描述該演算法的執行時間。
+              </p>
+            </li>
+            <li>
+              <p>
+                直觀上來說，<span class="text-primary ">時間複雜度就是，在參數逐漸變大的情況下，Function執行完畢所需要的時間的成長數度</span>。
+              </p>
+            </li>
+            <li class="fw-bold mb-3">JavaScript陣列中的常見methods相對應的時間複雜度為：
+              <ul>
+                <li>push - O(1)</li>
+                <li>pop - O(1)</li>
+                <li>shift - O(n)</li>
+                <li>unshift - O(n)</li>
+              </ul>
+            </li>
+            <li>
+              <p>
+                每個瀏覽器的 JavaScript 引擎內部對於陣列的實現方法略有差異。對於不同大小的陣列，可能會採用其他更好的資料結構，例如 double-linked list, bin search tree (BST) 等等，來增強表現。
+              </p>
+            </li>
+          </ul>
+        </div>
+        <!-- Object 語法 -->
+        <div class="mb-5">
+            <h5 class="border-bottom fw-bold ">Object 語法</h5>
+            <ul>
+              <li>屬於物件的 function 被稱為 method。</li>
+              <li>物件的屬性與相對應的值是一種 key-value pair。</li>
+              <li>JaveScript Object 是一種 hashtable。</li>
+              <li>獲取物件屬性的方式：
+                <ul>
+                  <li>dot notation</li>
+                  <li>[ ]</li>
+                </ul>
+                <div class="bg-body-tertiary border p-3 m-3 ">
+                  <code>
+                    let Wilson = {<br>
+                      <span class="text-secondary ">&nbsp&nbsp  // properties (key-value pair), methods</span><br>
+                      &nbsp&nbsp first_name: "Wilson",<br>
+                      &nbsp&nbsp last_name: "Ren",<br>
+                      &nbsp&nbsp age: 26,<br>
+                      &nbsp&nbsp is_married: true,<br>
+                      &nbsp&nbsp spouse: "Grace",<br>
+                    };<br><br>
+                    <span class="text-secondary ">// dot notation</span><br>
+                    console.log(Wilson.first_name);<span class="text-secondary "> // Wilson</span><br>
+                    <br>
+                    <span class="text-secondary ">// [ ]</span><br>
+                    console.log(Wilson["spouse"]);<span class="text-secondary "> // Grace</span><br>
+                    console.log(Wilson["age"]);<span class="text-secondary "> // 26</span><br>
+                  </code>
+                </div>
+                <div class="bg-body-tertiary border p-3 m-3 ">
+                  <code>
+                    let Wilson = {<br>
+                      &nbsp&nbsp <span class="text-secondary ">// properties (key-value pair), methods</span><br>
+                      &nbsp&nbsp first_name: "Wilson",<br>
+                      &nbsp&nbsp last_name: "Ren",<br>
+                      &nbsp&nbsp age: 26,<br>
+                      &nbsp&nbsp is_married: true,<br>
+                      &nbsp&nbsp spouse: "Grace",<br>
+                      <br>
+                      &nbsp&nbsp sayHi() {<br>
+                        &nbsp&nbsp &nbsp&nbsp   console.log("Wilson says hi.");<br>
+                        &nbsp&nbsp },<br>
+                      <br>
+                      &nbsp&nbsp walk() {<br>
+                        &nbsp&nbsp &nbsp&nbsp console.log("Wilson is walking...");<br>
+                        &nbsp&nbsp },<br>
+                      <br>
+                      &nbsp&nbsp speak(words) {<br>
+                        &nbsp&nbsp &nbsp&nbsp   console.log(`Wilson says ${words}`);<br>
+                        &nbsp&nbsp }<br>
+                      <br>
+                    };<br>
+                    <br>
+                    Wilson.sayHi();<span class="text-secondary "> // Wilson says hi.</span><br>
+                    Wilson.walk();<span class="text-secondary "> // Wilson is walking...</span><br>
+                    Wilson.speak("今天心情不錯");<span class="text-secondary "> // Wilson says 今天心情不錯</span><br>
+                  </code>
+                </div>
+              </li>
+              <li>在method中的this關鍵字指的是調用該方法的物件。若某個function沒有調用該function的物件，則this關鍵字則是指向window物件。
+                <div class="bg-body-tertiary border p-3 m-3 ">
+                  <code>
+                    let Wilson = {<br>
+                      &nbsp&nbsp <span class="text-secondary ">// properties (key-value pair), methods</span><br>
+                      &nbsp&nbsp first_name:<spna class="text-primary ">"Benson"</spna> ,<br>
+                      &nbsp&nbsp last_name: "Ren",<br>
+                      &nbsp&nbsp age: 26,<br>
+                      &nbsp&nbsp is_married: true,<br>
+                      &nbsp&nbsp spouse: "Grace",<br>
+                      <br>
+                      &nbsp&nbsp sayHi() {<br>
+                        &nbsp&nbsp &nbsp&nbsp   console.log(<span class="text-primary  ">this.first_name</span>  + " says hi");<br>
+                        &nbsp&nbsp },<br>
+                      <br>
+                      &nbsp&nbsp walk() {<br>
+                        &nbsp&nbsp &nbsp&nbsp console.log(<span class="text-primary  ">this.first_name</span> + "is walking...");<br>
+                        &nbsp&nbsp },<br>
+                      <br>
+                      &nbsp&nbsp speak(words) {<br>
+                        &nbsp&nbsp &nbsp&nbsp   console.log(<span class="text-primary  ">this.first_name</span> + "says " + words);<br>
+                        &nbsp&nbsp }<br>
+                      <br>
+                    };<br>
+                    <br>
+                    Wilson.sayHi();<span class="text-secondary "> // <span class="text-primary ">Benson</span> says hi.</span><br>
+                    Wilson.walk();<span class="text-secondary "> // <span class="text-primary ">Benson</span> is walking...</span><br>
+                    Wilson.speak("今天心情不錯");<span class="text-secondary "> // <span class="text-primary ">Benson</span> says 今天心情不錯</span><br>
+                  </code>
+                </div>
+              </li>
+              <li>JS中的function、array 其實都是物件(Object)。Array以及Function都是special type of objects。
+                <div class="bg-body-tertiary border p-3 m-3 ">
+                  <code>
+                    let arr = [1, 2, 3, 4,5];<br>
+                    console.log(typeof arr);<span class="text-secondary "> // object</span><br>
+                    <br>
+                    function hello() {<br>
+                      &nbsp&nbsp   console.log("hello world");<br>
+                    };<br>
+                    <br>
+                    console.log(typeof hello);<span class="text-secondary "> // function</span><br>
+                    <hr>
+                    
+                    <p class="text-primary ">若要確認是否為array，可用下方method：</p>
+                    console.log(Array.isArray(arr));<span class="text-secondary "> // true</span>
+                  </code>
+                </div>
+              </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+    
+      // let Wilson = {
+      //   // properties (key-value pair), methods
+      //   first_name: "Benson",
+      //   last_name: "Ren",
+      //   age: 26,
+      //   is_married: true,
+      //   spouse: "Grace",
+
+      //   sayHi() {
+      //     console.log(this.first_name + " says hi");
+      //   },
+
+      //   walk() {
+      //     console.log(this.first_name + "is walking...");
+      //   },
+        
+      //   speak(words) {
+      //     console.log(this.first_name + "says " + words);
+      //   }
+
+      // };
+
+      // Wilson.sayHi(); // Wilson says hi.
+      // Wilson.walk(); // Wilson is walking...
+      // Wilson.speak("今天心情不錯"); // Wilson says 今天心情不錯
+
+      // console.log(Wilson.first_name); // Wilson
+      // console.log(Wilson["spouse"]); // Grace
+      // console.log(Wilson["age"]); // 26
+
+      let arr = [1, 2, 3, 4,5];
+      console.log(typeof arr); // object
+
+      function hello() {
+        console.log("hello world");
+      };
+
+      console.log(typeof hello); // function
+      
+      console.log(Array.isArray(arr)); // true
+
+
+    </script>
+    <script src="../app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>
