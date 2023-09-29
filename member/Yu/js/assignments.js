@@ -64,6 +64,12 @@ const ASSIGNMENTS = [
       chapter: "For loop, while loop",
       link: "20230927.html",
     },
+    {
+      title: "2023 網頁全端開發",
+      date: "2023/09/28",
+      chapter: "Math Object、終極密碼",
+      link: "20230928.html",
+    },
   ],
   [
     {
