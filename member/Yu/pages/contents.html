@@ -11,24 +11,21 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <!-- animate.css -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
+    <!-- AOS.css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="../CSS/all.css" />
   </head>
   <body class="bg-dark-mode">
     <div class="bg-theme-tokyo">
       <header>
-        <nav class="navbar navbar-expand-lg container" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
           <div class="container-fluid">
             <a class="navbar-brand logo-yu shake" href="../../../index.html"
               >Yuchen</a
             >
             <button
-              class="navbar-toggler"
+              class="navbar-toggler text-light"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"
@@ -58,12 +55,40 @@
       </header>
       <main class="py-3">
         <div class="container">
-          <div class="row mb-3 justify-content-end">
-            <div class="col-lg-8 animate__animated animate__fadeInUp">
+          <div class="row mb-3">
+            <div class="col" data-aos="fade-up" data-aos-duration="1500">
               <div
                 class="course border border-0 p-3 rounded cap shadow-lg mb-3"
               >
-                <h2 class="mb-3 text-center text-dark">2023 網頁全端開發</h2>
+                <h2 class="mb-3 text-center text-dark fw-bold">作業成果</h2>
+                <table
+                  class="table table-borderless table-hover text-center align-middle shadow"
+                >
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">更新日期</th>
+                      <th scope="col">名稱</th>
+                      <th scope="col">連結</th>
+                    </tr>
+                  </thead>
+                  <tbody class="project"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3 justify-content-end">
+            <div
+              class="col-lg-6"
+              data-aos="fade-right"
+              data-aos-duration="1500"
+            >
+              <div
+                class="course border border-0 p-3 rounded cap shadow-lg mb-3"
+              >
+                <h2 class="mb-3 text-center text-dark fw-bold">
+                  2023 網頁全端開發
+                </h2>
                 <table
                   class="table table-borderless table-hover text-center align-middle shadow"
                 >
@@ -75,7 +100,29 @@
                       <th scope="col">連結</th>
                     </tr>
                   </thead>
-                  <tbody></tbody>
+                  <tbody class="udemy-01"></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1500">
+              <div
+                class="course border border-0 p-3 rounded cap shadow-lg mb-3"
+              >
+                <h2 class="mb-3 text-center text-dark fw-bold">
+                  愛寫扣學院 前端練功作業包
+                </h2>
+                <table
+                  class="table table-borderless table-hover text-center align-middle shadow"
+                >
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">日期</th>
+                      <th scope="col">章節內容</th>
+                      <th scope="col">連結</th>
+                    </tr>
+                  </thead>
+                  <tbody class="codelove-01"></tbody>
                 </table>
               </div>
             </div>
@@ -83,11 +130,19 @@
         </div>
       </main>
     </div>
+    <!-- Bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
-    <script src="../js/list-assignment.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <script src="../js/assignments.js"></script>
   </body>
 </html>

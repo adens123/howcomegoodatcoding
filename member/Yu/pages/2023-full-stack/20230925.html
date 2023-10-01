@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20230925 | 2023 網頁全端開發</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../CSS/all.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>Array陣列、Reference Data Type 比較、Array Methods</h1>
+            <p class="text-secondary">作業日期：2023/09/25</p>
+            <!-- Truthy and Falsy Values -->
+            <div class="mb-5">
+              <h2 class="border-bottom">Array陣列</h2>
+              <ul>
+                <li>
+                  <p>將類似種類或用途的資料儲存在一起，並使用中括號識別 []</p>
+                </li>
+                <li>
+                  <p>在陣列裡面的值被稱為元素(element)</p>
+                </li>
+                <li>
+                  <p>屬於 refrence data type</p>
+                </li>
+                <h3>Primitive Data Type and Reference Data Type(Object)</h3>
+                <ul>
+                  <li>
+                    <p>
+                      處理變數方式：<br />前者 by value（當宣告變數 b 並 assign
+                      變數 a 給 b 。此時，b 的值是複製 a 過來。之後 b
+                      任何更動都不會影響 a）；<br />後者 by
+                      reference（當宣告變數 arr2 並將 arr1 賦值給
+                      arr2，是把記憶體位置給 arr2，所以任何對 arr2
+                      操作更動都會影響 arr1）
+                    </p>
+                  </li>
+                  <li class="bg-body-tertiary px-1 py-2">
+                    <code>
+                      let arr1 = [ "a" , "b" , "c" ];<br />
+                      let arr2 = arr1;<br />
+                      arr2[0] = "d"; <br />
+                      console.log(arr1 , arr2);
+                      <span class="text-secondary"
+                        >// ["d","b","c"],["d","b","c"]</span
+                      >
+                    </code>
+                  </li>
+                </ul>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <h2 class="border-bottom">Reference Data Type 比較</h2>
+              <div class="bg-body-tertiary px-1 py-2">
+                <code>
+                  let arr1 = [ 1 , 2 , 3 ];<br />
+                  let arr2 = [ 1 , 2 , 3 ];<br />
+                  console.log(arr1 == arr2);
+                  <span class="text-secondary"
+                    >// false
+                    因為記憶體位置不同，即使值相同。若要比較必須使用迴圈比對裡面的值</span
+                  >
+                </code>
+              </div>
+            </div>
+            <div class="mb-5">
+              <h2 class="border-bottom">Array Methods</h2>
+              <div class="bg-body-tertiary px-1 py-2">
+                <code>
+                  .length <span class="text-secondary">傳回陣列長度</span><br />
+                  .push(element)
+                  <span class="text-secondary"
+                    >將一個或多個元素加入到陣列最後一項，並回傳陣列的<strong
+                      >新長度</strong
+                    ></span
+                  ><br />
+                  .pop()
+                  <span class="text-secondary"
+                    >不用放參數，會把陣列最後一項元素刪除，並回傳該元素</span
+                  ><br />
+                  .shift()
+                  <span class="text-secondary"
+                    >刪除陣列第一項元素，並回傳刪除的元素</span
+                  ><br />
+                  .unshift
+                  <span class="text-secondary"
+                    >加入一個或多個元素到陣列前頭，並回傳該陣列的<strong
+                      >新長度</strong
+                    ></span
+                  >
+                </code>
+              </div>
+            </div>
+            <a class="btn btn-secondary" href="../contents.html">回到分享區</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      // array methods
+      let arr = ["a", "b", "c"];
+      console.log(arr.length); // 3
+      let arr2 = ["a", "b", "c"];
+      console.log(arr == arr2); // false
+
+      console.log(arr2.push("d")); // 4
+      console.log(arr2.pop()); // d
+      console.log(arr2.shift()); // a
+      console.log(arr2); // ["b","c"]
+      console.log(arr2.unshift("e")); //3
+      console.log(arr2); // ['e', 'b', 'c']
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonia | 0925</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-dark " data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand" href="../../../index.html">怎麼會-前端coding</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" aria-current="page" href="../index.html">Sonia 作業分享首頁</a>
+          <a class="nav-link" aria-current="page" href="https://github.com/adens123/howcomegoodatcoding"
+            target="_blank">怎麼會 repo</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 學習內容 -->
+  <div class="container mt-5">
+    <h4 class="mb-5">2023-09-25</h4>
+    <!-- Array 陣列 -->
+    <div class="mb-5">
+      <h5 class="border-bottom fw-bold ">Array 陣列</h5>
+      <ul>
+        <li>是 reference data type(copy by reference - assign後且變更後，原始值也會更著變更)</li>
+        <li>不是 primitive data type(copy by value - assign後且變更後，原始值不變)</li>
+        <li>array的值稱為元素(element)</li>
+      </ul>
+    </div>
+    <!-- Reference Data Type 比較 -->
+    <div class="mb-5">
+      <h5 class="border-bottom fw-bold ">Reference Data Type 比較</h5>
+      <div class="bg-body-tertiary border p-3 m-3">
+        <code>
+          let arr1 = [1, 2, 3];<br>
+          let arr2 = [1, 2, 3];<br>
+          console.log(arr1 == arr2);<span class="text-secondary ">  // false，雖然array內容一樣，但由於記憶體位置不同，所以會是false。如果真的需要比較裡面元素，則需進一步使用for loop的方式。</span><br>
+        </code>
+      </div>
+      <div class="bg-body-tertiary border p-3 m-3">
+        <code>
+          let arr1 = [1, 2, 3];<br>
+          let arr2 = arr1;<span class="text-secondary ">  // assignment operation，因array是 copy by reference，所以此處會指向同一個記憶體位置。</span><br>
+          console.log(arr1 == arr2);<span class="text-secondary">  // true</span><br>
+        </code>
+      </div>
+    </div>
+    <!-- Array Methods -->
+    <div class="mb-5">
+      <h5 class="border-bottom fw-bold ">Array Methods</h5>
+      <ol>
+        <li>push(element) - 將一個或多個元素添加到陣列的末尾，並return陣列的新長度。
+          <div class="bg-body-tertiary border p-3 m-3">
+            <code>
+              let friends = ["Grace", "Mike", "Spencer", "Esther", "Slade"];<br>
+              friends.push("Jared");<br>
+              console.log(friends);<br>
+              <br>
+              <div class="text-secondary ">
+                (6) ['Grace', 'Mike', 'Spencer', 'Esther', 'Slade', <span class="text-primary">'Jared'</span>]<br>
+                0: "Grace"<br>
+                1: "Mike"<br>
+                2: "Spencer"<br>
+                3: "Esther"<br>
+                4: "Slade"<br>
+                <span class="text-primary ">5: "Jared"</span><br>
+                length: <span class="text-primary ">6</span><br>
+              </div>
+            </code>
+          </div>
+        </li>
+        <li>pop() - 從陣列中刪除最後一個元素並返回該元素。
+          <div class="bg-body-tertiary border p-3 m-3">
+            <code>
+              let friends = ["Grace", "Mike", "Spencer", "Esther", "Slade"];<br>
+              friends.pop();<br>
+              console.log(friends);<br>
+              <br>
+              <div class="text-secondary ">
+                (4) ['Grace', 'Mike', 'Spencer', 'Esther']<br>
+                0: "Grace"<br>
+                1: "Mike"<br>
+                2: "Spencer"<br>
+                3: "Esther"<br>
+                length: <span class="text-primary ">4</span><br>
+              </div>
+
+
+            </code>
+          </div>
+        </li>
+        <li>shift() - 從陣列中刪除第一個元素，並返回刪除的元素。</li>
+        <li>unshift(element) - 將一個或多個元素添加到陣列的開頭，並return陣列的新長度。</li>
+      </ol>
+
+    </div>
+
+  </div>
+
+  <script>
+    let friends = ["Grace", "Mike", "Spencer", "Esther", "Slade"];
+    friends.shift();
+    console.log(friends);
+    // friends.pop();
+    // console.log(friends);
+    // friends.push("Jared");
+    // console.log(friends);
+    // let returnValue = friends.push("Jared");
+    // console.log(returnValue);
+
+    // let friends = ["Grace", "Mike", "Spencer", "Esther", "Slade"];
+    // let anotherVariable = friends;
+    // anotherVariable[0] = "Michael";
+
+    // console.log("friends array變成是：")
+    // console.log(friends);
+    // console.log("anotherVariable變成是：");
+    // console.log(anotherVariable);
+
+    // let deposit = 500;
+    // let anotherDeposit = deposit;
+    // anotherDeposit = 600;
+    // console.log(`deposit為${deposit}, anotherDeposit為${anotherDeposit}`);
+
+    // let arr1 = [1, 2, 3];
+    // let arr2 = [1, 2, 3];
+    // console.log(arr1 == arr2);  // false
+
+    // let arr1 = [1, 2, 3];
+    // let arr2 = arr1;  // assignment operation，因array是 copy by reference，所以此處會指向同一個記憶體位置。
+    // console.log(arr1 == arr2);  // true
+
+
+
+  </script>
+  <script src="../app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

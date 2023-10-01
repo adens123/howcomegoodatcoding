@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20230927 | 2023 網頁全端開發</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../CSS/all.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>For loop, while loop</h1>
+            <p class="text-secondary">作業日期：2023/09/27</p>
+            <div class="mb-5">
+              <h2 class="border-bottom">Loop迴圈</h2>
+              <p>
+                迴圈提供一個快速又簡潔的方法來重複地做某件事。
+                有很多種不同種類的迴圈，
+                不過他們本質上都是做一樣的事：把一件動作重複地做一定的次數（而且也有可能做
+                0 次）。<br />常見的迴圈有for loop, do while loop, while
+                loop等等。
+              </p>
+              <p class="text-danger">
+                若把return關鍵字放到loop內部，則循環會馬上停止。
+              </p>
+            </div>
+            <div class="mb-5">
+              <h2 class="border-bottom">For loop</h2>
+              <ul>
+                <li>
+                  <p>For loop的語法為：</p>
+                  <div class="bg-body-tertiary px-1 py-2 mb-3">
+                    <code>
+                      for (initialization; condition; final expression) {<br />
+                      &nbsp;statement <br />
+                      }
+                    </code>
+                  </div>
+                </li>
+                <li>
+                  <p>Initialization 是在循環開始之前的計數器變量聲明。</p>
+                </li>
+                <li>
+                  <p>
+                    Condition 是每次循環迭代之前要評估的表達式。
+                    如果此表達式的計算結果為真，則執行statement。
+                    如果condition的計算結果為假，則執行退出循環並轉到 for
+                    loop之後的第一條語句。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Final expression 是在每次循環迭代結束時要執行的程式碼。
+                    一般用於更新或遞增計數器變量。
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <h2 class="border-bottom">While loop</h2>
+              <p>
+                while
+                語句創建一個循環，只要測試條件評估為真，該循環就會執行指定的語句。
+                在While Loop執行語句之前評估條件。<span class="text-danger"
+                  >若忘記增加計數器而導致while
+                  loop無限循環，則有可能癱瘓電腦CPU，請務必千萬小心！</span
+                >
+              </p>
+              <ul>
+                <li>
+                  <p>While loop語法為：</p>
+                  <div class="bg-body-tertiary px-1 py-2 mb-3">
+                    <code>
+                      while (condition) {
+                      <br />
+                      &nbsp;statement <br />
+                      }
+                    </code>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <h2 class="border-bottom">Do while loop</h2>
+              <p>
+                Do while
+                Loop創建一個循環，該循環執行指定的statement，直到測試條件評估為假。
+                Do while Loop的特點在於，先執行語句後評估條件。
+              </p>
+              <ul>
+                <li>
+                  <p>Do while Loop語法為：</p>
+                  <div class="bg-body-tertiary px-1 py-2 mb-3">
+                    <code>
+                      do {<br />
+                      &nbsp;statement <br />
+                      } while (condition);
+                    </code>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <h2 class="border-bottom">Nested Loop 巢狀迴圈</h2>
+              <p>
+                巢狀迴圈是指，在loop內部還有另一個loop的情況。內部迴圈以及外部迴圈可以是任何類型，例如
+                while loop或 for
+                loop。內部迴圈將在外部迴圈的每次迭代中，從頭到尾執行一次。
+              </p>
+            </div>
+            <div class="mb-5">
+              <h2 class="border-bottom">Break、continue關鍵字</h2>
+              <p>
+                Break 用於終止存在它的迴圈。如果 break 語句存在於nested
+                loop中，它只會終止那些包含 break 語句的loop 。若要終止nested
+                loop，則需要使用return關鍵字。
+              </p>
+              <p>
+                Continue 與 break 語句相反；
+                它不是終止循環，而是強制執行循環的下一次迭代。在loop中執行
+                continue 語句時，將跳過 continue
+                語句之後的循環內的代碼，開始循環的下一次迭代。
+              </p>
+            </div>
+            <a class="btn btn-secondary" href="../contents.html">回到分享區</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      // for loop
+      for (let i = 0; i <= 10; i++) console.log(i);
+
+      // while loop
+      let j = 0;
+
+      while (j <= 10) {
+        console.log(j);
+        j++; //一定要加計數器
+      }
+
+      // do while loop
+      let a = 0;
+      do {
+        console.log(a);
+        a++; //一定要加計數器
+      } while (a <= 10);
+
+      // nested loop
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 3; j++) {
+          console.log(i, j);
+        }
+      }
+
+      // break
+      for (let i = 0; i < 5; i++) {
+        console.log(i); // 0 1 2 3
+        if (i == 3) {
+          break;
+        }
+      }
+
+      // return (必須使用function)
+      function chkLoop() {
+        for (let i = 0; i < 5; i++) {
+          console.log(i); // 0 1 2 3
+          if (i == 3) {
+            return;
+          }
+        }
+      }
+      console.log(chkLoop());
+      // continue
+      for (let i = 0; i < 5; i++) {
+        if (i == 3) {
+          continue;
+        }
+        console.log(i); // 0 1 2 4
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
