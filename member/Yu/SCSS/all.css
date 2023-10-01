@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Share+Tech+Mono&display=swap");
+@import url("https://csshake.surge.sh/csshake.min.css");
+.logo-yu-dark {
+  background: url(../images/2.png) no-repeat;
+  max-height: 100px;
+  max-width: 100px;
+  background-size: contain;
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.logo-yu {
+  background: url(../images/1.png) no-repeat;
+  max-height: 100px;
+  max-width: 100px;
+  background-size: contain;
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.bg-theme-tokyo {
+  background: url(../images/louie-martinez-min.jpg) no-repeat;
+  height: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-dark-mode {
+  background-color: #121212;
+}
+
+.clock {
+  font-family: "Share Tech Mono", monospace;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  color: #daf6ff;
+  text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+}
+.clock p {
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 390px) {
+  .clock {
+    top: 70%;
+  }
+}
+
+#time {
+  letter-spacing: 0.05em;
+  font-size: 80px;
+  padding: 5px 0;
+}
+@media (max-width: 390px) {
+  #time {
+    font-size: 3.5rem;
+  }
+}
+
+#date {
+  letter-spacing: 0.1em;
+  font-size: 24px;
+}
+@media (max-width: 390px) {
+  #date {
+    font-size: 1.25rem;
+  }
+}
+
+.cap {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.splide__slide {
+  height: calc(100vh - 3.5rem);
+}
+.splide__slide img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=all.css.map */
