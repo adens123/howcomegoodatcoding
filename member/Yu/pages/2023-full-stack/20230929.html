@@ -56,25 +56,73 @@
             <h1>簡單練習題第一部分 1-4</h1>
             <p class="text-secondary">作業日期：2023/09/29</p>
             <p class="lead">以下內容需開啟開發人員工具檢視</p>
-            <ol>
-              <li>
+            <ol class="mb-5">
+              <li class="mb-3">
                 <p>
                   編寫一個名為“printEvery3()”的函式，它打印出等差數列 1, 4, 7,
                   …, 88。
                 </p>
+                <button class="btn btn-outline-primary" onclick="printEvery3()">
+                  Run
+                </button>
               </li>
-              <li>
+              <li class="mb-3">
                 <p>編寫一個名為table9to9的函式，它打印出九九乘法表的內容。</p>
+                <button class="btn btn-outline-primary" onclick="table9to9()">
+                  Run
+                </button>
               </li>
-              <li>
+              <li class="mb-3">
                 <p>
                   編寫一個名為isUpperCase的函式，唯一的參數是一個String，其功能為來檢查參數中String的第一個字母是否為大寫。
                 </p>
+                <button
+                  class="btn btn-outline-primary"
+                  value="ABCD"
+                  onclick="isUpperCase(this.value)"
+                >
+                  Run ("ABCD")
+                </button>
+                <button
+                  class="btn btn-outline-primary"
+                  value=""
+                  onclick="isUpperCase(this.value)"
+                >
+                  Run ("")
+                </button>
+                <button
+                  class="btn btn-outline-primary"
+                  value="aBCD"
+                  onclick="isUpperCase(this.value)"
+                >
+                  Run ("aBCD")
+                </button>
               </li>
               <li>
                 <p>
                   編寫一個名為isAllUpperCase的函式，唯一的參數是一個String，其功能為來檢查參數中String的所有字母是否為大寫。
                 </p>
+                <button
+                  class="btn btn-outline-primary"
+                  value="ABCD"
+                  onclick="isAllUpperCase(this.value)"
+                >
+                  Run ("ABCD")
+                </button>
+                <button
+                  class="btn btn-outline-primary"
+                  value=""
+                  onclick="isAllUpperCase(this.value)"
+                >
+                  Run ("")
+                </button>
+                <button
+                  class="btn btn-outline-primary"
+                  value="ABCDEFGHIJKLm"
+                  onclick="isAllUpperCase(this.value)"
+                >
+                  Run ("ABCDEFGHIJKLm")
+                </button>
               </li>
             </ol>
             <a class="btn btn-secondary" href="../contents.html">回到分享區</a>
@@ -85,6 +133,7 @@
     <script>
       // printEvery3()
       function printEvery3() {
+        console.clear();
         let i = 1;
         while (i <= 88) {
           console.log(i);
@@ -94,6 +143,7 @@
 
       // table9to9
       function table9to9() {
+        console.clear();
         for (let i = 1; i <= 9; i++) {
           for (let j = 1; j <= 9; j++) {
             console.log(`${i} x ${j} = ${i * j}`);
@@ -103,38 +153,50 @@
 
       // isUpperCase
       function isUpperCase(str) {
-        let strFirst = str.slice(0, 1);
-        // console.log(strFirst);
-        let isUpper = true;
-        if (strFirst != strFirst.toUpperCase()) {
-          isUpper = false;
+        console.clear();
+        if (str.length == 0) {
+          // return false;
+          console.log(false);
+          return;
         }
-        console.log(isUpper);
+        // return str[0] == str[0].toUpperCase();
+        console.log(str[0] == str[0].toUpperCase());
       }
 
       // isAllUpperCase
       function isAllUpperCase(str) {
-        let strArr = str.split("");
-        let strUpperArr = str.toUpperCase().split("");
-        let isAllUpper = true;
-        // console.log(strUpperArr);
-        if (str == "") {
-          isAllUpper = false;
-        } else {
-          for (let i = 0; i < strArr.length; i++) {
-            if (strArr[i] != strUpperArr[i]) {
-              isAllUpper = false;
-            }
+        console.clear();
+        // let strArr = str.split("");
+        // let strUpperArr = str.toUpperCase().split("");
+        // let isAllUpper = true;
+        // // console.log(strUpperArr);
+        // if (str == "") {
+        //   isAllUpper = false;
+        // } else {
+        //   for (let i = 0; i < strArr.length; i++) {
+        //     if (strArr[i] != strUpperArr[i]) {
+        //       isAllUpper = false;
+        //     }
+        //   }
+        // }
+        // console.log(isAllUpper);
+
+        if (str.length == 0) {
+          // return false;
+          console.log(false);
+          return;
+        }
+
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] != str[i].toUpperCase()) {
+            // return false;
+            console.log(false);
+            return;
           }
         }
-        console.log(isAllUpper);
+        // return true;
+        console.log(true);
       }
-
-      //確認區塊
-      // printEvery3();
-      // table9to9();
-      // isUpperCase("Telephone");
-      isAllUpperCase("ABCDEFGHIJKLm");
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
