@@ -127,6 +127,19 @@
           cname +
             '您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！'
         );
+
+        if (clothesStyle.options[clothesStyle.selectedIndex].value == 'men') {
+          alert(
+            '最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您帥氣領帶！'
+          );
+        } else if (
+          clothesStyle.options[clothesStyle.selectedIndex].value == 'women'
+        ) {
+          alert(
+            '最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您美麗圍巾！'
+          );
+        }
+
         orderCname.textContent = cname;
         orderStyle.textContent =
           clothesStyle.options[clothesStyle.selectedIndex].text;

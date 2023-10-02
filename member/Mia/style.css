@@ -1,8 +1,4 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+*
 
   body {
     font-family: 'Noto Sans','Noto Sans TC',sans-serif;  
