@@ -132,15 +132,29 @@
         let cName = document.getElementById("cName").value;
         let cType = document.getElementById("cType");
         let cProduct = document.getElementById("cProduct");
+        let orderType = cType.options[cType.selectedIndex].text;
+        let orderProduct = cProduct.options[cProduct.selectedIndex].text;
 
+        if (cName != "") {
+          alert(
+            `${cName} 您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！`
+          );
+          if (orderType == "男裝") {
+            alert(
+              "最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您帥氣領帶！"
+            );
+          } else if (orderType == "女裝") {
+            alert(
+              "最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您美麗圍巾！"
+            );
+          }
+        } else {
+          alert("您好！請記得先填入姓名喔！");
+          return;
+        }
         document.getElementById("orderName").textContent = cName;
-        document.getElementById("orderType").textContent =
-          cType.options[cType.selectedIndex].text;
-        document.getElementById("orderProduct").textContent =
-          cProduct.options[cProduct.selectedIndex].text;
-        alert(
-          `${cName} 您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！`
-        );
+        document.getElementById("orderType").textContent = orderType;
+        document.getElementById("orderProduct").textContent = orderProduct;
       }
     </script>
   </body>
