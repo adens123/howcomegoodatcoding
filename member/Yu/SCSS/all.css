@@ -6,7 +6,7 @@ body {
 }
 
 .logo-yu-dark {
-  background: url(../images/2.png) no-repeat;
+  background: url(../../images/2.png) no-repeat;
   max-height: 100px;
   max-width: 100px;
   background-size: contain;
@@ -16,7 +16,7 @@ body {
 }
 
 .logo-yu {
-  background: url(../images/1.png) no-repeat;
+  background: url(../../images/1.png) no-repeat;
   max-height: 100px;
   max-width: 100px;
   background-size: contain;
@@ -26,7 +26,7 @@ body {
 }
 
 .bg-theme-tokyo {
-  background: url(../images/weiqi-xiong-min.jpg) no-repeat;
+  background: url(../../images/weiqi-xiong-min.jpg) no-repeat;
   height: auto;
   min-height: 100vh;
   background-size: cover;
@@ -34,7 +34,7 @@ body {
 }
 @media (max-width: 992px) {
   .bg-theme-tokyo {
-    background: url(../images/yusheng-deng-min.jpg) no-repeat;
+    background: url(../../images/yusheng-deng-min.jpg) no-repeat;
     background-size: cover;
   }
 }
@@ -96,6 +96,10 @@ body {
 
 .order-card {
   border: 2px dashed #aaa;
+}
+
+.inputNum {
+  width: 4.5rem;
 }
 
 .cap {

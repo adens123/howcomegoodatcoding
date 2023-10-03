@@ -1,5 +1,5 @@
 .logo-yu-dark {
-  background: url(../images/2.png) no-repeat;
+  background: url(../../images/2.png) no-repeat;
   max-height: 100px;
   max-width: 100px;
   background-size: contain;
@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 .logo-yu {
-  background: url(../images/1.png) no-repeat;
+  background: url(../../images/1.png) no-repeat;
   max-height: 100px;
   max-width: 100px;
   background-size: contain;
@@ -17,13 +17,13 @@
   overflow: hidden;
 }
 .bg-theme-tokyo {
-  background: url(../images/weiqi-xiong-min.jpg) no-repeat;
+  background: url(../../images/weiqi-xiong-min.jpg) no-repeat;
   height: auto;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
   @include pad {
-    background: url(../images/yusheng-deng-min.jpg) no-repeat;
+    background: url(../../images/yusheng-deng-min.jpg) no-repeat;
     background-size: cover;
   }
 }
