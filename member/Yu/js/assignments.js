@@ -73,7 +73,7 @@ const ASSIGNMENTS = [
     {
       title: "2023 網頁全端開發",
       date: "2023/09/29",
-      chapter: "簡單練習題第一部分 1-4",
+      chapter: "簡單練習題第一部分 1-7",
       link: "20230929.html",
     },
   ],

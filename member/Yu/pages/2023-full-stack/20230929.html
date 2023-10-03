@@ -53,76 +53,171 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <h1>簡單練習題第一部分 1-4</h1>
+            <h1>簡單練習題第一部分 1-7</h1>
             <p class="text-secondary">作業日期：2023/09/29</p>
+            <p class="d-flex align-items-center">
+              題目連結：<a
+                href="https://yuhsien.notion.site/179caa9730284da48b0a6df66886a447"
+                class="btn btn-warning"
+                >點此前往</a
+              >
+            </p>
             <p class="lead">以下內容需開啟開發人員工具檢視</p>
             <ol class="mb-5">
-              <li class="mb-3">
+              <li>
                 <p>
                   編寫一個名為“printEvery3()”的函式，它打印出等差數列 1, 4, 7,
                   …, 88。
                 </p>
-                <button class="btn btn-outline-primary" onclick="printEvery3()">
+                <button
+                  class="btn btn-outline-primary mb-3"
+                  onclick="printEvery3()"
+                >
                   Run
                 </button>
               </li>
-              <li class="mb-3">
+              <li>
                 <p>編寫一個名為table9to9的函式，它打印出九九乘法表的內容。</p>
-                <button class="btn btn-outline-primary" onclick="table9to9()">
+                <button
+                  class="btn btn-outline-primary mb-3"
+                  onclick="table9to9()"
+                >
                   Run
                 </button>
               </li>
-              <li class="mb-3">
+              <li>
                 <p>
                   編寫一個名為isUpperCase的函式，唯一的參數是一個String，其功能為來檢查參數中String的第一個字母是否為大寫。
                 </p>
-                <button
-                  class="btn btn-outline-primary"
-                  value="ABCD"
-                  onclick="isUpperCase(this.value)"
-                >
-                  Run ("ABCD")
-                </button>
-                <button
-                  class="btn btn-outline-primary"
-                  value=""
-                  onclick="isUpperCase(this.value)"
-                >
-                  Run ("")
-                </button>
-                <button
-                  class="btn btn-outline-primary"
-                  value="aBCD"
-                  onclick="isUpperCase(this.value)"
-                >
-                  Run ("aBCD")
-                </button>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary"
+                    value="ABCD"
+                    onclick="isUpperCase(this.value)"
+                  >
+                    isUpperCase("ABCD")
+                  </button>
+                  <button
+                    class="btn btn-outline-primary"
+                    value=""
+                    onclick="isUpperCase(this.value)"
+                  >
+                    isUpperCase("")
+                  </button>
+                  <button
+                    class="btn btn-outline-primary"
+                    value="aBCD"
+                    onclick="isUpperCase(this.value)"
+                  >
+                    isUpperCase("aBCD")
+                  </button>
+                </div>
               </li>
               <li>
                 <p>
                   編寫一個名為isAllUpperCase的函式，唯一的參數是一個String，其功能為來檢查參數中String的所有字母是否為大寫。
                 </p>
-                <button
-                  class="btn btn-outline-primary"
-                  value="ABCD"
-                  onclick="isAllUpperCase(this.value)"
-                >
-                  Run ("ABCD")
-                </button>
-                <button
-                  class="btn btn-outline-primary"
-                  value=""
-                  onclick="isAllUpperCase(this.value)"
-                >
-                  Run ("")
-                </button>
-                <button
-                  class="btn btn-outline-primary"
-                  value="ABCDEFGHIJKLm"
-                  onclick="isAllUpperCase(this.value)"
-                >
-                  Run ("ABCDEFGHIJKLm")
-                </button>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary"
+                    value="ABCD"
+                    onclick="isAllUpperCase(this.value)"
+                  >
+                    isAllUpperCase("ABCD")
+                  </button>
+                  <button
+                    class="btn btn-outline-primary"
+                    value=""
+                    onclick="isAllUpperCase(this.value)"
+                  >
+                    isAllUpperCase("")
+                  </button>
+                  <button
+                    class="btn btn-outline-primary"
+                    value="ABCDEFGHIJKLm"
+                    onclick="isAllUpperCase(this.value)"
+                  >
+                    isAllUpperCase("ABCDEFGHIJKLm")
+                  </button>
+                </div>
+              </li>
+              <li>
+                <p>
+                  編寫一個名為position的函式，唯一的參數是一個String，其功能為找到參數String當中的第一個大寫字母，並且回傳大寫字母的值以及其index位置。
+                </p>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary"
+                    value="abcd"
+                    onclick="position(this.value)"
+                  >
+                    position("abcd")
+                  </button>
+                  <button
+                    class="btn btn-outline-primary"
+                    value="AbcD"
+                    onclick="position(this.value)"
+                  >
+                    position("AbcD")
+                  </button>
+                  <button
+                    class="btn btn-outline-primary"
+                    value="abCD"
+                    onclick="position(this.value)"
+                  >
+                    position("abCD")
+                  </button>
+                </div>
+              </li>
+              <li>
+                <p>
+                  編寫一個名為findSmallCount的函式，其參數為一個整數的array以及另一個整數，功能是回傳一個整數，來表示array中有多少元素小於第二個參數。
+                </p>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary"
+                    onclick="findSmallCount([1, 2, 3], 2)"
+                  >
+                    findSmallCount([1, 2, 3], 2)
+                  </button>
+                  <button
+                    class="btn btn-outline-primary"
+                    onclick="findSmallCount([1, 2, 3, 4, 5], 0)"
+                  >
+                    findSmallCount([1, 2, 3, 4, 5], 0)
+                  </button>
+                </div>
+              </li>
+              <li>
+                <p>
+                  編寫一個名為findSmallerTotal的函式，其參數為一個整數的array以及另一個整數，回傳值為array中小於第二個參數的所有元素的總和。
+                </p>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary"
+                    onclick="findSmallerTotal([1, 2, 3], 3)"
+                  >
+                    findSmallerTotal([1, 2, 3], 3)
+                  </button>
+                  <button
+                    class="btn btn-outline-primary"
+                    onclick="findSmallerTotal([1, 2, 3], 1)"
+                  >
+                    findSmallerTotal([1, 2, 3], 1)
+                  </button>
+                  <button
+                    class="btn btn-outline-primary"
+                    onclick="findSmallerTotal([3, 2, 5, 8, 7], 999)"
+                  >
+                    findSmallerTotal([3, 2, 5, 8, 7], 999)
+                  </button>
+                  <button
+                    class="btn btn-outline-primary"
+                    onclick="findSmallerTotal([3, 2, 5, 8, 7], 0)"
+                  >
+                    findSmallerTotal([3, 2, 5, 8, 7], 0)
+                  </button>
+                </div>
               </li>
             </ol>
             <a class="btn btn-secondary" href="../contents.html">回到分享區</a>
@@ -196,6 +291,42 @@
         }
         // return true;
         console.log(true);
+      }
+
+      // position
+      function position(chkStr) {
+        console.clear();
+        for (let i = 0; i < chkStr.length; i++) {
+          if (chkStr[i] == chkStr[i].toUpperCase()) {
+            console.log(`${chkStr[i]},${i}`);
+            return;
+          }
+        }
+        console.log(`-1`);
+      }
+
+      // findSmallCount
+      function findSmallCount(arr, num) {
+        console.clear();
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] < num) {
+            count += 1;
+          }
+        }
+        console.log(count);
+      }
+
+      // findSmallerTotal
+      function findSmallerTotal(arr, num) {
+        console.clear();
+        let total = 0;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] < num) {
+            total += arr[i];
+          }
+        }
+        console.log(total);
       }
     </script>
     <script
