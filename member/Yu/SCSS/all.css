@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Share+Tech+Mono&display=swap");
 @import url("https://csshake.surge.sh/csshake.min.css");
+body {
+  overflow-x: hidden;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
 .logo-yu-dark {
   background: url(../images/2.png) no-repeat;
   max-height: 100px;
@@ -21,15 +26,31 @@
 }
 
 .bg-theme-tokyo {
-  background: url(../images/louie-martinez-min.jpg) no-repeat;
-  height: 100%;
+  background: url(../images/weiqi-xiong-min.jpg) no-repeat;
+  height: auto;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
 }
+@media (max-width: 992px) {
+  .bg-theme-tokyo {
+    background: url(../images/yusheng-deng-min.jpg) no-repeat;
+    background-size: cover;
+  }
+}
 
 .bg-dark-mode {
   background-color: #121212;
+}
+
+.splide__slide {
+  height: calc(100vh - 3.5rem);
+}
+.splide__slide img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .clock {
@@ -73,16 +94,10 @@
   }
 }
 
-.cap {
-  background-color: rgba(255, 255, 255, 0.5);
+.order-card {
+  border: 2px dashed #aaa;
 }
 
-.splide__slide {
-  height: calc(100vh - 3.5rem);
-}
-.splide__slide img {
-  width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+.cap {
+  background-color: rgba(255, 255, 255, 0.7);
 }/*# sourceMappingURL=all.css.map */
