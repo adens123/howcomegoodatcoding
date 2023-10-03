@@ -85,6 +85,15 @@
                 <option value="lowerBody">下身</option>
               </select>
             </div>
+            <div class="d-flex align-items-center my-3">
+              <label class="form-label mb-0" for="clothes-type">數量：</label>
+              <input
+                id="quantity"
+                class="form-control w-auto"
+                type="number"
+                min="1"
+                max="99" />
+            </div>
             <button
               type="button"
               class="btn btn-success mb-5"
@@ -103,6 +112,8 @@
                   <li>顧客姓名：<span class="order-cname"></span></li>
                   <li>服裝分類：<span class="order-style"></span></li>
                   <li>服裝類型：<span class="order-type"></span></li>
+                  <li>訂購數量：<span class="order-quantity"></span></li>
+                  <li>初步估價：<span class="order-valuation"></span></li>
                 </ul>
               </div>
             </div>
@@ -116,13 +127,23 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"></script>
     <script>
+      const price = {
+        men: 600,
+        women: 500,
+        kids: 400,
+        sports: 400,
+      };
+
       function order() {
         const cname = document.getElementById('name').value;
         const clothesStyle = document.getElementById('clothes-style');
         const clothesType = document.getElementById('clothes-type');
+        const quantity = document.getElementById('quantity');
         const orderCname = document.querySelector('.order-cname');
         const orderStyle = document.querySelector('.order-style');
         const orderType = document.querySelector('.order-type');
+        const orderQuantity = document.querySelector('.order-quantity');
+        const orderValuation = document.querySelector('.order-valuation');
         alert(
           cname +
             '您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！'
@@ -145,6 +166,10 @@
           clothesStyle.options[clothesStyle.selectedIndex].text;
         orderType.textContent =
           clothesType.options[clothesType.selectedIndex].text;
+        orderQuantity.textContent = quantity.value;
+        orderValuation.textContent =
+          parseInt(quantity.value) *
+          price[clothesStyle.options[clothesStyle.selectedIndex].value];
       }
 
       function about() {
