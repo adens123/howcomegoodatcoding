@@ -11,7 +11,7 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../../CSS/all.css" />
+    <link rel="stylesheet" href="../../SCSS/CSS/all.css" />
   </head>
   <body class="bg-light">
     <header>
@@ -51,7 +51,7 @@
     </header>
     <main class="py-3">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-lg-6 mb-5 d-flex justify-content-between flex-wrap">
             <h2 class="mb-0">JS 成衣批發工廠</h2>
             <button class="btn btn-primary text-nowrap" onclick="ourInfo()">
@@ -59,23 +59,48 @@
             </button>
           </div>
         </div>
-        <div class="row mb-3">
+        <div class="row mb-3 justify-content-center">
           <div class="col-lg-6">
-            <div
-              class="mb-3 d-flex flex-wrap align-items-stretch flex-column flex-sm-row"
-            >
-              <label for="cName"
+            <div class="mb-3 d-flex flex-wrap align-items-stretch flex-column">
+              <label for="cName" class="mb-3"
                 >請輸入名字：
                 <input
                   type="text"
                   id="cName"
                   name="cName"
-                  class="rounded px-2 py-1"
+                  class="rounded px-2 py-1 border-1"
                   placeholder="例：陳大明"
                 />
               </label>
+              <label for="cType" class="mb-3">
+                請選擇分類：
+                <select name="cType" id="cType" class="rounded px-2 py-1">
+                  <option value="men">男裝</option>
+                  <option value="women">女裝</option>
+                  <option value="kid">童裝</option>
+                </select>
+              </label>
+              <label for="cProduct" class="mb-3">
+                請選擇類型：
+                <select name="cProduct" id="cProduct" class="rounded px-2 py-1">
+                  <option value="top">上身類</option>
+                  <option value="bottom">下身類</option>
+                  <option value="shoes">鞋款</option>
+                </select>
+              </label>
+              <label for="cAmount" class="mb-3">
+                請選擇數量：
+                <input
+                  type="number"
+                  id="cAmount"
+                  class="rounded px-2 py-1 inputNum border-1"
+                  min="100"
+                  step="1"
+                  value="100"
+                />
+              </label>
               <button
-                class="btn btn-danger text-nowrap ms-sm-1 mt-3 mt-sm-0"
+                class="btn btn-danger text-nowrap align-self-lg-end"
                 onclick="addPurchase()"
               >
                 我要訂購
@@ -83,12 +108,23 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
             <div class="card p-3 order-card">
               <div class="card-title h4 text-center bold">您的訂單</div>
-              <div class="card-text fw-light">
-                顧客姓名：<span id="customerName"></span>
+              <div class="card-text">
+                <p class="fw-light">
+                  顧客姓名：<span id="orderName" class="text-success"></span>
+                </p>
+                <p class="fw-light">
+                  服裝分類：<span id="orderType" class="text-success"></span>
+                </p>
+                <p class="fw-light">
+                  服裝類型：<span id="orderProduct" class="text-success"></span>
+                </p>
+                <p class="fw-light">
+                  初步估價：<span id="orderPrice" class="text-success"></span>
+                </p>
               </div>
             </div>
           </div>
@@ -107,11 +143,49 @@
       }
 
       function addPurchase() {
-        let str = document.getElementById("cName").value;
-        alert(
-          `${str} 您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！`
-        );
-        document.getElementById("customerName").textContent = str;
+        let cName = document.getElementById("cName").value;
+        let cType = document.getElementById("cType");
+        let cProduct = document.getElementById("cProduct");
+        let orderType = cType.options[cType.selectedIndex].text;
+        let orderProduct = cProduct.options[cProduct.selectedIndex].text;
+        let cAmount = parseInt(document.getElementById("cAmount").value);
+        let malePrice = 600;
+        let femalePrice = 500;
+        let orderTotal = 0;
+
+        if (cName != "") {
+          if (cAmount == 0) {
+            alert("您好，記得輸入訂購數量喔");
+            return;
+          } else if (cAmount < 100) {
+            alert("抱歉，我們工廠的最低出貨量是 100 件。");
+            return;
+          } else if (cAmount > 5000) {
+            alert("抱歉，我們工廠的最高出貨量是 5,000 件。");
+            return;
+          }
+          alert(
+            `${cName} 您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！`
+          );
+          if (orderType == "男裝") {
+            alert(
+              "最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您帥氣領帶！"
+            );
+            orderTotal = malePrice * cAmount;
+          } else if (orderType == "女裝") {
+            alert(
+              "最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您美麗圍巾！"
+            );
+            orderTotal = femalePrice * cAmount;
+          }
+        } else {
+          alert("您好！請記得先填入姓名喔！");
+          return;
+        }
+        document.getElementById("orderName").textContent = cName;
+        document.getElementById("orderType").textContent = orderType;
+        document.getElementById("orderProduct").textContent = orderProduct;
+        document.getElementById("orderPrice").textContent = `$ ${orderTotal}`;
       }
     </script>
   </body>

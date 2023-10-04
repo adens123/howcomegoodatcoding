@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>20230915 | 2023 網頁全端開發</title>
+    <title>20230928 | 2023 網頁全端開發</title>
     <!-- bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -53,45 +53,34 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <h1>JS簡介、Lexical Structure</h1>
-            <p class="text-secondary">
-              作業日期：<datetime>2023/09/15</datetime>
-            </p>
-            <h2 class="border-bottom">常用 JS 函數</h2>
-            <ul class="mb-3">
-              <li>
-                <p>
-                  <code class="bg-body-tertiary px-2 py-1 rounded"
-                    >console.log()</code
-                  >：控制台顯示資訊
-                </p>
-              </li>
-              <li>
-                <p>
-                  <code class="bg-body-tertiary px-2 py-1 rounded"
-                    >window.alert()</code
-                  >：進入網頁跳出提示視窗
-                </p>
-              </li>
-              <li>
-                <p>
-                  <code class="bg-body-tertiary px-2 py-1 rounded"
-                    >window.prompt()</code
-                  >：進入網頁跳出提示視窗，可輸入資訊
-                </p>
-              </li>
-            </ul>
+            <h1 class="mb-3">終極密碼</h1>
             <a class="btn btn-secondary" href="../contents.html">回到分享區</a>
           </div>
         </div>
       </div>
     </main>
-
-    <!-- JS script -->
     <script>
-      let user_name = window.prompt("請輸入名字：");
-      window.alert(`你好啊！ ${user_name}`);
-      console.log(user_name);
+      let n1 = 0;
+      let n2 = 100;
+      let rdmNum = Math.ceil(Math.random() * 100);
+      // console.log(rdmNum);
+
+      while (true) {
+        let guess = Number(prompt(`請填入${n1}~${n2}之間的數字`));
+        if (guess < n1 || guess > n2 || guess == NaN) {
+          alert(`輸入錯誤，請重新輸入`);
+          continue;
+        }
+
+        if (guess == rdmNum) {
+          alert(`恭喜您！答對了`);
+          break;
+        } else if (guess < rdmNum) {
+          n1 = guess;
+        } else if (guess > rdmNum) {
+          n2 = guess;
+        }
+      }
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

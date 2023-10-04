@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20231003 | 2023 網頁全端開發</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../SCSS/CSS/all.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>簡單練習題第二部分 1-7</h1>
+            <p class="text-secondary">作業日期：2023/10/03</p>
+            <p class="d-flex align-items-center">
+              題目連結：<a
+                href="https://yuhsien.notion.site/179caa9730284da48b0a6df66886a447"
+                class="btn btn-warning"
+                target="_blank"
+                >點此前往</a
+              >
+            </p>
+            <p class="lead">以下內容需開啟開發人員工具檢視</p>
+            <ol class="mb-5">
+              <li>
+                <p>
+                  編寫一個名為reverse的函式，參數為一個String，回傳值為順序反轉的String。
+                </p>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="reverse('abcd')"
+                  >
+                    reverse("abcd")
+                  </button>
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="reverse('I am a good guy.')"
+                  >
+                    reverse("I am a good guy.")
+                  </button>
+                </div>
+              </li>
+              <li>
+                <p>
+                  編寫一個名為swap的函式，參數為一個String，回傳值為大小寫反轉的String。
+                </p>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="swap('Aloha')"
+                  >
+                    swap("Aloha")
+                  </button>
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="swap('Love you.')"
+                  >
+                    swap("Love you.")
+                  </button>
+                </div>
+              </li>
+              <li>
+                <p>
+                  編寫一個名為isPrime的函式，它接受一個整數作為參數，回傳值為一個boolean，告訴我們參數是否為一個質數。
+                </p>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="isPrime(1)"
+                  >
+                    isPrime(1)
+                  </button>
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="isPrime(5)"
+                  >
+                    isPrime(5)
+                  </button>
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="isPrime(91)"
+                  >
+                    isPrime(91)
+                  </button>
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="isPrime(1000000)"
+                  >
+                    isPrime(1000000)
+                  </button>
+                </div>
+              </li>
+              <li>
+                <p>
+                  回文是指，正著讀或反著讀都一樣的句子。例如:【上海自來水來自海上】是迴文。寫一個名為palindrome的函式，它接受一個String作為參數，回傳值為一個boolean，告訴我們參數是否為回文。
+                </p>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="palindrome('bearaeb')"
+                  >
+                    palindrome("bearaeb")
+                  </button>
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="palindrome('whatever revetahw')"
+                  >
+                    palindrome("whatever revetahw")
+                  </button>
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="palindrome('Aloha, how are you today?')"
+                  >
+                    palindrome("Aloha, how are you today?")
+                  </button>
+                </div>
+              </li>
+              <li>
+                <p>編寫一個名為pyramid的函式，功能為按以下模式打印出星星層：</p>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="pyramid(1)"
+                  >
+                    pyramid(1)
+                  </button>
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="pyramid(2)"
+                  >
+                    pyramid(2)
+                  </button>
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="pyramid(4)"
+                  >
+                    pyramid(4)
+                  </button>
+                </div>
+              </li>
+              <li>
+                <p>
+                  編寫一個名為inversePyramid的函式，功能為按以下模式打印出星星層：
+                </p>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="inversePyramid(4)"
+                  >
+                    inversePyramid(4)
+                  </button>
+                </div>
+              </li>
+              <li>
+                <p>
+                  編寫一個名為factorPrime的函式，唯一的參數是個整數n，回傳值是一個String，表示n的質因數分解結果。
+                </p>
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-outline-primary mb-3"
+                    onclick="factorPrime(120)"
+                  >
+                    factorPrime(120)
+                  </button>
+                </div>
+              </li>
+            </ol>
+            <a class="btn btn-secondary" href="../contents.html">回到分享區</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      // reverse
+      // function reverse(str) {
+      //   console.clear();
+      //   let str_reverse = "";
+      //   let str_arr = [];
+      //   for (let i = 0; i < str.length; i++) {
+      //     str_arr.unshift(str[i]);
+      //   }
+      //   for (let j = 0; j < str_arr.length; j++) {
+      //     str_reverse += str_arr[j];
+      //   }
+      //   console.log(str_reverse);
+      // }
+
+      //方法二（Wilson）
+      function reverse(str) {
+        console.clear();
+        let result = "";
+        for (let i = 0; i < str.length; i++) {
+          result += str[str.length - 1 - i];
+        }
+        console.log(result);
+      }
+
+      // swap
+      function swap(str) {
+        console.clear();
+        let new_str = "";
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] != str[i].toUpperCase()) {
+            // 第i項不是大寫，就變大寫
+            new_str += str[i].toUpperCase();
+          } else {
+            new_str += str[i].toLowerCase();
+          }
+        }
+        console.log(new_str);
+      }
+
+      // isPrime
+      function isPrime(num) {
+        console.clear();
+        let isZs = true;
+        if (num == 1) {
+          isZs = false;
+          console.log(isZs);
+          return;
+        }
+        for (let i = 2; i < num; i++) {
+          if (num % i === 0) {
+            isZs = false;
+          }
+        }
+        console.log(isZs);
+      }
+
+      // palindrome
+      // function palindrome(str) {
+      //   console.clear();
+      //   let str_reverse = "";
+      //   let str_arr = [];
+      //   let str_reverse_arr = [];
+
+      //   for (let i = 0; i < str.length; i++) {
+      //     str_arr.push(str[i]);
+      //     str_reverse_arr.unshift(str[i]);
+      //   }
+
+      //   for (let i = 0; i < str_arr.length; i++) {
+      //     if (str_arr[i] != str_reverse_arr[i]) {
+      //       console.log(false);
+      //       return;
+      //     }
+      //   }
+      //   console.log(true);
+      // }
+
+      // 方法二（Wilson）
+      function palindrome(str) {
+        console.clear();
+        let i = 0;
+        let j = str.length - 1;
+
+        while (i < j) {
+          if (str[i] != str[j]) {
+            console.log(false);
+            return;
+          }
+          i++;
+          j--;
+        }
+        console.log(true);
+      }
+
+      // pyramid
+      // 等差數列 2n-1
+
+      // 建立一個印出空格跟星星的函式
+      function printStars(space, stars) {
+        let result = "";
+        for (let i = 0; i < space; i++) {
+          result += " ";
+        }
+        for (let i = 0; i < stars; i++) {
+          result += "*";
+        }
+        console.log(result);
+      }
+
+      function pyramid(num) {
+        console.clear();
+        // 初始化第一行，n-1空格1星
+        let stars = 1;
+        let space = num - 1;
+
+        // 最後一行會是0空格，就會停止迴圈
+        while (space >= 0) {
+          printStars(space, stars);
+
+          // 下一行星星會加2個，空格減1個
+          stars += 2;
+          space -= 1;
+        }
+      }
+
+      // inversePyramid
+      function inversePyramid(num) {
+        console.clear();
+        let star = 2 * num - 1;
+        let space = 0;
+
+        while (star > 0) {
+          printStars(space, star);
+          star -= 2;
+          space += 1;
+        }
+      }
+
+      // factorPrime
+      function factorPrime(num) {
+        console.clear();
+        let ans = `${num} = `;
+        // 第一個質數
+        let p = 2;
+
+        // 當 除數小於被除數就停止
+        while (p <= num) {
+          if (num % p == 0) {
+            num /= p;
+            ans += `${p} x `;
+          } else {
+            p++;
+          }
+        }
+
+        // 刪除後面多餘的“ x ”
+        let result = "";
+        for (let i = 0; i < ans.length - 3; i++) {
+          result += ans[i];
+        }
+        console.log(result);
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
