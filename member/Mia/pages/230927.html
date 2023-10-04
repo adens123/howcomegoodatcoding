@@ -24,12 +24,13 @@
                   <a class="nav-link" href="../../../index.html">Home</a>
                 </li>
                 
+                
             </ul>
             
             <p class="text-center py-3 mb-5">網頁全端開發JavaScript_0927</p>
             
             <div class="fw-300">
-              <h4>迴圈 </h4>  
+              <h4>迴圈 Loop </h4>  
               <hr>
               <ul>
                 <li>當條件運算式成立時，就會重複執行某一段程式</li>
@@ -111,6 +112,69 @@
                 結果為
                 <span class="font-color1">5</span>
                </pre>
+               <br>
+               <p class="h5">巢狀迴圈 Nested Loop</p>
+               <hr>
+               <ul>
+                <li>巢狀迴圈是指，在loop內部還有另一個loop的情況</li>
+                <li>內部迴圈以及外部迴圈可以是任何類型，例如 while loop或 for loop</li>
+                <li>內部迴圈將在外部迴圈的每次迭代中，從頭到尾執行一次</li>
+               </ul>
+               <pre class="bg-light fw-300 p-3">
+               <span class="font-color1">for </span> (let i = 0; i < 2; i++) {
+                 <span class="font-color1">for </span> (let k = 10; k < 13; k++) {
+                      console.log(i, k);
+                    }
+                  }
+
+                  結果<span class="font-color1">
+                  0, 10
+                  0, 11
+                  0, 12
+                  1, 10
+                  1, 11
+                  1, 12   </span>    
+               </pre>
+               <pre class="bg-light fw-300 p-3">
+                <span class="font-color1">let </span> counter = 0;
+                  <span class="font-color1">for</span>  (let i = 0 ; i < 100 ; i++){
+                    <span class="font-color1">for</span>  (let k = 0 ; k < 500 ; k++){
+                      counter++;
+                    }
+                  }
+                console.log(counter);
+
+                   結果<span class="font-color1 ms-3">50000</span> <span class="text-secondary">//100*500</span>   
+                </pre>
+                <pre class="bg-light fw-300 p-3">
+                    
+                    <span class="font-color1">for </span> (let i = 0 ; i < 100 ;i++){
+                        <span class="font-color1">let </span> counter = 0;
+                        <span class="font-color1">for </span> (let k = 0; k < 500 ; k++){
+                          counter++;
+                        }
+                        console.log(counter);
+                      }
+                    結果  會印出100次<span class="font-color1 ms-3">500</span>
+                </pre>
+                <br>
+                <p class="h5">Break、continue關鍵字</p>
+                <hr>
+                <p class="h6">Break</p>
+                <ul>
+                    <li>用於終止迴圈，會中斷並跳出該迴圈</li>
+                    <li>break後的程式不會執行</li>
+                    <li>若放在於巢狀迴圈中，只會終止 break 在的那層迴圈，其他迴圈若不受影響還是會執行 </li>
+                    <li>若要終止整個巢狀迴圈，則需要使用return</li>
+                </ul>
+                <p class="h6">continue</p>
+                <ul>
+                    <li>跳過當次迴圈，強制進行下一次的迴圈</li>
+                    <li>continue後的程式不會執行</li>
+                    
+                </ul>
+                
+
               
               
             <!-- 頁尾 -->
