@@ -94,9 +94,9 @@
                   type="number"
                   id="cAmount"
                   class="rounded px-2 py-1 inputNum border-1"
-                  min="1"
+                  min="100"
                   step="1"
-                  value="1"
+                  value="100"
                 />
               </label>
               <button
@@ -154,6 +154,16 @@
         let orderTotal = 0;
 
         if (cName != "") {
+          if (cAmount == 0) {
+            alert("您好，記得輸入訂購數量喔");
+            return;
+          } else if (cAmount < 100) {
+            alert("抱歉，我們工廠的最低出貨量是 100 件。");
+            return;
+          } else if (cAmount > 5000) {
+            alert("抱歉，我們工廠的最高出貨量是 5,000 件。");
+            return;
+          }
           alert(
             `${cName} 您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！`
           );

@@ -57,7 +57,7 @@
             <div class="d-flex align-items-center my-3">
               <label class="form-label mb-0" for="name">姓名：</label>
               <input
-                class="form-control w-auto"
+                class="form-control w-50"
                 type="text"
                 id="name"
                 placeholder="請輸入姓名" />
@@ -65,7 +65,7 @@
             <div class="d-flex align-items-center my-3">
               <label class="form-label mb-0" for="clothes-style">分類：</label>
               <select
-                class="form-select w-auto"
+                class="form-select w-50"
                 name="clothes-style"
                 id="clothes-style">
                 <option value="men">MEN</option>
@@ -77,7 +77,7 @@
             <div class="d-flex align-items-center my-3">
               <label class="form-label mb-0" for="clothes-type">類型：</label>
               <select
-                class="form-select w-auto"
+                class="form-select w-50"
                 name="clothes-type"
                 id="clothes-type">
                 <option value="upperBody">上衣</option>
@@ -89,7 +89,7 @@
               <label class="form-label mb-0" for="clothes-type">數量：</label>
               <input
                 id="quantity"
-                class="form-control w-auto"
+                class="form-control w-50"
                 type="number"
                 min="1"
                 max="99" />
@@ -131,37 +131,46 @@
         men: 600,
         women: 500,
         kids: 400,
-        sports: 400,
+        sports: 400
       };
 
       function order() {
-        const cname = document.getElementById('name').value;
-        const clothesStyle = document.getElementById('clothes-style');
-        const clothesType = document.getElementById('clothes-type');
-        const quantity = document.getElementById('quantity');
-        const orderCname = document.querySelector('.order-cname');
-        const orderStyle = document.querySelector('.order-style');
-        const orderType = document.querySelector('.order-type');
-        const orderQuantity = document.querySelector('.order-quantity');
-        const orderValuation = document.querySelector('.order-valuation');
-        alert(
-          cname +
-            '您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！'
-        );
+        const cname = document.getElementById("name");
+        const clothesStyle = document.getElementById("clothes-style");
+        const clothesType = document.getElementById("clothes-type");
+        const quantity = document.getElementById("quantity");
+        const orderCname = document.querySelector(".order-cname");
+        const orderStyle = document.querySelector(".order-style");
+        const orderType = document.querySelector(".order-type");
+        const orderQuantity = document.querySelector(".order-quantity");
+        const orderValuation = document.querySelector(".order-valuation");
 
-        if (clothesStyle.options[clothesStyle.selectedIndex].value == 'men') {
+        if (!cname.value) return alert("煩請填寫您的大名。");
+        if (!quantity.value) {
+          return alert("煩請輸入訂購數量。");
+        } else if (Number(quantity.value) < 100) {
+          return alert("抱歉，我們工廠的最低出貨量是 100 件。");
+        } else if (Number(quantity.value) > 5000) {
+          return alert("抱歉，我們工廠的最高出貨量是 5,000 件。");
+        }
+
+        alert(
+          cname.value +
+            "您好！謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！"
+        );
+        if (clothesStyle.options[clothesStyle.selectedIndex].value == "men") {
           alert(
-            '最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您帥氣領帶！'
+            "最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您帥氣領帶！"
           );
         } else if (
-          clothesStyle.options[clothesStyle.selectedIndex].value == 'women'
+          clothesStyle.options[clothesStyle.selectedIndex].value == "women"
         ) {
           alert(
-            '最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您美麗圍巾！'
+            "最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您美麗圍巾！"
           );
         }
 
-        orderCname.textContent = cname;
+        orderCname.textContent = cname.value;
         orderStyle.textContent =
           clothesStyle.options[clothesStyle.selectedIndex].text;
         orderType.textContent =
@@ -173,7 +182,7 @@
       }
 
       function about() {
-        alert('我們工廠位於新北市，通過國際 ISO9001 認證，品質讓您放心！');
+        alert("我們工廠位於新北市，通過國際 ISO9001 認證，品質讓您放心！");
       }
     </script>
   </body>

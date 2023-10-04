@@ -2,7 +2,7 @@ const ASSIGNMENTS = [
   [
     {
       title: "作業成果",
-      date: "2023/10/02",
+      date: "2023/10/04",
       chapter: "愛寫扣學院-幫衣服工廠做個好用表單",
       link: "./codeLove/clothFactory.html",
     },
@@ -73,8 +73,14 @@ const ASSIGNMENTS = [
     {
       title: "2023 網頁全端開發",
       date: "2023/09/29",
-      chapter: "簡單練習題第一部分 1-7",
+      chapter: "簡單練習題第一部分 1-10",
       link: "20230929.html",
+    },
+    {
+      title: "2023 網頁全端開發",
+      date: "2023/10/03",
+      chapter: "簡單練習題第二部分 1-7",
+      link: "20231003.html",
     },
   ],
   [
@@ -107,6 +113,18 @@ const ASSIGNMENTS = [
       date: "2023/09/29",
       chapter: "基本的 if/else 條件流程控制",
       link: "https://jsfiddle.net/kulimusoda/sv36cquf/8/",
+    },
+    {
+      title: "前端練功作業包",
+      date: "2023/10/02",
+      chapter: "認識資料型態與轉換",
+      link: "https://jsfiddle.net/kulimusoda/8men7y34/26/",
+    },
+    {
+      title: "前端練功作業包",
+      date: "2023/10/04",
+      chapter: "認識巢狀結構",
+      link: "https://jsfiddle.net/kulimusoda/p2Lv917r/13/",
     },
   ],
 ];
