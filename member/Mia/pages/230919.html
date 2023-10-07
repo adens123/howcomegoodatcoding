@@ -188,9 +188,27 @@
             </p>
             <br>
             <p class="bg-light py-2"><code class="me-4"> .charCodeAt( ) </code>用位置(索引值)來取得字元的 Unicode 編碼</p>
+            <br>
+            <p class="bg-light py-2"><code class="me-4">parseInt (num)  </code>字串轉成數字 (整數)<br></p>
+            <p class="bg-light py-2"><code class="me-4">parseFloat (num)  </code>字串轉成數字 (含小數點)<br></p>
+            <pre class="bg-light  p-3 ">
+              let num1 = prompt("請輸入數字1");
+              let num2 = prompt("請輸入數字2");
+              console.log(num1+num2);   <span class="font-color1">字串相加</span>
+              
+              num1 = parseInt(num1);
+              num2 = parseInt(num2);
+              console.log(num1+num2);  <span class="font-color1">整數相加</span>
+              
+              let num3 = prompt("請輸入數字3");
+              let num4 = prompt("請輸入數字4");
+              
+              num3 = parseFloat(num3);
+              num4 = parseFloat(num4);
+              console.log(num3+num4);   <span class="font-color1">包含小數點的數字相加</span>
+            </pre>
             
-            
-
+          <!-- 頁尾 -->
             <ul class="py-4 nav justify-content-end ">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="../index.html">Back</a>
