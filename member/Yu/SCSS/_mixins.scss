@@ -1,11 +1,11 @@
-@mixin mobile-390 {
-  @media (max-width: 390px) {
+@mixin mobile-395 {
+  @media (min-width: 395px) {
     @content;
   }
 }
 
 @mixin pad {
-  @media (max-width: 992px) {
+  @media (min-width: 992px) {
     @content;
   }
 }
