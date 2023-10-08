@@ -17,13 +17,13 @@
   overflow: hidden;
 }
 .bg-theme-tokyo {
-  background: url(../../images/weiqi-xiong-min.jpg) no-repeat;
+  background: url(../../images/yusheng-deng-min.jpg) no-repeat;
   height: auto;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
   @include pad {
-    background: url(../../images/yusheng-deng-min.jpg) no-repeat;
+    background: url(../../images/weiqi-xiong-min.jpg) no-repeat;
     background-size: cover;
   }
 }
