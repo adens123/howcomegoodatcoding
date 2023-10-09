@@ -1,0 +1,10 @@
+.course {
+  .accordion-item {
+    &:not(:last-of-type) {
+      margin-bottom: 0.5rem;
+    }
+  }
+  .chapter {
+    font-weight: bold;
+  }
+}
