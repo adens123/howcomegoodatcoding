@@ -150,6 +150,12 @@ const ASSIGNMENTS = [
       chapter: "認識巢狀結構",
       link: "https://jsfiddle.net/kulimusoda/p2Lv917r/13/",
     },
+    {
+      title: "前端練功作業包",
+      date: "2023/10/09",
+      chapter: "認識 DOM 樹、新增元素",
+      link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/122/",
+    },
   ],
 ];
 
