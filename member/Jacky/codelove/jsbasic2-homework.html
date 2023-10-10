@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>親手做個待辦事項小工具</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+      rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* * {
+        outline: 1px solid;
+      } */
+
+      body {
+        font-family: "Noto Sans TC", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-[url('../images/andrew-neel-cckf4TsHAuw-unsplash.jpg')]">
+    <header class="bg-gray-400 bg-center bg-contain bg-opacity-75 px-5 py-5">
+      <div class="container mx-auto">
+        <nav class="flex items-center">
+          <h1 class="mr-4">
+            <a
+              class="text-xl font-bold inline-block hover:text-white duration-300"
+              href="../../../index.html"
+              >怎麼會-前端coding</a
+            >
+          </h1>
+          <ul class="">
+            <li class="">
+              <a
+                class="inline-block font-medium text-gray-600 hover:text-white duration-300"
+                href="../index.html"
+                >Jacky's Home</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container m-auto max-w-lg mt-10">
+        <div
+          class="border bg-yellow-100 rounded-lg px-5 py-5 shadow-lg shadow-yellow-600/50">
+          <div class="flex">
+            <input
+              id="todoField"
+              class="flex-1 p-2 mr-4 border border-gray-400 rounded-lg focus:outline-sky-600"
+              type="text"
+              placeholder="新增待辦事項" />
+            <button
+              class="text-slate-300 font-semibold tracking-widest px-8 py-2 bg-sky-600 rounded-md hover:bg-opacity-70"
+              onclick="addTodo()">
+              新增
+            </button>
+          </div>
+          <hr class="mt-4" />
+          <h2 class="text-slate-500 font-semibold mt-2">Tasks</h2>
+          <ul id="todolist" class="mt-1">
+            <li class="bg-sky-300 text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
+              <span>倒垃圾</span>
+            </li>
+            <li class="bg-sky-300 text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
+              <span>繳電話費</span>
+            </li>
+            <li class="bg-sky-300 text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
+              <span>採買本週食材</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <script>
+      function addTodo() {
+        const todoField = document.querySelector("#todoField");
+        const todolist = document.querySelector("#todolist");
+        const newLi = document.createElement("li");
+        const newSpan = document.createElement("span");
+
+        newLi.classList.add(
+          "bg-sky-300",
+          "text-slate-700",
+          "p-3",
+          "mb-2",
+          "rounded-sm",
+          "shadow-lg"
+        );
+        newSpan.textContent = todoField.value;
+        newLi.append(newSpan);
+        todolist.insertAdjacentElement("beforeend", newLi);
+
+        todoField.value = "";
+        todoField.focus();
+      }
+    </script>
+  </body>
+</html>
