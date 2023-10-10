@@ -119,6 +119,10 @@ code {
   font-weight: 500;
 }
 
+.line-cd {
+  border-bottom: 1px solid #d2b74e;
+}
+
 .main-title {
   font-family: "Skranji", "Noto Sans TC", cursive, sans-serif;
   line-height: 1.5;
@@ -126,18 +130,25 @@ code {
 
 .date-item a {
   text-decoration: none;
-  display: block;
+  display: inline-block;
   color: #5b4730;
-  padding: 12px 18px;
+  padding: 12px 28px;
   border: 3px solid transparent;
   /* background-color: #c8baa7; */
-  background-color: #dcd3b2;
-  border-radius: 12px;
+  border-radius: 8px;
   font-weight: 700;
 }
 
+.date-item :nth-child(odd) a {
+  background-color: #dcd3b2;
+}
+
+.date-item :nth-child(even) a {
+  background-color: #f5deb3;
+}
+
 .date-item a:hover {
-  border: 3px dotted #7a5e3d;
+  border: 3px dotted #deb887;
   background-color: transparent;
 }
 
@@ -172,7 +183,7 @@ code {
 .date-item2 a {
   text-decoration: none;
   display: block;
-  color: #343331;
+  color: #5b4730;
   padding: 12px 18px;
   border: 3px solid transparent;
   /* background-color: #c8baa7; */

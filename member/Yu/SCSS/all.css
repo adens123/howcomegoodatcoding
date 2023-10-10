@@ -102,6 +102,13 @@ body {
   width: 4.5rem;
 }
 
+.course .accordion-item:not(:last-of-type) {
+  margin-bottom: 0.5rem;
+}
+.course .chapter {
+  font-weight: bold;
+}
+
 .cap {
   background-color: rgba(255, 255, 255, 0.7);
 }
