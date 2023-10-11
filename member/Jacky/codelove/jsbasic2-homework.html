@@ -9,10 +9,6 @@
       rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* * {
-        outline: 1px solid;
-      } */
-
       body {
         font-family: "Noto Sans TC", sans-serif;
       }
@@ -60,14 +56,32 @@
           <hr class="mt-4" />
           <h2 class="text-slate-500 font-semibold mt-2">Tasks</h2>
           <ul id="todolist" class="mt-1">
-            <li class="bg-sky-300 text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
+            <li
+              class="bg-sky-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
               <span>倒垃圾</span>
+              <button
+                class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
+                onclick="delTodo()">
+                刪除
+              </button>
             </li>
-            <li class="bg-sky-300 text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
+            <li
+              class="bg-sky-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
               <span>繳電話費</span>
+              <button
+                class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
+                onclick="delTodo()">
+                刪除
+              </button>
             </li>
-            <li class="bg-sky-300 text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
+            <li
+              class="bg-sky-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
               <span>採買本週食材</span>
+              <button
+                class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
+                onclick="delTodo()">
+                刪除
+              </button>
             </li>
           </ul>
         </div>
@@ -75,25 +89,66 @@
     </main>
     <script>
       function addTodo() {
-        const todoField = document.querySelector("#todoField");
-        const todolist = document.querySelector("#todolist");
+        const $todoField = document.querySelector("#todoField"); // 變數以$開頭表示是選取html的元素
+        const $todolist = document.querySelector("#todolist"); // 變數以$開頭表示是選取html的元素
+
+        // 創建li, span, button元素
         const newLi = document.createElement("li");
         const newSpan = document.createElement("span");
+        const newBtn = document.createElement("button");
 
+        // 沒有輸入內容就跳提醒，使用return程式就不會再往下執行
+        if ($todoField.value == "") return alert("請輸入待辦事項內容");
+
+        // 幫創建的li元素加上class樣式
         newLi.classList.add(
           "bg-sky-300",
+          "flex",
+          "items-center",
+          "justify-between",
           "text-slate-700",
           "p-3",
           "mb-2",
           "rounded-sm",
           "shadow-lg"
         );
-        newSpan.textContent = todoField.value;
-        newLi.append(newSpan);
-        todolist.insertAdjacentElement("beforeend", newLi);
 
-        todoField.value = "";
-        todoField.focus();
+        // 幫創建的button元素加上class樣式
+        newBtn.classList.add(
+          "text-slate-300",
+          "font-semibold",
+          "tracking-widest",
+          "px-3",
+          "py-1",
+          "bg-rose-600",
+          "rounded-md",
+          "hover:bg-opacity-70"
+        );
+
+        // 幫創建的button元素加入文字內容
+        newBtn.textContent = "刪除";
+
+        // 幫創建的button元素加上刪除功能(delTodo is a Function)
+        newBtn.onclick = delTodo;
+
+        // 幫創建的span元素加入user輸入的待辦事項內容
+        newSpan.textContent = todoField.value;
+
+        // 將創建的span, button元素依序加入到新創的的li元素內(子元素)
+        newLi.append(newSpan, newBtn);
+
+        // 將創建的li元素加入到ul元素內的最下面, 嘗試使用其他的method：insertAdjacentElement()
+        // https://developer.mozilla.org/zh-CN/docs/Web/API/Element/insertAdjacentElement
+        $todolist.insertAdjacentElement("beforeend", newLi);
+
+        // 清除 user 輸入內容，並將游標定位到 user 輸入欄位
+        $todoField.value = "";
+        $todoField.focus();
+      }
+
+      // 選取到目前點擊的button的父元素li，把li刪除
+      function delTodo() {
+        event.target.parentElement.remove();
       }
     </script>
   </body>
