@@ -1,10 +1,12 @@
+body{
+  background: url("https://images.pexels.com/photos/6461325/pexels-photo-6461325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat center center / cover;
+}
 .wrap {
-    background: url("https://images.pexels.com/photos/6461325/pexels-photo-6461325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat center center / cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
   p{
     margin-bottom: 0;
@@ -102,13 +104,16 @@
     margin-bottom: 20px;
   }
   
-  .order-list {
+  .listGroup p {
     color: #ffffff;
-    background-color: #999999;
-    text-align: start;
+    background-color:rgba(181,164,136,0.9);
+    /* background-color:rgba(169,169,169,0.9); */
+    /* background-color:rgba(169,152,123,0.9); */
     padding-left: 58px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 12px;
+  }
+  .listGroup :last-child{
+    padding-bottom: 12px;
   }
   
   .title {
