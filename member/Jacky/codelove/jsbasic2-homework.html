@@ -54,7 +54,14 @@
             </button>
           </div>
           <hr class="mt-4" />
-          <h2 class="text-slate-500 font-semibold mt-2">Tasks</h2>
+          <div class="flex justify-between items-center my-2">
+            <h2 class="text-slate-500 font-semibold">Tasks</h2>
+            <button
+              class="bg-slate-500 text-white px-3 py-1 rounded-md hover:bg-opacity-70"
+              onclick="exportText()">
+              匯出
+            </button>
+          </div>
           <ul id="todolist" class="mt-1">
             <li
               class="bg-sky-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
@@ -88,6 +95,7 @@
       </div>
     </main>
     <script>
+      // 新增一筆
       function addTodo() {
         const $todoField = document.querySelector("#todoField"); // 變數以$開頭表示是選取html的元素
         const $todolist = document.querySelector("#todolist"); // 變數以$開頭表示是選取html的元素
@@ -149,6 +157,24 @@
       // 選取到目前點擊的button的父元素li，把li刪除
       function delTodo() {
         event.target.parentElement.remove();
+      }
+
+      function exportText() {
+        let copyMsg = "【直接在alert視窗按 ctrl + c 就可以複製】\n\n";
+        let exportContent = copyMsg + "今日待辦：\n---------------\n";
+        let num = 1; // 匯出時的項目編號
+
+        // document.querySelector("#todolist").children 表示ul中有多少個li
+        for (let item of document.querySelector("#todolist").children) {
+          // 跑一次迴圈就在要輸出結果的字串中加入一筆待辦事項
+          exportContent +=
+            num.toString() + ". " + item.children[0].textContent + "\n";
+
+          num++; // 跑一次迴圈，編號就+1 → 1, 2, 3.....
+          console.log(exportContent); // 可以看看每跑一次迴圈後的輸出結果
+        }
+
+        return alert(exportContent);
       }
     </script>
   </body>
