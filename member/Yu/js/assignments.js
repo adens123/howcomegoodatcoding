@@ -156,6 +156,12 @@ const ASSIGNMENTS = [
       chapter: "認識 DOM 樹、新增元素",
       link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/122/",
     },
+    {
+      title: "前端練功作業包",
+      date: "2023/10/11",
+      chapter: "從 DOM 樹移除元素、動態加上 onclick 事件",
+      link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/200/",
+    },
   ],
 ];
 

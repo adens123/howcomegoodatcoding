@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans:wght@200;300;400;500;700&family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400&family=Playfair+Display:wght@400;500&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="../css02/lesson01-07.css">
+    <title>Mia's page</title>
+  </head>
+  <body>
+    <div class="wrap">
+        <fieldset>
+        
+          <legend class="title">線上下單</legend>
+      
+          <div class="gridForm grid1">
+            <input type="text" id="input_name" placeholder="請輸入姓名">
+          </div>
+      
+          <div class="gridForm grid02 ">
+            <select name="" id="type">
+              <option value="none" disabled selected  hidden>請選擇款式</option>
+              <option value="男裝">男裝</option>
+              <option value="女裝">女裝</option>
+            </select>
+            <select name="" id="item">
+              <option value="none" disabled selected  hidden>請選擇商品</option>
+              <option value="上衣">上衣</option>
+              <option value="外套">外套</option>
+              <option value="褲裝">褲裝</option>
+            </select>
+      
+            <input id="input_count" type="number" min="1" placeholder="請輸入數量">
+      
+          </div>
+        <br>
+        <br>
+        <br>
+      
+          <div class="gridForm grid03  btns ">
+            <button onclick="order()" class="btn">訂購</button>
+            <button onclick="about()" class="btn">關於我們</button>
+          </div>
+      
+      
+        <br>
+          <p class="title">訂單</p>
+          <hr>
+          <div class="order-list">
+            <p>姓名 : <span id="orderName">尚未填寫</span></p>
+            <p>款式 : <span id="orderType">尚未填寫</span></p>
+            <p>商品 : <span id="orderItem">尚未填寫</span></p>
+            <p>數量 : <span id="orderCount">尚未填寫</span></p>
+            <p>估價 : <span id="orderPrice">尚未填寫</span></p>
+          </div>
+      
+        </fieldset>
+      </div>
+   
+    
+   
+  
+    <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="../js/lesson01-07.js"></script>
+  </body>
+</html>
