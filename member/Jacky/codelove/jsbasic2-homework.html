@@ -44,18 +44,20 @@
           <div class="flex">
             <input
               id="todoField"
-              class="flex-1 p-2 mr-4 border border-gray-400 rounded-lg focus:outline-sky-600"
+              class="flex-1 p-2 mr-4 border-2 border-sky-600 rounded-lg outline-none"
               type="text"
               placeholder="新增待辦事項" />
             <select
               id="category"
-              class="p-2 mr-4 border border-gray-400 rounded-lg focus:outline-sky-600">
-              <option value="common">一般</option>
+              class="p-2 mr-4 border-2 border-sky-600 rounded-lg outline-none"
+              onchange="addTodotheme()">
+              <option value="normal">一般</option>
               <option value="important">重要</option>
               <option value="urgent">緊急</option>
             </select>
             <button
-              class="text-slate-300 font-semibold tracking-widest px-8 py-2 bg-sky-600 rounded-md hover:bg-opacity-70"
+              id="addTodoBtn"
+              class="text-slate-300 font-semibold tracking-widest px-8 py-2 bg-sky-600 rounded-md hover:bg-opacity-70 outline-none"
               onclick="addTodo()">
               新增
             </button>
@@ -123,13 +125,13 @@
 
         // 依照一般、重要、緊急的選擇結果，判斷要輸出的class樣式
         const selectedStyle =
-          selectedValue == "common"
+          selectedValue == "normal"
             ? "sky"
             : selectedValue == "important"
             ? "orange"
             : "red";
 
-        // 使用dataset屬性，在待辦事項中加入common, important, urgent識別，方便在匯出純文字時使用
+        // 使用dataset屬性，在待辦事項中加入normal, important, urgent識別，方便在匯出純文字時使用
         newLi.dataset.priority = selectedValue;
 
         // 幫創建的li元素加上class樣式
@@ -216,6 +218,35 @@
         }
 
         return alert(exportContent);
+      }
+
+      // 依照選擇一般、重要、緊急，切換新增待辦區塊的主題顏色
+      function addTodotheme() {
+        // 設定一般、重要、緊急對照的主題顏色
+        const themeColors = {
+          normal: "sky",
+          important: "orange",
+          urgent: "red"
+        };
+
+        // 依照選取的value取得主題顏色
+        let themeColor = themeColors[document.querySelector("#category").value];
+
+        for (item of ["#category", "#todoField", "#addTodoBtn"]) {
+          // 先刪除既有主題顏色的class，不管有或沒有，一律全刪
+          for (color of Object.values(themeColors)) {
+            document
+              .querySelector(item)
+              .classList.remove(`border-${color}-600`, `bg-${color}-600`);
+          }
+
+          // 加入目前選取的主題顏色的class
+          document
+            .querySelector(item)
+            .classList.add(
+              `${item != "#addTodoBtn" ? "border" : "bg"}-${themeColor}-600`
+            );
+        }
       }
 
       // 判斷有無待辦事項，顯示或隱藏待辦事項區塊
