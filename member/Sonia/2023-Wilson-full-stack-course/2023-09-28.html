@@ -53,28 +53,136 @@
     <!-- Math Object -->
     <div class="mb-5">
       <h5 class="border-bottom fw-bold ">Math Object</h5>
-
+      <ol>
+        <li>
+          <p>Math Object中，常用的static propertires包含：Math.PI, Math.E。</p>
+        </li>
+        <li>
+          <p>常用的static methods包含：Math.pow(x, y), Math.random(), Math.sqrt(x), Math.abs(), Math.floor(), Math.ceil()。</p>
+          <ul>
+            <li>
+              <p>Math.pow(x, y)</p>
+              <div class="bg-body-tertiary border p-3 m-3">
+                <code>
+                  console.log(Math.pow(3, 2));   <span class="text-secondary ">// 3的二次方，得 9。</span>
+                </code>
+              </div>
+            </li>
+            <li>
+              <p>Math.random()<br>
+                return的值介於0~1，涵蓋0，不涵蓋1。 [0, 1)。0 <= Math.random < 1。</p>
+                  <div class="bg-body-tertiary border p-3 m-3">
+                    <code>
+                  console.log(Math.random());   <span class="text-secondary ">// 隨機出現一個0~1的數值，每次出現的都會不同。</span>
+                </code>
+                  </div>
+            </li>
+            <li>
+              <p>Math.sqrt(x) ： 開根號 (square root)。</p>
+              <div class="bg-body-tertiary border p-3 m-3">
+                <code>
+                  console.log(Math.sqrt(2));   <span class="text-secondary ">// 2開根號 = 1.4142135623730951</span>
+                </code>
+              </div>
+            </li>
+            <li>
+              <p>Math.abs() ： 絕對值 (整數) (absolute value)。</p>
+              <div class="bg-body-tertiary border p-3 m-3">
+                <code>
+                  console.log(Math.abs(-2));   <span class="text-secondary ">// -2的絕對值 = 2</span>
+                </code>
+              </div>
+            </li>
+            <li>
+              <p>Math.floor() ： 向下取整數。</p>
+              <div class="bg-body-tertiary border p-3 m-3">
+                <code>
+                  console.log(Math.floor(9.99999999999));   <span class="text-secondary ">// 9</span>
+                </code>
+              </div>
+            </li>
+            <li>
+              <p>Math.ceil() ： 向上取整數。</p>
+              <div class="bg-body-tertiary border p-3 m-3">
+                <code>
+                  console.log(Math.ceil(9.99999999999));   <span class="text-secondary ">// 10</span>
+                  <br>
+                  console.log(Math.ceil(9.00000000000001));   <span class="text-secondary ">// 10</span>
+                </code>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ol>
     </div>
 
-    <!-- XXXXXX -->
+    <!-- 終極密碼 -->
     <div class="mb-5">
-      <h5 class="border-bottom fw-bold ">常見 JavaScript 函數</h5>
-
+      <h5 class="border-bottom fw-bold ">終極密碼</h5>
+      <a href="./2023-09-28-GuessNumberGame.html" target="_blank">Guessing Number Game</a>
     </div>
 
+    <!-- 小試身手 -->
+    <div class="mb-5">
+      <h5 class="border-bottom fw-bold ">小試身手</h5>
+      <ol>
+        <li>小試身手1 - 反轉陣列</li>
+        <li>小試身手2 - 找出最大值</li>
+        <li>小試身手3 - 數值加總</li>
+      </ol>
+    </div>
+
+    <!-- 第六章節測驗 -->
+    <div class="mb-5">
+      <h5 class="border-bottom fw-bold ">第六章節測驗</h5>
+
+    </div>
   </div>
 
   <script>
-    let arr = ["Mike", "Grace", "Jason", "Jared"];
+    // let arr = ["Mike", "Grace", "Jason", "Jared"];
 
-    for (let i = 0; i < arr.length; i++) {
-      console.log(arr[i] + " is my friend.")
-    }
+    // for (let i = 0; i < arr.length; i++) {
+    //   console.log(arr[i] + " is my friend.")
+    // }
 
     // Mike is my friend.
     // Grace is my friend.
     // Jason is my friend.
     // Jared is my friend.
+
+    // console.log(Math.PI);
+    // console.log(Math.E);
+
+    // console.log(Math.pow(3, 2));  // 3的二次方，得 9。
+    // console.log(Math.random());
+    // console.log(Math.sqrt(2));
+    // console.log(Math.abs(-2));
+    // console.log(Math.floor(9.99999999999));
+    // console.log(Math.ceil(9.99999999999));
+    // console.log(Math.ceil(9.00000000000001));
+
+    // 小試身手1 - 反轉陣列
+    // const friends = ["Harry", "Ron", "Snap", "Mike", "Grace"];
+    // const reversed_friends = [];
+
+    // for (let i = 0; i < friends.length; i++) {
+    //   reversed_friends.push(friends[i]);
+    // }
+    // console.log(reversed_friends);
+
+
+
+    // 小試身手3 - 數值加總
+    function addUpTo(n) {
+      let result = 0;
+      for (let i = 0; i <= n; i++) {
+        result += i;
+      }
+      return result;
+    }
+    console.log(addUpTo(10));
+
   </script>
   <script src="../app.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
