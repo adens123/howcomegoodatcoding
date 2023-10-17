@@ -44,61 +44,73 @@
           <div class="flex">
             <input
               id="todoField"
-              class="flex-1 p-2 mr-4 border border-gray-400 rounded-lg focus:outline-sky-600"
+              class="flex-1 p-2 mr-4 border-2 border-sky-600 rounded-lg outline-none"
               type="text"
               placeholder="新增待辦事項" />
+            <select
+              id="category"
+              class="p-2 mr-4 border-2 border-sky-600 rounded-lg outline-none"
+              onchange="addTodotheme()">
+              <option value="normal">一般</option>
+              <option value="important">重要</option>
+              <option value="urgent">緊急</option>
+            </select>
             <button
-              class="text-slate-300 font-semibold tracking-widest px-8 py-2 bg-sky-600 rounded-md hover:bg-opacity-70"
+              id="addTodoBtn"
+              class="text-slate-300 font-semibold tracking-widest px-8 py-2 bg-sky-600 rounded-md hover:bg-opacity-70 outline-none"
               onclick="addTodo()">
               新增
             </button>
           </div>
-          <hr class="mt-4" />
-          <div class="flex justify-between items-center my-2">
-            <h2 class="text-slate-500 font-semibold">Tasks</h2>
-            <button
-              class="bg-slate-500 text-white px-3 py-1 rounded-md hover:bg-opacity-70"
-              onclick="exportText()">
-              匯出
-            </button>
+          <div id="todoBox" class="mt-4 border-t-2 hidden">
+            <div class="flex justify-between items-center my-4">
+              <h2 class="text-slate-500 font-semibold">Tasks</h2>
+              <button
+                class="bg-slate-500 text-white px-3 py-1 rounded-md hover:bg-opacity-70"
+                onclick="exportText()">
+                匯出
+              </button>
+            </div>
+            <ul id="todolist" class="mt-1">
+              <!-- <li
+                class="bg-red-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
+                <span>倒垃圾</span>
+                <button
+                  class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
+                  onclick="delTodo()">
+                  刪除
+                </button>
+              </li>
+              <li
+                class="bg-sky-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
+                <span>繳電話費</span>
+                <button
+                  class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
+                  onclick="delTodo()">
+                  刪除
+                </button>
+              </li>
+              <li
+                class="bg-orange-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
+                <span>採買本週食材</span>
+                <button
+                  class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
+                  onclick="delTodo()">
+                  刪除
+                </button>
+              </li> -->
+            </ul>
           </div>
-          <ul id="todolist" class="mt-1">
-            <li
-              class="bg-sky-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
-              <span>倒垃圾</span>
-              <button
-                class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
-                onclick="delTodo()">
-                刪除
-              </button>
-            </li>
-            <li
-              class="bg-sky-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
-              <span>繳電話費</span>
-              <button
-                class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
-                onclick="delTodo()">
-                刪除
-              </button>
-            </li>
-            <li
-              class="bg-sky-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
-              <span>採買本週食材</span>
-              <button
-                class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
-                onclick="delTodo()">
-                刪除
-              </button>
-            </li>
-          </ul>
         </div>
       </div>
     </main>
     <script>
       // 新增一筆
       function addTodo() {
-        const $todoField = document.querySelector("#todoField"); // 變數以$開頭表示是選取html的元素
-        const $todolist = document.querySelector("#todolist"); // 變數以$開頭表示是選取html的元素
+        // 變數以$開頭表示是選取html的元素
+        const $todoField = document.querySelector("#todoField"); // input
+        const $todolist = document.querySelector("#todolist"); // ul
+        const $category = document.querySelector("#category"); // select
 
         // 創建li, span, button元素
         const newLi = document.createElement("li");
@@ -106,11 +118,25 @@
         const newBtn = document.createElement("button");
 
         // 沒有輸入內容就跳提醒，使用return程式就不會再往下執行
-        if ($todoField.value == "") return alert("請輸入待辦事項內容");
+        if (!$todoField.value) return alert("請輸入待辦事項內容");
+
+        // 取得一般、重要、緊急的選擇結果
+        const selectedValue = $category[$category.selectedIndex].value;
+
+        // 依照一般、重要、緊急的選擇結果，判斷要輸出的class樣式
+        const selectedStyle =
+          selectedValue == "normal"
+            ? "sky"
+            : selectedValue == "important"
+            ? "orange"
+            : "red";
+
+        // 使用dataset屬性，在待辦事項中加入normal, important, urgent識別，方便在匯出純文字時使用
+        newLi.dataset.priority = selectedValue;
 
         // 幫創建的li元素加上class樣式
         newLi.classList.add(
-          "bg-sky-300",
+          `bg-${selectedStyle}-300`,
           "flex",
           "items-center",
           "justify-between",
@@ -152,13 +178,17 @@
         // 清除 user 輸入內容，並將游標定位到 user 輸入欄位
         $todoField.value = "";
         $todoField.focus();
+
+        showHiddenTodo();
       }
 
       // 選取到目前點擊的button的父元素li，把li刪除
       function delTodo() {
         event.target.parentElement.remove();
+        showHiddenTodo();
       }
 
+      // 匯出純文字
       function exportText() {
         let copyMsg = "【直接在alert視窗按 ctrl + c 就可以複製】\n\n";
         let exportContent = copyMsg + "今日待辦：\n---------------\n";
@@ -166,15 +196,66 @@
 
         // document.querySelector("#todolist").children 表示ul中有多少個li
         for (let item of document.querySelector("#todolist").children) {
+          // 取得每筆待辦事項的priority，判斷匯出時是否要加上*或**
+          const prioritySymbol =
+            item.dataset.priority == "important"
+              ? "*"
+              : item.dataset.priority == "urgent"
+              ? "**"
+              : "";
+
           // 跑一次迴圈就在要輸出結果的字串中加入一筆待辦事項
           exportContent +=
-            num.toString() + ". " + item.children[0].textContent + "\n";
+            num.toString() +
+            ". " +
+            prioritySymbol +
+            item.children[0].textContent +
+            prioritySymbol +
+            "\n";
 
           num++; // 跑一次迴圈，編號就+1 → 1, 2, 3.....
           console.log(exportContent); // 可以看看每跑一次迴圈後的輸出結果
         }
 
         return alert(exportContent);
+      }
+
+      // 依照選擇一般、重要、緊急，切換新增待辦區塊的主題顏色
+      function addTodotheme() {
+        // 設定一般、重要、緊急對照的主題顏色
+        const themeColors = {
+          normal: "sky",
+          important: "orange",
+          urgent: "red"
+        };
+
+        // 依照選取的value取得主題顏色
+        let themeColor = themeColors[document.querySelector("#category").value];
+
+        for (item of ["#category", "#todoField", "#addTodoBtn"]) {
+          // 先刪除既有主題顏色的class，不管有或沒有，一律全刪
+          for (color of Object.values(themeColors)) {
+            document
+              .querySelector(item)
+              .classList.remove(`border-${color}-600`, `bg-${color}-600`);
+          }
+
+          // 加入目前選取的主題顏色的class
+          document
+            .querySelector(item)
+            .classList.add(
+              `${item != "#addTodoBtn" ? "border" : "bg"}-${themeColor}-600`
+            );
+        }
+      }
+
+      // 判斷有無待辦事項，顯示或隱藏待辦事項區塊
+      function showHiddenTodo() {
+        if (document.querySelector("#todolist").children.length) {
+          document.querySelector("#todoBox").style.display = "block";
+        } else {
+          document.querySelector("#todoBox").style.display = "none";
+        }
       }
     </script>
   </body>
