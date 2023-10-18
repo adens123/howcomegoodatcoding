@@ -9,6 +9,19 @@
     <label for="" class="">顧客姓名：</label>
     <input id="keyword" type="text" />
     <br />
+    <label for="" class="">服裝分類：</label>
+    <select id="Classification">
+      <option value="men">男裝</option>
+      <option value="woman">女裝</option>
+    </select>
+    <br />
+    <label for="" class="">類型：</label>
+    <select id="type">
+      <option value="coat">外套</option>
+      <option value="Jacket">上衣</option>
+      <option value="lowerBody">下身</option>
+    </select>
+    <br />
     <br />
 
     <button onclick="ibuy()">我要訂購</button>
@@ -17,6 +30,8 @@
     <ul class="list">
       <li class="title">您的訂單</li>
       <li class="name">顧客姓名: <span id="custom-name"></span></li>
+      <li class="name">服裝分類: <span id="Classific"></span></li>
+      <li class="name">服裝類型: <span id="type3"></span></li>
     </ul>
     <script src="./all.js"></script>
   </body>

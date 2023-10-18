@@ -44,18 +44,20 @@
           <div class="flex">
             <input
               id="todoField"
-              class="flex-1 p-2 mr-4 border border-gray-400 rounded-lg focus:outline-sky-600"
+              class="flex-1 p-2 mr-4 border-2 border-sky-600 rounded-lg outline-none"
               type="text"
               placeholder="新增待辦事項" />
             <select
               id="category"
-              class="p-2 mr-4 border border-gray-400 rounded-lg focus:outline-sky-600">
-              <option value="common">一般</option>
+              class="p-2 mr-4 border-2 border-sky-600 rounded-lg outline-none"
+              onchange="addTodotheme()">
+              <option value="normal">一般</option>
               <option value="important">重要</option>
               <option value="urgent">緊急</option>
             </select>
             <button
-              class="text-slate-300 font-semibold tracking-widest px-8 py-2 bg-sky-600 rounded-md hover:bg-opacity-70"
+              id="addTodoBtn"
+              class="text-slate-300 font-semibold tracking-widest px-8 py-2 bg-sky-600 rounded-md hover:bg-opacity-70 outline-none"
               onclick="addTodo()">
               新增
             </button>
@@ -71,28 +73,18 @@
             </div>
             <ul id="todolist" class="mt-1">
               <!-- <li
-                class="bg-red-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
-                <span>倒垃圾</span>
+                class="bg-red-300 flex items-center text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
+                <span
+                  class="w-6 h-6 bg-rose-600 text-white rounded-full text-center hover:opacity-70 mr-3">
+                  &#10004;
+                </span>
+                <span
+                  class="bg-slate-400 text-white rounded-lg p-1 text-xs mr-1"
+                  >已完成</span
+                >
+                <span class="text-slate-400 line-through">倒垃圾</span>
                 <button
-                  class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
-                  onclick="delTodo()">
-                  刪除
-                </button>
-              </li>
-              <li
-                class="bg-sky-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
-                <span>繳電話費</span>
-                <button
-                  class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
-                  onclick="delTodo()">
-                  刪除
-                </button>
-              </li>
-              <li
-                class="bg-orange-300 flex items-center justify-between text-slate-700 p-3 mb-2 rounded-sm shadow-lg">
-                <span>採買本週食材</span>
-                <button
-                  class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70"
+                  class="text-slate-300 font-semibold tracking-widest px-3 py-1 bg-rose-600 rounded-md hover:bg-opacity-70 ml-auto"
                   onclick="delTodo()">
                   刪除
                 </button>
@@ -112,7 +104,9 @@
 
         // 創建li, span, button元素
         const newLi = document.createElement("li");
-        const newSpan = document.createElement("span");
+        const newSpanIcon = document.createElement("span");
+        const newSpanDone = document.createElement("span");
+        const newSpanText = document.createElement("span");
         const newBtn = document.createElement("button");
 
         // 沒有輸入內容就跳提醒，使用return程式就不會再往下執行
@@ -123,13 +117,13 @@
 
         // 依照一般、重要、緊急的選擇結果，判斷要輸出的class樣式
         const selectedStyle =
-          selectedValue == "common"
+          selectedValue == "normal"
             ? "sky"
             : selectedValue == "important"
             ? "orange"
             : "red";
 
-        // 使用dataset屬性，在待辦事項中加入common, important, urgent識別，方便在匯出純文字時使用
+        // 使用dataset屬性，在待辦事項中加入normal, important, urgent識別，方便在匯出純文字時使用
         newLi.dataset.priority = selectedValue;
 
         // 幫創建的li元素加上class樣式
@@ -137,7 +131,6 @@
           `bg-${selectedStyle}-300`,
           "flex",
           "items-center",
-          "justify-between",
           "text-slate-700",
           "p-3",
           "mb-2",
@@ -154,7 +147,8 @@
           "py-1",
           "bg-rose-600",
           "rounded-md",
-          "hover:bg-opacity-70"
+          "hover:bg-opacity-70",
+          "ml-auto"
         );
 
         // 幫創建的button元素加入文字內容
@@ -163,11 +157,22 @@
         // 幫創建的button元素加上刪除功能(delTodo is a Function)
         newBtn.onclick = delTodo;
 
-        // 幫創建的span元素加入user輸入的待辦事項內容
-        newSpan.textContent = todoField.value;
+        // 幫創建的span元素加入樣式和user輸入的待辦事項內容
+        newSpanIcon.innerHTML = "&#10004;";
+        newSpanIcon.className =
+          "w-6 h-6 bg-gray-300 text-white rounded-full text-center hover:opacity-70 mr-3 cursor-pointer";
+        newSpanIcon.onclick = todoDone;
+
+        newSpanDone.textContent = "已完成";
+        newSpanDone.className =
+          "bg-slate-400 text-white rounded-lg p-1 text-xs mr-1";
+        newSpanDone.style.display = "none";
+
+        newSpanText.textContent = todoField.value;
+        newSpanText.className = "break-words align-middle";
 
         // 將創建的span, button元素依序加入到新創的的li元素內(子元素)
-        newLi.append(newSpan, newBtn);
+        newLi.append(newSpanIcon, newSpanDone, newSpanText, newBtn);
 
         // 將創建的li元素加入到ul元素內的最下面, 嘗試使用其他的method：insertAdjacentElement()
         // https://developer.mozilla.org/zh-CN/docs/Web/API/Element/insertAdjacentElement
@@ -188,8 +193,7 @@
 
       // 匯出純文字
       function exportText() {
-        let copyMsg = "【直接在alert視窗按 ctrl + c 就可以複製】\n\n";
-        let exportContent = copyMsg + "今日待辦：\n---------------\n";
+        let exportContent = "今日待辦：\n---------------\n";
         let num = 1; // 匯出時的項目編號
 
         // document.querySelector("#todolist").children 表示ul中有多少個li
@@ -207,7 +211,7 @@
             num.toString() +
             ". " +
             prioritySymbol +
-            item.children[0].textContent +
+            item.children[2].textContent +
             prioritySymbol +
             "\n";
 
@@ -216,6 +220,48 @@
         }
 
         return alert(exportContent);
+      }
+
+      // 依照選擇一般、重要、緊急，切換新增待辦區塊的主題顏色
+      function addTodotheme() {
+        // 設定一般、重要、緊急對照的主題顏色
+        const themeColors = {
+          normal: "sky",
+          important: "orange",
+          urgent: "red"
+        };
+
+        // 依照選取的value取得主題顏色
+        let themeColor = themeColors[document.querySelector("#category").value];
+
+        for (let item of ["#category", "#todoField", "#addTodoBtn"]) {
+          // 先刪除既有主題顏色的class，不管有或沒有，一律全刪
+          for (let color of Object.values(themeColors)) {
+            document
+              .querySelector(item)
+              .classList.remove(`border-${color}-600`, `bg-${color}-600`);
+          }
+
+          // 加入目前選取的主題顏色的class
+          document
+            .querySelector(item)
+            .classList.add(
+              `${item != "#addTodoBtn" ? "border" : "bg"}-${themeColor}-600`
+            );
+        }
+      }
+
+      // 待辦事項完成
+      function todoDone() {
+        if (!this.classList.replace("bg-gray-300", "bg-rose-600")) {
+          this.classList.replace("bg-rose-600", "bg-gray-300");
+          this.parentElement.children[1].style.display = "none";
+          this.parentElement.children[2].className = "";
+        } else {
+          this.parentElement.children[1].style.display = "block";
+          this.parentElement.children[2].className =
+            "text-slate-400 line-through";
+        }
       }
 
       // 判斷有無待辦事項，顯示或隱藏待辦事項區塊
