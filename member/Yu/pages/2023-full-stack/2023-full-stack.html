@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>作業分享區｜Yuchen</title>
+    <title>2023 網頁全端開發｜Yuchen</title>
     <!-- bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -14,7 +14,7 @@
     <!-- AOS.css -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="../SCSS/CSS/all.css" />
+    <link rel="stylesheet" href="../../SCSS/CSS/all.css" />
   </head>
   <body class="bg-dark-mode">
     <div class="bg-theme-tokyo">
@@ -38,13 +38,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="../index.html">首頁</a>
+                  <a class="nav-link" href="../../index.html">首頁</a>
                 </li>
                 <li class="nav-item">
                   <a
                     class="nav-link active"
                     aria-current="page"
-                    href="./contents.html"
+                    href="../contents.html"
                     >作業分享區</a
                   >
                 </li>
@@ -60,69 +60,60 @@
               <div
                 class="course border border-0 p-3 rounded cap shadow-lg mb-3"
               >
-                <h2 class="mb-3 text-center text-dark fw-bold">作業成果</h2>
-                <table
-                  class="table table-borderless table-hover text-center align-middle shadow"
-                >
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">更新日期</th>
-                      <th scope="col">名稱</th>
-                      <th scope="col">連結</th>
-                    </tr>
-                  </thead>
-                  <tbody class="project"></tbody>
-                </table>
-              </div>
-            </div>
-            <div class="col-12" data-aos="fade-right" data-aos-duration="1500">
-              <div
-                class="course border border-0 p-3 rounded cap shadow-lg mb-3"
-              >
                 <h2 class="mb-3 text-center text-dark fw-bold">
                   2023 網頁全端開發
                 </h2>
-                <table
-                  class="table table-borderless table-hover text-center align-middle shadow"
-                >
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">日期</th>
-                      <th scope="col">章節</th>
-                      <th scope="col">內容</th>
-                      <th scope="col">連結</th>
-                    </tr>
-                  </thead>
-                  <tbody class="udemy-01"></tbody>
-                </table>
-              </div>
-            </div>
-            <div class="col-12" data-aos="fade-left" data-aos-duration="1500">
-              <div
-                class="course border border-0 p-3 rounded cap shadow-lg mb-3"
-              >
-                <h2 class="mb-3 text-center text-dark fw-bold">
-                  愛寫扣學院 前端練功作業包
-                </h2>
-                <table
-                  class="table table-borderless table-hover text-center align-middle shadow"
-                >
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">日期</th>
-                      <th scope="col">章節內容</th>
-                      <th scope="col">連結</th>
-                    </tr>
-                  </thead>
-                  <tbody class="codelove-01"></tbody>
-                </table>
+                <div class="accordion" id="accordionCourse">
+                  <div class="accordion-item">
+                    <h3 class="accordion-header">
+                      <button
+                        class="accordion-button chapter"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseCh5"
+                        aria-expanded="true"
+                        aria-controls="collapseCh5"
+                      ></button>
+                    </h3>
+                    <div
+                      id="collapseCh5"
+                      class="accordion-collapse collapse show"
+                      data-bs-parent="#accordionCourse"
+                    >
+                      <div class="accordion-body">
+                        <table
+                          class="table table-hover text-center align-middle"
+                        >
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">日期</th>
+                              <th scope="col">內容</th>
+                              <th scope="col">連結</th>
+                            </tr>
+                          </thead>
+                          <tbody class="course_table">
+                            <tr>
+                              <th scope="row">1</th>
+                              <td class="text-secondary">2023/10/10</td>
+                              <td>變數與賦值、數字運算</td>
+                              <td>
+                                <a
+                                  href=""
+                                  class="btn btn-outline-secondary text-nowrap"
+                                  >點此前往</a
+                                >
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="row mb-3 justify-content-end"></div>
         </div>
       </main>
     </div>
@@ -139,6 +130,6 @@
       AOS.init();
     </script>
 
-    <script src="../js/assignments.js"></script>
+    <script src="../../js/2023-full-stack.js"></script>
   </body>
 </html>
