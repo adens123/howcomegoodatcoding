@@ -61,6 +61,11 @@ const codelove_01 = [
       },
       {
         date: "2023/10/13",
+        content: "讀取與修改 DOM 元素的 class",
+        link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/363/",
+      },
+      {
+        date: "2023/10/16",
         content: "認識 onchange 事件",
         link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/363/",
       },
