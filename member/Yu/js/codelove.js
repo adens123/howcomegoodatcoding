@@ -59,6 +59,11 @@ const codelove_01 = [
         content: "認識 for 迴圈",
         link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/277/",
       },
+      {
+        date: "2023/10/13",
+        content: "認識 onchange 事件",
+        link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/363/",
+      },
     ],
   },
 ];
