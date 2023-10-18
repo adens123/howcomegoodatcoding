@@ -168,9 +168,9 @@ function createTable(course) {
   }
 }
 
-function render() {
-  createChapter(codelove_01);
-  createTable(codelove_01);
+function render(course) {
+  createChapter(course);
+  createTable(course);
 }
 
-render();
+render(codelove_01);

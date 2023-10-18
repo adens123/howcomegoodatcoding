@@ -77,11 +77,11 @@ const udemy_01 = [
 ];
 
 // Chapter render
-function createChapter() {
+function createChapter(course) {
   let el = document.querySelector("#accordionCourse");
   let result = "";
 
-  for (let [index, value] of udemy_01.entries()) {
+  for (let [index, value] of course.entries()) {
     if (index == 0) {
       result += `<div class="accordion-item">
   <h3 class="accordion-header">
@@ -156,20 +156,20 @@ function createChapter() {
 }
 
 // render course
-function createTable() {
+function createTable(course) {
   let el = document.querySelectorAll(".course_table");
   let result = "";
   // console.log(el);
-  for (let i = 0; i < udemy_01.length; i++) {
-    console.log(udemy_01[i].lesson.length);
-    for (let j = 0; j < udemy_01[i].lesson.length; j++) {
+  for (let i = 0; i < course.length; i++) {
+    console.log(course[i].lesson.length);
+    for (let j = 0; j < course[i].lesson.length; j++) {
       result += `<tr>
       <th scope="row">${j + 1}</th>
-      <td class="text-secondary">${udemy_01[i].lesson[j].date}</td>
-      <td>${udemy_01[i].lesson[j].content}</td>
+      <td class="text-secondary">${course[i].lesson[j].date}</td>
+      <td>${course[i].lesson[j].content}</td>
       <td>
         <a
-          href="./${udemy_01[i].lesson[j].link}"
+          href="./${course[i].lesson[j].link}"
           class="btn btn-outline-secondary text-nowrap"
           >點此前往</a
         >
@@ -181,9 +181,9 @@ function createTable() {
   }
 }
 
-function render() {
-  createChapter();
-  createTable();
+function render(course) {
+  createChapter(course);
+  createTable(course);
 }
 
-render();
+render(udemy_01);
