@@ -1,0 +1,112 @@
+// mixin
+@mixin alert-theme($bgColor, $borderLColor) {
+  background-color: $bgColor;
+  border-left-color: $borderLColor;
+  .btn-close {
+    opacity: 0.6;
+  }
+}
+
+// base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  background-color: rgb(10, 10, 10);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// layout
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.header {
+  background-color: rgb(156, 163, 175);
+}
+
+// utils
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+// component
+.navbar {
+  padding: 10px 20px;
+
+  h1 {
+    color: #000;
+    font-size: 24px;
+    margin-right: 20px;
+  }
+
+  h2 {
+    color: #4b5563;
+    font-size: 20px;
+  }
+}
+
+.componentDemo {
+  width: 75%;
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid #4b5563;
+
+  &-title {
+    border-bottom: 2px solid wheat;
+    margin-bottom: 12px;
+  }
+}
+
+.alert {
+  display: inline-block;
+  background-color: #777;
+  padding: 8px 20px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border-left: 8px solid #444;
+
+  &-primary {
+    @include alert-theme(#0d6efd, #084298);
+  }
+
+  &-success {
+    @include alert-theme(#198754, #0f5132);
+  }
+
+  &-danger {
+    @include alert-theme(#dc3445, #842029);
+  }
+
+  &-warning {
+    @include alert-theme(#fd7e14, #984c0c);
+  }
+}
+
+.btn-close {
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0px 4px;
+  border: none;
+}

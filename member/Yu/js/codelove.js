@@ -67,13 +67,18 @@ const codelove_01 = [
       {
         date: "2023/10/16",
         content: "認識 onchange 事件",
-        link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/375/",
+        link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/376/",
+      },
+      {
+        date: "2023/10/17",
+        content: "讀取與修改 DOM 元素的 style",
+        link: "https://codepen.io/yuch3n_chen/pen/PoXMxvO",
       },
     ],
   },
 ];
 
-// Chapter render
+// 建立章節列表
 function createChapter(course) {
   let el = document.querySelector("#accordionCourse");
   let result = "";
@@ -152,7 +157,7 @@ function createChapter(course) {
   el.innerHTML = result;
 }
 
-// render course
+// 建立課程列表
 function createTable(course) {
   let el = document.querySelectorAll(".course_table");
   let result = "";
