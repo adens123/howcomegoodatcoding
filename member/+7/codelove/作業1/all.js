@@ -13,6 +13,34 @@ function ibuy() {
   alert(
     data + "謝謝您對我們的衣服有興趣！請致電 0987-654-321，會有專人提供您報價！"
   );
+
+  let men = "男裝";
+
+  if (data2 == men) {
+    alert("最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您帥氣領帶！");
+  } else {
+    alert("最近剛好是工廠週年慶，只要您今天來電下單，我們將贈送您美麗圍巾！");
+  }
+  //
+  //   1.先選到 服裝分類 這個選單，且可以辨別 使用者選擇選單的細項(男裝/女裝)
+  let clothing = classification.options[classification.selectedIndex].value;
+
+  // 2.取到 顧客輸入,訂購數量 的值
+  quantityCl = document.getElementById("quantityCl").value;
+
+  //3.取到 服裝分類,之後 初步估價, 怎麼計算? (訂購數量*價錢)
+  if (clothing == "men") {
+    document.getElementById("evaluate").textContent =
+      String(Number(quantityCl)) * 600;
+  } else {
+    document.getElementById("evaluate").textContent =
+      String(Number(quantityCl)) * 500;
+  }
+  // 4.列印出訂購數量&初步估價給客戶看
+  document.getElementById("quantity").textContent = quantityCl;
+
+  //value="men"(string)
+  //(顧客input數字預設是string),轉Number才可計算數量，計算完再轉回string,初步估價欄位evaluate是string
 }
 
 function myFunction() {

@@ -169,7 +169,7 @@
         newSpanDone.style.display = "none";
 
         newSpanText.textContent = todoField.value;
-        newSpanText.className = "break-words align-middle";
+        newSpanText.className = "break-words";
 
         // 將創建的span, button元素依序加入到新創的的li元素內(子元素)
         newLi.append(newSpanIcon, newSpanDone, newSpanText, newBtn);
@@ -187,7 +187,7 @@
 
       // 選取到目前點擊的button的父元素li，把li刪除
       function delTodo() {
-        event.target.parentElement.remove();
+        event.target.closest("li").remove();
         showHiddenTodo();
       }
 
@@ -197,7 +197,8 @@
         let num = 1; // 匯出時的項目編號
 
         // document.querySelector("#todolist").children 表示ul中有多少個li
-        for (let item of document.querySelector("#todolist").children) {
+        // document.querySelectorAll("#todolist > li") 效果一樣
+        for (let item of document.querySelectorAll("#todolist > li")) {
           // 取得每筆待辦事項的priority，判斷匯出時是否要加上*或**
           const prioritySymbol =
             item.dataset.priority == "important"
@@ -211,7 +212,7 @@
             num.toString() +
             ". " +
             prioritySymbol +
-            item.children[2].textContent +
+            item.querySelectorAll("span")[2].textContent +
             prioritySymbol +
             "\n";
 
@@ -255,18 +256,19 @@
       function todoDone() {
         if (!this.classList.replace("bg-gray-300", "bg-rose-600")) {
           this.classList.replace("bg-rose-600", "bg-gray-300");
-          this.parentElement.children[1].style.display = "none";
-          this.parentElement.children[2].className = "";
+          this.closest("li").querySelectorAll("span")[1].style.display = "none";
+          this.closest("li").querySelectorAll("span")[2].className = "";
         } else {
-          this.parentElement.children[1].style.display = "block";
-          this.parentElement.children[2].className =
+          this.closest("li").querySelectorAll("span")[1].style.display =
+            "block";
+          this.closest("li").querySelectorAll("span")[2].className =
             "text-slate-400 line-through";
         }
       }
 
       // 判斷有無待辦事項，顯示或隱藏待辦事項區塊
       function showHiddenTodo() {
-        if (document.querySelector("#todolist").children.length) {
+        if (document.querySelectorAll("#todolist > li").length) {
           document.querySelector("#todoBox").style.display = "block";
         } else {
           document.querySelector("#todoBox").style.display = "none";
