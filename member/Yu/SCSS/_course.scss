@@ -1,10 +1,11 @@
 .course {
-  .accordion-item {
-    &:not(:last-of-type) {
-      margin-bottom: 0.5rem;
-    }
-  }
   .chapter {
     font-weight: bold;
+  }
+  .card {
+    &-img-top {
+      height: 25vh;
+      object-fit: cover;
+    }
   }
 }

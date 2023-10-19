@@ -86,11 +86,14 @@ body {
      display: flex;
      justify-content: space-between;
      align-items: center;
+     transition: all .3s;
   }
   .list-item:hover{
      border: 2px dashed #3e3c3c;
+     
   }
   i{
+    padding-left: 8px;
     cursor:pointer;
     font-size:20px;
     color:transparent;
@@ -100,15 +103,14 @@ body {
     color: #d2691e;
     /* color: #372b24ea; */
   }
+  .listGroup i:hover{
+    transform: scale(1.4);
+   
+  }
   /* .fa-trash-can:hover{
     color: red;
     
   } */
-  
-
-  
-  
-  
   
   /* text-indent: 10px; */
   

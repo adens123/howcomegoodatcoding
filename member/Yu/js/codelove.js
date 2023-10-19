@@ -1,76 +1,73 @@
-const udemy_01 = [
+const codelove_01 = [
   {
-    ch_num: 5,
-    chapter: "Chapter 5 - Javascript Basic",
+    ch_num: 1,
+    chapter: "JavaScript（一）幫衣服工廠做個好用表單",
     lesson: [
       {
-        date: "2023/09/15",
-        content: "JS簡介、Lexical Structure",
-        link: "20230915.html",
+        date: "2023/09/22",
+        content: "基本的函數操作、onclick 事件",
+        link: "https://jsfiddle.net/kulimusoda/mk2ptwc5/26/",
       },
       {
-        date: "2023/09/18",
-        content: "變數與賦值、數字運算",
-        link: "20230918.html",
+        date: "2023/09/25",
+        content: "基本的變數操作、從 html 取得內容",
+        link: "https://jsfiddle.net/kulimusoda/cuh8wyrL/104/",
       },
       {
-        date: "2023/09/19",
-        content:
-          "String基本介紹、Number Methods、String Attributes and Methods",
-        link: "20230919.html",
+        date: "2023/09/27",
+        content: "修改 html 的內容",
+        link: "https://jsfiddle.net/kulimusoda/wuLntymf/23/",
       },
       {
-        date: "2023/09/20",
-        content:
-          "Boolean, Undefined, Null、logical, comparison operator, if statement",
-        link: "20230920.html",
+        date: "2023/09/28",
+        content: "基本的陣列操作",
+        link: "https://jsfiddle.net/kulimusoda/gqxut4cr/58/",
       },
       {
-        date: "2023/09/21",
-        content:
-          "Truthy and Falsy Values, Logical Operator與其他資料類型處理, Coding Convention and Restrictions",
-        link: "20230921.html",
+        date: "2023/09/29",
+        content: "基本的 if/else 條件流程控制",
+        link: "https://jsfiddle.net/kulimusoda/sv36cquf/8/",
+      },
+      {
+        date: "2023/10/02",
+        content: "認識資料型態與轉換",
+        link: "https://jsfiddle.net/kulimusoda/8men7y34/26/",
+      },
+      {
+        date: "2023/10/04",
+        content: "認識巢狀結構",
+        link: "https://jsfiddle.net/kulimusoda/p2Lv917r/13/",
       },
     ],
   },
   {
-    ch_num: 6,
-    chapter: "Chapter 6 - Javascript Basic 2",
+    ch_num: 2,
+    chapter: "JavaScript（二）親手做個待辦事項小工具",
     lesson: [
       {
-        date: "2023/09/22",
-        content: "認識函式、return關鍵字",
-        link: "20230922.html",
+        date: "2023/10/09",
+        content: "認識 DOM 樹、新增元素",
+        link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/122/",
       },
       {
-        date: "2023/09/25",
-        content: "Array陣列、Reference Data Type 比較、Array Methods",
-        link: "20230925.html",
+        date: "2023/10/11",
+        content: "從 DOM 樹移除元素、動態加上 onclick 事件",
+        link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/200/",
       },
       {
-        date: "2023/09/26",
-        content: "Function的時間複雜度、Object語法",
-        link: "20230926.html",
+        date: "2023/10/12",
+        content: "認識 for 迴圈",
+        link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/277/",
       },
       {
-        date: "2023/09/27",
-        content: "For loop, while loop",
-        link: "20230927.html",
+        date: "2023/10/13",
+        content: "讀取與修改 DOM 元素的 class",
+        link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/363/",
       },
       {
-        date: "2023/09/28",
-        content: "Math Object、終極密碼",
-        link: "20230928.html",
-      },
-      {
-        date: "2023/09/29",
-        content: "簡單練習題第一部分 1-10",
-        link: "20230929.html",
-      },
-      {
-        date: "2023/10/03",
-        content: "簡單練習題第二部分 1-7",
-        link: "20231003.html",
+        date: "2023/10/16",
+        content: "認識 onchange 事件",
+        link: "https://jsfiddle.net/kulimusoda/Ls8qv6zk/375/",
       },
     ],
   },
@@ -169,8 +166,8 @@ function createTable(course) {
       <td>${course[i].lesson[j].content}</td>
       <td>
         <a
-          href="./${course[i].lesson[j].link}"
-          class="btn btn-outline-secondary text-nowrap"
+          href="${course[i].lesson[j].link}"
+          class="btn btn-outline-secondary text-nowrap" target="_blank"
           >點此前往</a
         >
       </td>
@@ -186,4 +183,4 @@ function render(course) {
   createTable(course);
 }
 
-render(udemy_01);
+render(codelove_01);
