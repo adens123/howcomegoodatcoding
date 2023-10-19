@@ -76,7 +76,7 @@ const udemy_01 = [
   },
 ];
 
-// Chapter render
+// 建立章節列表
 function createChapter(course) {
   let el = document.querySelector("#accordionCourse");
   let result = "";
@@ -155,7 +155,7 @@ function createChapter(course) {
   el.innerHTML = result;
 }
 
-// render course
+// 建立課程列表
 function createTable(course) {
   let el = document.querySelectorAll(".course_table");
   let result = "";
