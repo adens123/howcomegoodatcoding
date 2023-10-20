@@ -74,6 +74,11 @@ const codelove_01 = [
         content: "讀取與修改 DOM 元素的 style",
         link: "https://codepen.io/yuch3n_chen/pen/PoXMxvO",
       },
+      {
+        date: "2023/10/18",
+        content: "用 Selector API 選取元素",
+        link: "https://codepen.io/yuch3n_chen/pen/LYqPzer",
+      },
     ],
   },
 ];
