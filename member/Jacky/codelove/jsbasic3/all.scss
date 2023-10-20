@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap");
+
 // mixin
 @mixin alert-theme($bgColor, $borderLColor) {
   background-color: $bgColor;
@@ -15,9 +17,15 @@
 }
 
 body {
+  font-family: "Noto Sans TC", sans-serif;
   color: white;
   background-color: rgb(10, 10, 10);
   line-height: 1.5;
+}
+
+button {
+  font-size: inherit;
+  font-family: inherit;
 }
 
 a {
@@ -43,12 +51,25 @@ a {
   display: flex;
 }
 
+.d-none {
+  display: none;
+}
+
 .justify-content-center {
   justify-content: center;
 }
 
+.justify-content-around {
+  justify-content: space-around;
+}
+
 .align-items-center {
   align-items: center;
+}
+
+.my-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 // component
@@ -79,6 +100,13 @@ a {
   }
 }
 
+.btn-close {
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0px 4px;
+  border: none;
+}
+
 .alert {
   display: inline-block;
   background-color: #777;
@@ -104,9 +132,39 @@ a {
   }
 }
 
-.btn-close {
-  font-size: 20px;
+.toast {
+  display: none;
+  background-color: #777;
+  padding: 20px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px gray;
+
+  &-success {
+    color: #000;
+    background-color: #42ee33;
+  }
+  &-error {
+    background-color: #fa3353;
+  }
+}
+
+.btn {
   cursor: pointer;
-  padding: 0px 4px;
+  padding: 16px 8px;
   border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px gray;
+  &:hover {
+    opacity: 0.7;
+  }
+  &-success {
+    background-color: #42ee33;
+  }
+
+  &-danger {
+    color: #fff;
+    background-color: #fa3353;
+  }
 }
