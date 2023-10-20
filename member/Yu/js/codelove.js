@@ -76,6 +76,17 @@ const codelove_01 = [
       },
     ],
   },
+  {
+    ch_num: 3,
+    chapter: "JavaScript（三）自己做看看實務常用 UI 元件",
+    lesson: [
+      {
+        date: "2023/10/19",
+        content: "alert 示警元件",
+        link: "js-3-ui.html",
+      },
+    ],
+  },
 ];
 
 // 建立章節列表
