@@ -90,6 +90,11 @@ const codelove_01 = [
         content: "alert 示警元件",
         link: "js-3-ui.html",
       },
+      {
+        date: "2023/10/20",
+        content: "toast 吐司元件",
+        link: "js-3-ui.html",
+      },
     ],
   },
 ];
