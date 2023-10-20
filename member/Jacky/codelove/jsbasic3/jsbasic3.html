@@ -37,6 +37,21 @@
         <button class="btn-close">×</button>
       </div>
     </section>
+    <section class="componentDemo container">
+      <h2 class="componentDemo-title">toast 吐司元件</h2>
+      <div class="d-flex justify-content-around my-16">
+        <button class="btn btn-success" onclick="toastSuccess()">
+          成功訂購商品
+        </button>
+        <button class="btn btn-danger" onclick="toastError()">
+          訂購商品失敗
+        </button>
+      </div>
+      <div class="toast toast-success">
+        訂購成功！可以查看 Email 確認訂單細節！
+      </div>
+      <div class="toast toast-error">抱歉，訂購失敗！請稍後重新嘗試</div>
+    </section>
 
     <script src="./all.js"></script>
   </body>
