@@ -133,8 +133,8 @@ function createChapter(course) {
   >
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">日期</th>
+        <th class="d-none d-lg-table-cell" scope="col">#</th>
+        <th class="d-none d-lg-table-cell" scope="col">日期</th>
         <th scope="col">內容</th>
         <th scope="col">連結</th>
       </tr>
@@ -167,8 +167,8 @@ function createChapter(course) {
   >
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">日期</th>
+        <th class="d-none d-lg-table-cell" scope="col">#</th>
+        <th class="d-none d-lg-table-cell" scope="col">日期</th>
         <th scope="col">內容</th>
         <th scope="col">連結</th>
       </tr>
@@ -192,8 +192,10 @@ function createTable(course) {
     console.log(course[i].lesson.length);
     for (let j = 0; j < course[i].lesson.length; j++) {
       result += `<tr>
-      <th scope="row">${j + 1}</th>
-      <td class="text-secondary">${course[i].lesson[j].date}</td>
+      <th class="d-none d-lg-table-cell" scope="row">${j + 1}</th>
+      <td class="d-none d-lg-table-cell text-secondary">${
+        course[i].lesson[j].date
+      }</td>
       <td>${course[i].lesson[j].content}</td>
       <td>
         <a
