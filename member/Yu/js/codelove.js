@@ -189,7 +189,7 @@ function createTable(course) {
   let result = "";
   // console.log(el);
   for (let i = 0; i < course.length; i++) {
-    console.log(course[i].lesson.length);
+    // console.log(course[i].lesson.length);
     for (let j = 0; j < course[i].lesson.length; j++) {
       result += `<tr>
       <th class="d-none d-lg-table-cell" scope="row">${j + 1}</th>
