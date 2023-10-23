@@ -88,12 +88,17 @@ const codelove_01 = [
       {
         date: "2023/10/19",
         content: "alert 示警元件",
-        link: "js-3-ui.html",
+        link: "js-3-ui.html#comp-alert",
       },
       {
         date: "2023/10/20",
         content: "toast 吐司元件",
-        link: "js-3-ui.html",
+        link: "js-3-ui.html#comp-toast",
+      },
+      {
+        date: "2023/10/23",
+        content: "modal 互動視窗元件",
+        link: "js-3-ui.html#comp-modal",
       },
     ],
   },

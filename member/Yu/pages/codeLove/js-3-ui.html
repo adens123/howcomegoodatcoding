@@ -50,8 +50,8 @@
       </nav>
     </header>
     <main class="container py-5">
-      <section class="comp-alert mb-5" id="comp-alert">
-        <h2>練習1 ── alert 示警元件</h2>
+      <section class="mb-5">
+        <h2 id="comp-alert">練習1 ── alert 示警元件</h2>
         <div class="p-3 border rounded">
           <div class="d-flex alert alert-primary">
             歡迎您點擊「抖內」按鈕，以實際行動支持我們。
@@ -74,8 +74,8 @@
           </div>
         </div>
       </section>
-      <section class="comp-toast" id="comp-toast">
-        <h2>練習2 ── toast 吐司元件</h2>
+      <section class="mb-5">
+        <h2 id="comp-toast">練習2 ── toast 吐司元件</h2>
         <div class="p-3 border rounded">
           <button class="btn btn-primary" onclick="toastSuccess()">
             成功訂購商品
@@ -88,6 +88,46 @@
             訂購成功！可以查看 Email 確認訂單細節！
           </div>
           <div class="toast toast-error">抱歉，訂購失敗！請稍後重新嘗試</div>
+        </div>
+      </section>
+      <section class="mb-5">
+        <h2 id="comp-modal">練習3 ── modal 互動視窗元件</h2>
+        <div class="p-3 border rounded">
+          <button class="btn btn-success" onclick="loginModal()">
+            點我登入帳號
+          </button>
+          <hr />
+          <button class="btn btn-outline-warning" onclick="postModal()">
+            點我新增貼文
+          </button>
+        </div>
+        <div class="modal" id="login-modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="mb-3">
+                帳號：<input class="form-control" type="text" />
+              </div>
+              <div>密碼：<input class="form-control" type="password" /></div>
+              <hr />
+              <button class="btn-close text-nowrap link-primary fw-bold">
+                關閉
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal" id="post-modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="mb-3">
+                標題：<input class="form-control" type="text" />
+              </div>
+              <div>內文：<textarea class="form-control"> </textarea></div>
+              <hr />
+              <button class="btn-close text-nowrap link-primary fw-bold">
+                關閉
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -120,6 +160,29 @@
         setTimeout(function () {
           errorToast.classList.remove("show");
         }, 5000);
+      }
+
+      // modal 互動視窗
+      let login_modal = document.querySelector("#login-modal");
+      let post_modal = document.querySelector("#post-modal");
+      let modal = document.querySelectorAll(".modal");
+      for (let item of modal) {
+        let btn_close = item.querySelector(".btn-close");
+        btn_close.style.backgroundImage = "none"; // 消除bs預設關閉圖案
+        btn_close.onclick = closeModal;
+      }
+
+      function closeModal() {
+        let e = event.target;
+        e.closest(".modal").style.display = "none";
+      }
+
+      function loginModal() {
+        login_modal.style.display = "block";
+      }
+
+      function postModal() {
+        post_modal.style.display = "block";
       }
     </script>
     <script
