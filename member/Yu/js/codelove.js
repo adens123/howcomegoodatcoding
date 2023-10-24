@@ -100,6 +100,11 @@ const codelove_01 = [
         content: "modal 互動視窗元件",
         link: "js-3-ui.html#comp-modal",
       },
+      {
+        date: "2023/10/24",
+        content: "表單驗證",
+        link: "js-3-ui.html#comp-validation",
+      },
     ],
   },
 ];

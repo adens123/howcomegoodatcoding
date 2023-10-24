@@ -12,6 +12,10 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../../SCSS/CSS/all.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
   <body>
     <header>
@@ -138,6 +142,75 @@
           </div>
         </div>
       </section>
+      <section class="mb-5">
+        <h2 id="comp-validation">練習4 ── 表單驗證</h2>
+        <div class="p-3 border rounded bg-light">
+          <div
+            class="login-form mx-auto bg-white px-3 py-5 rounded shadow d-flex flex-column"
+          >
+            <h3 class="mb-3 text-uppercase fw-bold">sign up!</h3>
+            <form class="mb-4">
+              <div class="field name mb-3">
+                <label for="name">暱稱：</label>
+                <div class="input-area">
+                  <input
+                    type="text"
+                    id="name"
+                    class="bg-light rounded px-4 py-1"
+                  />
+                  <i class="fa-solid fa-user icon"></i>
+                  <i
+                    class="fa-solid fa-circle-exclamation icon-error error"
+                  ></i>
+                </div>
+                <div class="error error-txt">不能為空白、必須在40字以內</div>
+              </div>
+              <div class="field email mb-3">
+                <label for="email">Email：</label>
+                <div class="input-area">
+                  <input
+                    type="email"
+                    id="email"
+                    class="bg-light rounded px-4 py-1"
+                  />
+                  <i class="fa-solid fa-envelope icon"></i>
+                  <i
+                    class="fa-solid fa-circle-exclamation icon-error error"
+                  ></i>
+                </div>
+                <div class="error error-txt">不能為空白、必須包含 @ 符號</div>
+              </div>
+              <div class="field password">
+                <label for="password">密碼：</label>
+                <div class="input-area">
+                  <input
+                    type="password"
+                    id="password"
+                    class="bg-light rounded px-4 py-1"
+                  />
+                  <i class="fa-solid fa-lock icon"></i>
+                  <i
+                    class="fa-solid fa-circle-exclamation icon-error error"
+                  ></i>
+                </div>
+                <div class="error error-txt">
+                  不能為空白、必須在8字以上、必須在100字以內
+                </div>
+              </div>
+            </form>
+            <hr />
+            <a href="#" class="text-uppercase btn btn-success btn_signup"
+              >Sign up</a
+            >
+            <div class="valid-txt mt-3 p-3 rounded border shadow">
+              註冊成功！可以立即使用！
+            </div>
+            <div class="invalid-txt mt-3 p-3 rounded border shadow">
+              註冊失敗！請重新註冊！
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script>
       // alert 示警元件
@@ -191,6 +264,121 @@
 
       function postModal() {
         post_modal.style.display = "block";
+      }
+
+      // validation 表單驗證
+      let form = document.querySelector("form");
+
+      let nField = form.querySelector(".name");
+      let nInput = nField.querySelector("input");
+
+      let eField = form.querySelector(".email");
+      let eInput = eField.querySelector("input");
+
+      let pField = form.querySelector(".password");
+      let pInput = pField.querySelector("input");
+
+      let findValid = form.querySelectorAll("input");
+
+      let signup_submit = document.querySelector(".btn_signup");
+      signup_submit.onclick = signup;
+
+      let isValid = document.querySelector(".valid-txt");
+      let notValid = document.querySelector(".invalid-txt");
+
+      function signup() {
+        event.preventDefault();
+        let hasValid = true;
+
+        chkName();
+        chkEmail();
+        chkPwd();
+
+        for (let item of findValid) {
+          if (!item.classList.contains("valid")) hasValid = false;
+        }
+
+        hasValid ? signup_success() : signup_failed();
+
+        setTimeout(() => {
+          nField.classList.remove("shake");
+          eField.classList.remove("shake");
+          pField.classList.remove("shake");
+        }, 500);
+      }
+
+      function chkName() {
+        let userName = nInput.value;
+        let errorMsg = nField.querySelectorAll(".error");
+        // console.log(errorMsg);
+        if (userName === "" || userName.length >= 40) {
+          nField.classList.add("shake");
+          nInput.classList.add("invalid");
+          nInput.classList.remove("valid");
+          for (let item of errorMsg) {
+            item.style.display = "block";
+          }
+        } else {
+          nInput.classList.add("valid");
+          nInput.classList.remove("invalid");
+          for (let item of errorMsg) {
+            item.style.display = "none";
+          }
+        }
+      }
+
+      function chkEmail() {
+        let userEmail = eInput.value;
+        let errorMsg = eField.querySelectorAll(".error");
+        if (!userEmail.includes("@")) {
+          eField.classList.add("shake");
+          eInput.classList.add("invalid");
+          eInput.classList.remove("valid");
+          for (let item of errorMsg) {
+            item.style.display = "block";
+          }
+        } else {
+          eInput.classList.add("valid");
+          eInput.classList.remove("invalid");
+          for (let item of errorMsg) {
+            item.style.display = "none";
+          }
+        }
+      }
+
+      function chkPwd() {
+        let userPwd = pInput.value.length;
+        let errorMsg = pField.querySelectorAll(".error");
+        if (userPwd < 8 || userPwd > 100) {
+          pField.classList.add("shake");
+          pInput.classList.add("invalid");
+          pInput.classList.remove("valid");
+          for (let item of errorMsg) {
+            item.style.display = "block";
+          }
+        } else {
+          pInput.classList.add("valid");
+          pInput.classList.remove("invalid");
+          for (let item of errorMsg) {
+            item.style.display = "none";
+          }
+        }
+      }
+
+      function signup_success() {
+        isValid.style.display = "block";
+        notValid.style.display = "none";
+        setTimeout(() => {
+          isValid.style.display = "none";
+        }, 5000);
+      }
+
+      function signup_failed() {
+        notValid.style.display = "block";
+        isValid.style.display = "none";
+        setTimeout(() => {
+          notValid.style.display = "none";
+        }, 5000);
       }
     </script>
     <script
