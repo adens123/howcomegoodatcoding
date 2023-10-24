@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript（三）自己做看看實務常用 UI 元件 | 愛寫扣學院</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../SCSS/CSS/all.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container py-5">
+      <section class="mb-5">
+        <h2 id="comp-alert">練習1 ── alert 示警元件</h2>
+        <div class="p-3 border rounded">
+          <div class="d-flex alert alert-primary">
+            歡迎您點擊「抖內」按鈕，以實際行動支持我們。
+            <button class="btn-close ms-auto"></button>
+          </div>
+          <hr />
+          <div class="d-flex alert alert-success">
+            您已成功下訂單！以下為您的訂單詳細資訊。
+            <button class="btn-close ms-auto"></button>
+          </div>
+          <hr />
+          <div class="d-flex alert alert-danger">
+            抱歉，系統發生錯誤，請稍後重新嘗試。
+            <button class="btn-close ms-auto"></button>
+          </div>
+          <hr />
+          <div class="d-flex alert alert-warning">
+            請注意，以下內容包含「劇透」爆雷資訊。
+            <button class="btn-close ms-auto"></button>
+          </div>
+        </div>
+      </section>
+      <section class="mb-5">
+        <h2 id="comp-toast">練習2 ── toast 吐司元件</h2>
+        <div class="p-3 border rounded">
+          <button class="btn btn-primary" onclick="toastSuccess()">
+            成功訂購商品
+          </button>
+          <hr />
+          <button class="btn btn-warning" onclick="toastError()">
+            訂購商品失敗
+          </button>
+          <div class="toast toast-success">
+            訂購成功！可以查看 Email 確認訂單細節！
+          </div>
+          <div class="toast toast-error">抱歉，訂購失敗！請稍後重新嘗試</div>
+        </div>
+      </section>
+      <section class="mb-5">
+        <h2 id="comp-modal">練習3 ── modal 互動視窗元件</h2>
+        <div class="mb-3">
+          <a
+            href="https://codepen.io/yuch3n_chen/pen/QWYWJZM"
+            class="btn btn-outline-primary"
+            target="_blank"
+            >手刻 CSS + 動畫（Codepen）</a
+          >
+        </div>
+        <div class="p-3 border rounded">
+          <button class="btn btn-success" onclick="loginModal()">
+            點我登入帳號
+          </button>
+          <hr />
+          <button class="btn btn-outline-warning" onclick="postModal()">
+            點我新增貼文
+          </button>
+        </div>
+        <div class="modal" id="login-modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="mb-3">
+                帳號：<input class="form-control" type="text" />
+              </div>
+              <div>密碼：<input class="form-control" type="password" /></div>
+              <hr />
+              <button class="btn-close text-nowrap link-primary fw-bold">
+                關閉
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal" id="post-modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="mb-3">
+                標題：<input class="form-control" type="text" />
+              </div>
+              <div>內文：<textarea class="form-control"> </textarea></div>
+              <hr />
+              <button class="btn-close text-nowrap link-primary fw-bold">
+                關閉
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mb-5">
+        <h2 id="comp-validation">練習4 ── 表單驗證</h2>
+        <div class="p-3 border rounded bg-light">
+          <div
+            class="login-form mx-auto bg-white px-3 py-5 rounded shadow d-flex flex-column"
+          >
+            <h3 class="mb-3 text-uppercase fw-bold">sign up!</h3>
+            <form class="mb-4">
+              <div class="field name mb-3">
+                <label for="name">暱稱：</label>
+                <div class="input-area">
+                  <input
+                    type="text"
+                    id="name"
+                    class="bg-light rounded px-4 py-1"
+                  />
+                  <i class="fa-solid fa-user icon"></i>
+                  <i
+                    class="fa-solid fa-circle-exclamation icon-error error"
+                  ></i>
+                </div>
+                <div class="error error-txt">不能為空白、必須在40字以內</div>
+              </div>
+              <div class="field email mb-3">
+                <label for="email">Email：</label>
+                <div class="input-area">
+                  <input
+                    type="email"
+                    id="email"
+                    class="bg-light rounded px-4 py-1"
+                  />
+                  <i class="fa-solid fa-envelope icon"></i>
+                  <i
+                    class="fa-solid fa-circle-exclamation icon-error error"
+                  ></i>
+                </div>
+                <div class="error error-txt">不能為空白、必須包含 @ 符號</div>
+              </div>
+              <div class="field password">
+                <label for="password">密碼：</label>
+                <div class="input-area">
+                  <input
+                    type="password"
+                    id="password"
+                    class="bg-light rounded px-4 py-1"
+                  />
+                  <i class="fa-solid fa-lock icon"></i>
+                  <i
+                    class="fa-solid fa-circle-exclamation icon-error error"
+                  ></i>
+                </div>
+                <div class="error error-txt">
+                  不能為空白、必須在8字以上、必須在100字以內
+                </div>
+              </div>
+            </form>
+            <hr />
+            <a href="#" class="text-uppercase btn btn-success btn_signup"
+              >Sign up</a
+            >
+            <div class="valid-txt mt-3 p-3 rounded border shadow">
+              註冊成功！可以立即使用！
+            </div>
+            <div class="invalid-txt mt-3 p-3 rounded border shadow">
+              註冊失敗！請重新註冊！
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      // alert 示警元件
+      let btn_close = document.querySelectorAll(".alert>button");
+
+      for (let item of btn_close) {
+        item.onclick = del_alert;
+      }
+
+      function del_alert() {
+        let e = event.target.closest(".alert");
+        e.remove();
+      }
+
+      // toast 吐司元件
+      let successToast = document.querySelector(".toast-success");
+      let errorToast = document.querySelector(".toast-error");
+
+      function toastSuccess() {
+        successToast.classList.add("show", "mt-3", "p-3");
+        setTimeout(function () {
+          successToast.classList.remove("show");
+        }, 5000);
+      }
+
+      function toastError() {
+        errorToast.classList.add("show", "mt-3", "p-3");
+        setTimeout(function () {
+          errorToast.classList.remove("show");
+        }, 5000);
+      }
+
+      // modal 互動視窗
+      let login_modal = document.querySelector("#login-modal");
+      let post_modal = document.querySelector("#post-modal");
+      let modal = document.querySelectorAll(".modal");
+      for (let item of modal) {
+        let btn_close = item.querySelector(".btn-close");
+        btn_close.style.backgroundImage = "none"; // 消除bs預設關閉圖案
+        btn_close.onclick = closeModal;
+      }
+
+      function closeModal() {
+        let e = event.target;
+        e.closest(".modal").style.display = "none";
+      }
+
+      function loginModal() {
+        login_modal.style.display = "block";
+      }
+
+      function postModal() {
+        post_modal.style.display = "block";
+      }
+
+      // validation 表單驗證
+      let form = document.querySelector("form");
+
+      let nField = form.querySelector(".name");
+      let nInput = nField.querySelector("input");
+
+      let eField = form.querySelector(".email");
+      let eInput = eField.querySelector("input");
+
+      let pField = form.querySelector(".password");
+      let pInput = pField.querySelector("input");
+
+      let findValid = form.querySelectorAll("input");
+
+      let signup_submit = document.querySelector(".btn_signup");
+      signup_submit.onclick = signup;
+
+      let isValid = document.querySelector(".valid-txt");
+      let notValid = document.querySelector(".invalid-txt");
+
+      function signup() {
+        event.preventDefault();
+        let hasValid = true;
+
+        chkName();
+        chkEmail();
+        chkPwd();
+
+        for (let item of findValid) {
+          if (!item.classList.contains("valid")) hasValid = false;
+        }
+
+        hasValid ? signup_success() : signup_failed();
+
+        setTimeout(() => {
+          nField.classList.remove("shake");
+          eField.classList.remove("shake");
+          pField.classList.remove("shake");
+        }, 500);
+      }
+
+      function chkName() {
+        let userName = nInput.value;
+        let errorMsg = nField.querySelectorAll(".error");
+        // console.log(errorMsg);
+        if (userName === "" || userName.length >= 40) {
+          nField.classList.add("shake");
+          nInput.classList.add("invalid");
+          nInput.classList.remove("valid");
+          for (let item of errorMsg) {
+            item.style.display = "block";
+          }
+        } else {
+          nInput.classList.add("valid");
+          nInput.classList.remove("invalid");
+          for (let item of errorMsg) {
+            item.style.display = "none";
+          }
+        }
+      }
+
+      function chkEmail() {
+        let userEmail = eInput.value;
+        let errorMsg = eField.querySelectorAll(".error");
+        if (!userEmail.includes("@")) {
+          eField.classList.add("shake");
+          eInput.classList.add("invalid");
+          eInput.classList.remove("valid");
+          for (let item of errorMsg) {
+            item.style.display = "block";
+          }
+        } else {
+          eInput.classList.add("valid");
+          eInput.classList.remove("invalid");
+          for (let item of errorMsg) {
+            item.style.display = "none";
+          }
+        }
+      }
+
+      function chkPwd() {
+        let userPwd = pInput.value.length;
+        let errorMsg = pField.querySelectorAll(".error");
+        if (userPwd < 8 || userPwd > 100) {
+          pField.classList.add("shake");
+          pInput.classList.add("invalid");
+          pInput.classList.remove("valid");
+          for (let item of errorMsg) {
+            item.style.display = "block";
+          }
+        } else {
+          pInput.classList.add("valid");
+          pInput.classList.remove("invalid");
+          for (let item of errorMsg) {
+            item.style.display = "none";
+          }
+        }
+      }
+
+      function signup_success() {
+        isValid.style.display = "block";
+        notValid.style.display = "none";
+        setTimeout(() => {
+          isValid.style.display = "none";
+        }, 5000);
+      }
+
+      function signup_failed() {
+        notValid.style.display = "block";
+        isValid.style.display = "none";
+        setTimeout(() => {
+          notValid.style.display = "none";
+        }, 5000);
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

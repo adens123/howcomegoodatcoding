@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自己做看看實務常用 UI 元件</title>
+    <link rel="stylesheet" href="./all.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar d-flex align-items-center">
+          <h1><a href="../../../../index.html">怎麼會-前端coding</a></h1>
+          <h2><a href="../../index.html">Jacky's Home</a></h2>
+        </div>
+      </div>
+    </header>
+    <section class="componentDemo container">
+      <h2 class="componentDemo-title">alert 示警元件</h2>
+      <div class="alert alert-primary">
+        歡迎您點擊「抖內」按鈕，以實際行動支持我們。
+        <button class="btn-close">×</button>
+      </div>
+      <hr />
+      <div class="alert alert-success">
+        您已成功下訂單！以下為您的訂單詳細資訊。
+        <button class="btn-close">×</button>
+      </div>
+      <hr />
+      <div class="alert alert-danger">
+        抱歉，系統發生錯誤，請稍後重新嘗試。
+        <button class="btn-close">×</button>
+      </div>
+      <hr />
+      <div class="alert alert-warning">
+        請注意，以下內容包含「劇透」爆雷資訊。
+        <button class="btn-close">×</button>
+      </div>
+    </section>
+    <section class="componentDemo container">
+      <h2 class="componentDemo-title">toast 吐司元件</h2>
+      <div class="d-flex justify-content-around my-16">
+        <button class="btn btn-success" onclick="toastSuccess()">
+          成功訂購商品
+        </button>
+        <button class="btn btn-danger" onclick="toastError()">
+          訂購商品失敗
+        </button>
+      </div>
+      <div class="toast toast-success">
+        訂購成功！可以查看 Email 確認訂單細節！
+      </div>
+      <div class="toast toast-error">抱歉，訂購失敗！請稍後重新嘗試</div>
+    </section>
+    <section class="componentDemo container">
+      <h2 class="componentDemo-title">modal 互動視窗元件</h2>
+      <div class="d-flex justify-content-around my-16">
+        <button class="btn" onclick="loginModal()">點我登入帳號</button>
+        <button class="btn" onclick="postModal()">點我新增貼文</button>
+      </div>
+
+      <div class="modal" id="login-modal">
+        <div
+          class="modal-content text-black d-flex flex-column align-items-center">
+          <div class="my-16">帳號：<input type="text" /></div>
+          <div class="my-16">密碼：<input type="password" /></div>
+          <button class="btn-close">&times;</button>
+        </div>
+      </div>
+
+      <div class="modal" id="post-modal">
+        <div
+          class="modal-content text-black d-flex flex-column align-items-center">
+          <div class="my-16">標題：<input type="text" /></div>
+          <div class="my-16">內文：<textarea> </textarea></div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./all.js"></script>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 const udemy_01 = [
   {
+    ch_num: 5,
     chapter: "Chapter 5 - Javascript Basic",
     lesson: [
       {
@@ -33,6 +34,7 @@ const udemy_01 = [
     ],
   },
   {
+    ch_num: 6,
     chapter: "Chapter 6 - Javascript Basic 2",
     lesson: [
       {
@@ -74,11 +76,116 @@ const udemy_01 = [
   },
 ];
 
-// for (let i = 0; i < udemy_01.length; i++) {
-//   console.log(udemy_01[i].chapter);
-// }
+// 建立章節列表
+function createChapter(course) {
+  let el = document.querySelector("#accordionCourse");
+  let result = "";
 
-let el = document.querySelectorAll(".chapter");
-for (let i = 0; i < udemy_01.length; i++) {
-  el[i].innerHTML = udemy_01[i].chapter;
+  for (let [index, value] of course.entries()) {
+    if (index == 0) {
+      result += `<div class="accordion-item">
+  <h3 class="accordion-header">
+    <button
+      class="accordion-button chapter"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseCh${value.ch_num}"
+      aria-expanded="true"
+      aria-controls="collapseCh${value.ch_num}"
+    >${value.chapter}</button>
+  </h3>
+  <div
+    id="collapseCh${value.ch_num}"
+    class="accordion-collapse collapse show"
+    data-bs-parent="#accordionCourse"
+  >
+    <div class="accordion-body">
+    <table
+    class="table table-hover text-center align-middle"
+  >
+    <thead>
+      <tr>
+        <th class="d-none d-lg-table-cell" scope="col">#</th>
+        <th class="d-none d-lg-table-cell" scope="col">日期</th>
+        <th scope="col">內容</th>
+        <th scope="col">連結</th>
+      </tr>
+    </thead>
+    <tbody class="course_table">
+    </tbody>
+  </table>
+    </div>
+  </div>
+</div>`;
+    } else {
+      result += `<div class="accordion-item">
+  <h3 class="accordion-header">
+    <button
+      class="accordion-button collapsed chapter"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseCh${value.ch_num}"
+      aria-expanded="true"
+      aria-controls="collapseCh${value.ch_num}"
+    >${value.chapter}</button>
+  </h3>
+  <div
+    id="collapseCh${value.ch_num}"
+    class="accordion-collapse collapse"
+    data-bs-parent="#accordionCourse"
+  >
+    <div class="accordion-body"><table
+    class="table table-hover text-center align-middle"
+  >
+    <thead>
+      <tr>
+        <th class="d-none d-lg-table-cell" scope="col">#</th>
+        <th class="d-none d-lg-table-cell" scope="col">日期</th>
+        <th scope="col">內容</th>
+        <th scope="col">連結</th>
+      </tr>
+    </thead>
+    <tbody class="course_table">
+    </tbody>
+  </table></div>
+  </div>
+</div>`;
+    }
+  }
+  el.innerHTML = result;
 }
+
+// 建立課程列表
+function createTable(course) {
+  let el = document.querySelectorAll(".course_table");
+  let result = "";
+  // console.log(el);
+  for (let i = 0; i < course.length; i++) {
+    console.log(course[i].lesson.length);
+    for (let j = 0; j < course[i].lesson.length; j++) {
+      result += `<tr>
+      <th class="d-none d-lg-table-cell" scope="row">${j + 1}</th>
+      <td class="text-secondary d-none d-lg-table-cell">${
+        course[i].lesson[j].date
+      }</td>
+      <td>${course[i].lesson[j].content}</td>
+      <td>
+        <a
+          href="./${course[i].lesson[j].link}"
+          class="btn btn-outline-secondary text-nowrap"
+          >點此前往</a
+        >
+      </td>
+    </tr>`;
+    }
+    el[i].innerHTML = result;
+    result = "";
+  }
+}
+
+function render(course) {
+  createChapter(course);
+  createTable(course);
+}
+
+render(udemy_01);
