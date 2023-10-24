@@ -88,12 +88,22 @@ const codelove_01 = [
       {
         date: "2023/10/19",
         content: "alert 示警元件",
-        link: "js-3-ui.html",
+        link: "js-3-ui.html#comp-alert",
       },
       {
         date: "2023/10/20",
         content: "toast 吐司元件",
-        link: "js-3-ui.html",
+        link: "js-3-ui.html#comp-toast",
+      },
+      {
+        date: "2023/10/23",
+        content: "modal 互動視窗元件",
+        link: "js-3-ui.html#comp-modal",
+      },
+      {
+        date: "2023/10/24",
+        content: "表單驗證",
+        link: "js-3-ui.html#comp-validation",
       },
     ],
   },
@@ -128,8 +138,8 @@ function createChapter(course) {
   >
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">日期</th>
+        <th class="d-none d-lg-table-cell" scope="col">#</th>
+        <th class="d-none d-lg-table-cell" scope="col">日期</th>
         <th scope="col">內容</th>
         <th scope="col">連結</th>
       </tr>
@@ -162,8 +172,8 @@ function createChapter(course) {
   >
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">日期</th>
+        <th class="d-none d-lg-table-cell" scope="col">#</th>
+        <th class="d-none d-lg-table-cell" scope="col">日期</th>
         <th scope="col">內容</th>
         <th scope="col">連結</th>
       </tr>
@@ -184,11 +194,13 @@ function createTable(course) {
   let result = "";
   // console.log(el);
   for (let i = 0; i < course.length; i++) {
-    console.log(course[i].lesson.length);
+    // console.log(course[i].lesson.length);
     for (let j = 0; j < course[i].lesson.length; j++) {
       result += `<tr>
-      <th scope="row">${j + 1}</th>
-      <td class="text-secondary">${course[i].lesson[j].date}</td>
+      <th class="d-none d-lg-table-cell" scope="row">${j + 1}</th>
+      <td class="d-none d-lg-table-cell text-secondary">${
+        course[i].lesson[j].date
+      }</td>
       <td>${course[i].lesson[j].content}</td>
       <td>
         <a

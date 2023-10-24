@@ -1,1 +1,91 @@
+.modal {
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  &-content {
+    padding: 2rem;
+  }
+}
 
+.login-form {
+  max-width: 400px;
+}
+
+.field {
+  label {
+    font-size: 14px;
+  }
+  .input-area {
+    width: 100%;
+    position: relative;
+    input {
+      width: 100%;
+      height: 100%;
+      outline: none;
+      font-size: 18px;
+      border: none;
+      &:focus {
+        & ~ .icon {
+          color: #198754;
+        }
+      }
+    }
+    i {
+      position: absolute;
+      top: 50%;
+      font-size: 16px;
+      pointer-events: none;
+      transform: translateY(-50%);
+    }
+    .valid {
+      border: 1px solid #198754;
+    }
+    .invalid {
+      border: 1px solid #dc3545;
+    }
+  }
+  &.shake {
+    animation: shake 0.3s ease-in-out;
+  }
+  .error {
+    display: none;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    margin-left: 0;
+  }
+  20%,
+  80% {
+    margin-left: -12px;
+  }
+  40%,
+  60% {
+    margin-left: 12px;
+  }
+}
+.icon {
+  left: 6px;
+  color: #bfbfbf;
+  transition: color 0.2s ease;
+  &-error {
+    right: 6px;
+    color: #dc3545;
+  }
+}
+.error-txt {
+  font-size: 14px;
+  color: #dc3545;
+}
+
+.valid-txt,
+.invalid-txt {
+  display: none;
+}
+.valid-txt {
+  color: #198754;
+}
+
+.invalid-txt {
+  color: #dc3545;
+}

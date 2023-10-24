@@ -2,26 +2,82 @@ document.querySelectorAll(".btn-close").forEach(btn => {
   btn.addEventListener("click", e => {
     e.preventDefault();
     // e.target.closest(".alert").style.display = "none";
-    e.target.closest(".alert").remove();
+    if (e.target.closest(".alert")) {
+      e.target.closest(".alert").remove();
+    }
   });
 });
 
+function getNode(nodeName) {
+  return document.querySelector(nodeName);
+}
+
+// toast
+
+function toast(node, delayTime) {
+  node.style.display = "inline-block";
+  setTimeout(() => (node.style.display = "none"), delayTime);
+}
+
 function toastSuccess() {
-  const toastSuccess = document.querySelector(".toast-success");
-
-  toastSuccess.style.display = "inline-block";
-
-  setTimeout(function () {
-    toastSuccess.style.display = "none";
-  }, 5000);
+  toast(getNode(".toast-success"), 5000);
 }
 
 function toastError() {
-  const toastError = document.querySelector(".toast-error");
+  toast(getNode(".toast-error"), 5000);
+}
 
-  toastError.style.display = "inline-block";
+// modal
 
-  setTimeout(function () {
-    toastError.style.display = "none";
-  }, 5000);
+function loginModal() {
+  getNode("#login-modal").style.left = "0";
+}
+
+function postModal() {
+  getNode("#post-modal").style.left = "0";
+}
+
+function modalClose(event) {
+  if (event.target.closest(".modal")) {
+    event.target.closest(".modal").style.left = "-100%";
+  }
+}
+
+getNode(".modal .btn-close").onclick = modalClose;
+
+window.onclick = modalClose;
+
+// form
+
+function validate(element, condition, message) {
+  element.style.outline = !element.value || condition ? "2px solid red" : "";
+
+  element.closest(".input-group").querySelector(".error").textContent =
+    !element.value ? "不能為空白" : condition ? message : "";
+}
+
+function register() {
+  const users = [
+    {
+      element: getNode("#nickName"),
+      condition: getNode("#nickName").value.length > 40,
+      message: "必須在40字以內"
+    },
+    {
+      element: getNode("#email"),
+      condition: !getNode("#email").value.includes("@"),
+      message: "必須包含 @ 符號"
+    },
+    {
+      element: getNode("#password"),
+      condition:
+        getNode("#password").value.length < 8 ||
+        getNode("#password").value.length > 100,
+      message: "必須在8字以上，100字以內"
+    }
+  ];
+
+  for (let user of users) {
+    validate(user.element, user.condition, user.message);
+  }
 }

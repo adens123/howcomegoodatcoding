@@ -52,6 +52,61 @@
       </div>
       <div class="toast toast-error">抱歉，訂購失敗！請稍後重新嘗試</div>
     </section>
+    <section class="componentDemo container">
+      <h2 class="componentDemo-title">modal 互動視窗元件</h2>
+      <div class="d-flex justify-content-around my-16">
+        <button class="btn" onclick="loginModal()">點我登入帳號</button>
+        <button class="btn" onclick="postModal()">點我新增貼文</button>
+      </div>
+
+      <div class="modal" id="login-modal">
+        <div
+          class="modal-content text-black d-flex flex-column align-items-center">
+          <div class="my-16">帳號：<input type="text" /></div>
+          <div class="my-16">密碼：<input type="password" /></div>
+          <button class="btn-close">&times;</button>
+        </div>
+      </div>
+
+      <div class="modal" id="post-modal">
+        <div
+          class="modal-content text-black d-flex flex-column align-items-center">
+          <div class="my-16">標題：<input type="text" /></div>
+          <div class="my-16">內文：<textarea> </textarea></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="componentDemo container">
+      <h2 class="componentDemo-title">表單驗證</h2>
+      <div class="d-flex justify-content-center my-16">
+        <form class="form">
+          <h3>會員註冊</h3>
+          <ul>
+            <li class="my-16 input-group">
+              <label for="nickName">暱稱</label>
+              <input class="d-block w-100" id="nickName" type="text" />
+              <span class="error"></span>
+            </li>
+            <li class="my-16 input-group">
+              <label for="email">Email</label>
+              <input class="d-block w-100" id="email" type="email" />
+              <span class="error"></span>
+            </li>
+            <li class="my-16 input-group">
+              <label for="password">密碼</label>
+              <input class="d-block w-100" id="password" type="password" />
+              <span class="error"></span>
+            </li>
+          </ul>
+          <input
+            class="btn w-100 my-16"
+            type="button"
+            value="註冊"
+            onclick="register()" />
+        </form>
+      </div>
+    </section>
 
     <script src="./all.js"></script>
   </body>
