@@ -21,6 +21,19 @@ a {
   color: inherit;
 }
 
+ul {
+  list-style: none;
+}
+
+input {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -40,6 +53,10 @@ a {
   display: none;
 }
 
+.d-block {
+  display: block;
+}
+
 .flex-column {
   flex-direction: column;
 }
@@ -54,6 +71,10 @@ a {
 
 .align-items-center {
   align-items: center;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .my-16 {
@@ -191,4 +212,15 @@ a {
   position: absolute;
   top: 4px;
   right: 4px;
+}
+
+.form {
+  width: 50%;
+  background-color: gray;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
 }/*# sourceMappingURL=all.css.map */

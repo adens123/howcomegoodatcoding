@@ -46,3 +46,38 @@ function modalClose(event) {
 getNode(".modal .btn-close").onclick = modalClose;
 
 window.onclick = modalClose;
+
+// form
+
+function validate(element, condition, message) {
+  element.style.outline = !element.value || condition ? "2px solid red" : "";
+
+  element.closest(".input-group").querySelector(".error").textContent =
+    !element.value ? "不能為空白" : condition ? message : "";
+}
+
+function register() {
+  const users = [
+    {
+      element: getNode("#nickName"),
+      condition: getNode("#nickName").value.length > 40,
+      message: "必須在40字以內"
+    },
+    {
+      element: getNode("#email"),
+      condition: !getNode("#email").value.includes("@"),
+      message: "必須包含 @ 符號"
+    },
+    {
+      element: getNode("#password"),
+      condition:
+        getNode("#password").value.length < 8 ||
+        getNode("#password").value.length > 100,
+      message: "必須在8字以上，100字以內"
+    }
+  ];
+
+  for (let user of users) {
+    validate(user.element, user.condition, user.message);
+  }
+}
