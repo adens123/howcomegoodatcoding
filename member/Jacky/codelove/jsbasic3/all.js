@@ -12,6 +12,10 @@ function getNode(nodeName) {
   return document.querySelector(nodeName);
 }
 
+function getNodes(nodeName) {
+  return document.querySelectorAll(nodeName);
+}
+
 // toast
 
 function toast(node, delayTime) {
@@ -85,3 +89,22 @@ function register() {
     validate(user.element, user.condition, user.message);
   }
 }
+
+// collapse
+
+getNodes(".collapse-title").forEach(node => {
+  node.addEventListener("click", e => {
+    const collapseText = e.target
+      .closest(".collapse-item")
+      .querySelector(".collapse-text");
+
+    const collapseTextHeight = `${collapseText.scrollHeight}px`;
+    collapseText.clientHeight = 0;
+    console.dir(collapseText);
+
+    // collapseText.style.height =
+    //   collapseText.style.height == collapseTextHeight
+    //     ? "0"
+    //     : collapseTextHeight;
+  });
+});
