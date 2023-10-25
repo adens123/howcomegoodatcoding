@@ -13,20 +13,25 @@
       </header>
       <div class="content1">
         <input id="input" type="text" placeholder="請輸入代辦事項" />
+        <select id="degree" onchange="changeColor()">
+          <option value="normal">一般</option>
+          <option value="important">重要</option>
+          <option value="urgent">緊急</option>
+        </select>
         <button onclick="add()">新增</button>
       </div>
 
       <div class="content2">
         <ul id="ul">
-          <li>
+          <li class="orange">
             <span>倒垃圾</span>
             <button onclick="del()">刪除</button>
           </li>
-          <li>
+          <li class="normal">
             <span>繳電話費</span>
             <button onclick="del()">刪除</button>
           </li>
-          <li>
+          <li class="normal">
             <span>採買本週食材</span>
             <button onclick="del()">刪除</button>
           </li>
