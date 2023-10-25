@@ -105,6 +105,11 @@ const codelove_01 = [
         content: "表單驗證",
         link: "js-3-ui.html#comp-validation",
       },
+      {
+        date: "2023/10/25",
+        content: "collapse 折疊效果",
+        link: "js-3-ui.html#comp-collapse",
+      },
     ],
   },
 ];

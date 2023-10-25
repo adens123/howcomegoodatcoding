@@ -165,3 +165,23 @@ function signup_failed() {
     notValid.style.display = "none";
   }, 5000);
 }
+
+// collapse 折疊效果
+let faq = document.querySelector(".faq");
+
+let titles = faq.querySelectorAll(".faq-title");
+
+for (let items of titles) items.onclick = collapse_open;
+
+function collapse_open(e) {
+  //   console.log(e.target.nextElementSibling);
+  let content = e.target.nextElementSibling;
+
+  if (!content.style.maxHeight) {
+    content.style.maxHeight = `${content.scrollHeight}px`;
+    e.target.querySelector("i").classList.toggle("arrow-rotate");
+  } else {
+    content.style.maxHeight = "";
+    e.target.querySelector("i").classList.toggle("arrow-rotate");
+  }
+}

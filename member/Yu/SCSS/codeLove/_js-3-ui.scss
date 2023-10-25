@@ -1,3 +1,4 @@
+// comp modal
 .modal {
   background-color: rgba($color: #000000, $alpha: 0.4);
   &-content {
@@ -5,7 +6,8 @@
   }
 }
 
-.login-form {
+// comp validation
+.signup-form {
   max-width: 400px;
 }
 
@@ -88,4 +90,23 @@
 
 .invalid-txt {
   color: #dc3545;
+}
+
+// comp collapse
+.faq {
+  &-title {
+    cursor: pointer;
+  }
+  i {
+    transition: all 0.3s ease-in-out;
+  }
+  &-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+}
+
+.arrow-rotate {
+  transform: rotate(-180deg);
 }
