@@ -110,6 +110,11 @@ const codelove_01 = [
         content: "collapse 折疊效果",
         link: "js-3-ui.html#comp-collapse",
       },
+      {
+        date: "2023/10/26",
+        content: "dropdown 下拉式選單",
+        link: "js-3-ui.html#comp-dropdown",
+      },
     ],
   },
 ];
