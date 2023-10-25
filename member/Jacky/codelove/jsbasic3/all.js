@@ -45,7 +45,11 @@ function modalClose(event) {
 
 getNode(".modal .btn-close").onclick = modalClose;
 
-window.onclick = modalClose;
+window.onclick = function (event) {
+  if (event.target.classList.contains("modal")) {
+    event.target.style.left = "-100%";
+  }
+};
 
 // form
 
