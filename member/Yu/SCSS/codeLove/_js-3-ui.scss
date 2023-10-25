@@ -110,3 +110,44 @@
 .arrow-rotate {
   transform: rotate(-180deg);
 }
+
+// dropdown
+@mixin dropdown-hover($color) {
+  &:hover {
+    background-color: $color;
+    color: #fff;
+  }
+}
+.nav {
+  background-color: navy;
+  &-list {
+    margin: 0;
+  }
+  &-item {
+    a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      padding: 0.75rem 2rem;
+      transition: all 0.5s;
+      &:hover {
+        background-color: #fff;
+        color: navy;
+      }
+    }
+  }
+  .dropdown {
+    &-list {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.7s;
+    }
+    &-item {
+      a {
+        color: navy;
+        background-color: #fff;
+        @include dropdown-hover(navy);
+      }
+    }
+  }
+}
