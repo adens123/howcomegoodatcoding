@@ -137,11 +137,11 @@ getNode(".dropdown-toggle").addEventListener("click", e => {
   getNode("#myDropdownMenu").classList.toggle("show");
 });
 
-window.onclick = function (e) {
+window.addEventListener("click", e => {
   if (!e.target.matches(".dropdown-toggle")) {
     // 假設有同點開多個下拉選單的情境
     for (let node of getNodes(".dropdown-menu")) {
       node.classList.contains("show") && node.classList.remove("show");
     }
   }
-};
+});
