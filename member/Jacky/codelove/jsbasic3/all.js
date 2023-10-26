@@ -42,9 +42,7 @@ function postModal() {
 }
 
 function modalClose(event) {
-  if (event.target.closest(".modal")) {
-    event.target.closest(".modal").style.left = "-100%";
-  }
+  event.target.closest(".modal").style.left = "-100%";
 }
 
 getNode(".modal .btn-close").onclick = modalClose;
@@ -130,3 +128,20 @@ getNodes(".collapse-title").forEach((node, index) => {
     closeOtherNode(index);
   });
 });
+
+// dropdown menu
+
+getNode(".dropdown-toggle").addEventListener("click", e => {
+  e.preventDefault();
+  // 畫面上可能同時有多個下拉選單，所以抓id不抓class
+  getNode("#myDropdownMenu").classList.toggle("show");
+});
+
+window.onclick = function (e) {
+  if (!e.target.matches(".dropdown-toggle")) {
+    // 假設有同點開多個下拉選單的情境
+    for (let node of getNodes(".dropdown-menu")) {
+      node.classList.contains("show") && node.classList.remove("show");
+    }
+  }
+};
