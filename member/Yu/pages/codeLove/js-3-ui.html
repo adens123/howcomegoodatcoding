@@ -279,20 +279,22 @@
       </section>
       <section class="mb-5">
         <h2 id="comp-dropdown">練習6 ── dropdown 下拉式選單</h2>
-        <div class="p-3 border rounded comp" style="height: 300px">
+        <div class="p-3 border rounded comp" style="height: 400px">
           <div class="nav d-flex justify-content-center">
-            <ul class="nav-list list-unstyled d-flex justify-content-between">
+            <ul
+              class="nav-list list-unstyled d-flex justify-content-between flex-column flex-md-row align-items-center"
+            >
               <li class="nav-item">
-                <a href="#">首頁</a>
+                <a href="#" class="nav-item-link">首頁</a>
               </li>
               <li class="nav-item">
-                <a href="#">全部商品</a>
+                <a href="#" class="nav-item-link">全部商品</a>
               </li>
               <li class="nav-item">
-                <a href="#">全部品牌</a>
+                <a href="#" class="nav-item-link">全部品牌</a>
               </li>
               <li class="nav-item position-relative">
-                <a href="#">關於我們</a>
+                <a href="#" class="nav-item-link">關於我們</a>
                 <ul
                   class="dropdown-list position-absolute list-unstyled border border-top-0"
                 >
@@ -302,6 +304,36 @@
                 </ul>
               </li>
             </ul>
+          </div>
+        </div>
+      </section>
+      <section class="mb-5">
+        <h2 id="comp-carousel">練習7 ── carousel 輪播元件</h2>
+        <div class="p-3 border rounded">
+          <div class="carousel-track">
+            <ul class="carousel-list list-unstyled">
+              <li class="slide active">
+                <img src="../../images/agathe-min.jpg" alt="1" />
+              </li>
+              <li class="slide">
+                <img src="../../images/andre-benz-min.jpg" alt="2" />
+              </li>
+              <li class="slide">
+                <img src="../../images/clay-banks-min.jpg" alt="3" />
+              </li>
+              <li class="slide">
+                <img src="../../images/louie-martinez-min.jpg" alt="4" />
+              </li>
+              <li class="slide">
+                <img src="../../images/manuel-cosentino-min.jpg" alt="5" />
+              </li>
+            </ul>
+            <button class="prev btn">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="next btn">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
           </div>
         </div>
       </section>

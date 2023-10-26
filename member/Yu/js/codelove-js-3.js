@@ -1,5 +1,13 @@
+// 通用 function
+function getNode(nodeName) {
+  return document.querySelector(nodeName);
+}
+function getAllNode(nodeName) {
+  return document.querySelectorAll(nodeName);
+}
+
 // alert 示警元件
-let btn_close = document.querySelectorAll(".alert>button");
+let btn_close = getAllNode(".alert>button");
 
 for (let item of btn_close) {
   item.onclick = del_alert;
@@ -11,8 +19,8 @@ function del_alert() {
 }
 
 // toast 吐司元件
-let successToast = document.querySelector(".toast-success");
-let errorToast = document.querySelector(".toast-error");
+let successToast = getNode(".toast-success");
+let errorToast = getNode(".toast-error");
 
 function toastSuccess() {
   successToast.classList.add("show", "mt-3", "p-3");
@@ -29,9 +37,9 @@ function toastError() {
 }
 
 // modal 互動視窗
-let login_modal = document.querySelector("#login-modal");
-let post_modal = document.querySelector("#post-modal");
-let modal = document.querySelectorAll(".modal");
+let login_modal = getNode("#login-modal");
+let post_modal = getNode("#post-modal");
+let modal = getAllNode(".modal");
 for (let item of modal) {
   let btn_close = item.querySelector(".btn-close");
   btn_close.style.backgroundImage = "none"; // 消除bs預設關閉圖案
@@ -52,7 +60,7 @@ function postModal() {
 }
 
 // validation 表單驗證
-let form = document.querySelector("form");
+let form = getNode("form");
 
 let nField = form.querySelector(".name");
 let nInput = nField.querySelector("input");
@@ -65,11 +73,11 @@ let pInput = pField.querySelector("input");
 
 let findValid = form.querySelectorAll("input");
 
-let signup_submit = document.querySelector(".btn_signup");
+let signup_submit = getNode(".btn_signup");
 signup_submit.onclick = signup;
 
-let isValid = document.querySelector(".valid-txt");
-let notValid = document.querySelector(".invalid-txt");
+let isValid = getNode(".valid-txt");
+let notValid = getNode(".invalid-txt");
 
 function signup() {
   event.preventDefault();
@@ -167,7 +175,7 @@ function signup_failed() {
 }
 
 // collapse 折疊效果
-let faq = document.querySelector(".faq");
+let faq = getNode(".faq");
 
 let titles = faq.querySelectorAll(".faq-title");
 
@@ -187,7 +195,7 @@ function collapse_open(e) {
 }
 
 // dropdown
-let menu = document.querySelector(".nav-list");
+let menu = getNode(".nav-list");
 
 let menu_item = menu.querySelectorAll(".nav-item");
 
@@ -209,4 +217,37 @@ function dropdown_visible(e) {
     //   dropdown_list.style.maxHeight = "";
     // }
   }
+}
+
+// carousel
+let carousel = getNode(".carousel-track");
+let list = carousel.querySelector(".carousel-list");
+
+let btns = carousel.querySelectorAll(".btn");
+
+for (let btn of btns) {
+  btn.onclick = slideSwitch;
+}
+
+function slideSwitch(e) {
+  // console.log(e.target.closest("button"));
+  let btn = e.target.closest("button");
+  let current = list.querySelector(".active");
+
+  //如果點擊prev表示前一個且索引值-1，否則是next表示下一個並+1
+  let offset = btn.className.includes("prev") ? -1 : 1;
+  // console.log(offset);
+
+  //找到目前的圖片索引值並計算增加或減少
+  let nextIndex = [...list.children].indexOf(current) + offset;
+  // console.log(list.children);
+
+  // 如果索引值小於0，表示當前為第一張圖片（索引值0），因此接著是最後一張
+  if (nextIndex < 0) nextIndex = list.children.length - 1;
+
+  // 如果索引值大於等於總長度，表示當前為最後一張圖片，因此接著是第一張
+  if (nextIndex >= list.children.length) nextIndex = 0;
+
+  list.children[nextIndex].classList.add("active");
+  current.classList.remove("active");
 }

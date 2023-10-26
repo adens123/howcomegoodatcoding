@@ -115,6 +115,11 @@ const codelove_01 = [
         content: "dropdown 下拉式選單",
         link: "js-3-ui.html#comp-dropdown",
       },
+      {
+        date: "2023/10/27",
+        content: "carousel 輪播元件",
+        link: "js-3-ui.html#comp-carousel",
+      },
     ],
   },
 ];
@@ -207,7 +212,7 @@ function createTable(course) {
     // console.log(course[i].lesson.length);
     for (let j = 0; j < course[i].lesson.length; j++) {
       result += `<tr>
-      <th class="d-none d-lg-table-cell" scope="row">${j + 1}</th>
+      <th class="d-none d-lg-table-cell" scope="row">練習${j + 1}</th>
       <td class="d-none d-lg-table-cell text-secondary">${
         course[i].lesson[j].date
       }</td>
