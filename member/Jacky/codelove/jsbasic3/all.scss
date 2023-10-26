@@ -103,6 +103,10 @@ textarea {
   color: #000;
 }
 
+.fs-24 {
+  font-size: 24px;
+}
+
 // component
 .navbar {
   padding: 10px 20px;
@@ -241,4 +245,24 @@ textarea {
 
 .error {
   color: red;
+}
+
+// collapse
+
+.collapse-item {
+  background-color: #4b5563;
+  padding: 20px;
+  border: 1px solid #444;
+}
+
+.collapse-title {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.collapse-text {
+  background-color: #777;
+  box-shadow: 0 -1px 1px wheat;
+  overflow: hidden;
+  transition: 0.3s;
 }

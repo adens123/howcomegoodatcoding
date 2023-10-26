@@ -12,6 +12,10 @@ function getNode(nodeName) {
   return document.querySelector(nodeName);
 }
 
+function getNodes(nodeName) {
+  return document.querySelectorAll(nodeName);
+}
+
 // toast
 
 function toast(node, delayTime) {
@@ -85,3 +89,44 @@ function register() {
     validate(user.element, user.condition, user.message);
   }
 }
+
+// collapse
+// 網頁載入時先取得隱藏內容高度
+window.addEventListener("DOMContentLoaded", () => {
+  getNodes(".collapse-text").forEach(node => {
+    // 取得實際高度*1.5倍後存到dataset
+    // 實際高度*1.5倍取代padding效果，如果設padding在height為0px時，還是會有padding的高度，無法完全隱藏
+    node.dataset.height = node.offsetHeight * 1.5;
+    node.style.height = "0px";
+  });
+});
+
+function nodeToggle(node) {
+  node.style.height = `${
+    node.style.height == "0px" ? node.dataset.height : 0
+  }px`;
+}
+
+function closeOtherNode(index) {
+  const otherNodes = [...getNodes(".collapse-text")].filter(
+    (item, i) => i != index
+  );
+
+  for (let otherNode of otherNodes) {
+    otherNode.style.height = "0px";
+  }
+}
+
+getNodes(".collapse-title").forEach((node, index) => {
+  node.addEventListener("click", e => {
+    const ansNode = e.target
+      .closest(".collapse-item")
+      .querySelector(".collapse-text");
+
+    //目前點擊的開關
+    nodeToggle(ansNode);
+
+    // 把其他的關掉
+    closeOtherNode(index);
+  });
+});
