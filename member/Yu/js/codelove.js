@@ -122,6 +122,17 @@ const codelove_01 = [
       },
     ],
   },
+  {
+    ch_num: 4,
+    chapter: "JavaScript（四）學會第三方套件的使用方法",
+    lesson: [
+      {
+        date: "2023/10/30",
+        content: "autosize 套件",
+        link: "js-4-api.html#api-autosize",
+      },
+    ],
+  },
 ];
 
 // 建立章節列表
@@ -220,7 +231,7 @@ function createTable(course) {
       <td>
         <a
           href="${course[i].lesson[j].link}"
-          class="btn btn-outline-secondary text-nowrap" target="_blank"
+          class="btn btn-outline-secondary text-nowrap"
           >點此前往</a
         >
       </td>
