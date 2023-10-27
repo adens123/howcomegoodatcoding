@@ -145,3 +145,51 @@ window.addEventListener("click", e => {
     }
   }
 });
+
+// carousel
+
+window.addEventListener("load", function () {
+  getNode(".carousel").style.height = `${
+    getNode(".carousel-item").offsetHeight
+  }px`;
+});
+
+// 故意不設全域變數index，練習使用閉包 + 立即執行函式
+const carouselChange = (function () {
+  let index = 0;
+  return function (e) {
+    getNodes(".carousel-item")[index].classList.remove("active");
+    if (e.target.classList.contains("carouselNextBtn")) {
+      if (index == getNodes(".carousel-item").length - 1) {
+        index = -1;
+      }
+      index++;
+    } else {
+      if (index == 0) {
+        index = getNodes(".carousel-item").length;
+      }
+      index--;
+    }
+
+    getNodes(".carousel-item")[index].classList.add("active");
+  };
+})();
+
+getNode(".carouselNextBtn").onclick = carouselChange;
+getNode(".carouselPreBtn").onclick = carouselChange;
+
+// 自動輪播
+// setInterval(
+//   (function () {
+//     let index = 0;
+//     return function () {
+//       getNodes(".carousel-item")[index].classList.remove("active");
+//       if (index == getNodes(".carousel-item").length - 1) {
+//         index = -1;
+//       }
+//       index++;
+//       getNodes(".carousel-item")[index].classList.add("active");
+//     };
+//   })(),
+//   3000
+// );
