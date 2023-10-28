@@ -149,29 +149,30 @@ window.addEventListener("click", e => {
 // carousel
 
 window.addEventListener("load", function () {
-  getNode(".carousel").style.height = `${
-    getNode(".carousel-item").offsetHeight
-  }px`;
+  getNode(".carousel").style.paddingBottom = `${
+    (getNode(".carousel-item").offsetHeight /
+      getNode(".carousel-item").offsetWidth) *
+    100
+  }%`;
 });
 
 // 故意不設全域變數index，練習使用閉包 + 立即執行函式
 const carouselChange = (function () {
   let index = 0;
-  return function (e) {
-    getNodes(".carousel-item")[index].classList.remove("active");
-    if (e.target.classList.contains("carouselNextBtn")) {
-      if (index == getNodes(".carousel-item").length - 1) {
-        index = -1;
-      }
-      index++;
-    } else {
-      if (index == 0) {
-        index = getNodes(".carousel-item").length;
-      }
-      index--;
-    }
 
-    getNodes(".carousel-item")[index].classList.add("active");
+  return function (e) {
+    const carouselItems = getNodes(".carousel-item");
+    const preNextPage = e.target.classList.contains("carouselNextBtn");
+    const indexOffset = preNextPage ? 1 : -1;
+
+    carouselItems[index].classList.remove("active");
+
+    if (preNextPage && index == carouselItems.length - 1) index = -1;
+    if (!preNextPage && index == 0) index = carouselItems.length;
+
+    index += indexOffset;
+
+    carouselItems[index].classList.add("active");
   };
 })();
 
@@ -182,13 +183,17 @@ getNode(".carouselPreBtn").onclick = carouselChange;
 // setInterval(
 //   (function () {
 //     let index = 0;
+
 //     return function () {
-//       getNodes(".carousel-item")[index].classList.remove("active");
-//       if (index == getNodes(".carousel-item").length - 1) {
-//         index = -1;
-//       }
+//       const carouselItems = getNodes(".carousel-item");
+
+//       carouselItems[index].classList.remove("active");
+
+//       if (index == carouselItems.length - 1) index = -1;
+
 //       index++;
-//       getNodes(".carousel-item")[index].classList.add("active");
+
+//       carouselItems[index].classList.add("active");
 //     };
 //   })(),
 //   3000
