@@ -14,9 +14,9 @@
 //alert
 
 //2-4目標：增加select，項目分成*重要*(橘色)、**緊急**(紅色)
-//增加select選單，在span命名class，區分顏色
-//選取select，連動span的class顏色 (class名稱用js創造?)
-//(if x==important,className==red )
+//增加select選單，在li命名class，區分文字顏色
+//選取select，連動li的class顏色 (class名稱用創造)
+//條件判斷(if x==important,className==red )
 //匯出純文字功能更新：一般、*重要*、**緊急**
 
 //2-5目標：onchange 事件>input文字框，隨程度，有顏色變化
@@ -25,23 +25,40 @@
 
 //1.選到option的值
 //2.選到input (getID)
-//3.若option值=="normal"，input.className="";
-//
+//3.條件判斷 (if option值=="important"，input.className="");
+
+//2-6目標：li再加入"標示完成"的按鈕，span後面顯示(已/未完成)
+//1.創造 標示完成按鈕 (function target)、(已完成)span
+//2.選取listOK
+//2.預設listOK隱藏，點擊done==顯示
+
 function add() {
   let li = document.createElement("li"); //創造節點
   let span = document.createElement("span");
   let button = document.createElement("button");
   let ul = document.getElementById("ul"); //選取原有節點
   let input = document.getElementById("input");
+  //target
+  let done = document.createElement("button"); //創btn-標示為已完成
+  let sp = document.createElement("span"); //創span #listOK
+  let listOK = document.getElementById("listOK"); //選取
 
-  let degree = document.getElementById("degree"); //選到select
-  let option = degree.options[degree.selectedIndex]; //選到option
+  let select = document.getElementById("select"); //選到select
+  let option = select.options[select.selectedIndex]; //選到option
   span.textContent = input.value; //將input值帶入span
+
   button.append("刪除"); //讓按鈕上有刪除字樣
-
   button.onclick = del;
-  li.append(span, button);
 
+  //target
+  li.append(done, span, listOK, button);
+  done.onclick = fin;
+  done.append("標示為已完成");
+
+  listOK.textContent = "已完成";
+  listOK.style.display = "none"; //(已完成)預設隱藏
+
+  //分程度顏色 >> 條件判斷
   if (option.value == "urgent") {
     li.classList.add("red");
   } else if (option.value == "important") {
@@ -60,13 +77,25 @@ function del() {
 }
 
 function changeColor() {
-  let degree = document.getElementById("degree"); //選到select
-  let option = degree.options[degree.selectedIndex]; //選到option
+  let select = document.getElementById("select"); //選到select
+  let option = select.options[select.selectedIndex]; //選到option
+  let input = document.getElementById("input");
 
   if (option.value == "urgent") {
-    input.className = "input-r";
+    input.classList = "input-r";
   } else if (option.value == "important") {
-    input.className = "input-o";
+    input.classList = "input-o";
+  }
+  //onchange事件 可用在 HTML Form 元素
+}
+
+function fin() {
+  let listOK = document.getElementById("listOK");
+
+  if (listOK.style.display === "none") {
+    listOK.style.display = "block";
+  } else {
+    listOK.style.display = "none";
   }
 }
 
