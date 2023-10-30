@@ -136,6 +136,11 @@ const codelove_01 = [
         content: "vanilla-lazyload 套件",
         link: "js-4-lazyload.html",
       },
+      {
+        date: "2023/11/01",
+        content: "Chart.js 套件",
+        link: "js-4-api.html#api-chart",
+      },
     ],
   },
 ];
