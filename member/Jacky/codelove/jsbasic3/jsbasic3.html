@@ -10,7 +10,7 @@
     <header class="header">
       <div class="container">
         <div class="navbar d-flex align-items-center">
-          <h1><a href="../../../../index.html">怎麼會-前端coding</a></h1>
+          <h1><a href="../../../index.html">怎麼會-前端coding</a></h1>
           <h2><a href="../../index.html">Jacky's Home</a></h2>
         </div>
       </div>
@@ -69,10 +69,9 @@
       </div>
 
       <div class="modal" id="post-modal">
-        <div
-          class="modal-content text-black d-flex flex-column align-items-center">
-          <div class="my-16">標題：<input type="text" /></div>
-          <div class="my-16">內文：<textarea> </textarea></div>
+        <div class="modal-content text-black">
+          <div class="my-16">標題：<input class="d-block" type="text" /></div>
+          <div class="my-16">內文：<textarea class="w-100"> </textarea></div>
         </div>
       </div>
     </section>
@@ -106,6 +105,102 @@
             onclick="register()" />
         </form>
       </div>
+    </section>
+
+    <section class="componentDemo container">
+      <h2 class="componentDemo-title">collapse 折疊效果</h2>
+      <h3 class="fs-24 my-16">FAQ</h3>
+      <ul id="collapse">
+        <li class="collapse-item">
+          <h4 class="collapse-title">如何辦理退換貨？</h4>
+          <p class="collapse-text d-flex align-items-center">
+            請參考退貨服務頁面。
+          </p>
+        </li>
+        <li class="collapse-item">
+          <h4 class="collapse-title">退款方式及退款時間？</h4>
+          <p class="collapse-text d-flex align-items-center">
+            約7-8個工作天完成退款作業。
+          </p>
+        </li>
+        <li class="collapse-item">
+          <h4 class="collapse-title">未退回的退款，是否可直接折抵新訂單？</h4>
+          <p class="collapse-text d-flex align-items-center">
+            很抱歉，重新訂購時無法直接於新訂單扣抵。
+          </p>
+        </li>
+        <li class="collapse-item">
+          <h4 class="collapse-title">發票遺失是否仍能辦理退換貨？</h4>
+          <p class="collapse-text d-flex align-items-center">
+            很抱歉，需要有發票才能辦理退換貨。
+          </p>
+        </li>
+        <li class="collapse-item">
+          <h4 class="collapse-title">什麼情況無法辦理退換貨？</h4>
+          <p class="collapse-text d-flex align-items-center">
+            超過7天退貨期限，就無法辦理。
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="componentDemo container">
+      <h2 class="componentDemo-title">dropdown 下拉式選單</h2>
+      <nav>
+        <ul class="navbar bg-primary d-flex text-center">
+          <li class="flex-grow-1">
+            <a class="d-block hover-primary" href="#">首頁</a>
+          </li>
+          <li class="flex-grow-1">
+            <a class="d-block hover-primary" href="#">全部商品</a>
+          </li>
+          <li class="flex-grow-1">
+            <a class="d-block hover-primary" href="#">全部品牌</a>
+          </li>
+          <li class="dropdown flex-grow-1">
+            <a class="dropdown-toggle d-block hover-primary" href="#"
+              >關於我們<span class="dropdown-icon">&#10148;</span></a
+            >
+            <ul id="myDropdownMenu" class="dropdown-menu">
+              <li>
+                <a class="dropdown-item d-block hover-primary" href="#"
+                  >團隊介紹</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item d-block hover-primary" href="#"
+                  >企業宗旨</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item d-block hover-primary" href="#"
+                  >創業故事</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </section>
+
+    <section class="componentDemo container">
+      <h2 class="componentDemo-title">carousel 輪播元件</h2>
+      <ul class="carousel">
+        <li class="carousel-item active">
+          <img src="https://picsum.photos/1920/1080?random=1" />
+        </li>
+        <li class="carousel-item">
+          <img src="https://picsum.photos/1920/1080?random=2" />
+        </li>
+        <li class="carousel-item">
+          <img src="https://picsum.photos/1920/1080?random=3" />
+        </li>
+        <li class="carousel-item">
+          <img src="https://picsum.photos/1920/1080?random=4" />
+        </li>
+        <button class="carouselPreBtn"><span>&#8678;</span></button>
+        <button class="carouselNextBtn"><span>&#8680;</span></button>
+      </ul>
     </section>
 
     <script src="./all.js"></script>

@@ -146,7 +146,7 @@
         <h2 id="comp-validation">練習4 ── 表單驗證</h2>
         <div class="p-3 border rounded bg-light">
           <div
-            class="login-form mx-auto bg-white px-3 py-5 rounded shadow d-flex flex-column"
+            class="signup-form mx-auto bg-white px-3 py-5 rounded shadow d-flex flex-column"
           >
             <h3 class="mb-3 text-uppercase fw-bold">sign up!</h3>
             <form class="mb-4">
@@ -211,176 +211,134 @@
           </div>
         </div>
       </section>
+      <section class="mb-5">
+        <h2 id="comp-collapse">練習5 ── collapse 折疊效果</h2>
+        <div class="p-3 border rounded">
+          <div class="w-75 mx-auto">
+            <ul class="faq border mw-100 list-unstyled">
+              <li class="faq-item">
+                <div
+                  class="faq-title p-3 bg-success text-white d-flex justify-content-between align-items-center"
+                >
+                  如何辦理退換貨？
+                  <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div class="faq-content">
+                  <p class="fw-light m-3">請參考退貨服務頁面。</p>
+                </div>
+              </li>
+              <li class="faq-item">
+                <div
+                  class="faq-title p-3 bg-success text-white d-flex justify-content-between align-items-center"
+                >
+                  退款方式及退款時間？
+                  <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div class="faq-content">
+                  <p class="fw-light m-3">約7-8個工作天完成退款作業。</p>
+                </div>
+              </li>
+              <li class="faq-item">
+                <div
+                  class="faq-title p-3 bg-success text-white d-flex justify-content-between align-items-center"
+                >
+                  未退回的退款，是否可直接折抵新訂單？
+                  <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div class="faq-content">
+                  <p class="fw-light m-3">
+                    很抱歉，重新訂購時無法直接於新訂單扣抵。
+                  </p>
+                </div>
+              </li>
+              <li class="faq-item">
+                <div
+                  class="faq-title p-3 bg-success text-white d-flex justify-content-between align-items-center"
+                >
+                  發票遺失是否仍能辦理退換貨？
+                  <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div class="faq-content">
+                  <p class="fw-light m-3">很抱歉，需要有發票才能辦理退換貨。</p>
+                </div>
+              </li>
+              <li class="faq-item">
+                <div
+                  class="faq-title p-3 bg-success text-white d-flex justify-content-between align-items-center"
+                >
+                  什麼情況無法辦理退換貨？
+                  <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div class="faq-content">
+                  <p class="fw-light m-3">超過7天退貨期限，就無法辦理。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="mb-5">
+        <h2 id="comp-dropdown">練習6 ── dropdown 下拉式選單</h2>
+        <div class="p-3 border rounded comp" style="height: 400px">
+          <div class="nav d-flex justify-content-center">
+            <ul
+              class="nav-list list-unstyled d-flex justify-content-between flex-column flex-md-row align-items-center"
+            >
+              <li class="nav-item">
+                <a href="#" class="nav-item-link">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-item-link">全部商品</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-item-link">全部品牌</a>
+              </li>
+              <li class="nav-item position-relative">
+                <a href="#" class="nav-item-link">關於我們</a>
+                <ul
+                  class="dropdown-list position-absolute list-unstyled border border-top-0"
+                >
+                  <li class="dropdown-item"><a href="#">團隊介紹</a></li>
+                  <li class="dropdown-item"><a href="#">企業宗旨</a></li>
+                  <li class="dropdown-item"><a href="#">創業故事</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="mb-5">
+        <h2 id="comp-carousel">練習7 ── carousel 輪播元件</h2>
+        <div class="p-3 border rounded">
+          <div class="carousel-track">
+            <ul class="carousel-list list-unstyled">
+              <li class="slide active">
+                <img src="../../images/agathe-min.jpg" alt="1" />
+              </li>
+              <li class="slide">
+                <img src="../../images/andre-benz-min.jpg" alt="2" />
+              </li>
+              <li class="slide">
+                <img src="../../images/clay-banks-min.jpg" alt="3" />
+              </li>
+              <li class="slide">
+                <img src="../../images/louie-martinez-min.jpg" alt="4" />
+              </li>
+              <li class="slide">
+                <img src="../../images/manuel-cosentino-min.jpg" alt="5" />
+              </li>
+            </ul>
+            <button class="prev btn">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="next btn">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
-    <script>
-      // alert 示警元件
-      let btn_close = document.querySelectorAll(".alert>button");
-
-      for (let item of btn_close) {
-        item.onclick = del_alert;
-      }
-
-      function del_alert() {
-        let e = event.target.closest(".alert");
-        e.remove();
-      }
-
-      // toast 吐司元件
-      let successToast = document.querySelector(".toast-success");
-      let errorToast = document.querySelector(".toast-error");
-
-      function toastSuccess() {
-        successToast.classList.add("show", "mt-3", "p-3");
-        setTimeout(function () {
-          successToast.classList.remove("show");
-        }, 5000);
-      }
-
-      function toastError() {
-        errorToast.classList.add("show", "mt-3", "p-3");
-        setTimeout(function () {
-          errorToast.classList.remove("show");
-        }, 5000);
-      }
-
-      // modal 互動視窗
-      let login_modal = document.querySelector("#login-modal");
-      let post_modal = document.querySelector("#post-modal");
-      let modal = document.querySelectorAll(".modal");
-      for (let item of modal) {
-        let btn_close = item.querySelector(".btn-close");
-        btn_close.style.backgroundImage = "none"; // 消除bs預設關閉圖案
-        btn_close.onclick = closeModal;
-      }
-
-      function closeModal() {
-        let e = event.target;
-        e.closest(".modal").style.display = "none";
-      }
-
-      function loginModal() {
-        login_modal.style.display = "block";
-      }
-
-      function postModal() {
-        post_modal.style.display = "block";
-      }
-
-      // validation 表單驗證
-      let form = document.querySelector("form");
-
-      let nField = form.querySelector(".name");
-      let nInput = nField.querySelector("input");
-
-      let eField = form.querySelector(".email");
-      let eInput = eField.querySelector("input");
-
-      let pField = form.querySelector(".password");
-      let pInput = pField.querySelector("input");
-
-      let findValid = form.querySelectorAll("input");
-
-      let signup_submit = document.querySelector(".btn_signup");
-      signup_submit.onclick = signup;
-
-      let isValid = document.querySelector(".valid-txt");
-      let notValid = document.querySelector(".invalid-txt");
-
-      function signup() {
-        event.preventDefault();
-        let hasValid = true;
-
-        chkName();
-        chkEmail();
-        chkPwd();
-
-        for (let item of findValid) {
-          if (!item.classList.contains("valid")) hasValid = false;
-        }
-
-        hasValid ? signup_success() : signup_failed();
-
-        setTimeout(() => {
-          nField.classList.remove("shake");
-          eField.classList.remove("shake");
-          pField.classList.remove("shake");
-        }, 500);
-      }
-
-      function chkName() {
-        let userName = nInput.value;
-        let errorMsg = nField.querySelectorAll(".error");
-        // console.log(errorMsg);
-        if (userName === "" || userName.length >= 40) {
-          nField.classList.add("shake");
-          nInput.classList.add("invalid");
-          nInput.classList.remove("valid");
-          for (let item of errorMsg) {
-            item.style.display = "block";
-          }
-        } else {
-          nInput.classList.add("valid");
-          nInput.classList.remove("invalid");
-          for (let item of errorMsg) {
-            item.style.display = "none";
-          }
-        }
-      }
-
-      function chkEmail() {
-        let userEmail = eInput.value;
-        let errorMsg = eField.querySelectorAll(".error");
-        if (!userEmail.includes("@")) {
-          eField.classList.add("shake");
-          eInput.classList.add("invalid");
-          eInput.classList.remove("valid");
-          for (let item of errorMsg) {
-            item.style.display = "block";
-          }
-        } else {
-          eInput.classList.add("valid");
-          eInput.classList.remove("invalid");
-          for (let item of errorMsg) {
-            item.style.display = "none";
-          }
-        }
-      }
-
-      function chkPwd() {
-        let userPwd = pInput.value.length;
-        let errorMsg = pField.querySelectorAll(".error");
-        if (userPwd < 8 || userPwd > 100) {
-          pField.classList.add("shake");
-          pInput.classList.add("invalid");
-          pInput.classList.remove("valid");
-          for (let item of errorMsg) {
-            item.style.display = "block";
-          }
-        } else {
-          pInput.classList.add("valid");
-          pInput.classList.remove("invalid");
-          for (let item of errorMsg) {
-            item.style.display = "none";
-          }
-        }
-      }
-
-      function signup_success() {
-        isValid.style.display = "block";
-        notValid.style.display = "none";
-        setTimeout(() => {
-          isValid.style.display = "none";
-        }, 5000);
-      }
-
-      function signup_failed() {
-        notValid.style.display = "block";
-        isValid.style.display = "none";
-        setTimeout(() => {
-          notValid.style.display = "none";
-        }, 5000);
-      }
-    </script>
+    <script src="../../js/codelove-js-3.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"

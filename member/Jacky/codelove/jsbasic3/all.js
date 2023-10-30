@@ -12,6 +12,10 @@ function getNode(nodeName) {
   return document.querySelector(nodeName);
 }
 
+function getNodes(nodeName) {
+  return document.querySelectorAll(nodeName);
+}
+
 // toast
 
 function toast(node, delayTime) {
@@ -38,14 +42,16 @@ function postModal() {
 }
 
 function modalClose(event) {
-  if (event.target.closest(".modal")) {
-    event.target.closest(".modal").style.left = "-100%";
-  }
+  event.target.closest(".modal").style.left = "-100%";
 }
 
 getNode(".modal .btn-close").onclick = modalClose;
 
-window.onclick = modalClose;
+window.onclick = function (event) {
+  if (event.target.classList.contains("modal")) {
+    event.target.style.left = "-100%";
+  }
+};
 
 // form
 
@@ -81,3 +87,114 @@ function register() {
     validate(user.element, user.condition, user.message);
   }
 }
+
+// collapse
+// 網頁載入時先取得隱藏內容高度
+window.addEventListener("DOMContentLoaded", () => {
+  getNodes(".collapse-text").forEach(node => {
+    // 取得實際高度*1.5倍後存到dataset
+    // 實際高度*1.5倍取代padding效果，如果設padding在height為0px時，還是會有padding的高度，無法完全隱藏
+    node.dataset.height = node.offsetHeight * 1.5;
+    node.style.height = "0px";
+  });
+});
+
+function nodeToggle(node) {
+  node.style.height = `${
+    node.style.height == "0px" ? node.dataset.height : 0
+  }px`;
+}
+
+function closeOtherNode(index) {
+  const otherNodes = [...getNodes(".collapse-text")].filter(
+    (item, i) => i != index
+  );
+
+  for (let otherNode of otherNodes) {
+    otherNode.style.height = "0px";
+  }
+}
+
+getNodes(".collapse-title").forEach((node, index) => {
+  node.addEventListener("click", e => {
+    const ansNode = e.target
+      .closest(".collapse-item")
+      .querySelector(".collapse-text");
+
+    //目前點擊的開關
+    nodeToggle(ansNode);
+
+    // 把其他的關掉
+    closeOtherNode(index);
+  });
+});
+
+// dropdown menu
+
+getNode(".dropdown-toggle").addEventListener("click", e => {
+  e.preventDefault();
+  // 畫面上可能同時有多個下拉選單，所以抓id不抓class
+  getNode("#myDropdownMenu").classList.toggle("show");
+});
+
+window.addEventListener("click", e => {
+  if (!e.target.matches(".dropdown-toggle")) {
+    // 假設有同點開多個下拉選單的情境
+    for (let node of getNodes(".dropdown-menu")) {
+      node.classList.contains("show") && node.classList.remove("show");
+    }
+  }
+});
+
+// carousel
+
+window.addEventListener("load", function () {
+  getNode(".carousel").style.paddingBottom = `${
+    (getNode(".carousel-item").offsetHeight /
+      getNode(".carousel-item").offsetWidth) *
+    100
+  }%`;
+});
+
+// 故意不設全域變數index，練習使用閉包 + 立即執行函式
+const carouselChange = (function () {
+  let index = 0;
+
+  return function (e) {
+    const carouselItems = getNodes(".carousel-item");
+    const preNextPage = e.target.classList.contains("carouselNextBtn");
+    const indexOffset = preNextPage ? 1 : -1;
+
+    carouselItems[index].classList.remove("active");
+
+    if (preNextPage && index == carouselItems.length - 1) index = -1;
+    if (!preNextPage && index == 0) index = carouselItems.length;
+
+    index += indexOffset;
+
+    carouselItems[index].classList.add("active");
+  };
+})();
+
+getNode(".carouselNextBtn").onclick = carouselChange;
+getNode(".carouselPreBtn").onclick = carouselChange;
+
+// 自動輪播
+// setInterval(
+//   (function () {
+//     let index = 0;
+
+//     return function () {
+//       const carouselItems = getNodes(".carousel-item");
+
+//       carouselItems[index].classList.remove("active");
+
+//       if (index == carouselItems.length - 1) index = -1;
+
+//       index++;
+
+//       carouselItems[index].classList.add("active");
+//     };
+//   })(),
+//   3000
+// );
