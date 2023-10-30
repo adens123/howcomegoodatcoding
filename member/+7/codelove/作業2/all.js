@@ -36,14 +36,13 @@ function add() {
   let li = document.createElement("li"); //創造節點
   let span = document.createElement("span");
   let button = document.createElement("button");
-  let ul = document.getElementById("ul"); //選取原有節點
-  let input = document.getElementById("input");
+  let ul = document.querySelector("#ul"); //選取原有節點
+  let input = document.querySelector("#input");
   //target
   let done = document.createElement("button"); //創btn-標示為已完成
   let sp = document.createElement("span"); //創span #listOK
-  let listOK = document.getElementById("listOK"); //選取
 
-  let select = document.getElementById("select"); //選到select
+  let select = document.querySelector("#select"); //選到select
   let option = select.options[select.selectedIndex]; //選到option
   span.textContent = input.value; //將input值帶入span
 
@@ -51,12 +50,12 @@ function add() {
   button.onclick = del;
 
   //target
-  li.append(done, span, listOK, button);
+  li.append(done, span, sp, button);
   done.onclick = fin;
-  done.append("標示為已完成");
+  done.textContent = "標示為已完成";
 
-  listOK.textContent = "已完成";
-  listOK.style.display = "none"; //(已完成)預設隱藏
+  sp.textContent = "已完成";
+  sp.style.display = "none"; //(已完成)預設隱藏
 
   //分程度顏色 >> 條件判斷
   if (option.value == "urgent") {
@@ -71,15 +70,14 @@ function add() {
 }
 
 function del() {
-  event.target.parentElement.remove();
-
+  event.target.closest("li").remove();
   // button.event.target.textContent;
 }
 
 function changeColor() {
-  let select = document.getElementById("select"); //選到select
+  let select = document.querySelector("#select"); //選到select
   let option = select.options[select.selectedIndex]; //選到option
-  let input = document.getElementById("input");
+  let input = document.querySelector("#input");
 
   if (option.value == "urgent") {
     input.classList = "input-r";
@@ -90,35 +88,35 @@ function changeColor() {
 }
 
 function fin() {
-  let listOK = document.getElementById("listOK");
+  // console.log("123");
+  let a = event.target.closest("li").querySelector("button"); //button
+  let z = event.target.closest("li").querySelectorAll("span")[1]; //span
+  // console.log(a);
+  a.textContent = "標示為已完成";
 
-  if (listOK.style.display === "none") {
-    listOK.style.display = "block";
+  if (z.style.display === "none") {
+    a.textContent = "標示為未完成";
+    z.style.display = "block";
   } else {
-    listOK.style.display = "none";
+    a.textContent = "標示為已完成";
+    z.style.display = "none";
   }
 }
 
 function outPut() {
-  let toDoList = document.getElementById("ul");
+  let toDoList = document.querySelector("#ul");
   // console.dir(toDoList.children); //ul內的li
   let x = ""; //因為需要字串相加
   let num = 1;
 
   for (let y of toDoList.children) {
-    // console.log(y.children[0].textContent);//li的children第一個
-    // x = x + y.children[0].textContent;
-    // console.log(x);
-    // console.dir(toDoList.children[0].children[0].textContent);
-    //ul的第一個li>第一項(span)
-
     if (y.classList.contains("orange")) {
-      x = x + String(num) + "." + "*" + y.children[0].textContent + "*";
+      x = x + String(num) + "." + "*" + y.children[1].textContent + "*";
     } else if (y.classList.contains("red")) {
-      x = x + String(num) + "." + "**" + y.children[0].textContent + "**";
+      x = x + String(num) + "." + "**" + y.children[1].textContent + "**";
       // x = x + `${num}.**${y.children[0].textContent}**`;
     } else {
-      x = x + String(num) + "." + y.children[0].textContent;
+      x = x + String(num) + "." + y.children[1].textContent;
     }
 
     num++;
