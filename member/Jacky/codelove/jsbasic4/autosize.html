@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>學會第三方套件的使用方法 - autosize</title>
+    <link rel="stylesheet" href="./all.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar d-flex align-items-center">
+          <h1><a href="../../../../index.html">怎麼會-前端coding</a></h1>
+          <h2><a href="../../index.html">Jacky's Home</a></h2>
+        </div>
+      </div>
+    </header>
+    <div class="container d-flex justify-content-center">
+      <section class="thirdPartyDemo">
+        <h2 class="thirdPartyDemo-title">autosize</h2>
+        <form onsubmit="return false">
+          <h2>留言</h2>
+          <ul>
+            <li class="my-16">
+              <input class="w-100" type="text" placeholder="請輸入暱稱" />
+            </li>
+            <li class="my-16">
+              <textarea
+                class="w-100"
+                rows="3"
+                placeholder="請輸入留言內容"></textarea>
+            </li>
+            <li class="my-16">
+              <button class="formBtn w-100">送出</button>
+            </li>
+          </ul>
+        </form>
+      </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/6.0.1/autosize.min.js
+    "></script>
+    <script src="./all.js"></script>
+  </body>
+</html>
