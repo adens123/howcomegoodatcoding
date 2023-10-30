@@ -131,6 +131,11 @@ const codelove_01 = [
         content: "autosize 套件",
         link: "js-4-api.html#api-autosize",
       },
+      {
+        date: "2023/10/31",
+        content: "vanilla-lazyload 套件",
+        link: "js-4-lazyload.html",
+      },
     ],
   },
 ];
@@ -223,7 +228,7 @@ function createTable(course) {
     // console.log(course[i].lesson.length);
     for (let j = 0; j < course[i].lesson.length; j++) {
       result += `<tr>
-      <th class="d-none d-lg-table-cell" scope="row">練習${j + 1}</th>
+      <th class="d-none d-lg-table-cell" scope="row">第${j + 1}課</th>
       <td class="d-none d-lg-table-cell text-secondary">${
         course[i].lesson[j].date
       }</td>
