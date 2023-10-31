@@ -27,10 +27,12 @@
 //2.選到input (getID)
 //3.條件判斷 (if option值=="important"，input.className="");
 
-//2-6目標：li再加入"標示完成"的按鈕，span後面顯示(已/未完成)
+//2-6目標：li再加入"標示完成"的按鈕(.done)，span後面"顯示(已完成)"
 //1.創造 標示完成按鈕 (function target)、(已完成)span
-//2.選取listOK
-//2.預設listOK隱藏，點擊done==顯示
+//2.按鈕文字：標示為已完成
+//2.預設span(已完成)隱藏，點擊.done==顯示
+//3.fin()內，if條件判斷，選取span、.done
+//3.if span沒有出現，執行：span顯示，按鈕文字顯示--標示為未完成
 
 function add() {
   let li = document.createElement("li"); //創造節點
@@ -40,13 +42,15 @@ function add() {
   let input = document.querySelector("#input");
   //target
   let done = document.createElement("button"); //創btn-標示為已完成
-  let sp = document.createElement("span"); //創span #listOK
+  let sp = document.createElement("span"); //創span (已完成)
 
   let select = document.querySelector("#select"); //選到select
   let option = select.options[select.selectedIndex]; //選到option
   span.textContent = input.value; //將input值帶入span
 
   button.append("刪除"); //讓按鈕上有刪除字樣
+
+  // console.dir(button);
   button.onclick = del;
 
   //target
@@ -88,10 +92,8 @@ function changeColor() {
 }
 
 function fin() {
-  // console.log("123");
-  let a = event.target.closest("li").querySelector("button"); //button
-  let z = event.target.closest("li").querySelectorAll("span")[1]; //span
-  // console.log(a);
+  let a = event.target.closest("li").querySelector("button"); //button (.done)
+  let z = event.target.closest("li").querySelectorAll("span")[1]; //span (選到全部的span裡,項目1的span)
   a.textContent = "標示為已完成";
 
   if (z.style.display === "none") {
@@ -104,19 +106,24 @@ function fin() {
 }
 
 function outPut() {
-  let toDoList = document.querySelector("#ul");
-  // console.dir(toDoList.children); //ul內的li
   let x = ""; //因為需要字串相加
   let num = 1;
 
-  for (let y of toDoList.children) {
+  for (let y of document.querySelectorAll("li")) {
     if (y.classList.contains("orange")) {
-      x = x + String(num) + "." + "*" + y.children[1].textContent + "*";
+      x =
+        x + String(num) + "." + "*" + y.querySelector("span").textContent + "*";
     } else if (y.classList.contains("red")) {
-      x = x + String(num) + "." + "**" + y.children[1].textContent + "**";
+      x =
+        x +
+        String(num) +
+        "." +
+        "**" +
+        y.querySelector("span").textContent +
+        "**";
       // x = x + `${num}.**${y.children[0].textContent}**`;
     } else {
-      x = x + String(num) + "." + y.children[1].textContent;
+      x = x + String(num) + "." + y.querySelector("span").textContent;
     }
 
     num++;
