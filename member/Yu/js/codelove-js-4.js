@@ -51,7 +51,7 @@ new Chart(lineChart, {
     plugins: {
       title: {
         display: true,
-        text: "年底單身戶",
+        text: "高雄市年底單身戶",
         font: {
           size: 32,
         },
@@ -162,17 +162,17 @@ const tisPie = new Chart(pieChart, {
     plugins: {
       title: {
         display: true,
-        text: "民國112年9月份年齡分組統計",
+        text: "民國112年9月份高雄市年齡分組統計",
         font: {
-          size: 32,
+          size: 24,
         },
       },
       tooltip: {
         titleFont: {
-          size: 24,
+          size: 20,
         },
         bodyFont: {
-          size: 20,
+          size: 16,
         },
       },
       responsive: true,
