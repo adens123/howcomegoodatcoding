@@ -155,8 +155,7 @@ let data_population = {
   // These labels appear in the legend and in the tooltips when hovering different arcs
   labels: ["0-14歲", "15-39歲", "40-64歲", "65歲以上"],
 };
-
-new Chart(pieChart, {
+const tisPie = new Chart(pieChart, {
   type: "pie",
   data: data_population,
   options: {
@@ -168,6 +167,15 @@ new Chart(pieChart, {
           size: 32,
         },
       },
+      tooltip: {
+        titleFont: {
+          size: 24,
+        },
+        bodyFont: {
+          size: 20,
+        },
+      },
+      responsive: true,
     },
   },
 });

@@ -141,6 +141,11 @@ const codelove_01 = [
         content: "Chart.js 套件",
         link: "js-4-api.html#api-chart",
       },
+      {
+        date: "2023/11/02",
+        content: "jQuery 套件",
+        link: "js-4-api.html#api-jQuery",
+      },
     ],
   },
 ];
