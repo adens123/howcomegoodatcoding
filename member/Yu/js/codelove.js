@@ -105,6 +105,52 @@ const codelove_01 = [
         content: "表單驗證",
         link: "js-3-ui.html#comp-validation",
       },
+      {
+        date: "2023/10/25",
+        content: "collapse 折疊效果",
+        link: "js-3-ui.html#comp-collapse",
+      },
+      {
+        date: "2023/10/26",
+        content: "dropdown 下拉式選單",
+        link: "js-3-ui.html#comp-dropdown",
+      },
+      {
+        date: "2023/10/27",
+        content: "carousel 輪播元件",
+        link: "js-3-ui.html#comp-carousel",
+      },
+    ],
+  },
+  {
+    ch_num: 4,
+    chapter: "JavaScript（四）學會第三方套件的使用方法",
+    lesson: [
+      {
+        date: "2023/10/30",
+        content: "autosize 套件",
+        link: "js-4-api.html#api-autosize",
+      },
+      {
+        date: "2023/10/31",
+        content: "vanilla-lazyload 套件",
+        link: "js-4-lazyload.html",
+      },
+      {
+        date: "2023/11/01",
+        content: "Chart.js 套件",
+        link: "js-4-api.html#api-chart",
+      },
+      {
+        date: "2023/11/02",
+        content: "jQuery 套件",
+        link: "js-4-api.html#api-jQuery",
+      },
+      {
+        date: "2023/11/03",
+        content: "xdan/datetimepicker 套件",
+        link: "js-4-api.html#api-datetimepicker",
+      },
     ],
   },
 ];
@@ -197,7 +243,7 @@ function createTable(course) {
     // console.log(course[i].lesson.length);
     for (let j = 0; j < course[i].lesson.length; j++) {
       result += `<tr>
-      <th class="d-none d-lg-table-cell" scope="row">${j + 1}</th>
+      <th class="d-none d-lg-table-cell" scope="row">第${j + 1}課</th>
       <td class="d-none d-lg-table-cell text-secondary">${
         course[i].lesson[j].date
       }</td>
@@ -205,7 +251,7 @@ function createTable(course) {
       <td>
         <a
           href="${course[i].lesson[j].link}"
-          class="btn btn-outline-secondary text-nowrap" target="_blank"
+          class="btn btn-outline-secondary text-nowrap"
           >點此前往</a
         >
       </td>

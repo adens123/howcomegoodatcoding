@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript（四）學會第三方套件的使用方法 | 愛寫扣學院</title>
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <!-- datetimepicker -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"
+      integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../../SCSS/CSS/all.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container py-5">
+      <section class="mb-5">
+        <h2 id="api-autosize">第1課 ── autosize 套件</h2>
+        <div class="border rounded">
+          <div class="row justify-content-center p-3">
+            <div class="col-lg-6 autosize-form border shadow px-3 rounded">
+              <h3 class="text-center my-5">怎麼會-意見回饋表</h3>
+              <div class="d-flex flex-column">
+                <form>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nickname"
+                      placeholder="myName"
+                    />
+                    <label for="nickname">暱稱</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <textarea
+                      class="form-control autosize-textarea"
+                      name="message"
+                      id="message"
+                      placeholder="留言在這裡"
+                    ></textarea>
+                    <label for="message">留言</label>
+                  </div>
+                </form>
+                <button type="submit" class="btn btn-primary mb-3 btn-lg">
+                  送出
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mb-5">
+        <h2 id="api-lazyload">第2課 ── vanilla-lazyload 套件</h2>
+        <div class="p-3 rounded border">
+          <a href="./js-4-lazyload.html" class="btn btn-primary">點此前往</a>
+        </div>
+      </section>
+      <section class="mb-5">
+        <h2 id="api-chart">第3課 ── Chart.js 套件</h2>
+        <div class="p-3 border rounded">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="linechart-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#linechart-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="linechart-tab-pane"
+                aria-selected="true"
+              >
+                折線圖
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="barchart-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#barchart-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="barchart-tab-pane"
+                aria-selected="false"
+              >
+                長條圖
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="piechart-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#piechart-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="piechart-tab-pane"
+                aria-selected="false"
+              >
+                圓餅圖
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content mb-3" id="myTabContent">
+            <div
+              class="tab-pane fade show active p-3"
+              id="linechart-tab-pane"
+              role="tabpanel"
+              aria-labelledby="linechart-tab"
+              tabindex="0"
+            >
+              <div class="chart-container">
+                <canvas id="lineChart"></canvas>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade p-3"
+              id="barchart-tab-pane"
+              role="tabpanel"
+              aria-labelledby="barchart-tab"
+              tabindex="0"
+            >
+              <div class="chart-container">
+                <canvas id="barChart"></canvas>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade p-3"
+              id="piechart-tab-pane"
+              role="tabpanel"
+              aria-labelledby="piechart-tab"
+              tabindex="0"
+            >
+              <div class="chart-container pie">
+                <canvas id="pieChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex">
+            <span class="text-secondary fs-6 ms-auto"
+              >資料來源：<a href="https://data.kcg.gov.tw/" target="_blank"
+                >高雄市政府資料開放平臺</a
+              ></span
+            >
+          </div>
+        </div>
+      </section>
+      <section class="mb-5">
+        <h2 id="api-jQuery">第4課 ── jQuery 套件</h2>
+        <div class="p-3 rounded border row">
+          <div class="col-6">
+            <span class="lead">這段沒有使用jQuery</span>
+            <div class="no-jquery border border-secondary p-3">
+              <h1 class="title">Make me green</h1>
+              <p class="para">Make me red</p>
+              <p class="para">Me red too</p>
+              <p class="para">Also me</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <span class="lead">這段有使用jQuery</span>
+            <div class="jquery border border-secondary p-3">
+              <h1 class="title">Make me green</h1>
+              <p class="para">Make me red</p>
+              <p class="para">Me red too</p>
+              <p class="para">Also me</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mb-5">
+        <h2 id="api-datetimepicker">第5課 ── xdan/datetimepicker 套件</h2>
+        <div class="p-3 border rounded text-center">
+          <div class="row gy-4 mb-4">
+            <div class="col-lg-6 text-center">
+              <h3 class="fs-5">請選擇入住日期：</h3>
+              <input type="text" class="datetimepicker startDate" />
+            </div>
+            <div class="col-lg-6 text-center">
+              <h3 class="fs-5">請選擇退房日期：</h3>
+              <input type="text" class="datetimepicker endDate" />
+            </div>
+          </div>
+          <div class="resvMsg border rounded mb-3 p-3"></div>
+          <button class="btn btn-lg btn-warning px-5 dt-submit">送出</button>
+        </div>
+      </section>
+    </main>
+    <!-- bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Autosize -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/6.0.1/autosize.min.js"
+      integrity="sha512-OjjaC+tijryqhyPqy7jWSPCRj7fcosu1zreTX1k+OWSwu6uSqLLQ2kxaqL9UpR7xFaPsCwhMf1bQABw2rCxMbg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"
+      integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      function getNode(nodeName) {
+        return document.querySelector(nodeName);
+      }
+
+      // Autosize
+      let txtArea = getNode(".autosize-textarea");
+      // console.log(txtArea);
+      autosize(txtArea);
+      // inline style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 74px;"
+
+      // jQuery
+      // 無使用jQuery
+      let no_jquery = getNode(".no-jquery");
+      let title_nojq = no_jquery.querySelector(".title");
+      let paras_nojq = no_jquery.querySelectorAll(".para");
+
+      title_nojq.style.color = "green";
+      for (let para of paras_nojq) para.style.color = "red";
+
+      // 使用jQuery
+      $(".jquery > .title").css("color", "green");
+      $(".jquery > .para").css("color", "red");
+
+      // datetimepicker
+      let resv_msg = getNode(".resvMsg");
+      resv_msg.style.display = "none";
+      $.datetimepicker.setLocale("zh-TW");
+      $(".datetimepicker").datetimepicker({
+        format: "Y年m月d日 H:i",
+        inline: true,
+      });
+
+      // 點擊事件
+      getNode(".dt-submit").onclick = dateSubmit;
+
+      function dateSubmit() {
+        let startDate = $(".startDate").val();
+        let endDate = $(".endDate").val();
+        if (startDate == "" || endDate == "")
+          return alert("請選擇日期時段，謝謝！");
+
+        resv_msg.innerHTML = `親愛的會員您好！您所選的日期如下：<br />${startDate} 入住<br />${endDate}
+            退房<br />已為您預訂成功！`;
+        resv_msg.style.display = "block";
+        setTimeout(function () {
+          resv_msg.innerHTML = "";
+          resv_msg.style.display = "none";
+        }, 10000);
+      }
+    </script>
+    <script src="../../js/codelove-js-4.js"></script>
+  </body>
+</html>

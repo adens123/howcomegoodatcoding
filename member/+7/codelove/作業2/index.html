@@ -13,21 +13,32 @@
       </header>
       <div class="content1">
         <input id="input" type="text" placeholder="請輸入代辦事項" />
+        <select id="select" onchange="changeColor()">
+          <option value="normal">一般</option>
+          <option value="important">重要</option>
+          <option value="urgent">緊急</option>
+        </select>
         <button onclick="add()">新增</button>
       </div>
 
       <div class="content2">
         <ul id="ul">
-          <li>
-            <span>倒垃圾</span>
+          <li id="li" class="red">
+            <button class="done" onclick="fin()">標示為已完成</button>
+            <span>刷馬桶</span>
+            <span>已完成</span>
             <button onclick="del()">刪除</button>
           </li>
-          <li>
+          <li class="normal">
+            <button class="done" onclick="fin()">標示為已完成</button>
             <span>繳電話費</span>
+            <span>已完成</span>
             <button onclick="del()">刪除</button>
           </li>
-          <li>
+          <li class="normal">
+            <button class="done" onclick="fin()">標示為已完成</button>
             <span>採買本週食材</span>
+            <span>已完成</span>
             <button onclick="del()">刪除</button>
           </li>
         </ul>
