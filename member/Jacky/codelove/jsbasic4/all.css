@@ -97,6 +97,10 @@ textarea {
   margin-bottom: 16px;
 }
 
+.p-16 {
+  padding: 16px;
+}
+
 .text-black {
   color: #000;
 }
@@ -111,6 +115,10 @@ textarea {
 
 .bg-primary {
   background-color: #2291db;
+}
+
+.bg-secondary {
+  background-color: #4b5563;
 }
 
 .hover-primary:hover {
