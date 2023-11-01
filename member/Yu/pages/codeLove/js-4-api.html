@@ -24,6 +24,19 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- slick -->
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
     <link rel="stylesheet" href="../../SCSS/CSS/all.css" />
   </head>
   <body>
@@ -235,6 +248,78 @@
           <button class="btn btn-lg btn-warning px-5 dt-submit">送出</button>
         </div>
       </section>
+      <section class="mb-5">
+        <h2 id="api-slick">第6課 ── kenwheeler/slick 套件</h2>
+        <div class="p-3 border rounded">
+          <div class="slick-for mx-auto mb-3">
+            <div>
+              <img src="/images/agathe-min.jpg" alt="1" />
+            </div>
+            <div>
+              <img src="../../images/andre-benz-min.jpg" alt="2" />
+            </div>
+            <div>
+              <img src="../../images/clay-banks-min.jpg" alt="3" />
+            </div>
+            <div>
+              <img src="../../images/louie-martinez-min.jpg" alt="4" />
+            </div>
+            <div>
+              <img src="../../images/payphone.jpg" alt="5" />
+            </div>
+            <div>
+              <img src="../../images/agathe-min.jpg" alt="1" />
+            </div>
+            <div>
+              <img src="../../images/andre-benz-min.jpg" alt="2" />
+            </div>
+            <div>
+              <img src="../../images/clay-banks-min.jpg" alt="3" />
+            </div>
+            <div>
+              <img src="../../images/louie-martinez-min.jpg" alt="4" />
+            </div>
+            <div>
+              <img src="../../images/payphone.jpg" alt="5" />
+            </div>
+          </div>
+
+          <div class="px-5 bg-black rounded">
+            <div class="slick-nav p-2">
+              <div>
+                <img src="/images/agathe-min.jpg" alt="1" />
+              </div>
+              <div>
+                <img src="../../images/andre-benz-min.jpg" alt="2" />
+              </div>
+              <div>
+                <img src="../../images/clay-banks-min.jpg" alt="3" />
+              </div>
+              <div>
+                <img src="../../images/louie-martinez-min.jpg" alt="4" />
+              </div>
+              <div>
+                <img src="../../images/payphone.jpg" alt="5" />
+              </div>
+              <div>
+                <img src="../../images/agathe-min.jpg" alt="1" />
+              </div>
+              <div>
+                <img src="../../images/andre-benz-min.jpg" alt="2" />
+              </div>
+              <div>
+                <img src="../../images/clay-banks-min.jpg" alt="3" />
+              </div>
+              <div>
+                <img src="../../images/louie-martinez-min.jpg" alt="4" />
+              </div>
+              <div>
+                <img src="../../images/payphone.jpg" alt="5" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <!-- bootstrap -->
     <script
@@ -262,6 +347,11 @@
       integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+    ></script>
+    <!-- slick -->
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
     <script>
       function getNode(nodeName) {
@@ -313,6 +403,45 @@
           resv_msg.style.display = "none";
         }, 10000);
       }
+
+      // slick
+      // $(".slick-sliders").slick({
+      //   dots: true,
+      //   autoplay: true,
+      //   autoplaySpeed: 2500,
+      //   fade: true,
+      //   cssEase: "linear",
+      // });
+      $(".slick-for").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: ".slick-nav",
+      });
+      $(".slick-nav").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        asNavFor: ".slick-for",
+        centerPadding: "0%",
+        dots: false,
+        centerMode: true,
+        focusOnSelect: true,
+        autoplay: true,
+        autoplaySpeed: 2500,
+        mobileFirst: true,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 5,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
+          },
+        ],
+      });
     </script>
     <script src="../../js/codelove-js-4.js"></script>
   </body>
