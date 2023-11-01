@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>學會第三方套件的使用方法 - vanilla-lazyload</title>
+    <link rel="stylesheet" href="./all.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar d-flex align-items-center">
+          <h1><a href="../../../../index.html">怎麼會-前端coding</a></h1>
+          <h2><a href="../../index.html">Jacky's Home</a></h2>
+        </div>
+      </div>
+    </header>
+    <div class="container d-flex justify-content-center">
+      <section class="thirdPartyDemo">
+        <h2 class="thirdPartyDemo-title">vanilla-lazyload</h2>
+        <img class="lazy" data-src="https://picsum.photos/1920/1080?random=1" />
+        <img class="lazy" data-src="https://picsum.photos/1920/1080?random=2" />
+        <img class="lazy" data-src="https://picsum.photos/1920/1080?random=3" />
+        <img class="lazy" data-src="https://picsum.photos/1920/1080?random=4" />
+        <img class="lazy" data-src="https://picsum.photos/1920/1080?random=5" />
+        <img class="lazy" data-src="https://picsum.photos/1920/1080?random=6" />
+        <img class="lazy" data-src="https://picsum.photos/1920/1080?random=7" />
+        <img class="lazy" data-src="https://picsum.photos/1920/1080?random=8" />
+        <img class="lazy" data-src="https://picsum.photos/1920/1080?random=9" />
+        <img
+          class="lazy"
+          data-src="https://picsum.photos/1920/1080?random=10" />
+      </section>
+    </div>
+    <script src="
+    https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.5/dist/lazyload.min.js
+    "></script>
+    <script>
+      let lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+      });
+    </script>
+  </body>
+</html>
