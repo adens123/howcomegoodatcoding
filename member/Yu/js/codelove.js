@@ -151,6 +151,11 @@ const codelove_01 = [
         content: "xdan/datetimepicker 套件",
         link: "js-4-api.html#api-datetimepicker",
       },
+      {
+        date: "2023/11/06",
+        content: "kenwheeler/slick 套件",
+        link: "js-4-api.html#api-slick",
+      },
     ],
   },
 ];

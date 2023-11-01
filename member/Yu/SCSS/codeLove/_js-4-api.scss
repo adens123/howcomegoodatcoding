@@ -5,8 +5,37 @@
   margin: auto;
   @include pad {
     width: 75%;
+    height: 60%;
     &.pie {
       width: 50%;
+    }
+  }
+}
+
+.slick {
+  &-for {
+    width: 100%;
+    @include pad {
+      width: 50vw;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+  &-nav {
+    img {
+      height: 5%;
+      width: 100%;
+      object-fit: cover;
+      @include pad {
+        height: auto;
+        width: 150px;
+      }
+      @media (min-width: 1200px) {
+        width: 200px;
+      }
     }
   }
 }
