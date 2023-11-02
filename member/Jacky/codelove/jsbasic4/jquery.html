@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>學會第三方套件的使用方法 - jQuery</title>
+    <link rel="stylesheet" href="./all.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar d-flex align-items-center">
+          <h1><a href="../../../../index.html">怎麼會-前端coding</a></h1>
+          <h2><a href="../../index.html">Jacky's Home</a></h2>
+        </div>
+      </div>
+    </header>
+    <div class="container d-flex justify-content-center">
+      <section class="thirdPartyDemo">
+        <h2 class="thirdPartyDemo-title">jQuery</h2>
+        <div class="noUseJquery bg-secondary p-16 my-16">
+          <h3 class="text-black">不使用jQuery</h3>
+          <h1 class="title">Make me green</h1>
+          <p class="para">Make me red</p>
+          <p class="para">Me red too</p>
+          <p class="para">Also me</p>
+        </div>
+        <div class="useJquery bg-primary p-16 my-16">
+          <h3 class="text-black">使用jQuery</h3>
+          <h1 class="title">Make me green</h1>
+          <p class="para">Make me red</p>
+          <p class="para">Me red too</p>
+          <p class="para">Also me</p>
+        </div>
+      </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      // vanilla js
+      document.querySelector(".noUseJquery h1").style.color = "green";
+      document.querySelectorAll(".noUseJquery p").forEach(item => {
+        item.style.color = "red";
+      });
+
+      // jQuery
+      $(document).ready(function () {
+        $(".useJquery h1").css("color", "green");
+        $(".useJquery p").css("color", "red");
+      });
+    </script>
+  </body>
+</html>
