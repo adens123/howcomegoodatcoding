@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./all.css" />
+    <title>測試用</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>To Do List</h1>
+      </header>
+      <div class="content1">
+        <input id="input" type="text" placeholder="請輸入待辦事項" />
+        <select id="select" onchange="changeColor()">
+          <option value="normal">一般</option>
+          <option value="important">重要</option>
+          <option value="urgent">緊急</option>
+        </select>
+        <button onclick="add()">新增</button>
+      </div>
+
+      <div class="content2">
+        <ul id="ul">
+          <li class="red">
+            <button class="done" onclick="fin()">標示為已完成</button>
+            <span>刷馬桶</span>
+            <span>已完成</span>
+            <button onclick="del()">刪除</button>
+          </li>
+          <li class="normal">
+            <button class="done" onclick="fin()">標示為已完成</button>
+            <span>繳電話費</span>
+            <span>已完成</span>
+            <button onclick="del()">刪除</button>
+          </li>
+          <li class="normal">
+            <button class="done" onclick="fin()">標示為已完成</button>
+            <span>採買本週食材</span>
+            <span>已完成</span>
+            <button onclick="del()">刪除</button>
+          </li>
+        </ul>
+        <div class="outPutBtn">
+          <button onclick="outPut()">匯出為純文字</button>
+        </div>
+      </div>
+    </div>
+    <script src="./all.js"></script>
+  </body>
+</html>
