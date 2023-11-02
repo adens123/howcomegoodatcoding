@@ -38,6 +38,10 @@
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
     />
     <link rel="stylesheet" href="../../SCSS/CSS/all.css" />
+    <script
+      src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
   </head>
   <body>
     <header>
@@ -320,6 +324,30 @@
           </div>
         </div>
       </section>
+      <section class="mb-5">
+        <h2 id="api-tinyMCE">第7課 ── TinyMCE 套件</h2>
+        <div class="p-3 border rounded row justify-content-center">
+          <div class="col-10">
+            <form>
+              <textarea id="tinyTextArea">
+                <h3 style="text-align: center;">歡迎來到怎麼會部落格！</h3>
+                <ul>
+                  <li>
+                    <p>目前所使用的是tinyMCE開發的編輯器套件</p>
+                  </li>
+                  <li>
+                    <p>WYSIWYG（所見即所得）編輯器，是業界最常被使用、但也最難開發的功能之一</p>
+                  </li>
+                  <li>
+                    <p>若您也想使用這個編輯器，可立即前往&ensp;<a href="https://www.tiny.cloud/docs/tinymce/6/" target="_blank">tinyMCE官方文件</a>&ensp;查看喔</p>
+                  </li>
+                </ul>
+              </textarea>
+            </form>
+            <button class="btn btn-success mt-3">發佈文章</button>
+          </div>
+        </div>
+      </section>
     </main>
     <!-- bootstrap -->
     <script
@@ -441,6 +469,12 @@
             },
           },
         ],
+      });
+
+      // tinyMCE
+      tinymce.init({
+        selector: "#tinyTextArea",
+        plugins: "autoresize",
       });
     </script>
     <script src="../../js/codelove-js-4.js"></script>
