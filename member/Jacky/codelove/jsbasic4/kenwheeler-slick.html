@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>學會第三方套件的使用方法 - kenwheeler/slick</title>
+
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="./all.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar d-flex align-items-center">
+          <h1><a href="../../../../index.html">怎麼會-前端coding</a></h1>
+          <h2><a href="../../index.html">Jacky's Home</a></h2>
+        </div>
+      </div>
+    </header>
+    <div class="container d-flex justify-content-center">
+      <section class="thirdPartyDemo">
+        <h2 class="thirdPartyDemo-title">kenwheeler/slick</h2>
+        <ul class="slider-for">
+          <li>
+            <img src="https://picsum.photos/600/300?random=1" alt="" />
+          </li>
+          <li>
+            <img src="https://picsum.photos/600/300?random=2" alt="" />
+          </li>
+          <li>
+            <img src="https://picsum.photos/600/300?random=3" alt="" />
+          </li>
+          <li>
+            <img src="https://picsum.photos/600/300?random=4" alt="" />
+          </li>
+          <li>
+            <img src="https://picsum.photos/600/300?random=5" alt="" />
+          </li>
+        </ul>
+        <div class="p-16">
+          <ul class="slider-nav">
+            <li>
+              <img src="https://picsum.photos/600/300?random=1" alt="" />
+            </li>
+            <li>
+              <img src="https://picsum.photos/600/300?random=2" alt="" />
+            </li>
+            <li>
+              <img src="https://picsum.photos/600/300?random=3" alt="" />
+            </li>
+            <li>
+              <img src="https://picsum.photos/600/300?random=4" alt="" />
+            </li>
+            <li>
+              <img src="https://picsum.photos/600/300?random=5" alt="" />
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".slider-for").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          fade: true,
+          asNavFor: ".slider-nav"
+        });
+        $(".slider-nav").slick({
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          asNavFor: ".slider-for",
+          dots: true,
+          centerMode: true,
+          centerPadding: "20px",
+          focusOnSelect: true,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerPadding: "0px",
+                infinite: true,
+                dots: false
+              }
+            }
+          ]
+        });
+      });
+    </script>
+  </body>
+</html>

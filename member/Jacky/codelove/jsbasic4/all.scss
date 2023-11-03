@@ -103,8 +103,16 @@ textarea {
   margin-bottom: 16px;
 }
 
+.mx-auto {
+  margin: 0 auto;
+}
+
 .p-16 {
   padding: 16px;
+}
+
+.p-32 {
+  padding: 32px;
 }
 
 .text-black {
@@ -191,4 +199,23 @@ textarea {
   &.active {
     background-color: tomato;
   }
+}
+
+// kenwheeler slick
+
+.slick-dots li button::before {
+  font-size: 16px;
+  color: #fff;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #fff;
+}
+
+.slick-slide {
+  margin-right: 12px;
+}
+
+.slick-slide img {
+  margin: 0 auto;
 }
