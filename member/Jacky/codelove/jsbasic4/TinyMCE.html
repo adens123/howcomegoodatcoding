@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>學會第三方套件的使用方法 - TinyMCE</title>
+    <link rel="stylesheet" href="./all.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar d-flex align-items-center">
+          <h1><a href="../../../../index.html">怎麼會-前端coding</a></h1>
+          <h2><a href="../../index.html">Jacky's Home</a></h2>
+        </div>
+      </div>
+    </header>
+    <div class="container d-flex justify-content-center">
+      <section class="thirdPartyDemo">
+        <h2 class="thirdPartyDemo-title">TinyMCE</h2>
+        <form>
+          <textarea id="myTextarea">Hello World!!!</textarea>
+        </form>
+        <button class="formBtn my-16">發佈文章</button>
+      </section>
+    </div>
+    <script
+      src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: "#myTextarea"
+      });
+    </script>
+  </body>
+</html>

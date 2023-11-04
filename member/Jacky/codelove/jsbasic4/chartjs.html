@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>學會第三方套件的使用方法 - Chart.js</title>
+    <link rel="stylesheet" href="./all.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar d-flex align-items-center">
+          <h1><a href="../../../../index.html">怎麼會-前端coding</a></h1>
+          <h2><a href="../../index.html">Jacky's Home</a></h2>
+        </div>
+      </div>
+    </header>
+    <div class="container d-flex justify-content-center">
+      <section class="thirdPartyDemo">
+        <h2 class="thirdPartyDemo-title">Chart.js</h2>
+        <ul class="tabs d-flex my-16">
+          <li class="tabs-item flex-grow-1">
+            <a id="line" class="tabs-link active" href="#">Line Chart</a>
+          </li>
+          <li class="tabs-item flex-grow-1">
+            <a id="bar" class="tabs-link" href="#">Bar Chart</a>
+          </li>
+          <li class="tabs-item flex-grow-1">
+            <a id="pie" class="tabs-link" href="#">Pie Chart</a>
+          </li>
+        </ul>
+        <div>
+          <canvas id="myChart"></canvas>
+        </div>
+      </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      function getNode(nodeName) {
+        return document.querySelector(nodeName);
+      }
+      function getNodeAll(nodeName) {
+        return document.querySelectorAll(nodeName);
+      }
+
+      const ctx = getNode("#myChart");
+      const tabs = getNode(".tabs");
+
+      const labels = [
+        "1月",
+        "2月",
+        "3月",
+        "4月",
+        "5月",
+        "6月",
+        "7月",
+        "8月",
+        "9月",
+        "10月",
+        "11月",
+        "12月"
+      ];
+      const data = [
+        10313190, 10495519, 10635927, 10817375, 10943834, 11062912, 11602030,
+        11283795, 11417224, 11553147, 12326543, 12493829
+      ];
+
+      function createChart(chartNode, type) {
+        return new Chart(chartNode, {
+          type: type,
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "111年台北市政府APP使用量",
+                data: data,
+                borderWidth: 1
+              }
+            ]
+          }
+          // options: {
+          //   scales: {
+          //     y: {
+          //       beginAtZero: true
+          //     }
+          //   }
+          // }
+        });
+      }
+
+      let myChart = createChart(ctx, "line");
+
+      tabs.addEventListener("click", e => {
+        if (e.target.tagName == "A") {
+          getNodeAll(".tabs-link").forEach(item => {
+            item.classList.remove("active");
+          });
+          e.target.classList.add("active");
+
+          myChart.destroy();
+
+          myChart = createChart(ctx, e.target.id);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -51,7 +51,7 @@ new Chart(lineChart, {
     plugins: {
       title: {
         display: true,
-        text: "年底單身戶",
+        text: "高雄市年底單身戶",
         font: {
           size: 32,
         },
@@ -155,19 +155,27 @@ let data_population = {
   // These labels appear in the legend and in the tooltips when hovering different arcs
   labels: ["0-14歲", "15-39歲", "40-64歲", "65歲以上"],
 };
-
-new Chart(pieChart, {
+const tisPie = new Chart(pieChart, {
   type: "pie",
   data: data_population,
   options: {
     plugins: {
       title: {
         display: true,
-        text: "民國112年9月份年齡分組統計",
+        text: "民國112年9月份高雄市年齡分組統計",
         font: {
-          size: 32,
+          size: 24,
         },
       },
+      tooltip: {
+        titleFont: {
+          size: 20,
+        },
+        bodyFont: {
+          size: 16,
+        },
+      },
+      responsive: true,
     },
   },
 });
