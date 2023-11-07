@@ -155,13 +155,13 @@
         newBtn.textContent = "刪除";
 
         // 幫創建的button元素加上刪除功能(delTodo is a Function)
-        newBtn.onclick = delTodo;
+        // newBtn.onclick = delTodo;
 
         // 使用removeChild()
-        // newBtn.addEventListener("click", () => {
-        //   $todolist.removeChild(newLi);
-        //   showHiddenTodo();
-        // });
+        newBtn.addEventListener("click", () => {
+          $todolist.removeChild(newLi);
+          showHiddenTodo();
+        });
 
         // 幫創建的span元素加入樣式和user輸入的待辦事項內容
         newSpanIcon.innerHTML = "&#10004;";

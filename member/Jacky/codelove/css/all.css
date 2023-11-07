@@ -1,16 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap");
-
-// base
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   font-family: "Noto Sans TC", sans-serif;
   color: white;
-  background-color: rgb(10, 10, 10);
+  background-color: #0a0a0a;
   line-height: 1.5;
 }
 
@@ -43,12 +42,9 @@ textarea {
   font-size: 16px;
   line-height: 1.5;
   border: 1px solid #4b5563;
-  // outline: none;
   padding: 10px;
   border-radius: 4px;
 }
-
-// layout
 
 .container {
   max-width: 1200px;
@@ -58,11 +54,12 @@ textarea {
 }
 
 .header {
-  background-color: rgb(156, 163, 175);
+  background-color: #9ca3af;
 }
 
-// utils
 .d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -75,23 +72,33 @@ textarea {
 }
 
 .flex-column {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .flex-grow-1 {
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .justify-content-center {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .justify-content-around {
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .align-items-center {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .w-100 {
@@ -101,18 +108,6 @@ textarea {
 .my-16 {
   margin-top: 16px;
   margin-bottom: 16px;
-}
-
-.mx-auto {
-  margin: 0 auto;
-}
-
-.p-16 {
-  padding: 16px;
-}
-
-.p-32 {
-  padding: 32px;
 }
 
 .text-black {
@@ -131,41 +126,35 @@ textarea {
   background-color: #2291db;
 }
 
-.bg-secondary {
-  background-color: #4b5563;
-}
-
 .hover-primary:hover {
   outline: 4px solid #66b1ec;
 }
 
-// component
 .navbar {
   padding: 10px 20px;
-
-  h1 {
-    color: #000;
-    font-size: 24px;
-    margin-right: 20px;
-  }
-
-  h2 {
-    color: #4b5563;
-    font-size: 20px;
-  }
 }
 
-// thirdPartyDemo
+.navbar h1 {
+  color: #000;
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.navbar h2 {
+  color: #4b5563;
+  font-size: 20px;
+}
+
 .thirdPartyDemo {
   width: 75%;
   margin-top: 20px;
   padding: 20px;
   border: 2px solid #4b5563;
+}
 
-  &-title {
-    border-bottom: 2px solid wheat;
-    margin-bottom: 12px;
-  }
+.thirdPartyDemo-title {
+  border-bottom: 2px solid wheat;
+  margin-bottom: 12px;
 }
 
 .formBtn {
@@ -177,45 +166,10 @@ textarea {
   padding: 15px;
   border-radius: 8px;
   cursor: pointer;
-  &:hover {
-    color: #000;
-    background-color: #66b1ec;
-  }
 }
 
-// tabs
-
-.tabs {
-  text-align: center;
-  gap: 12px;
+.formBtn:hover {
+  color: #000;
+  background-color: #66b1ec;
 }
-
-.tabs-link {
-  display: block;
-  padding: 8px;
-  border: 1px solid #fff;
-  border-radius: 8px;
-  &:hover,
-  &.active {
-    background-color: tomato;
-  }
-}
-
-// kenwheeler slick
-
-.slick-dots li button::before {
-  font-size: 16px;
-  color: #fff;
-}
-
-.slick-dots li.slick-active button:before {
-  color: #fff;
-}
-
-.slick-slide {
-  margin-right: 12px;
-}
-
-.slick-slide img {
-  margin: 0 auto;
-}
+/*# sourceMappingURL=all.css.map */

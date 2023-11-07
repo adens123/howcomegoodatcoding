@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>學會第三方套件的使用方法 - xdan/datetimepicker</title>
+    <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"/
+    >
+    <link rel="stylesheet" href="./all.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar d-flex align-items-center">
+          <h1><a href="../../../../index.html">怎麼會-前端coding</a></h1>
+          <h2><a href="../../index.html">Jacky's Home</a></h2>
+        </div>
+      </div>
+    </header>
+    <div class="container d-flex justify-content-center">
+      <section class="thirdPartyDemo">
+        <h2 class="thirdPartyDemo-title">xdan/datetimepicker</h2>
+        <form>
+          <ul>
+            <li class="my-16">
+              <label for="checkIn">入住日期：</label>
+              <input id="checkIn" type="text" />
+            </li>
+            <li class="my-16">
+              <label for="checkOut">退房日期：</label>
+              <input id="checkOut" type="text" />
+            </li>
+          </ul>
+        </form>
+      </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#checkIn").datetimepicker({
+          timepicker: false,
+          format: "Y/m/d"
+        });
+        $("#checkOut").datetimepicker({
+          timepicker: false,
+          format: "Y/m/d"
+        });
+      });
+    </script>
+  </body>
+</html>
