@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>學會 Cookie 相關功能</title>
+    <link rel="stylesheet" href="./all.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar d-flex align-items-center">
+          <h1><a href="../../../../index.html">怎麼會-前端coding</a></h1>
+          <h2><a href="../../index.html">Jacky's Home</a></h2>
+        </div>
+      </div>
+    </header>
+    <div class="container d-flex justify-content-center">
+      <section class="card">
+        <h2 class="card-title">學會 Cookie 相關功能</h2>
+        <div class="text-center">
+          <img
+            src="https://hk.on.cc/cnt/entertainment/20220817/photo/bkn-20220817210002600-0817_00862_001_02p.jpg?20220817210002"
+            alt="" />
+        </div>
+      </section>
+    </div>
+    <div class="overlay">
+      <div class="modal">
+        <div class="modal-content">
+          <div class="text-center">
+            <img
+              src="https://img.freepik.com/free-vector/number-18-neon-style_23-2148680882.jpg?w=740&t=st=1699281168~exp=1699281768~hmac=c820f3275a4fabe866e0e2c9a9c5336be2ebc9f2ca7164d9a0875260d0f26b19"
+              width="200"
+              height="200"
+              alt="" />
+          </div>
+          <p>警告︰您即將進入之網頁內容需滿十八歲方可瀏覽。</p>
+          <br />
+          <p>
+            根據「兒童及少年福利與權益保障法」規定，本網站已於非闔家皆宜之網頁加以標示。若您尚未年滿十八歲，請點選離開。若您已滿十八歲，亦不可將本站之內容派發、傳閱、出售、出租、交給或借予年齡未滿18歲的人士瀏覽，或將本網站內容向該人士出示、播放或放映。
+          </p>
+          <br />
+          <p>您年滿十八歲嗎？</p>
+          <br />
+          <button class="formBtn mr-16" onclick="no()">離開</button>
+          <button class="formBtn" onclick="yes()">是，我已年滿十八歲</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      if (document.cookie) {
+        if (document.cookie.split(";")[0].split("=")[1] == '"true"') {
+          document.querySelector(".overlay").style.display = "none";
+        } else {
+          document.querySelector(".overlay").style.display = "block";
+        }
+      }
+
+      function no() {
+        window.location.href = "https://www.google.com/";
+      }
+
+      function yes() {
+        document.cookie = 'isAdult="true"';
+        document.querySelector(".overlay").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
