@@ -93,7 +93,7 @@ function changeColor() {
 }
 
 function fin() {
-  let a = event.target.closest("li").querySelector(".done"); //button (.done)
+  let a = event.target.closest("li").querySelectorAll("button")[0]; //button (.done)
   let z = event.target.closest("li").querySelectorAll("span")[1]; //span (選到全部的span裡,項目1的span)
   a.textContent = "標示為已完成";
 
