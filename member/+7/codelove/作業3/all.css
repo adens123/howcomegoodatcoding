@@ -81,10 +81,9 @@ form {
 input {
   height: 30px;
 }
-.error {
-  display: none;
-}
-.errorText {
-  /* display: block; */
+.errorText,
+.errorEmail,
+.errorPassword {
+  visibility: hidden;
   color: #9f1239;
 }

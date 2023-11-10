@@ -86,7 +86,9 @@
             placeholder="請輸入姓名"
           />
           <br />
-          <span class="error errorText">*不能為空白、必須在40字以內</span>
+          <span id="errorText" class="error errorText"
+            >*不能為空白、必須在40字以內</span
+          >
         </div>
         <div class="group">
           <label for="mail">電子郵件：</label>
@@ -114,8 +116,8 @@
             >*不能為空白、必須在8字以上、必須在100字以內</span
           >
         </div>
-        <input type="submit" value="註冊" onclick="register()" />
       </form>
+      <button type="submit" onclick="register()">註冊</button>
     </div>
 
     <script src="./all.js"></script>

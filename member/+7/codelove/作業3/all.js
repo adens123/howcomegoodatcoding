@@ -60,21 +60,42 @@ function closeModal() {
 }
 
 //3-4
-//分別選取三個欄位的input
+//分別在 function register() 選取三個欄位的input
 //error span先用css預設隱藏,有條件的顯示
 //if person.trim()===""||person.length>40,
 //(.trim()===""意思是除去字串中的空白後，還是空白)
-let nickName = document.querySelector("#nickName");
-let mail = document.querySelector("#mail");
-let password = document.querySelector("#password");
-//input 陣列裡找目標
-
-let errorText = document.querySelector(".errorText");
 
 function register() {
-  if (person.trim() === " " || person.length > 40) {
-    errorText.classList.add("errorText");
+  let nickName = document.querySelector("#nickName").value;
+  let mail = document.querySelector("#mail").value;
+  let password = document.querySelector("#password").value;
+  // console.log(typeof nickName);
+  //input 陣列裡找目標
+  let errorText = document.querySelector(".errorText");
+  let errorPassword = document.querySelector(".errorPassword");
+  let errorEmail = document.querySelector(".errorEmail");
+
+  // console.dir(nickName);
+
+  if (nickName === "" || nickName.length > 40) {
+    errorText.style.visibility = "visible";
+  } else {
+    errorText.style.visibility = "hidden";
+  }
+
+  if (mail === "" || !mail.includes("@")) {
+    errorEmail.style.visibility = "visible";
+  } else {
+    errorEmail.style.visibility = "hidden";
+  }
+
+  if (password === "") {
+    errorPassword.style.visibility = "visible";
+  } else if (password.length < 8 || password.length > 100) {
+    errorPassword.style.visibility = "visible";
+  } else {
+    errorPassword.style.visibility = "hidden";
   }
 }
 
-console.log(nickName, mail, password, errorText);
+// console.log(nickName, mail, password, errorSpan);
