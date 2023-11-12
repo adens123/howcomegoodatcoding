@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./all.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>作業三</title>
+  </head>
+  <body>
+    <div class="alert all alert-primary">
+      <span class="material-icons">
+        paid 歡迎您點擊「抖內」按鈕，以實際行動支持我們。</span
+      >
+      <button class="btn-close" onclick="closeUp()">×</button>
+    </div>
+    <hr />
+    <div class="alert all alert-success">
+      <span class="material-icons">
+        check_circle 您已成功下訂單！以下為您的訂單詳細資訊。</span
+      >
+      <button class="btn-close" onclick="closeUp()">×</button>
+    </div>
+    <hr />
+    <div class="alert all alert-danger">
+      <span class="material-icons">
+        cancel 抱歉，系統發生錯誤，請稍後重新嘗試。</span
+      >
+      <button class="btn-close" onclick="closeUp()">×</button>
+    </div>
+    <hr />
+    <div class="alert all alert-warning">
+      <span class="material-icons">
+        error 請注意，以下內容包含「劇透」爆雷資訊。</span
+      >
+      <button class="btn-close" onclick="closeUp()">×</button>
+    </div>
+    <!------>
+    <br />
+    <button onclick="toastSuccess()">成功訂購商品</button>
+    <br />
+    <button onclick="toastError()">訂購商品失敗</button>
+
+    <div class="toast toast-success">
+      <span class="material-icons"> check_circle</span>
+      訂購成功！可以查看 Email 確認訂單細節！
+    </div>
+    <div class="toast toast-error">
+      <span class="material-icons"> error</span>
+      抱歉，訂購失敗！請稍後重新嘗試
+    </div>
+    <br />
+    -----------------------<br />
+    <button onclick="loginModal()">點我登入帳號</button>
+    <br />
+    <button onclick="postModal()">點我新增貼文</button>
+    <br />
+    <div class="overlay">
+      <div class="modal" id="login-modal">
+        <div>帳號：<input type="text" /></div>
+        <div>密碼：<input type="password" /></div>
+        <button class="btn-close" onclick="closeModal()">關閉</button>
+      </div>
+      <div class="modal" id="post-modal">
+        <div>標題：<input type="text" /></div>
+        <div>內文：<textarea></textarea></div>
+        <hr />
+        <button class="btn-close" onclick="closeModal()">關閉</button>
+      </div>
+    </div>
+    -----------------------<br />
+    <div class="form-content">
+      <h2>註冊會員</h2>
+      <form>
+        <div class="group">
+          <label for="nickName">用戶暱稱：</label>
+          <br />
+          <input
+            class="text"
+            type="text"
+            id="nickName"
+            name="nickName"
+            placeholder="請輸入姓名"
+          />
+          <br />
+          <span id="errorText" class="error errorText"
+            >*不能為空白、必須在40字以內</span
+          >
+        </div>
+        <div class="group">
+          <label for="mail">電子郵件：</label>
+          <br />
+          <input
+            type="mail"
+            id="mail"
+            name="mail"
+            placeholder="請輸入電子郵件"
+          />
+          <br />
+          <span class="error errorEmail">*不能為空白、必須包含 @ 符號</span>
+        </div>
+        <div class="group">
+          <label for="password">密碼：</label>
+          <br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="請輸入密碼"
+          />
+          <br />
+          <span class="error errorPassword"
+            >*不能為空白、必須在8字以上、必須在100字以內</span
+          >
+        </div>
+      </form>
+      <button type="submit" onclick="register()">註冊</button>
+    </div>
+
+    <script src="./all.js"></script>
+  </body>
+</html>
