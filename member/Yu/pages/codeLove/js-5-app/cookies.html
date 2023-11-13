@@ -56,29 +56,33 @@
         </div>
       </nav>
     </header>
-    <main class="container position-relative">
-      <section class="cookies-demo">
+    <main class="container">
+      <section class="cookies-demo position-relative">
         <div
           class="alert-dialog border rounded-3 position-absolute bg-white shadow"
         >
           <div class="alert-content">
-            <div class="alert-header border-bottom border-3 p-3">
-              <h5 class="text-danger me-3">
+            <div
+              class="alert-header border-bottom border-3 p-3 d-flex justify-content-between"
+            >
+              <h2 class="text-danger me-3 alert-title">
                 警告︰您即將進入之網頁內容需滿十八歲方可瀏覽。
-              </h5>
+              </h2>
               <button class="btn-close"></button>
             </div>
             <div class="alert-body p-3">
               <p>
                 根據「兒童及少年福利與權益保障法」規定，本網站已於非闔家皆宜之網頁加以標示。若您尚未年滿十八歲，請點選離開。若您已滿十八歲，亦不可將本站之內容派發、傳閱、出售、出租、交給或借予年齡未滿18歲的人士瀏覽，或將本網站內容向該人士出示、播放或放映。
               </p>
-              <p class="fw-bold fst-italic">您年滿十八歲嗎？</p>
+              <p class="fw-bold fst-italic fs-4">您年滿十八歲嗎？</p>
             </div>
-            <div class="alert-footer text-center p-3">
-              <button class="btn btn-success me-3" onclick="leave()">
+            <div
+              class="alert-footer d-flex py-3 px-3 px-lg-5 justify-content-between flex-column flex-lg-row gap-2"
+            >
+              <button class="btn btn-outline-secondary px-5" onclick="leave()">
                 離開
               </button>
-              <button class="btn btn-warning" onclick="pass()">
+              <button class="btn btn-danger" onclick="pass()">
                 是，我已年滿十八歲
               </button>
             </div>
@@ -109,6 +113,7 @@
 
       function leave() {
         location.href = "https://www.google.com";
+        isAdult = false;
       }
 
       function pass() {
@@ -124,6 +129,9 @@
       function close_alert(e) {
         // console.log(e.target.closest(".alert-dialog"));
         e.target.closest(".alert-dialog").classList.add("d-none");
+        setTimeout(() => {
+          e.target.closest(".alert-dialog").classList.remove("d-none");
+        }, 2000);
       }
     </script>
     <script
