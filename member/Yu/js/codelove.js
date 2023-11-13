@@ -163,6 +163,17 @@ const codelove_01 = [
       },
     ],
   },
+  {
+    ch_num: 5,
+    chapter: "JavaScript（五）打造功能豐富的前端應用程式",
+    lesson: [
+      {
+        date: "2023/11/08",
+        content: "學會 Cookie 相關功能",
+        link: "./js-5-app/cookies.html",
+      },
+    ],
+  },
 ];
 
 // 建立章節列表
