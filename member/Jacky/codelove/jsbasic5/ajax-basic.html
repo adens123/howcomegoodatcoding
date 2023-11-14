@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>學會 AJAX 基本原理</title>
+    <title>學會 AJAX 基本原理和錯誤處理</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -36,7 +36,7 @@
     <div class="container d-flex justify-content-center mt-5">
       <section class="card w-100">
         <div class="card-header">
-          <h2 class="card-title">學會 AJAX 基本原理</h2>
+          <h2 class="card-title">學會 AJAX 基本原理和錯誤處理</h2>
           <button class="btn btn-secondary" onclick="getData()">
             Load Products
           </button>
@@ -90,6 +90,9 @@
             for (let data of json) {
               render(data);
             }
+          })
+          .catch(error => {
+            alert("抱歉，請稍後重新嘗試!!");
           });
       }
     </script>
