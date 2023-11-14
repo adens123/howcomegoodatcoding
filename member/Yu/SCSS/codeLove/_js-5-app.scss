@@ -1,0 +1,22 @@
+.cookies-demo {
+  .alert {
+    &-dialog {
+      width: 100%;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      @include pad {
+        max-width: 50vw;
+        width: 650px;
+        top: 50%;
+      }
+    }
+    &-title {
+      font-size: 1rem;
+      @include pad {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

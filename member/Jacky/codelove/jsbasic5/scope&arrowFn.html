@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>變數作用域、箭頭函式、ES6 語法</title>
+    <link rel="stylesheet" href="./all.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="navbar d-flex align-items-center">
+          <h1><a href="../../../../index.html">怎麼會-前端coding</a></h1>
+          <h2><a href="../../index.html">Jacky's Home</a></h2>
+        </div>
+      </div>
+    </header>
+    <div class="container d-flex justify-content-center">
+      <section class="card">
+        <h2 class="card-title">變數作用域、箭頭函式、ES6 語法</h2>
+        <div class="d-flex flex-column">
+          <h3 class="my-16">simple counter</h3>
+          <button class="formBtn my-16 w-50" onclick="counter()">-</button>
+          <button class="formBtn my-16 w-50" onclick="counter()">+</button>
+        </div>
+
+        <hr />
+        <div class="d-flex flex-column">
+          <h3 class="my-16">simple calculator</h3>
+          <input id="num1" class="w-50 my-16" type="number" />
+          <input id="num2" class="w-50 my-16" type="number" />
+          <button class="formBtn my-16 w-50" onclick="calculator()">
+            加/減/乘/除
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      let count = 0;
+
+      function counter() {
+        const operator = event.target.textContent;
+
+        if (operator == "+") {
+          count++;
+        } else {
+          count--;
+        }
+        alert(count);
+      }
+
+      function calculator() {
+        const $num1 = Number(document.querySelector("#num1").value);
+        const $num2 = Number(document.querySelector("#num2").value);
+
+        if ($num1 == 0 || $num2 == 0) {
+          alert("不可為0或空值，請重新輸入");
+        } else {
+          alert(`${$num1} + ${$num2} = ${$num1 + $num2}`);
+          alert(`${$num1} - ${$num2} = ${$num1 - $num2}`);
+          alert(`${$num1} * ${$num2} = ${$num1 * $num2}`);
+          alert(`${$num1} / ${$num2} = ${$num1 / $num2}`);
+        }
+
+        document.querySelector("#num1").value = "";
+        document.querySelector("#num2").value = "";
+      }
+    </script>
+  </body>
+</html>

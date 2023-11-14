@@ -39,22 +39,18 @@
 }
 
 .mark-yellow {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(0, #ffe187));
   background: linear-gradient(transparent 70%, #ffe187 0);
 }
 
 .mark-red {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(0, #ed9676));
   background: linear-gradient(transparent 70%, #ed9676 0);
 }
 
 .mark-green {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(0, #b7cd56));
   background: linear-gradient(transparent 70%, #b7cd56 0);
 }
 
 .mark-brown {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(0, #d6c885));
   background: linear-gradient(transparent 70%, #d6c885 0);
 }
 
@@ -79,7 +75,7 @@
 }
 
 .font02 {
-  font-family: 'Nunito Sans', 'Noto Sans TC',sans-serif;
+  font-family: "Nunito Sans", "Noto Sans TC", sans-serif;
 }
 
 .titleBtn {
@@ -89,7 +85,7 @@
 }
 
 body {
-  font-family: 'Noto Sans','Noto Sans TC',sans-serif;
+  font-family: "Noto Sans", "Noto Sans TC", sans-serif;
   font-weight: 400;
 }
 
@@ -108,7 +104,7 @@ img {
 
 code {
   font-size: 16px;
-  font-family: 'Nunito Sans', 'Noto Sans TC',sans-serif;
+  font-family: "Nunito Sans", "Noto Sans TC", sans-serif;
   font-weight: 400;
 }
 
@@ -128,7 +124,7 @@ code {
 }
 
 .main-title {
-  font-family: 'Skranji', 'Noto Sans TC',cursive,sans-serif;
+  font-family: "Skranji", "Noto Sans TC", cursive, sans-serif;
   line-height: 1.5;
 }
 
@@ -165,42 +161,25 @@ code {
 }
 
 .hp-img img:hover {
-  -webkit-animation: shake .1s linear infinite alternate;
-          animation: shake .1s linear infinite alternate;
+  animation: shake 0.1s linear infinite alternate;
 }
 
 .rotate5:hover {
-  -webkit-transform: rotate(10deg);
-          transform: rotate(10deg);
+  transform: rotate(10deg);
 }
 
 .rotate-5:hover {
-  -webkit-transform: rotate(-10deg);
-          transform: rotate(-10deg);
-}
-
-@-webkit-keyframes shake {
-  0% {
-    -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
-  }
-  100% {
-    -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
-  }
+  transform: rotate(-10deg);
 }
 
 @keyframes shake {
   0% {
-    -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
+    transform: rotate(-2deg);
   }
   100% {
-    -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
 }
-
 .date-item2 a {
   text-decoration: none;
   display: block;
@@ -220,5 +199,4 @@ code {
 
 .date-item2 li {
   margin: 18px;
-}
-/*# sourceMappingURL=all.css.map */
+}/*# sourceMappingURL=all.css.map */
