@@ -20,3 +20,142 @@
     }
   }
 }
+
+.todo {
+  background-color: #fff;
+  input,
+  button,
+  select {
+    border-radius: 0.25rem;
+  }
+
+  input {
+    border: 1px solid #aaa;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  select {
+    border: 1px solid #030303;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    border-radius: 0.25rem;
+  }
+
+  /* spacing */
+
+  .text-right {
+    text-align: right;
+  }
+
+  // utils
+  .btn {
+    border: 1px solid;
+    padding: 0.5rem 1rem;
+  }
+
+  .add {
+    color: navy;
+    &:hover {
+      background-color: navy;
+      color: #fff;
+    }
+  }
+  .delete {
+    color: #800020;
+    &:hover {
+      background-color: #800020;
+      color: #fff;
+    }
+  }
+
+  .check {
+    color: green;
+    margin-right: 1rem;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .checked {
+    opacity: 1;
+    background-color: green;
+    color: #fff;
+  }
+
+  .export {
+    color: green;
+    &:hover {
+      background-color: green;
+      color: #fff;
+    }
+  }
+
+  // inputItem
+  .inputItem {
+    width: 50vw;
+    @include pad {
+      width: calc(100% - 10rem);
+    }
+  }
+
+  /* todolist */
+  .todolist {
+    &-input {
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    &-body {
+      border: 2px solid #eee;
+      border-radius: 0.25rem;
+    }
+
+    &-item {
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px dashed #eee;
+      }
+    }
+  }
+
+  /* status */
+  .important {
+    font-weight: bold;
+    color: orange;
+  }
+
+  .urgent {
+    font-weight: bold;
+    color: #800020;
+  }
+
+  .orange {
+    background-color: orange;
+    color: #fff;
+  }
+
+  .red {
+    background-color: red;
+    color: #fff;
+  }
+
+  // 是否完成
+  .notChecked {
+    display: none;
+  }
+  .line-through {
+    text-decoration: line-through;
+  }
+  .done {
+    opacity: 0.5;
+  }
+}

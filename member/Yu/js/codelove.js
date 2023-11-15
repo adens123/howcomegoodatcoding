@@ -172,6 +172,11 @@ const codelove_01 = [
         content: "學會 Cookie 相關功能",
         link: "./js-5-app/cookies.html",
       },
+      {
+        date: "2023/11/09",
+        content: "學會 Local Storage 相關功能",
+        link: "./js-5-app/localStorage.html",
+      },
     ],
   },
 ];
