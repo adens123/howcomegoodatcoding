@@ -227,7 +227,7 @@
           const storage_data = JSON.parse(localStorage.getItem("todoItem"));
           todoList.innerHTML = storage_data
             .map((item) => {
-              return `<li class="todolist-item d-flex align-items-center"><button class="${item.status}">${item.status_text}</button><div class="item-text d-flex align-items-center me-auto"><p class="${item.todoItem_done}">${item.todoItem_text}</p><span class="${item.notChecked_status}">（已完成）</span></div><button class="btn delete" onclick="remove()">刪除</button></li>`;
+              return `<li class="todolist-item d-flex align-items-center"><button class="${item.status}" onclick="toggleCheck()">${item.status_text}</button><div class="item-text d-flex align-items-center me-auto"><p class="${item.todoItem_done}">${item.todoItem_text}</p><span class="${item.notChecked_status}">（已完成）</span></div><button class="btn delete" onclick="remove()">刪除</button></li>`;
             })
             .join("");
         }
