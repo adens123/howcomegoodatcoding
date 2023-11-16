@@ -177,6 +177,11 @@ const codelove_01 = [
         content: "學會 Local Storage 相關功能",
         link: "./js-5-app/localStorage.html",
       },
+      {
+        date: "2023/11/10",
+        content: "變數作用域、箭頭函式、ES6 語法",
+        link: "./js-5-app/scopeArrowFn.html",
+      },
     ],
   },
 ];
