@@ -38,7 +38,7 @@
         <div class="col-md-6">
           <div class="input-group mb-3">
             <input id="dataField" class="form-control" type="text" />
-            <button class="btn btn-primary" onclick="add()">新增</button>
+            <button class="btn btn-primary p-3" onclick="add()">新增</button>
           </div>
           <div id="root" class="card p-3"></div>
         </div>
@@ -67,11 +67,24 @@
         root.textContent = "";
 
         const ul = document.createElement("ul");
-        for (const todo of todos) {
+        ul.className = "list-unstyled";
+
+        for (const index in todos) {
           const li = document.createElement("li");
           const span = document.createElement("span");
-          span.textContent = todo.title;
-          li.append(span);
+          const delBtn = document.createElement("button");
+
+          li.className =
+            "form-control d-flex align-items-center border-secondary mb-3";
+          span.textContent = todos[index].title;
+          delBtn.textContent = "刪除";
+          delBtn.className = "btn btn-danger ms-auto";
+          delBtn.onclick = () => {
+            todos.splice(index, 1);
+            render();
+          };
+
+          li.append(span, delBtn);
           ul.append(li);
         }
 
