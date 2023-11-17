@@ -33,8 +33,16 @@
         </div>
       </nav>
     </header>
-    <div class="container d-flex justify-content-center mt-5">
-      <div id="root" class="card p-3 w-50"></div>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+            <input id="dataField" class="form-control" type="text" />
+            <button class="btn btn-primary" onclick="add()">新增</button>
+          </div>
+          <div id="root" class="card p-3"></div>
+        </div>
+      </div>
     </div>
 
     <script
@@ -71,6 +79,18 @@
       }
 
       render();
+
+      function add() {
+        const dataField = document.querySelector("#dataField");
+
+        if (!dataField.value) return alert("請輸入內容!!");
+
+        todos.push({ title: dataField.value });
+        dataField.value = "";
+        dataField.focus();
+
+        render();
+      }
     </script>
   </body>
 </html>
