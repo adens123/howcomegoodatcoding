@@ -159,3 +159,15 @@
     opacity: 0.5;
   }
 }
+
+.ajax {
+  .img-box {
+    height: 25vh;
+    // width: 100%;
+    padding: 1rem;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+}
