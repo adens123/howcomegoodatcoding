@@ -37,8 +37,13 @@
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="input-group mb-3">
-            <input id="dataField" class="form-control" type="text" />
-            <button class="btn btn-primary p-3" onclick="add()">新增</button>
+            <input id="dataField" class="form-control py-3" type="text" />
+            <select id="category" class="form-select flex-grow-0 w-auto py-3">
+              <option value="normal">一般</option>
+              <option value="important">重要</option>
+              <option value="urgent">緊急</option>
+            </select>
+            <button class="btn btn-primary py-3" onclick="add()">新增</button>
           </div>
           <div id="root" class="card p-3"></div>
         </div>
@@ -52,13 +57,16 @@
     <script>
       const todos = [
         {
-          title: "倒垃圾"
+          title: "倒垃圾",
+          category: "normal"
         },
         {
-          title: "繳電話費"
+          title: "繳電話費",
+          category: "important"
         },
         {
-          title: "採買本週食材"
+          title: "採買本週食材",
+          category: "urgent"
         }
       ];
 
@@ -77,6 +85,13 @@
           li.className =
             "form-control d-flex align-items-center border-secondary mb-3";
           span.textContent = todos[index].title;
+          if (todos[index].category == "important") {
+            span.style.color = "orange";
+          }
+          if (todos[index].category == "urgent") {
+            span.style.color = "red";
+          }
+
           delBtn.textContent = "刪除";
           delBtn.className = "btn btn-danger ms-auto";
           delBtn.onclick = () => {
@@ -95,10 +110,11 @@
 
       function add() {
         const dataField = document.querySelector("#dataField");
+        const category = document.querySelector("#category");
 
         if (!dataField.value) return alert("請輸入內容!!");
 
-        todos.push({ title: dataField.value });
+        todos.push({ title: dataField.value, category: category.value });
         dataField.value = "";
         dataField.focus();
 
