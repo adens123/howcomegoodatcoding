@@ -87,3 +87,76 @@ input {
   visibility: hidden;
   color: #9f1239;
 }
+/*3-5*/
+.FAQ {
+  background-color: burlywood;
+  padding: 10px;
+  background-color: rgba(255, 84, 84, 0.5);
+}
+.question {
+  height: 50px;
+}
+
+.active {
+  background-color: chocolate;
+}
+.answer {
+  height: 50px;
+
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease;
+  /*height & max-height 一起出現是用來對比*/
+  /*不管設定多少height，都是依max-height的高度*/
+}
+
+.active,
+.question:hover {
+  background-color: rgba(255, 84, 84, 0.5);
+}
+
+/*3-6 dropdown 下拉式選單*/
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: #000;
+  height: 200px;
+}
+.navBar {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  /*先設定高度,才可垂直置中*/
+  height: 50px;
+  align-items: center;
+}
+.navBar li {
+  width: 100px;
+}
+
+.navBar li a {
+  width: 100px;
+  height: 30px;
+  color: #fff;
+  display: inline-block;
+}
+.navBar li a:hover {
+  background-color: #171717;
+  height: 30px;
+}
+.aboutList {
+  position: relative; /*相對*/
+}
+.aboutHide {
+  position: absolute; /*絕對*/
+}
+
+/*3-7 carousel 輪播元件*/
+.slidContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.slides img {
+  width: 100%;
+}

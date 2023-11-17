@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>從前端設計心態到前端工程心態</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+  </head>
+  <body class="bg-dark">
+    <header class="bg-secondary-subtle">
+      <nav class="container object-fit-contain">
+        <div class="navbar d-flex align-items-center">
+          <div class="d-flex align-items-center gap-3">
+            <h1>
+              <a
+                class="text-secondary text-decoration-none"
+                href="../../../../index.html"
+                >怎麼會-前端coding</a
+              >
+            </h1>
+            <h2>
+              <a
+                class="text-secondary text-decoration-none"
+                href="../../index.html"
+                >Jacky's Home</a
+              >
+            </h2>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+            <input id="dataField" class="form-control" type="text" />
+            <button class="btn btn-primary p-3" onclick="add()">新增</button>
+          </div>
+          <div id="root" class="card p-3"></div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script>
+      const todos = [
+        {
+          title: "倒垃圾"
+        },
+        {
+          title: "繳電話費"
+        },
+        {
+          title: "採買本週食材"
+        }
+      ];
+
+      function render() {
+        const root = document.querySelector("#root");
+        root.textContent = "";
+
+        const ul = document.createElement("ul");
+        ul.className = "list-unstyled";
+
+        for (const index in todos) {
+          const li = document.createElement("li");
+          const span = document.createElement("span");
+          const delBtn = document.createElement("button");
+
+          li.className =
+            "form-control d-flex align-items-center border-secondary mb-3";
+          span.textContent = todos[index].title;
+          delBtn.textContent = "刪除";
+          delBtn.className = "btn btn-danger ms-auto";
+          delBtn.onclick = () => {
+            todos.splice(index, 1);
+            render();
+          };
+
+          li.append(span, delBtn);
+          ul.append(li);
+        }
+
+        root.append(ul);
+      }
+
+      render();
+
+      function add() {
+        const dataField = document.querySelector("#dataField");
+
+        if (!dataField.value) return alert("請輸入內容!!");
+
+        todos.push({ title: dataField.value });
+        dataField.value = "";
+        dataField.focus();
+
+        render();
+      }
+    </script>
+  </body>
+</html>
