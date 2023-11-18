@@ -65,29 +65,52 @@
       </div>
       <ul
         class="row list-unstyled row-cols-1 row-cols-md-2 row-cols-xl-4 product-list g-4 mb-5"
+      ></ul>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="myModal"
+        tabindex="-1"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
       >
-        <!-- <li class="col">
-          <div class="card h-100 shadow">
-            <img
-              src="../../../images/agathe-min.jpg"
-              alt=""
-              class="object-fit-contain"
-            />
-            <div class="card-body">
-              <span class="text-secondary">MEN</span>
-              <h3>product name</h3>
-              <p>$12.99</p>
-              <button class="btn btn-outline-secondary">Details</button>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h4 class="fw-bold">Description</h4>
+              <p class="fst-italic item-description"></p>
+              <span class="text-secondary item-id">item #0001</span>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-secondary">
+                Add to cart
+              </button>
             </div>
           </div>
-        </li> -->
-      </ul>
+        </div>
+      </div>
       <div class="text-center">
-        <button class="btn btn-dark btn-lg" id="btn-load">See more!</button>
+        <button class="btn btn-dark btn-lg" id="btn-load">See more !</button>
       </div>
     </main>
     <script>
       const btn_load = document.querySelector("#btn-load");
+      const page = document.querySelector("body");
       btn_load.onclick = () => {
         const list = document.querySelector(".product-list");
 
@@ -98,7 +121,7 @@
           .then((res) => res.json())
           .then((json) => {
             for (const item of json) {
-              console.log(item);
+              // console.log(item);
               const li = document.createElement("li");
               const card = document.createElement("div");
               const img_box = document.createElement("div");
@@ -130,10 +153,20 @@
               p_details.textContent = "Details";
 
               p_details.onclick = () => {
-                alert(item.id);
-                alert(item.category);
-                alert(item.description);
+                const body = document.querySelector(".modal-body");
+                const desc = body.querySelector(".item-description");
+                const id = body.querySelector(".item-id");
+
+                desc.textContent = item.description;
+
+                Number(item.id) >= 10
+                  ? (id.textContent = `item #00${item.id}`)
+                  : (id.textContent = `item #000${item.id}`);
+
+                const myModal = new bootstrap.Modal("#myModal");
+                myModal.show();
               };
+
               list.append(li);
               li.append(card);
               img_box.append(img);
