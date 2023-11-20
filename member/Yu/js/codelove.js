@@ -187,6 +187,21 @@ const codelove_01 = [
         content: "學會 AJAX 基本原理",
         link: "./js-5-app/AJAXbasic.html",
       },
+      {
+        date: "2023/11/14",
+        content: "學會 AJAX 錯誤處理",
+        link: "./js-5-app/AJAXbasic.html",
+      },
+      {
+        date: "2023/11/15",
+        content: "學會 AJAX 與各種 HTTP 請求方法",
+        link: "./js-5-app/AJAXbasic.html",
+      },
+      {
+        date: "2023/11/16",
+        content: "學會 AJAX 與 data attribute 的結合",
+        link: "./js-5-app/AJAXbasicDataAttr.html",
+      },
     ],
   },
 ];

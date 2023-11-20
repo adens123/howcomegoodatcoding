@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      學會 AJAX 基本原理 | JavaScript（五）打造功能豐富的前端應用程式
+      學會 AJAX 與 data attribute 的結合 |
+      JavaScript（五）打造功能豐富的前端應用程式
     </title>
     <!-- bootstrap -->
     <link
@@ -75,7 +76,7 @@
         aria-labelledby="myModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               <button
@@ -86,9 +87,17 @@
               ></button>
             </div>
             <div class="modal-body">
-              <h4 class="fw-bold">Description</h4>
-              <p class="fst-italic item-description"></p>
-              <span class="text-secondary item-id">item #0001</span>
+              <div class="row flex-column flex-md-row g-4">
+                <div class="col-12 col-md-6">
+                  <img src="" alt="" class="img-fluid item-img" />
+                </div>
+                <div class="col-12 col-md-6">
+                  <h4 class="fw-bold item-title"></h4>
+                  <p class="text-secondary-emphasisp item-price h5"></p>
+                  <span class="text-secondary item-category"></span>
+                  <p class="fst-italic item-description"></p>
+                </div>
+              </div>
             </div>
             <div class="modal-footer">
               <button
@@ -161,16 +170,40 @@
               p_details.textContent = "Details";
               p_delete.textContent = "Delete";
 
+              // dataset
+              li.dataset.id = item.id;
+              li.dataset.title = item.title;
+              li.dataset.price = item.price;
+              li.dataset.category = item.category;
+              li.dataset.description = item.description;
+              li.dataset.imgUrl = item.image;
+
               p_details.onclick = () => {
+                // const body = document.querySelector(".modal-body");
+                // const desc = body.querySelector(".item-description");
+                // const id = body.querySelector(".item-id");
+
+                // desc.textContent = item.description;
+
+                // Number(item.id) >= 10
+                //   ? (id.textContent = `item #00${item.id}`)
+                //   : (id.textContent = `item #000${item.id}`);
+
+                const list = event.target.closest("li");
                 const body = document.querySelector(".modal-body");
-                const desc = body.querySelector(".item-description");
-                const id = body.querySelector(".item-id");
 
-                desc.textContent = item.description;
+                const $img = body.querySelector(".item-img");
+                const $title = body.querySelector(".item-title");
+                const $price = body.querySelector(".item-price");
+                const $category = body.querySelector(".item-category");
+                const $description = body.querySelector(".item-description");
 
-                Number(item.id) >= 10
-                  ? (id.textContent = `item #00${item.id}`)
-                  : (id.textContent = `item #000${item.id}`);
+                $img.src = list.dataset.imgUrl;
+                $img.alt = `item-${list.dataset.id}`;
+                $title.textContent = list.dataset.title;
+                $price.textContent = `$ ${list.dataset.price}`;
+                $category.textContent = list.dataset.category;
+                $description.textContent = list.dataset.description;
 
                 const myModal = new bootstrap.Modal("#myModal");
                 myModal.show();
