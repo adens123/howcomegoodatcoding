@@ -98,4 +98,61 @@ function register() {
   }
 }
 
-// console.log(nickName, mail, password, errorSpan);
+// 3-5 collapse 折疊效果
+//目標：(1)answer預設隱藏
+///////(2)點一下,answer滑下來
+//////再點一下，回到步驟(1)
+//1.answer 用css預設隱藏
+//2.question 增加onclick="collapse",點擊出現anser
+//給answer固定高度,然後再高度0 (max-high)
+//
+
+function collapse() {
+  answer = event.target.nextElementSibling;
+
+  event.target.classList.toggle("active"); //新增 active class
+
+  if (answer.style.maxHeight != "") {
+    answer.style.maxHeight = null;
+  } else if (answer.style.maxHeight == "") {
+    answer.style.maxHeight = answer.scrollHeight + "px";
+  }
+}
+
+//3-6 dropdown 下拉式選單
+//1.選到需要隱藏的下拉選單的 整個部分 aboutList
+//2.aboutList 設定 監聽事件，當滑鼠滑過會顯示出下拉選單
+//3.分成兩個function：隱藏hode /顯示show
+//3.選到隱藏的選單 aboutHide
+
+let aboutList = document.querySelector(".aboutList");
+aboutList.addEventListener("mouseover", show);
+
+// console.dir(window);
+function show(e) {
+  let aboutHide = document.querySelector(".aboutHide");
+
+  event.stopPropagation();
+  //停止事件傳播。
+  //從DOM樹的一個節點向上傳播（捕獲階段）然後向下傳播（冒泡階段）的過程。//
+
+  aboutHide.style.display = "block";
+}
+window.onmouseover = function hide(e) {
+  let aboutHide = document.querySelector(".aboutHide");
+  aboutHide.style.display = "none";
+};
+//
+//
+//3-7 carousel 輪播元件
+//CSS
+//.slidContainer 包著5個.slides 和換頁的a按鈕
+//後面再一個div包5個span圓點切換
+
+//slidContainer設定相對定位
+//圖片預設隱藏
+//按鈕 、圖片文字 設定絕對定位
+//img 父層設定動畫效果 fade
+//
+//JS
+//

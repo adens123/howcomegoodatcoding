@@ -293,7 +293,7 @@
       function save() {
         const $todoItems = document.querySelectorAll("#todolist > li");
 
-        todoItems = [...$todoItems];
+        const todoItems = [...$todoItems];
 
         const data = todoItems.map(todoItem => {
           return {

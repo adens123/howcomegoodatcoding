@@ -163,6 +163,32 @@ const codelove_01 = [
       },
     ],
   },
+  {
+    ch_num: 5,
+    chapter: "JavaScript（五）打造功能豐富的前端應用程式",
+    lesson: [
+      {
+        date: "2023/11/08",
+        content: "學會 Cookie 相關功能",
+        link: "./js-5-app/cookies.html",
+      },
+      {
+        date: "2023/11/09",
+        content: "學會 Local Storage 相關功能",
+        link: "./js-5-app/localStorage.html",
+      },
+      {
+        date: "2023/11/10",
+        content: "變數作用域、箭頭函式、ES6 語法",
+        link: "./js-5-app/scopeArrowFn.html",
+      },
+      {
+        date: "2023/11/13",
+        content: "學會 AJAX 基本原理",
+        link: "./js-5-app/AJAXbasic.html",
+      },
+    ],
+  },
 ];
 
 // 建立章節列表

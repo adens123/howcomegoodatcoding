@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      學會 Local Storage 相關功能 | JavaScript（五）打造功能豐富的前端應用程式
+    </title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../../SCSS/CSS/all.css" />
+    <!-- font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body class="bg-beige">
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container py-3">
+      <div class="row justify-content-center">
+        <section class="todo col-12 col-lg-6 shadow p-3 rounded">
+          <h1 class="mb-3">待辦事項</h1>
+          <div class="todolist-input mb-3">
+            <input type="text" class="inputItem" placeholder="增加事項" />
+            <select
+              name="status"
+              id="status"
+              class="status_opt"
+              onchange="status_color()"
+            >
+              <option value="normal">一般</option>
+              <option value="important">重要</option>
+              <option value="urgent">緊急</option>
+            </select>
+            <button class="btn add" onclick="addItem()">新增</button>
+          </div>
+          <ul class="todolist-body mb-3 ps-0"></ul>
+          <div class="text-right p-1">
+            <button class="btn export" onclick="exportAlert()">匯出</button>
+            <button class="btn btn-outline-warning" onclick="save()">
+              儲存
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script>
+      let inputItem = document.querySelector(".inputItem");
+      let list = document.querySelector(".todolist-body");
+      let btn_export = document.querySelector(".export");
+      let todolist = [];
+      let status = document.querySelector(".status_opt");
+
+      function addItem() {
+        let newItem = inputItem.value;
+        let el = document.createElement("li");
+        let item = document.createElement("div");
+        let text = document.createElement("p");
+        let isChecked = document.createElement("span");
+        let btn_del = document.createElement("button");
+        let btn_check = document.createElement("button");
+        let itemStatus = status.value;
+
+        if (newItem.trim() === "") return alert("請先輸入事項");
+
+        text.textContent = newItem;
+        text.classList.add("mb-0");
+        el.classList.add("todolist-item", "d-flex", "align-items-center");
+        item.classList.add(
+          "item-text",
+          "d-flex",
+          "align-items-center",
+          "me-auto"
+        );
+        isChecked.textContent = "（已完成）";
+        isChecked.classList.add("notChecked");
+        btn_del.textContent = "刪除";
+        btn_del.classList.add("btn", "delete");
+        btn_del.onclick = remove;
+        btn_check.textContent = "標示已完成";
+        btn_check.classList.add("btn", "check");
+        btn_check.onclick = toggleCheck;
+
+        todolist.push(`${newItem}-${itemStatus}`);
+
+        if (itemStatus === "important") {
+          text.classList.add("important");
+        } else if (itemStatus === "urgent") {
+          text.classList.add("urgent");
+        }
+
+        item.append(text);
+        item.append(isChecked);
+
+        el.append(btn_check);
+        el.append(item);
+        el.append(btn_del);
+
+        list.append(el);
+
+        document.querySelector(".inputItem").value = "";
+      }
+
+      function remove() {
+        let e = event.target;
+        //   console.dir(e.closest("li").querySelector("p"));
+        let delItem = todolist.indexOf(
+          e.closest("li").querySelector("p").textContent
+        );
+        todolist.splice(delItem, 1);
+        e.closest("li").remove();
+        //   console.log(todolist);
+      }
+
+      function exportAlert() {
+        let result = "";
+        for (let i = 0; i < todolist.length; i++) {
+          let todoItem = todolist[i].split("-")[0];
+          let todoStatus = todolist[i].split("-")[1];
+          if (todoStatus === "important") {
+            result += `${i + 1}. *${todoItem}*\n`;
+          } else if (todoStatus === "urgent") {
+            result += `${i + 1}. **${todoItem}**\n`;
+          } else {
+            result += `${i + 1}. ${todoItem}\n`;
+          }
+        }
+        if (result === "") return alert("今日無待辦事項");
+
+        alert(`匯出待辦事項：\n\n${result}`);
+      }
+
+      function status_color() {
+        let e = event.target;
+        let status = e.options[e.selectedIndex];
+        if (status.value === "important") {
+          status.closest("select").className = "orange";
+        } else if (status.value === "urgent") {
+          status.closest("select").className = "red";
+        } else {
+          status.closest("select").className = "";
+        }
+      }
+
+      function toggleCheck() {
+        let e = event.target;
+        if (e.textContent === "標示已完成") {
+          e.textContent = "標示未完成";
+        } else {
+          e.textContent = "標示已完成";
+        }
+        e.classList.toggle("checked");
+        e.closest(".todolist-item")
+          .querySelector(".item-text")
+          .classList.toggle("done");
+        e.closest(".todolist-item")
+          .querySelector("p")
+          .classList.toggle("line-through");
+        e.closest(".todolist-item")
+          .querySelector("span")
+          .classList.toggle("notChecked");
+      }
+
+      function save() {
+        let item = document.querySelectorAll(".todolist-item");
+        // console.log(item);
+        let itemArr = [...item];
+        // console.log(itemArr[0].querySelector("p").className);
+
+        const data = itemArr.map(function (val, idx, arr) {
+          return {
+            status: val.querySelector("button").className,
+            status_text: val.querySelector("button").textContent,
+            todoItem_done: val.querySelector("p").className,
+            todoItem_text: val.querySelector("p").textContent,
+            notChecked_status: val.querySelector("span").className,
+          };
+        });
+        localStorage.setItem("todoItem", JSON.stringify(data));
+        alert("儲存成功！");
+      }
+
+      function init() {
+        let todoList = document.querySelector(".todolist-body");
+
+        if (localStorage.getItem("todoItem")) {
+          const storage_data = JSON.parse(localStorage.getItem("todoItem"));
+          todoList.innerHTML = storage_data
+            .map((item) => {
+              return `<li class="todolist-item d-flex align-items-center"><button class="${item.status}" onclick="toggleCheck()">${item.status_text}</button><div class="item-text d-flex align-items-center me-auto"><p class="${item.todoItem_done}">${item.todoItem_text}</p><span class="${item.notChecked_status}">（已完成）</span></div><button class="btn delete" onclick="remove()">刪除</button></li>`;
+            })
+            .join("");
+        }
+      }
+
+      init();
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      學會 Cookie 相關功能 | JavaScript（五）打造功能豐富的前端應用程式
+    </title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../../SCSS/CSS/all.css" />
+    <!-- font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      <section class="cookies-demo position-relative">
+        <div
+          class="alert-dialog border rounded-3 position-absolute bg-white shadow"
+        >
+          <div class="alert-content">
+            <div
+              class="alert-header border-bottom border-3 p-3 d-flex justify-content-between"
+            >
+              <h2 class="text-danger me-3 alert-title">
+                警告︰您即將進入之網頁內容需滿十八歲方可瀏覽。
+              </h2>
+              <button class="btn-close"></button>
+            </div>
+            <div class="alert-body p-3">
+              <p>
+                根據「兒童及少年福利與權益保障法」規定，本網站已於非闔家皆宜之網頁加以標示。若您尚未年滿十八歲，請點選離開。若您已滿十八歲，亦不可將本站之內容派發、傳閱、出售、出租、交給或借予年齡未滿18歲的人士瀏覽，或將本網站內容向該人士出示、播放或放映。
+              </p>
+              <p class="fw-bold fst-italic fs-4">您年滿十八歲嗎？</p>
+            </div>
+            <div
+              class="alert-footer d-flex py-3 px-3 px-lg-5 justify-content-between flex-column flex-lg-row gap-2"
+            >
+              <button class="btn btn-outline-secondary px-5" onclick="leave()">
+                離開
+              </button>
+              <button class="btn btn-danger" onclick="pass()">
+                是，我已年滿十八歲
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="content overlay w-100 py-3">
+          <img
+            src="../../../images/under18.png"
+            alt="under18"
+            class="object-fit-contain d-block mx-auto img-fluid"
+          />
+          <a
+            href="https://cookies--dustchen1126.repl.co/"
+            class="btn btn-outline-secondary"
+            target="_blank"
+            >Replit版本</a
+          >
+        </div>
+      </section>
+    </main>
+    <script>
+      let btn_close = document.querySelector(".btn-close");
+      let content = document.querySelector(".content");
+      let alert_dialog = document.querySelector(".alert-dialog");
+      let isAdult = false;
+
+      if (document.cookie) {
+        let chkPass = document.cookie.split("=")[1];
+        if (chkPass === "true") {
+          content.classList.remove("overlay");
+          alert_dialog.classList.add("d-none");
+        }
+      }
+
+      function leave() {
+        location.href = "https://www.google.com";
+        isAdult = false;
+      }
+
+      function pass() {
+        isAdult = true;
+        document.cookie = `isAdult=${isAdult}`;
+        console.log(document.cookie);
+        content.classList.remove("overlay");
+        alert_dialog.classList.add("d-none");
+      }
+
+      btn_close.onclick = close_alert;
+
+      function close_alert(e) {
+        // console.log(e.target.closest(".alert-dialog"));
+        e.target.closest(".alert-dialog").classList.add("d-none");
+        setTimeout(() => {
+          e.target.closest(".alert-dialog").classList.remove("d-none");
+        }, 2000);
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
