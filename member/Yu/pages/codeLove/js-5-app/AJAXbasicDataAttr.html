@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      學會 AJAX 基本原理 | JavaScript（五）打造功能豐富的前端應用程式
+      學會 AJAX 與 data attribute 的結合 |
+      JavaScript（五）打造功能豐富的前端應用程式
     </title>
     <!-- bootstrap -->
     <link
@@ -75,7 +76,7 @@
         aria-labelledby="myModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               <button
@@ -86,9 +87,19 @@
               ></button>
             </div>
             <div class="modal-body">
-              <h4 class="fw-bold">Description</h4>
-              <p class="fst-italic item-description"></p>
-              <span class="text-secondary item-id">item #0001</span>
+              <div class="row">
+                <div class="col-6">
+                  <img src="" alt="" class="img-fluid" />
+                </div>
+                <div class="col-6">
+                  <h4 class="fw-bold item-title">
+                    Lorem ipsum dolor sit amet.
+                  </h4>
+                  <h5 class="text-secondary-emphasis"></h5>
+                  <span class="text-secondary item-id"></span>
+                  <p class="fst-italic item-description"></p>
+                </div>
+              </div>
             </div>
             <div class="modal-footer">
               <button
