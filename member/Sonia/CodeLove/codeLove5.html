@@ -114,16 +114,17 @@
   <script>
     // simple counter
     let counter = 0;
-    function plusCount() {
+    let plusCount = () => {
       counter++;
       document.querySelector(".countResult").textContent = counter;
     }
-    function minusCount() {
+    let minusCount = () => {
       counter--;
       document.querySelector(".countResult").textContent = counter;
     }
+
     // simple calculator
-    function calculator() {
+    let calculator = () => {
       let num1Input = document.querySelector("#num1");
       let num2Input = document.querySelector("#num2");
       if (isInputEmpty(num1Input, num2Input)) {
@@ -131,13 +132,11 @@
         return;
       }
       updateCalResult(num1Input, num2Input);
-      num1Input.value = "";
-      num2Input.value = "";
     }
-    function isInputEmpty(num1, num2) {
+    let isInputEmpty = (num1, num2) => {
       return num1.value === "" || num2.value === "";
     }
-    function updateCalResult(num1Input, num2Input) {
+    let updateCalResult = (num1Input, num2Input) => {
       let num1 = Number(num1Input.value);
       let num2 = Number(num2Input.value);
       document.querySelector(".resultPlus").textContent = `${num1 + num2}`;
