@@ -58,15 +58,18 @@
       const todos = [
         {
           title: "倒垃圾",
-          category: "normal"
+          category: "normal",
+          isCompleted: false
         },
         {
           title: "繳電話費",
-          category: "important"
+          category: "important",
+          isCompleted: false
         },
         {
           title: "採買本週食材",
-          category: "urgent"
+          category: "urgent",
+          isCompleted: false
         }
       ];
 
@@ -74,36 +77,61 @@
         const root = document.querySelector("#root");
         root.textContent = "";
 
-        const ul = document.createElement("ul");
-        ul.className = "list-unstyled";
+        const todolist = document.createElement("ul");
+        todolist.className = "list-unstyled";
 
         for (const index in todos) {
-          const li = document.createElement("li");
-          const span = document.createElement("span");
+          const todo = document.createElement("li");
+          const content = document.createElement("span");
+          const done = document.createElement("span");
+          const toggleBtn = document.createElement("button");
           const delBtn = document.createElement("button");
 
-          li.className =
+          todo.className =
             "form-control d-flex align-items-center border-secondary mb-3";
-          span.textContent = todos[index].title;
+
+          content.textContent = todos[index].title;
+
           if (todos[index].category == "important") {
-            span.style.color = "orange";
+            content.style.color = "orange";
           }
           if (todos[index].category == "urgent") {
-            span.style.color = "red";
+            content.style.color = "red";
           }
 
+          done.textContent = "(已完成)";
+
+          if (todos[index].isCompleted) {
+            done.style.display = "inline-block";
+            toggleBtn.textContent = "標示為未完成";
+          } else {
+            done.style.display = "none";
+            toggleBtn.textContent = "標示為已完成";
+          }
+
+          toggleBtn.className = "btn btn-success ms-auto";
+          toggleBtn.onclick = () => {
+            if (todos[index].isCompleted) {
+              todos[index].isCompleted = false;
+            } else {
+              todos[index].isCompleted = true;
+            }
+
+            render();
+          };
+
           delBtn.textContent = "刪除";
-          delBtn.className = "btn btn-danger ms-auto";
+          delBtn.className = "btn btn-danger ms-1";
           delBtn.onclick = () => {
             todos.splice(index, 1);
             render();
           };
 
-          li.append(span, delBtn);
-          ul.append(li);
+          todo.append(content, done, toggleBtn, delBtn);
+          todolist.append(todo);
         }
 
-        root.append(ul);
+        root.append(todolist);
       }
 
       render();
@@ -114,7 +142,11 @@
 
         if (!dataField.value) return alert("請輸入內容!!");
 
-        todos.push({ title: dataField.value, category: category.value });
+        todos.push({
+          title: dataField.value,
+          category: category.value,
+          isCompleted: false
+        });
         dataField.value = "";
         dataField.focus();
 
