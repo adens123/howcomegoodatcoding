@@ -211,6 +211,11 @@ const codelove_01 = [
       {
         date: "2023/11/17",
         content: "認識 data model 與 render function",
+        link: "https://codepen.io/yuch3n_chen/pen/qBgomVp",
+      },
+      {
+        date: "2023/11/20",
+        content: "認識陣列操作",
         link: "./js-6-engineering/js-6-engineering.html",
       },
     ],

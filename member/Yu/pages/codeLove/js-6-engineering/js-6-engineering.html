@@ -59,8 +59,13 @@
     <main class="container py-3">
       <div class="row">
         <div class="col">
-          <h2>認識 data model 與 render function</h2>
+          <h2>認識陣列操作</h2>
           <div class="border rounded p-3">
+            <div class="input-group w-50 mb-3">
+              <input type="text" class="form-control input-item" />
+              <button class="btn btn-primary" onclick="add()">新增</button>
+            </div>
+
             <div id="root"></div>
           </div>
         </div>
@@ -78,6 +83,14 @@
           title: "採買本週食材",
         },
       ];
+      function add() {
+        const input_item = document.querySelector(".input-item");
+        const new_todos = { title: input_item.value };
+        todos.push(new_todos);
+        console.log(todos);
+        render();
+        input_item.value = "";
+      }
 
       function render() {
         const root = document.querySelector("#root");
