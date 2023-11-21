@@ -155,4 +155,43 @@ window.onmouseover = function hide(e) {
 //img 父層設定動畫效果 fade
 //
 //JS
-//
+//設定初始外觀，第一張圖片會顯示
+//設定換頁按鈕、切換上頁
+
+let slideIndex = 1;
+showSlides(slideIndex); //顯示第一張圖
+
+//切換上下頁
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+//x = x + 1 >> x += 1
+//slideIndex = slideIndex + n
+
+function showSlides(n) {
+  // let i;
+  let slides = document.getElementsByClassName("slides");
+
+  if (n > slides.length) {
+    slideIndex = 1;
+  } //控制next
+
+  if (n < 1) {
+    slideIndex = slides.length;
+  } //控制prev
+
+  //n不見得是第n張圖，也可以是我點擊了幾下
+  //例如有3張圖，目前已經點了三下到第3張，當我再點一下
+  //變成第四下 n = 4, n > slides.length
+  //此時就會回到第一張 {slideIndex = 1}
+
+  //且n也可能設計成直接輸入數字
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  //圖片預設隱藏
+  //因為陣列從0開始計算，所以i永遠都不會大於slides.length(圖片總數)
+
+  slides[slideIndex - 1].style.display = "block";
+}
