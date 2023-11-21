@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      學會 AJAX 與 data attribute 的結合 |
+      JavaScript（五）打造功能豐富的前端應用程式
+    </title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../../SCSS/CSS/all.css" />
+    <!-- font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- AOS.css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body class="bg-light">
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container py-3 serif-display ajax">
+      <div class="mb-5 text-center">
+        <span class="text-secondary">Winter collection</span>
+        <h2 class="fw-bold display-4 fst-italic">Popular products</h2>
+      </div>
+      <!-- Product list -->
+      <ul
+        class="row list-unstyled row-cols-1 row-cols-md-2 row-cols-xl-4 product-list g-4 mb-5"
+      ></ul>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="myModal"
+        tabindex="-1"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row flex-column flex-md-row g-4">
+                <div class="col-12 col-md-6">
+                  <img src="" alt="" class="img-fluid item-img" />
+                </div>
+                <div class="col-12 col-md-6">
+                  <h4 class="fw-bold item-title"></h4>
+                  <p class="text-secondary-emphasisp item-price h5"></p>
+                  <span class="text-secondary item-category"></span>
+                  <p class="fst-italic item-description"></p>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-secondary">
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-dark btn-lg" id="btn-load">See more !</button>
+      </div>
+    </main>
+    <script>
+      const btn_load = document.querySelector("#btn-load");
+      const page = document.querySelector("body");
+      btn_load.onclick = () => {
+        const list = document.querySelector(".product-list");
+
+        // 如果頁面已經有item資料就return
+        if (list.querySelector("li")) return;
+
+        fetch("https://fakestoreapi.com/products")
+          .then((res) => res.json())
+          .then((json) => {
+            for (const item of json) {
+              // console.log(item);
+              const li = document.createElement("li");
+              const card = document.createElement("div");
+              const img_box = document.createElement("div");
+              const img = document.createElement("img");
+              const card_body = document.createElement("div");
+              const p_cat = document.createElement("span");
+              const p_title = document.createElement("h3");
+              const p_price = document.createElement("p");
+              const btn_box = document.createElement("div");
+              const p_details = document.createElement("button");
+              const p_delete = document.createElement("button");
+
+              li.classList.add("col");
+              card.classList.add("card", "shadow", "h-100");
+              img_box.classList.add("img-box");
+              img.classList.add("object-fit-contain", "h-100", "w-100");
+              card_body.classList.add("card-body");
+              p_cat.classList.add("text-body-tertiary");
+              p_price.classList.add("lead", "text-dark-emphasis");
+              btn_box.classList.add(
+                "mt-auto",
+                "d-flex",
+                "justify-content-between",
+                "flex-column",
+                "flex-md-row",
+                "gap-2"
+              );
+              p_details.classList.add("btn", "btn-outline-secondary");
+              p_delete.classList.add("btn", "btn-outline-light");
+
+              img.src = item.image;
+              img.alt = item.id;
+              p_cat.textContent = item.category;
+              p_title.textContent = item.title;
+              p_price.textContent = `$${item.price}`;
+              p_details.textContent = "Details";
+              p_delete.textContent = "Delete";
+
+              // dataset
+              li.dataset.id = item.id;
+              li.dataset.title = item.title;
+              li.dataset.price = item.price;
+              li.dataset.category = item.category;
+              li.dataset.description = item.description;
+              li.dataset.imgUrl = item.image;
+
+              p_details.onclick = () => {
+                // const body = document.querySelector(".modal-body");
+                // const desc = body.querySelector(".item-description");
+                // const id = body.querySelector(".item-id");
+
+                // desc.textContent = item.description;
+
+                // Number(item.id) >= 10
+                //   ? (id.textContent = `item #00${item.id}`)
+                //   : (id.textContent = `item #000${item.id}`);
+
+                const list = event.target.closest("li");
+                const body = document.querySelector(".modal-body");
+
+                const $img = body.querySelector(".item-img");
+                const $title = body.querySelector(".item-title");
+                const $price = body.querySelector(".item-price");
+                const $category = body.querySelector(".item-category");
+                const $description = body.querySelector(".item-description");
+
+                $img.src = list.dataset.imgUrl;
+                $img.alt = `item-${list.dataset.id}`;
+                $title.textContent = list.dataset.title;
+                $price.textContent = `$ ${list.dataset.price}`;
+                $category.textContent = list.dataset.category;
+                $description.textContent = list.dataset.description;
+
+                const myModal = new bootstrap.Modal("#myModal");
+                myModal.show();
+              };
+
+              p_delete.onclick = () => {
+                let e = event.target;
+                console.log(e.closest("li"));
+                fetch("https://fakestoreapi.com/products/6", {
+                  method: "DELETE",
+                })
+                  .then((res) => res.json())
+                  .then((json) => e.closest("li").remove())
+                  .catch((error) => {
+                    console.log(error);
+                    alert("商品刪除失敗，請稍後再試");
+                  });
+              };
+              list.append(li);
+              li.append(card);
+              img_box.append(img);
+              card.append(img_box, card_body);
+              btn_box.append(p_details, p_delete);
+              card_body.append(p_cat, p_title, p_price, btn_box);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            alert("抱歉，請稍後重新嘗試。");
+          });
+      };
+    </script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

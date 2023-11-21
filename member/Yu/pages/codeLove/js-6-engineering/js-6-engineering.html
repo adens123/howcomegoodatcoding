@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript（六）從前端設計心態到前端工程心態</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../../SCSS/CSS/all.css" />
+    <!-- font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- AOS.css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body class="bg-light">
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo-yu shake" href="../../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container py-3">
+      <div class="row">
+        <div class="col">
+          <h2>認識陣列操作</h2>
+          <div class="border rounded p-3">
+            <div class="input-group w-50 mb-3">
+              <input type="text" class="form-control input-item" />
+              <button class="btn btn-primary" onclick="add()">新增</button>
+            </div>
+
+            <div id="root"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var todos = [
+        {
+          title: "倒垃圾",
+        },
+        {
+          title: "繳電話費",
+        },
+        {
+          title: "採買本週食材",
+        },
+      ];
+      function add() {
+        const input_item = document.querySelector(".input-item");
+        const new_todos = { title: input_item.value };
+        todos.push(new_todos);
+        console.log(todos);
+        render();
+        input_item.value = "";
+      }
+
+      function render() {
+        const root = document.querySelector("#root");
+        root.textContent = "";
+
+        const todolist = document.createElement("ul");
+        root.append(todolist);
+
+        const $todos = todos.map((item) => {
+          const li = document.createElement("li");
+          const span = document.createElement("span");
+          span.textContent = item.title;
+          li.append(span);
+          todolist.append(li);
+        });
+      }
+
+      render();
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

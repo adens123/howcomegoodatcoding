@@ -1,12 +1,15 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Share+Tech+Mono&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+
 //CSShake
 @import url("https://csshake.surge.sh/csshake.min.css");
 
 @import "./mixins";
 @import "./base";
 @import "./themes";
+@import "./fonts";
 @import "./clock";
 @import "./utils";
 @import "./clothFactory";
