@@ -59,11 +59,16 @@
     <main class="container py-3">
       <div class="row">
         <div class="col">
-          <h2>認識陣列操作</h2>
+          <h2>認識匿名函式</h2>
           <div class="border rounded p-3">
-            <div class="input-group w-50 mb-3">
-              <input type="text" class="form-control input-item" />
-              <button class="btn btn-primary" onclick="add()">新增</button>
+            <div class="w-50 mb-3 d-flex gap-2">
+              <input type="text" class="input-item" />
+              <select>
+                <option value="normal">一般</option>
+                <option value="important">重要</option>
+                <option value="urgent">緊急</option>
+              </select>
+              <button class="btn btn-primary px-3" onclick="add()">新增</button>
             </div>
 
             <div id="root"></div>
@@ -75,12 +80,15 @@
       var todos = [
         {
           title: "倒垃圾",
+          category: "normal",
         },
         {
           title: "繳電話費",
+          category: "important",
         },
         {
           title: "採買本週食材",
+          category: "urgent",
         },
       ];
       function add() {
@@ -98,14 +106,37 @@
 
         const todolist = document.createElement("ul");
         root.append(todolist);
-
-        const $todos = todos.map((item) => {
+        for (const index in todos) {
           const li = document.createElement("li");
           const span = document.createElement("span");
-          span.textContent = item.title;
-          li.append(span);
+          const del_btn = document.createElement("button");
+
+          // console.log(todos[index].title);
+          span.textContent = todos[index].title;
+          if (todos[index].category === "important") {
+            span.style.color = "orange";
+          } else if (todos[index].category === "urgent") {
+            span.style.color = "red";
+          }
+
+          del_btn.textContent = "刪除";
+
+          del_btn.onclick = () => {
+            todos.splice(index, 1);
+            render();
+          };
+
+          li.append(span, del_btn);
           todolist.append(li);
-        });
+        }
+
+        // const $todos = todos.map((item) => {
+        //   const li = document.createElement("li");
+        //   const span = document.createElement("span");
+        //   span.textContent = item.title;
+        //   li.append(span);
+        //   todolist.append(li);
+        // });
       }
 
       render();
