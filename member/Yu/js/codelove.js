@@ -216,6 +216,16 @@ const codelove_01 = [
       {
         date: "2023/11/20",
         content: "認識陣列操作",
+        link: "https://codepen.io/yuch3n_chen/pen/KKJoObJ",
+      },
+      {
+        date: "2023/11/21",
+        content: "認識匿名函式",
+        link: "https://codepen.io/yuch3n_chen/pen/LYqdwwx",
+      },
+      {
+        date: "2023/11/22",
+        content: "熟悉 render function",
         link: "./js-6-engineering/js-6-engineering.html",
       },
     ],
