@@ -45,7 +45,14 @@
             </select>
             <button class="btn btn-primary py-3" onclick="add()">新增</button>
           </div>
-          <div id="root" class="card p-3"></div>
+          <div class="card p-3">
+            <button
+              class="btn btn-secondary align-self-end mb-3"
+              onclick="exportText()">
+              匯出
+            </button>
+            <div id="root"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -151,6 +158,22 @@
         dataField.focus();
 
         render();
+      }
+
+      function exportText() {
+        let result = "今日待辦：";
+
+        todos.forEach((todo, index) => {
+          if (todo.category == "important") {
+            result += `${index + 1}. *${todo.title}* `;
+          } else if (todo.category == "urgent") {
+            result += `${index + 1}. **${todo.title}** `;
+          } else {
+            result += `${index + 1}. ${todo.title} `;
+          }
+        });
+
+        alert(result);
       }
     </script>
   </body>
