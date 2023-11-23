@@ -226,6 +226,21 @@ const codelove_01 = [
       {
         date: "2023/11/22",
         content: "熟悉 render function",
+        link: "https://codepen.io/yuch3n_chen/pen/MWLGEjg",
+      },
+      {
+        date: "2023/11/23",
+        content: "熟悉匿名函式",
+        link: "https://codepen.io/yuch3n_chen/pen/xxMjXPq",
+      },
+      {
+        date: "2023/11/24",
+        content: "認識 data model 的優點",
+        link: "https://codepen.io/yuch3n_chen/pen/zYejEmZ",
+      },
+      {
+        date: "2023/11/24",
+        content: "資料序列化",
         link: "./js-6-engineering/js-6-engineering.html",
       },
     ],
