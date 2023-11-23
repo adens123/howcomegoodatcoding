@@ -239,9 +239,20 @@ const codelove_01 = [
         link: "https://codepen.io/yuch3n_chen/pen/zYejEmZ",
       },
       {
-        date: "2023/11/24",
+        date: "2023/11/27",
         content: "資料序列化",
         link: "./js-6-engineering/js-6-engineering.html",
+      },
+    ],
+  },
+  {
+    ch_num: 7,
+    chapter: "JavaScript（七）不想教你 Vue，只想教你怎麼學框架",
+    lesson: [
+      {
+        date: "2023/11/28",
+        content: "認識 Vue 基本環境與 render state",
+        link: "./js-7-vue/js-7-vue.html",
       },
     ],
   },
