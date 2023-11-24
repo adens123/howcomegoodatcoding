@@ -252,6 +252,11 @@ const codelove_01 = [
       {
         date: "2023/11/28",
         content: "認識 Vue 基本環境與 render state",
+        link: "https://codepen.io/yuch3n_chen/pen/oNmdKbK",
+      },
+      {
+        date: "2023/11/28",
+        content: "體驗一下 Reactivity 的效果與便利",
         link: "./js-7-vue/js-7-vue.html",
       },
     ],

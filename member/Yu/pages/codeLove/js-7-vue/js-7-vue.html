@@ -34,7 +34,9 @@
     <header>
       <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
         <div class="container-fluid">
-          <a class="navbar-brand logo-yu shake" href="../../../index.html"
+          <a
+            class="navbar-brand logo-yu shake-little"
+            href="../../../index.html"
             >Yuchen</a
           >
           <button
@@ -67,9 +69,9 @@
       </nav>
     </header>
     <main class="container py-3">
-      <h2 class="ls-title"></h2>
+      <h2 class="ls-title mb-3"></h2>
       <div class="border p-3 rounded bg-light">
-        <div id="app" class="row flex-wrap gap-3 justify-content-md-center">
+        <div id="app" class="row flex-wrap gap-3 justify-content-lg-center">
           <div class="note col-6 col-lg-3 border rounded bg-white p-3">
             <h3 class="title">{{notes[0].title}}</h3>
             <p class="content">{{notes[0].content}}</p>
@@ -110,10 +112,13 @@
             ],
           };
         },
+        mounted() {
+          this.notes[0].content = "多出門、到處走走、也要多運動";
+        },
       }).mount("#app");
 
       //課程名稱更新
-      let current_title = "認識 Vue 基本環境與 render state";
+      let current_title = "體驗一下 Reactivity 的效果與便利";
       let ls_title = document.querySelector(".ls-title");
       ls_title.textContent = current_title;
     </script>
