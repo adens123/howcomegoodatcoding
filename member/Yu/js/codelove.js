@@ -88,37 +88,37 @@ const codelove_01 = [
       {
         date: "2023/10/19",
         content: "alert 示警元件",
-        link: "js-3-ui.html#comp-alert",
+        link: "./js-3-ui/js-3-ui.html#comp-alert",
       },
       {
         date: "2023/10/20",
         content: "toast 吐司元件",
-        link: "js-3-ui.html#comp-toast",
+        link: "./js-3-ui/js-3-ui.html#comp-toast",
       },
       {
         date: "2023/10/23",
         content: "modal 互動視窗元件",
-        link: "js-3-ui.html#comp-modal",
+        link: "./js-3-ui/js-3-ui.html#comp-modal",
       },
       {
         date: "2023/10/24",
         content: "表單驗證",
-        link: "js-3-ui.html#comp-validation",
+        link: "./js-3-ui/js-3-ui.html#comp-validation",
       },
       {
         date: "2023/10/25",
         content: "collapse 折疊效果",
-        link: "js-3-ui.html#comp-collapse",
+        link: "./js-3-ui/js-3-ui.html#comp-collapse",
       },
       {
         date: "2023/10/26",
         content: "dropdown 下拉式選單",
-        link: "js-3-ui.html#comp-dropdown",
+        link: "./js-3-ui/js-3-ui.html#comp-dropdown",
       },
       {
         date: "2023/10/27",
         content: "carousel 輪播元件",
-        link: "js-3-ui.html#comp-carousel",
+        link: "./js-3-ui/js-3-ui.html#comp-carousel",
       },
     ],
   },
@@ -129,37 +129,37 @@ const codelove_01 = [
       {
         date: "2023/10/30",
         content: "autosize 套件",
-        link: "js-4-api.html#api-autosize",
+        link: "./js-4-api/js-4-api.html#api-autosize",
       },
       {
         date: "2023/10/31",
         content: "vanilla-lazyload 套件",
-        link: "js-4-lazyload.html",
+        link: "./js-4-api/js-4-lazyload.html",
       },
       {
         date: "2023/11/01",
         content: "Chart.js 套件",
-        link: "js-4-api.html#api-chart",
+        link: "./js-4-api/js-4-api.html#api-chart",
       },
       {
         date: "2023/11/02",
         content: "jQuery 套件",
-        link: "js-4-api.html#api-jQuery",
+        link: "./js-4-api/js-4-api.html#api-jQuery",
       },
       {
         date: "2023/11/03",
         content: "xdan/datetimepicker 套件",
-        link: "js-4-api.html#api-datetimepicker",
+        link: "./js-4-api/js-4-api.html#api-datetimepicker",
       },
       {
         date: "2023/11/06",
         content: "kenwheeler/slick 套件",
-        link: "js-4-api.html#api-slick",
+        link: "./js-4-api/js-4-api.html#api-slick",
       },
       {
         date: "2023/11/07",
         content: "TinyMCE 套件",
-        link: "js-4-api.html#api-tinyMCE",
+        link: "./js-4-api/js-4-api.html#api-tinyMCE",
       },
     ],
   },
@@ -201,6 +201,63 @@ const codelove_01 = [
         date: "2023/11/16",
         content: "學會 AJAX 與 data attribute 的結合",
         link: "./js-5-app/AJAXbasicDataAttr.html",
+      },
+    ],
+  },
+  {
+    ch_num: 6,
+    chapter: "JavaScript（六）從前端設計心態到前端工程心態",
+    lesson: [
+      {
+        date: "2023/11/17",
+        content: "認識 data model 與 render function",
+        link: "https://codepen.io/yuch3n_chen/pen/qBgomVp",
+      },
+      {
+        date: "2023/11/20",
+        content: "認識陣列操作",
+        link: "https://codepen.io/yuch3n_chen/pen/KKJoObJ",
+      },
+      {
+        date: "2023/11/21",
+        content: "認識匿名函式",
+        link: "https://codepen.io/yuch3n_chen/pen/LYqdwwx",
+      },
+      {
+        date: "2023/11/22",
+        content: "熟悉 render function",
+        link: "https://codepen.io/yuch3n_chen/pen/MWLGEjg",
+      },
+      {
+        date: "2023/11/23",
+        content: "熟悉匿名函式",
+        link: "https://codepen.io/yuch3n_chen/pen/xxMjXPq",
+      },
+      {
+        date: "2023/11/24",
+        content: "認識 data model 的優點",
+        link: "https://codepen.io/yuch3n_chen/pen/zYejEmZ",
+      },
+      {
+        date: "2023/11/27",
+        content: "資料序列化",
+        link: "./js-6-engineering/js-6-engineering.html",
+      },
+    ],
+  },
+  {
+    ch_num: 7,
+    chapter: "JavaScript（七）不想教你 Vue，只想教你怎麼學框架",
+    lesson: [
+      {
+        date: "2023/11/28",
+        content: "認識 Vue 基本環境與 render state",
+        link: "https://codepen.io/yuch3n_chen/pen/oNmdKbK",
+      },
+      {
+        date: "2023/11/28",
+        content: "體驗一下 Reactivity 的效果與便利",
+        link: "./js-7-vue/js-7-vue.html",
       },
     ],
   },
