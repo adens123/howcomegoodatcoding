@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JavaScript (五) ── 打造功能豐富的前段應用程式</title>
+  <!-- 自定義CSS -->
+  <link rel="stylesheet" href="../css/all.css">
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -15,7 +17,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  
+
 </head>
 
 <body>
@@ -43,38 +45,39 @@
 
     <section>
       <div class="row">
-        <div class="col-12 col-lg-6">
-          <div class="card">
+        <!-- 第3課 ── 變數作用域、箭頭函式、ES6 語法 -->
+        <div class="col-12">
+          <div class="card mb-5">
             <div class="card-header d-flex align-items-center ">
               <h5 class="mb-0 me-3">第3課 ── 變數作用域、箭頭函式、ES6 語法</h5>
-              <a href="https://codepen.io/YUJOU/pen/RwvMbWB" class="btn btn-outline-primary btn-sm">CodePen</a>
+              <a href="https://codepen.io/YUJOU/pen/RwvMbWB" target="_blank" class="btn btn-outline-primary btn-sm">CodePen</a>
             </div>
 
             <div class="card-body">
 
               <div>
-                <p>simple counter:</p>
-                <div class="d-flex gap-3">
-                  <button class="btn btn-primary" onclick="minusCount()">
-                    <i class="fa-solid fa-minus"></i>
-                  </button>
-                  <button class="btn btn-warning" onclick="plusCount()">
-                    <i class="fa-solid fa-plus"></i>
-                  </button>
+                <div>
+                  <p>simple counter:</p>
+                  <div class="d-flex gap-3">
+                    <button class="btn btn-primary" onclick="minusCount()">
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <button class="btn btn-warning" onclick="plusCount()">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                  <div class="mt-2">
+                    <p class="text-danger ">Result: <span class="countResult"></span></p>
+                  </div>
                 </div>
-                <div class="mt-2">
-                  <p class="text-danger ">Result: <span class="countResult"></span></p>
-                </div>
-
                 <hr>
-
                 <p>simple calculator:</p>
                 <div class="d-flex gap-2 ">
                   <input type="number" class="py-1 px-2 rounded-2" placeholder="Num 1" id="num1">
                   <input type="number" class="py-1 px-2 rounded-2" placeholder="Num 2" id="num2">
                   <button onclick="calculator()" class="btn btn-primary">Result</button>
                 </div>
-                <table class="table">
+                <table class="table w-75">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -97,14 +100,71 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="col-12">
+          <!-- 第4課 ── 學會 AJAX 基本原理 -->
+          <div id="fiveFour" class="card mb-5">
+            <div class="card-header d-flex align-items-center ">
+              <h5 class="mb-0 me-3">第4課 ── 學會 AJAX 基本原理</h5>
+              <a href="https://codepen.io/YUJOU/pen/LYqdmvW?editors=1010" target="_blank" class="btn btn-outline-primary btn-sm">CodePen</a>
+            </div>
 
+            <div class="card-body">
+              <button class="btn btn-info" onclick="getProduct()">Load Products</button>
+
+              <hr>
+
+              <ul class="productList row list-unstyled row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
+                <!--     <li class="col">
+                          <div class="card h-100">
+                            <img src="https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg" class="card-img-top object-fit-contain mx-auto p-3" alt="...">
+                            <div class="card-body d-flex flex-column">
+                              <span>XXXXXX</span>
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p>price</p>
+                              <div class="mt-auto">
+                                <button type="button" class="btn btn-primary" onclick="openDetailsModal()">Details</button>
+                              </div>
+                    
+                            </div>
+                          </div>
+                        </li> -->
+              </ul>
+            </div>
+
+            <!-- Button trigger modal -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="detailsModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>...</p>
+                    <small>Item# <span class="modalItemNum">0</span></small>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
 
   </main>
-
+  <!-- bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <!-- AOS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
@@ -112,6 +172,7 @@
   </script>
   <!-- 自訂JS -->
   <script>
+    // 第3課 ── 變數作用域、箭頭函式、ES6 語法
     // simple counter
     let counter = 0;
     let plusCount = () => {
@@ -144,6 +205,73 @@
       document.querySelector(".resultTimes").textContent = `${num1 * num2}`;
       document.querySelector(".resultDivided").textContent = `${num1 / num2}`;
     }
+
+    // 第4課 ── 學會 AJAX 基本原理
+    function getProduct() {
+      fetch('https://fakestoreapi.com/products')
+        .then(res => res.json())
+        .then(json => {
+          for (let data of json) {
+            createProduct(data)
+          }
+        })
+    }
+
+    function createProduct(data) {
+      let newLi = document.createElement("li");
+      let newDiv1 = document.createElement("div");
+      let newImg = document.createElement("img");
+      let newDiv2 = document.createElement("div");
+      let newCate = document.createElement("span");
+      let newTitle = document.createElement("h5");
+      let newP = document.createElement("p");
+      let newPrice = document.createElement("p");
+      let newDiv3 = document.createElement("div");
+      let newLink = document.createElement("button");
+
+      newLi.className = "col";
+      newDiv1.className = "card h-100";
+      newImg.className = "card-img-top object-fit-contain mx-auto p-3";
+      newImg.style = "height: 225px";
+      newImg.src = data.image;
+      newDiv2.className = "card-body d-flex flex-column";
+      newCate.className = "text-secondary";
+      newCate.textContent = data.category;
+      newTitle.className = "card-title";
+      newTitle.textContent = data.title;
+      newP.className = "card-text my-truncate";
+      newP.textContent = data.description;
+      newPrice.textContent = `£ ${data.price}`;
+      newDiv3.className = "mt-auto";
+      newLink.className = "btn btn-primary";
+      newLink.textContent = "Details";
+      newLink.onclick = function () {
+        openDetailsModal(data.id)
+      };
+
+      newDiv3.append(newPrice, newLink);
+      newDiv2.append(newCate, newTitle, newP, newDiv3);
+      newDiv1.append(newImg, newDiv2);
+      newLi.append(newDiv1);
+
+      let productList = document.querySelector(".productList");
+      productList.append(newLi);
+
+
+    }
+    function openDetailsModal(dataId) {
+      let modalTitle = document.querySelector(".modal-title");
+      let modalBodyDesc = document.querySelector(".modal-body > p");
+      let modalItemNum = document.querySelector(".modalItemNum");
+
+      modalTitle.textContent = event.target.closest(".card-body").querySelector(".card-title").textContent;
+      modalBodyDesc.textContent = event.target.closest(".card-body").querySelector(".card-text").textContent;
+      modalItemNum.textContent = dataId;
+
+      let modal = new bootstrap.Modal("#detailsModal");
+      modal.show();
+    }
+
   </script>
 </body>
 
