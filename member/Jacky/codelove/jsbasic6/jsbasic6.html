@@ -46,11 +46,12 @@
             <button class="btn btn-primary py-3" onclick="add()">新增</button>
           </div>
           <div class="card p-3">
-            <button
-              class="btn btn-secondary align-self-end mb-3"
-              onclick="exportText()">
-              匯出
-            </button>
+            <div class="mb-3 text-end">
+              <button class="btn btn-secondary" onclick="exportText()">
+                匯出
+              </button>
+              <button class="btn btn-secondary" onclick="save()">儲存</button>
+            </div>
             <div id="root"></div>
           </div>
         </div>
@@ -62,7 +63,7 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"></script>
     <script>
-      const todos = [
+      let todos = [
         {
           title: "倒垃圾",
           category: "normal",
@@ -141,8 +142,6 @@
         root.append(todolist);
       }
 
-      render();
-
       function add() {
         const dataField = document.querySelector("#dataField");
         const category = document.querySelector("#category");
@@ -175,6 +174,21 @@
 
         alert(result);
       }
+
+      function save() {
+        localStorage.setItem("todos", JSON.stringify(todos));
+        alert("儲存成功!");
+      }
+
+      function init() {
+        if (localStorage.getItem("todos")) {
+          todos = JSON.parse(localStorage.getItem("todos"));
+        }
+
+        render();
+      }
+
+      init();
     </script>
   </body>
 </html>
