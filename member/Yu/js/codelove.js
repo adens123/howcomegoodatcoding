@@ -255,13 +255,18 @@ const codelove_01 = [
         link: "https://codepen.io/yuch3n_chen/pen/oNmdKbK",
       },
       {
-        date: "2023/11/28",
+        date: "2023/11/29",
         content: "體驗一下 Reactivity 的效果與便利",
         link: "https://codepen.io/yuch3n_chen/pen/GRzBJwx",
       },
       {
-        date: "2023/11/28",
+        date: "2023/11/30",
         content: "學習 Vue 條件判斷式的寫法",
+        link: "https://codepen.io/yuch3n_chen/pen/abXjKgZ",
+      },
+      {
+        date: "2023/12/01",
+        content: "學習 Vue 迴圈的寫法",
         link: "./js-7-vue/js-7-vue.html",
       },
     ],
