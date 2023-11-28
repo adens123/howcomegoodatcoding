@@ -216,7 +216,58 @@ const codelove_01 = [
       {
         date: "2023/11/20",
         content: "認識陣列操作",
+        link: "https://codepen.io/yuch3n_chen/pen/KKJoObJ",
+      },
+      {
+        date: "2023/11/21",
+        content: "認識匿名函式",
+        link: "https://codepen.io/yuch3n_chen/pen/LYqdwwx",
+      },
+      {
+        date: "2023/11/22",
+        content: "熟悉 render function",
+        link: "https://codepen.io/yuch3n_chen/pen/MWLGEjg",
+      },
+      {
+        date: "2023/11/23",
+        content: "熟悉匿名函式",
+        link: "https://codepen.io/yuch3n_chen/pen/xxMjXPq",
+      },
+      {
+        date: "2023/11/24",
+        content: "認識 data model 的優點",
+        link: "https://codepen.io/yuch3n_chen/pen/zYejEmZ",
+      },
+      {
+        date: "2023/11/27",
+        content: "資料序列化",
         link: "./js-6-engineering/js-6-engineering.html",
+      },
+    ],
+  },
+  {
+    ch_num: 7,
+    chapter: "JavaScript（七）不想教你 Vue，只想教你怎麼學框架",
+    lesson: [
+      {
+        date: "2023/11/28",
+        content: "認識 Vue 基本環境與 render state",
+        link: "https://codepen.io/yuch3n_chen/pen/oNmdKbK",
+      },
+      {
+        date: "2023/11/29",
+        content: "體驗一下 Reactivity 的效果與便利",
+        link: "https://codepen.io/yuch3n_chen/pen/GRzBJwx",
+      },
+      {
+        date: "2023/11/30",
+        content: "學習 Vue 條件判斷式的寫法",
+        link: "https://codepen.io/yuch3n_chen/pen/abXjKgZ",
+      },
+      {
+        date: "2023/12/01",
+        content: "學習 Vue 迴圈的寫法",
+        link: "./js-7-vue/js-7-vue.html",
       },
     ],
   },

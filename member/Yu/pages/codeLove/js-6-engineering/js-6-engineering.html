@@ -24,7 +24,9 @@
     <header>
       <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
         <div class="container-fluid">
-          <a class="navbar-brand logo-yu shake" href="../../../index.html"
+          <a
+            class="navbar-brand logo-yu shake-little"
+            href="../../../index.html"
             >Yuchen</a
           >
           <button
@@ -57,16 +59,26 @@
       </nav>
     </header>
     <main class="container py-3">
+      <h2 class="ls-title"></h2>
       <div class="row">
-        <div class="col">
-          <h2>認識陣列操作</h2>
-          <div class="border rounded p-3">
-            <div class="input-group w-50 mb-3">
-              <input type="text" class="form-control input-item" />
-              <button class="btn btn-primary" onclick="add()">新增</button>
-            </div>
-
-            <div id="root"></div>
+        <div class="col-lg-6 border rounded p-3">
+          <div class="mb-3 d-flex flex-column flex-md-row gap-2 flex-wrap">
+            <input type="text" class="item-input px-2 py-1" />
+            <select class="item-category px-2">
+              <option value="normal">一般</option>
+              <option value="important">重要</option>
+              <option value="urgent">緊急</option>
+            </select>
+            <button class="btn btn-primary px-3" onclick="add()">新增</button>
+          </div>
+          <div id="root" class="mb-3"></div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-success px-3" onclick="todo_export()">
+              匯出
+            </button>
+            <button class="btn btn-outline-success px-3" onclick="todo_save()">
+              儲存
+            </button>
           </div>
         </div>
       </div>
@@ -75,21 +87,60 @@
       var todos = [
         {
           title: "倒垃圾",
+          category: "normal",
+          isCompleted: false,
         },
         {
           title: "繳電話費",
+          category: "important",
+          isCompleted: false,
         },
         {
           title: "採買本週食材",
+          category: "urgent",
+          isCompleted: false,
         },
       ];
+
       function add() {
-        const input_item = document.querySelector(".input-item");
-        const new_todos = { title: input_item.value };
+        const item_input = document.querySelector(".item-input");
+        const item_category = document.querySelector(".item-category");
+        const new_todos = {
+          title: item_input.value,
+          category: item_category.value,
+          isCompleted: false,
+        };
         todos.push(new_todos);
-        console.log(todos);
         render();
-        input_item.value = "";
+        document.querySelector("input").value = "";
+      }
+
+      function todo_export() {
+        let str = "";
+        let num = 0;
+
+        for (const item of todos) {
+          num++;
+          if (item.category === "important") {
+            str += `${num}.\xa0*${item.title}*\xa0\xa0`;
+          } else if (item.category === "urgent") {
+            str += `${num}.\xa0**${item.title}**\xa0\xa0`;
+          } else {
+            str += `${num}.\xa0${item.title}\xa0\xa0`;
+          }
+        }
+        str != "" ? alert(`今日待辦事項：\xa0${str}`) : alert("今日無待辦事項");
+      }
+
+      function todo_save() {
+        localStorage.setItem("todos", JSON.stringify(todos));
+        alert("儲存成功！");
+      }
+
+      if (localStorage.getItem("todos")) {
+        var todos = JSON.parse(localStorage.getItem("todos"));
+        // console.log(todos);
+        render();
       }
 
       function render() {
@@ -98,17 +149,78 @@
 
         const todolist = document.createElement("ul");
         root.append(todolist);
-
-        const $todos = todos.map((item) => {
+        for (const index in todos) {
           const li = document.createElement("li");
           const span = document.createElement("span");
-          span.textContent = item.title;
-          li.append(span);
+          const state_span = document.createElement("span");
+          const isCompleted_btn = document.createElement("button");
+          const del_btn = document.createElement("button");
+
+          todolist.classList.add("p-0");
+          li.classList.add(
+            "mb-3",
+            "d-flex",
+            "flex-column",
+            "flex-md-row",
+            "gap-2",
+            "justify-content-end",
+            "align-items-lg-center",
+            "border",
+            "rounded",
+            "px-3",
+            "py-2"
+          );
+          span.classList.add("me-auto");
+          isCompleted_btn.classList.add(
+            "btn",
+            "btn-outline-secondary",
+            "btn-sm"
+          );
+          del_btn.classList.add("btn", "btn-outline-danger", "btn-sm");
+
+          // console.log(todos[index].title);
+          del_btn.textContent = "刪除";
+          state_span.textContent = "(已完成)";
+          span.textContent = todos[index].title;
+
+          if (todos[index].category === "important") {
+            span.style.color = "orange";
+          } else if (todos[index].category === "urgent") {
+            span.style.color = "red";
+          }
+
+          if (todos[index].isCompleted) {
+            isCompleted_btn.textContent = "標示為未完成";
+            state_span.style.display = "inline-block";
+          } else {
+            isCompleted_btn.textContent = "標示為已完成";
+            state_span.style.display = "none";
+          }
+
+          del_btn.onclick = () => {
+            todos.splice(index, 1);
+            render();
+          };
+
+          isCompleted_btn.onclick = () => {
+            todos[index].isCompleted
+              ? (todos[index].isCompleted = false)
+              : (todos[index].isCompleted = true);
+
+            render();
+          };
+
+          li.append(span, state_span, isCompleted_btn, del_btn);
           todolist.append(li);
-        });
+        }
       }
 
       render();
+
+      //課程名稱更新
+      let current_title = "資料序列化";
+      let ls_title = document.querySelector(".ls-title");
+      ls_title.textContent = current_title;
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
