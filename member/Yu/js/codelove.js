@@ -257,6 +257,11 @@ const codelove_01 = [
       {
         date: "2023/11/28",
         content: "體驗一下 Reactivity 的效果與便利",
+        link: "https://codepen.io/yuch3n_chen/pen/GRzBJwx",
+      },
+      {
+        date: "2023/11/28",
+        content: "學習 Vue 條件判斷式的寫法",
         link: "./js-7-vue/js-7-vue.html",
       },
     ],

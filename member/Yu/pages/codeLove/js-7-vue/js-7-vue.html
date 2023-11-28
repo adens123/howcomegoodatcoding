@@ -28,6 +28,21 @@
         transform: translateY(-0.5rem);
         box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
       }
+      .baseColor {
+        color: unset;
+      }
+      .statusColor {
+        color: #fff;
+      }
+      .red {
+        background-color: #f72a25;
+      }
+      .green {
+        background-color: #34a853;
+      }
+      .blue {
+        background-color: #4285f4;
+      }
     </style>
   </head>
   <body class="bg-light">
@@ -72,15 +87,24 @@
       <h2 class="ls-title mb-3"></h2>
       <div class="border p-3 rounded bg-light">
         <div id="app" class="row flex-wrap gap-3 justify-content-lg-center">
-          <div class="note col-6 col-lg-3 border rounded bg-white p-3">
+          <div
+            class="note col-6 col-lg-3 border rounded p-3"
+            :class="[hasColor? activeClass: inactiveClass ,notes[0].color]"
+          >
             <h3 class="title">{{notes[0].title}}</h3>
             <p class="content">{{notes[0].content}}</p>
           </div>
-          <div class="note col-6 col-lg-3 border rounded bg-white p-3">
+          <div
+            class="note col-6 col-lg-3 border rounded p-3"
+            :class="[hasColor? activeClass: inactiveClass ,notes[1].color]"
+          >
             <h3 class="title">{{notes[1].title}}</h3>
             <p class="content">{{notes[1].content}}</p>
           </div>
-          <div class="note col-6 col-lg-3 border rounded bg-white p-3">
+          <div
+            class="note col-6 col-lg-3 border rounded p-3"
+            :class="[hasColor? activeClass: inactiveClass ,notes[2].color]"
+          >
             <h3 class="title">{{notes[2].title}}</h3>
             <p class="content">{{notes[2].content}}</p>
           </div>
@@ -88,7 +112,7 @@
       </div>
     </main>
     <script>
-      const { createApp } = Vue;
+      const { createApp, ref } = Vue;
 
       createApp({
         data() {
@@ -112,13 +136,28 @@
             ],
           };
         },
+        setup() {
+          // 假設hasColor為真
+          const hasColor = ref(true);
+
+          //為真條件的class
+          const activeClass = ref("statusColor");
+
+          //為否條件的class
+          const inactiveClass = ref("baseColor");
+          return {
+            hasColor,
+            activeClass,
+            inactiveClass,
+          };
+        },
         mounted() {
           this.notes[0].content = "多出門、到處走走、也要多運動";
         },
       }).mount("#app");
 
       //課程名稱更新
-      let current_title = "體驗一下 Reactivity 的效果與便利";
+      let current_title = "學習 Vue 條件判斷式的寫法";
       let ls_title = document.querySelector(".ls-title");
       ls_title.textContent = current_title;
     </script>
