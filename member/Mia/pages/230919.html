@@ -179,15 +179,54 @@
               let str = “Simple”;<br>
               str = str. toUpperCase ( );<br>
               console.log ( str );<br>
-              結果會是 <code>SIMPLE</code>
-                  
+              結果會是 <code>SIMPLE</code>  
             </p>
             <br>
-            <p class="bg-light py-2"><code class="me-4">.split ()</code>切割字串，依照括號內放的內容來切割字串</p>
+            <p class="bg-light py-2"><code class="me-4">.split ()</code>切割字串，依照括號內放的內容來切割字串，分割後的字串會裝進陣列</p>
             <p>
               let sentence = “Today is a good day”;<br>
-              let result = sentence.split (“  ”);<br>
+              let result = sentence.split (“ is ”);<br>
               console.log (result);     
+            </p>
+            <p>
+              <span class="font-color1">結果為</span><br>
+              ["To day ", " a good day"]
+            </p>
+            <p>*用來分割的字會消失</p>
+            <hr>
+            <p>
+              let para = “Today  is  a  good  day”;<br>
+              console.log (pra.split(" "));     
+            </p>
+            <p>
+              <span class="font-color1">結果為</span><br>
+              ["Today", "is", "a", "good", "day"]
+            </p>
+            <p>*用空格來分割字串</p>
+            <p>
+              let name = "Selina";<br>
+              console.log(name.split("l"))
+            </p>
+            <p>
+              <span class="font-color1">結果為</span><br>
+              ["Se", "ina"]
+            </p>
+            <hr>
+            <p>
+              console.log(name.split())
+            </p>
+            <p>
+              <span class="font-color1">結果為</span><br>
+              ["Selina"]
+            </p>
+            
+            <hr>
+            <p>
+              console.log(name.split(""))
+            </p>
+            <p>
+              <span class="font-color1">結果為</span><br>
+              ["S", "e", "l", "i", "n", "a"]
             </p>
             <p>*放空字串可切割每個單字</p>
             <br>
@@ -197,8 +236,9 @@
             <p>
               let sentence = “Today is a good day”;<br>
               console.log ( sentence .startsWith (“Today”) );<br>
-              結果是 <code>true</code>                
+              <span class="font-color1">結果是</span> <code>true</code>                
             </p>
+            
             <br>
             <p class="bg-light py-2"><code class="me-4">.includes(str)  </code>查詢字串是否包含str<br></p>
             <p>*會回傳true 或 false</p>
