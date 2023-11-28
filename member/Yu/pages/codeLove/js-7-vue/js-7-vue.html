@@ -85,30 +85,18 @@
     </header>
     <main class="container py-3">
       <h2 class="ls-title mb-3"></h2>
-      <div class="border p-3 rounded bg-light">
-        <div id="app" class="row flex-wrap gap-3 justify-content-lg-center">
-          <div
+      <div id="app" class="border p-3 rounded bg-light">
+        <ul class="row flex-wrap gap-3 justify-content-lg-center">
+          <li
+            v-for="note in notes"
             class="note col-6 col-lg-3 border rounded p-3"
-            :class="[hasColor? activeClass: inactiveClass ,notes[0].color]"
+            :class="[hasColor? activeClass: inactiveClass ,note.color]"
           >
-            <h3 class="title">{{notes[0].title}}</h3>
-            <p class="content">{{notes[0].content}}</p>
-          </div>
-          <div
-            class="note col-6 col-lg-3 border rounded p-3"
-            :class="[hasColor? activeClass: inactiveClass ,notes[1].color]"
-          >
-            <h3 class="title">{{notes[1].title}}</h3>
-            <p class="content">{{notes[1].content}}</p>
-          </div>
-          <div
-            class="note col-6 col-lg-3 border rounded p-3"
-            :class="[hasColor? activeClass: inactiveClass ,notes[2].color]"
-          >
-            <h3 class="title">{{notes[2].title}}</h3>
-            <p class="content">{{notes[2].content}}</p>
-          </div>
-        </div>
+            <h3 class="title">{{note.title}}</h3>
+            <p class="content">{{note.content}}</p>
+          </li>
+        </ul>
+        <p v-if="!notes.length">Nothing to see here !</p>
       </div>
     </main>
     <script>
@@ -157,7 +145,7 @@
       }).mount("#app");
 
       //課程名稱更新
-      let current_title = "學習 Vue 條件判斷式的寫法";
+      let current_title = "學習 Vue 迴圈的寫法";
       let ls_title = document.querySelector(".ls-title");
       ls_title.textContent = current_title;
     </script>
