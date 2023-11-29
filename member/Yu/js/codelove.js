@@ -267,6 +267,11 @@ const codelove_01 = [
       {
         date: "2023/12/01",
         content: "學習 Vue 迴圈的寫法",
+        link: "https://codepen.io/yuch3n_chen/pen/xxMaOep",
+      },
+      {
+        date: "2023/12/04",
+        content: "學習 Vue 事件處理的寫法",
         link: "./js-7-vue/js-7-vue.html",
       },
     ],
