@@ -40,7 +40,17 @@
     </header>
     <div class="container mt-5">
       <div id="app" class="row justify-content-center row-gap-4">
-        <div class="col-md-4">
+        <div class="col-md-4" v-for="note in notes">
+          <div
+            class="note card text-white"
+            :style="{backgroundColor: note.color}">
+            <div class="card-body">
+              <h3 class="title card-title mb-3">{{note.title}}</h3>
+              <p class="content card-text">{{note.content}}</p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-md-4">
           <div
             class="note card text-white"
             :style="{backgroundColor: notes[0].color}">
@@ -69,7 +79,7 @@
               <p class="content card-text">{{notes[2].content}}</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
