@@ -109,7 +109,7 @@
               class="px-2 py-1 form-control"
             />
             <textarea
-              v-model,trim="input_content"
+              v-model.trim="input_content"
               rows="3"
               class="form-control content-textarea px-2 py-1"
               placeholder="新增記事"
@@ -128,7 +128,7 @@
           </div>
         </div>
 
-        <ul class="row flex-wrap gap-3 justify-content-xl-center list-unstyled">
+        <ul class="row gap-3 justify-content-xl-center list-unstyled">
           <li
             v-for="(note,index) of notes"
             class="note col-12 col-lg-6 col-xl-3 border rounded p-3"
