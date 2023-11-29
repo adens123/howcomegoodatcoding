@@ -41,7 +41,9 @@
     <div class="container mt-5">
       <div id="app" class="row justify-content-center row-gap-4">
         <div class="col-md-4">
-          <div class="note card">
+          <div
+            class="note card text-white"
+            :style="{backgroundColor: notes[0].color}">
             <div class="card-body">
               <h3 class="title card-title mb-3">{{notes[0].title}}</h3>
               <p class="content card-text">{{notes[0].content}}</p>
@@ -49,7 +51,9 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="note card">
+          <div
+            class="note card text-white"
+            :style="{backgroundColor: notes[1].color}">
             <div class="card-body">
               <h3 class="title card-title mb-3">{{notes[1].title}}</h3>
               <p class="content card-text">{{notes[1].content}}</p>
@@ -57,7 +61,9 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="note card">
+          <div
+            class="note card text-white"
+            :style="{backgroundColor: notes[2].color}">
             <div class="card-body">
               <h3 class="title card-title mb-3">{{notes[2].title}}</h3>
               <p class="content card-text">{{notes[2].content}}</p>
@@ -96,6 +102,9 @@
               }
             ]
           };
+        },
+        mounted() {
+          this.notes[0].content = "多出門、到處走走、也要多運動";
         }
       }).mount("#app");
     </script>
