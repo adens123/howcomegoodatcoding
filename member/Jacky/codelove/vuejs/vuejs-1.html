@@ -40,13 +40,50 @@
     </header>
     <div class="container mt-5">
       <div id="app" class="row justify-content-center row-gap-4">
-        <div class="col-md-4" v-for="note in notes">
+        <form class="text-white p-3 d-flex flex-column align-items-start">
+          <ul class="list-unstyled bg-secondary p-3 rounded">
+            <li class="mb-3">
+              記事標題：
+              <input
+                class="form-control w-auto"
+                type="text"
+                placeholder="請輸入標題"
+                v-model="title" />
+            </li>
+            <li class="mb-3">
+              記事內容：<textarea
+                class="form-control w-auto"
+                placeholder="請輸入內容"
+                v-model="content"></textarea>
+            </li>
+            <li class="mb-3">
+              顏色管理：
+              <select class="form-select w-auto" v-model="color">
+                <option value="red">紅色</option>
+                <option value="green">綠色</option>
+                <option value="blue">藍色</option>
+              </select>
+            </li>
+          </ul>
+          <button class="btn btn-primary" type="button" @click="addNote">
+            新增
+          </button>
+        </form>
+        <div class="col-md-4" v-for="(note, index) in notes">
           <div
             class="note card text-white"
             :style="{backgroundColor: note.color}">
             <div class="card-body">
               <h3 class="title card-title mb-3">{{note.title}}</h3>
               <p class="content card-text">{{note.content}}</p>
+            </div>
+            <div class="card-footer">
+              <button
+                class="btn btn-danger"
+                type="button"
+                @click="delNote(index)">
+                刪除
+              </button>
             </div>
           </div>
         </div>
@@ -94,6 +131,9 @@
       createApp({
         data() {
           return {
+            title: "",
+            content: "",
+            color: "red",
             notes: [
               {
                 title: "春節行程安排",
@@ -115,6 +155,23 @@
         },
         mounted() {
           this.notes[0].content = "多出門、到處走走、也要多運動";
+        },
+        methods: {
+          addNote() {
+            if (this.title == "" || this.content == "")
+              return alert("請輸入內容!!!");
+            const newNote = {
+              title: this.title,
+              content: this.content,
+              color: this.color
+            };
+            this.notes.push(newNote);
+            this.title = "";
+            this.content = "";
+          },
+          delNote(index) {
+            this.notes.splice(index, 1);
+          }
         }
       }).mount("#app");
     </script>
