@@ -277,6 +277,11 @@ const codelove_01 = [
       {
         date: "2023/12/05",
         content: "認識 Lifecycle Hooks 與 Watchers",
+        link: "https://codepen.io/yuch3n_chen/pen/OJdBLQg",
+      },
+      {
+        date: "2023/12/06",
+        content: "認識 Template Refs",
         link: "./js-7-vue/js-7-vue.html",
       },
     ],

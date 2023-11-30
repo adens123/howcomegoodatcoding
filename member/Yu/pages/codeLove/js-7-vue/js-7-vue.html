@@ -110,6 +110,7 @@
             />
             <textarea
               v-model.trim="input_content"
+              ref="input_textarea"
               rows="3"
               class="form-control content-textarea px-2 py-1"
               placeholder="新增記事"
@@ -155,7 +156,7 @@
       referrerpolicy="no-referrer"
     ></script>
     <script>
-      const { createApp, ref } = Vue;
+      const { createApp } = Vue;
 
       createApp({
         data() {
@@ -169,7 +170,7 @@
             activeClass: "statusColor",
             // 為假條件的class
             inactiveClass: "baseColor",
-            notes: JSON.parse(localStorage.getItem("notes")) || [
+            notes: [
               {
                 title: "春節行程安排",
                 content: "吃飽睡，睡飽吃",
@@ -235,12 +236,14 @@
         },
         mounted() {
           this.notes[0].content = "多出門、到處走走、也要多運動";
+          if (localStorage.getItem("notes")) {
+            this.notes = JSON.parse(localStorage.getItem("notes"));
+          }
+
+          // autosize
+          autosize(this.$refs.input_textarea);
         },
       }).mount("#app");
-
-      // autosize
-      let txtArea = document.querySelector(".content-textarea");
-      autosize(txtArea);
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
