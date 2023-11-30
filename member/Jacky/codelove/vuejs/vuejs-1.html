@@ -154,7 +154,17 @@
           };
         },
         mounted() {
-          this.notes[0].content = "多出門、到處走走、也要多運動";
+          if (localStorage.getItem("notes")) {
+            this.notes = JSON.parse(localStorage.getItem("notes"));
+          }
+        },
+        watch: {
+          notes: {
+            handler(newData, oldData) {
+              localStorage.setItem("notes", JSON.stringify(newData));
+            },
+            deep: true
+          }
         },
         methods: {
           addNote() {
