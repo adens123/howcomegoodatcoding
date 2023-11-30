@@ -161,7 +161,7 @@
         data() {
           return {
             // 章節標題
-            current_title: "學習 Vue 事件處理的寫法",
+            current_title: "認識 Lifecycle Hooks 與 Watchers",
 
             //假設hasColor為真
             hasColor: true,
@@ -169,7 +169,7 @@
             activeClass: "statusColor",
             // 為假條件的class
             inactiveClass: "baseColor",
-            notes: [
+            notes: JSON.parse(localStorage.getItem("notes")) || [
               {
                 title: "春節行程安排",
                 content: "吃飽睡，睡飽吃",
@@ -204,7 +204,7 @@
               this.input_content === "" ||
               this.input_option === ""
             )
-              return alert("項目不可為空");
+              return alert("任一項目不可為空");
 
             //建立一個新物件
             let newTodo = {
@@ -225,21 +225,14 @@
             this.notes.splice(index, 1);
           },
         },
-        // setup() {
-        //   // 假設hasColor為真
-        //   const hasColor = ref(true);
-
-        //   //為真條件的class
-        //   const activeClass = ref("statusColor");
-
-        //   //為否條件的class
-        //   const inactiveClass = ref("baseColor");
-        //   return {
-        //     hasColor,
-        //     activeClass,
-        //     inactiveClass,
-        //   };
-        // },
+        watch: {
+          notes: {
+            handler(newValue, oldValue) {
+              localStorage.setItem("notes", JSON.stringify(this.notes));
+            },
+            deep: true,
+          },
+        },
         mounted() {
           this.notes[0].content = "多出門、到處走走、也要多運動";
         },

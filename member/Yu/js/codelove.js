@@ -272,6 +272,11 @@ const codelove_01 = [
       {
         date: "2023/12/04",
         content: "學習 Vue 事件處理的寫法",
+        link: "https://codepen.io/yuch3n_chen/pen/wvNEOqQ",
+      },
+      {
+        date: "2023/12/05",
+        content: "認識 Lifecycle Hooks 與 Watchers",
         link: "./js-7-vue/js-7-vue.html",
       },
     ],
