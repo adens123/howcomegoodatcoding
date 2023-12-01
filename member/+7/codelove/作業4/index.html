@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"
+      integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./all.css" />
     <title>作業四</title>
   </head>
@@ -11,44 +18,44 @@
     <form>
       <label for="nickname">暱稱：</label>
       <input type="text" id="nickname" name="nickname" />
-
+      <br />
       <label for="message">留言：</label>
-      <textarea id="message" name="message" rows="3"></textarea>
-
+      <textarea class="textarea" id="message" name="message" rows="3"></textarea>
+      <br />
       <button type="submit">送出</button>
     </form>
     <br />
     <br />
+    <a href="./lazyload.html">載入圖片</a>
     <br />
-    <img
-      alt="A lazy image"
-      class="lazy"
-      data-src="https://images.unsplash.com/photo-1700488629510-bf60790ff9fc?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    />
-    <img
-      alt="A lazy image"
-      class="lazy"
-      data-src="https://images.unsplash.com/photo-1699953352666-9304af5a76c1?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    />
-    <img
-      alt="A lazy image"
-      class="lazy"
-      data-src="https://images.unsplash.com/photo-1700366232028-d64ab5f6c3a8?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    />
-    <img
-      alt="A lazy image"
-      class="lazy"
-      data-src="https://images.unsplash.com/photo-1700393289656-9e0a4ff76a2b?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    />
-    <img
-      alt="A lazy image"
-      class="lazy"
-      data-src="https://images.unsplash.com/photo-1700322153270-1221b6abe6cb?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    />
     <br />
-    <script src="
-    https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.5/dist/lazyload.min.js
-    "></script>
+    <div>
+      <h2>2021年高雄市觀光旅館住客人次</h2>
+      <canvas id="myChart"></canvas>
+    </div>
+    <div>
+      <h2>2021年高雄市國民小學視力不良人數</h2>
+      <canvas id="myChart2"></canvas>
+    </div>
+    <div>
+      <h2>107年10月壽山動物園參觀人次</h2>
+      <canvas id="myChart3"></canvas>
+    </div>
+
+    <br />
+    <div><a href="https://codepen.io/tojibom/pen/NWoLZEZ">4-4 jQuery套件</a></div>
+    <br />
+    <form>
+      <label for="checkin">住房日期：</label>
+      <input id="date_timepicker_start" type="text" />
+      <br />
+      <label for="checkout">退房日期：</label>
+      <input id="date_timepicker_end" type="text" />
+      <br />
+      <button type="submit">送出</button>
+    </form>
+    <div><a href="./kenwheeler-slick.html">4-6 kenwheeler/slick套件</a></div>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/6.0.1/autosize.min.js"
       integrity="sha512-OjjaC+tijryqhyPqy7jWSPCRj7fcosu1zreTX1k+OWSwu6uSqLLQ2kxaqL9UpR7xFaPsCwhMf1bQABw2rCxMbg=="
@@ -56,50 +63,21 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <canvas id="myChart" width="400" height="400"></canvas>
-    <script>
-      var ctx = document.getElementById("myChart").getContext("2d");
-      var myChart = new Chart(ctx, {
-        type: "pie", //圖表類型
-        data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-          datasets: [
-            {
-              label: "# of Votes",
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 159, 64, 0.2)",
-              ],
-              borderColor: [
-                "rgba(255, 99, 132, 1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255, 159, 64, 1)",
-              ],
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  beginAtZero: true,
-                },
-              },
-            ],
-          },
-        },
-      });
-    </script>
+
+    <script src="./chart.js"></script>
+    <!-- 原生jquery與datetimepicker -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"
+      integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <script src="./all.js"></script>
   </body>
