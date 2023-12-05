@@ -43,6 +43,16 @@
       .blue {
         background-color: #4285f4;
       }
+      .input-container {
+        @media (min-width: 576px) {
+          margin-left: 12px;
+          margin-right: 12px;
+        }
+      }
+      .del-btn {
+        background-color: transparent;
+        border: none;
+      }
     </style>
   </head>
   <body class="bg-light">
@@ -83,28 +93,83 @@
         </div>
       </nav>
     </header>
-    <main class="container py-3">
-      <h2 class="ls-title mb-3"></h2>
-      <div id="app" class="border p-3 rounded bg-light">
-        <ul class="row flex-wrap gap-3 justify-content-lg-center">
+    <main id="app" class="container py-3">
+      <h2 class="ls-title mb-3">{{current_title}}</h2>
+      <div class="border p-3 rounded bg-light">
+        <div
+          class="row mb-5 justify-content-center justify-content-md-start input-container"
+        >
+          <div
+            class="border rounded shadow d-flex flex-column p-3 col-12 col-md-6 col-lg-4 gap-3"
+          >
+            <input
+              type="text"
+              v-model.trim="input_title"
+              placeholder="標題"
+              class="px-2 py-1 form-control"
+            />
+            <textarea
+              v-model.trim="input_content"
+              ref="input_textarea"
+              rows="3"
+              class="form-control content-textarea px-2 py-1"
+              placeholder="新增記事"
+            ></textarea>
+            <select
+              v-model="input_option"
+              name="color"
+              class="form-control px-2 py-1"
+            >
+              <option value="" selected disabled>---</option>
+              <option v-for="option in options" :value="option.value">
+                {{option.text}}
+              </option>
+            </select>
+            <button class="btn btn-warning" @click="add">新增</button>
+          </div>
+        </div>
+
+        <ul class="row gap-3 justify-content-xl-center list-unstyled">
           <li
-            v-for="note in notes"
-            class="note col-6 col-lg-3 border rounded p-3"
+            v-for="(note,index) of notes"
+            class="note col-12 col-lg-6 col-xl-3 border rounded p-3"
             :class="[hasColor? activeClass: inactiveClass ,note.color]"
           >
-            <h3 class="title">{{note.title}}</h3>
+            <div class="header d-flex justify-content-between">
+              <h3 class="title">{{note.title}}</h3>
+              <button class="del-btn link-light" @click="del(index)">
+                <i class="fa-regular fa-lg fa-trash-can"></i>
+              </button>
+            </div>
+
             <p class="content">{{note.content}}</p>
           </li>
         </ul>
         <p v-if="!notes.length">Nothing to see here !</p>
       </div>
     </main>
+    <!-- Autosize -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/6.0.1/autosize.min.js"
+      integrity="sha512-OjjaC+tijryqhyPqy7jWSPCRj7fcosu1zreTX1k+OWSwu6uSqLLQ2kxaqL9UpR7xFaPsCwhMf1bQABw2rCxMbg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
-      const { createApp, ref } = Vue;
+      const { createApp } = Vue;
 
       createApp({
         data() {
           return {
+            // 章節標題
+            current_title: "認識 Template Refs",
+
+            //假設hasColor為真
+            hasColor: true,
+            // 為真條件的class
+            activeClass: "statusColor",
+            // 為假條件的class
+            inactiveClass: "baseColor",
             notes: [
               {
                 title: "春節行程安排",
@@ -122,32 +187,63 @@
                 color: "blue",
               },
             ],
+            options: [
+              { text: "一般", value: "blue" },
+              { text: "重要", value: "green" },
+              { text: "緊急", value: "red" },
+            ],
+            input_title: "",
+            input_content: "",
+            input_option: "",
           };
         },
-        setup() {
-          // 假設hasColor為真
-          const hasColor = ref(true);
+        methods: {
+          add() {
+            // 確認欄位皆不可為空
+            if (
+              this.input_title === "" ||
+              this.input_content === "" ||
+              this.input_option === ""
+            )
+              return alert("任一項目不可為空");
 
-          //為真條件的class
-          const activeClass = ref("statusColor");
+            //建立一個新物件
+            let newTodo = {
+              title: this.input_title,
+              content: this.input_content,
+              color: this.input_option,
+            };
 
-          //為否條件的class
-          const inactiveClass = ref("baseColor");
-          return {
-            hasColor,
-            activeClass,
-            inactiveClass,
-          };
+            // 將新物件加入陣列
+            this.notes.push(newTodo);
+
+            // 清空欄位
+            this.input_title = "";
+            this.input_content = "";
+            this.input_option = "";
+          },
+          del(index) {
+            this.notes.splice(index, 1);
+          },
+        },
+        watch: {
+          notes: {
+            handler(newValue, oldValue) {
+              localStorage.setItem("notes", JSON.stringify(this.notes));
+            },
+            deep: true,
+          },
         },
         mounted() {
           this.notes[0].content = "多出門、到處走走、也要多運動";
+          if (localStorage.getItem("notes")) {
+            this.notes = JSON.parse(localStorage.getItem("notes"));
+          }
+
+          // autosize
+          autosize(this.$refs.input_textarea);
         },
       }).mount("#app");
-
-      //課程名稱更新
-      let current_title = "學習 Vue 迴圈的寫法";
-      let ls_title = document.querySelector(".ls-title");
-      ls_title.textContent = current_title;
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

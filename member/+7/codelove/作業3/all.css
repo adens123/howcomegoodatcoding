@@ -8,6 +8,10 @@
   /* background-color: #000; */
   /* height: 200px; */
 }
+.btn {
+  height: 50px;
+  width: 100px;
+}
 /*3-1*/
 .all {
   height: 105px;
@@ -38,9 +42,9 @@
   color: #9a3412;
 }
 /*3-2吐司元件*/
-.btn {
-  height: 50px;
-  width: 100px;
+.toastBtn {
+  background-color: #0b346e;
+  color: #fff;
 }
 .toast {
   height: 50px;
