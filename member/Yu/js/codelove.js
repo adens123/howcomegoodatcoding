@@ -286,6 +286,17 @@ const codelove_01 = [
       },
     ],
   },
+  {
+    ch_num: 8,
+    chapter: "JavaScript（八）不想教你 Vue，只想讓你寫有趣專案",
+    lesson: [
+      {
+        date: "2023/12/07",
+        content: "碼表應用程式",
+        link: "./js-8-vueApp/js-8-vueApp.html",
+      },
+    ],
+  },
 ];
 
 // 建立章節列表
