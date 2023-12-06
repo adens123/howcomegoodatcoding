@@ -293,7 +293,12 @@ const codelove_01 = [
       {
         date: "2023/12/07",
         content: "碼表應用程式",
-        link: "./js-8-vueApp/js-8-vueApp.html",
+        link: "./js-8-vueApp/js-8-vueStopwatch.html",
+      },
+      {
+        date: "2023/12/08",
+        content: "筆記應用程式",
+        link: "./js-8-vueApp/js-8-vueNote.html",
       },
     ],
   },
