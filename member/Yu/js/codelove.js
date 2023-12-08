@@ -310,7 +310,7 @@ function createChapter(course) {
   let result = "";
 
   for (let [index, value] of course.entries()) {
-    if (index == 0) {
+    if (index == course.length - 1) {
       result += `<div class="accordion-item">
   <h3 class="accordion-header">
     <button
