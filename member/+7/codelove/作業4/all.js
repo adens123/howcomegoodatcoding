@@ -39,3 +39,8 @@ $(document).ready(function () {
     timepicker: false,
   });
 });
+
+//4-7
+tinymce.init({
+  selector: "textarea#default-editor",
+});
