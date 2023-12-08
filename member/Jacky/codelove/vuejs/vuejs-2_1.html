@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>不想教你 Vue，只想讓你寫有趣專案</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <style>
+      .timerWrap {
+        font-weight: 700;
+        text-align: center;
+      }
+      .timerBox {
+        width: 20%;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px gray;
+      }
+    </style>
+  </head>
+  <body class="bg-dark">
+    <header class="bg-secondary-subtle">
+      <nav class="container object-fit-contain">
+        <div class="navbar d-flex align-items-center">
+          <div class="d-flex align-items-center gap-3">
+            <h1>
+              <a
+                class="text-secondary text-decoration-none"
+                href="../../../../index.html"
+                >怎麼會-前端coding</a
+              >
+            </h1>
+            <h2>
+              <a
+                class="text-secondary text-decoration-none"
+                href="../../index.html"
+                >Jacky's Home</a
+              >
+            </h2>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container mt-5">
+      <h2 class="fs-1 text-white text-center mb-5 fw-bold">碼表應用程式</h2>
+      <div id="app" class="text-white">
+        <div
+          class="timerWrap d-flex justify-content-center align-items-center text-black gap-3">
+          <div class="timerBox fs-1">{{minute}}</div>
+          <span class="text-white">:</span>
+          <div class="timerBox fs-1">{{second}}</div>
+          <span class="text-white">.</span>
+          <div class="timerBox fs-1">{{msecond}}</div>
+        </div>
+
+        <div class="d-flex justify-content-center mt-3">
+          <button
+            class="btn btn-primary me-3"
+            v-on:click="timerFn"
+            ref="timerBtn">
+            開始
+          </button>
+
+          <button class="btn btn-danger" v-on:click="timerClear">重設</button>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            msecond: "00",
+            second: "00",
+            minute: "00",
+            ms: 0,
+            timer: null
+          };
+        },
+        methods: {
+          timerFn(event) {
+            const timerBtn = this.$refs.timerBtn;
+            const fnName = timerBtn.textContent.trim();
+
+            if (fnName == "開始") {
+              this.start();
+              timerBtn.textContent = "暫停";
+            }
+
+            if (fnName == "暫停") {
+              this.pause();
+              timerBtn.textContent = "繼續";
+            }
+
+            if (fnName == "繼續") {
+              this.start();
+              timerBtn.textContent = "暫停";
+            }
+          },
+          start() {
+            this.timer = setInterval(() => {
+              this.ms++;
+
+              // 毫秒 顯示數值
+              if (this.ms % 100 == 0) {
+                this.msecond = "00";
+              } else {
+                this.msecond = this.ms % 100;
+              }
+
+              // 秒 顯示數值
+              if (((this.ms / 100) % 60).toFixed() < 10) {
+                this.second = `0${((this.ms / 100) % 60).toFixed()}`;
+              } else if (((this.ms / 100) % 60).toFixed() == 60) {
+                this.second = "00";
+              } else {
+                this.second = ((this.ms / 100) % 60).toFixed();
+              }
+
+              // 分鐘 顯示數值
+
+              if ((this.ms / 100 / 60) % 60 < 10) {
+                this.minute = `0${Math.floor((this.ms / 100 / 60) % 60)}`;
+              } else {
+                this.minute = Math.floor((this.ms / 100 / 60) % 60);
+              }
+            }, 10);
+          },
+          pause() {
+            clearInterval(this.timer);
+          },
+          timerClear() {
+            clearInterval(this.timer);
+            this.$refs.timerBtn.textContent = "開始";
+            this.msecond = "00";
+            this.second = "00";
+            this.minute = "00";
+            this.ms = 0;
+          }
+        }
+      }).mount("#app");
+    </script>
+  </body>
+</html>
