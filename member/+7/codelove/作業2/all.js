@@ -112,16 +112,9 @@ function outPut() {
 
   for (let y of document.querySelectorAll("li")) {
     if (y.classList.contains("orange")) {
-      x =
-        x + String(num) + "." + "*" + y.querySelector("span").textContent + "*";
+      x = x + String(num) + "." + "*" + y.querySelector("span").textContent + "*";
     } else if (y.classList.contains("red")) {
-      x =
-        x +
-        String(num) +
-        "." +
-        "**" +
-        y.querySelector("span").textContent +
-        "**";
+      x = x + String(num) + "." + "**" + y.querySelector("span").textContent + "**";
       // x = x + `${num}.**${y.children[0].textContent}**`;
     } else {
       x = x + String(num) + "." + y.querySelector("span").textContent;
@@ -130,5 +123,5 @@ function outPut() {
     num++;
   }
   alert(x);
+  //使用 y.querySelector("span") 是因剛好要選擇第一個span
 }
-//使用 y.querySelector("span") 是因剛好要選擇第一個span

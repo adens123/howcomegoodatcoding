@@ -61,10 +61,10 @@
     </header>
     <main id="app" class="container py-3 text-light tech-mono">
       <h2 class="mb-3">{{current_title}}</h2>
-      <div class="row justify-content-center">
-        <div class="col col-lg-6">
+      <div class="row">
+        <div class="col">
           <div class="p-3">
-            <div class="timer display-1 mb-5 text-center">{{timer}}</div>
+            <h3 class="display-1 mb-5 text-center">{{timer}}</h3>
             <div
               class="d-flex justify-content-center gap-2 flex-column flex-md-row"
             >
@@ -136,7 +136,6 @@
             this.interval = undefined;
           },
           restart() {
-            this.timer = 0;
             if (this.interval !== undefined) {
               clearInterval(this.interval);
               this.interval = undefined;

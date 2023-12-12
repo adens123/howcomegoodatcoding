@@ -3,6 +3,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Ultra&display=swap");
+
 //CSShake
 @import url("https://csshake.surge.sh/csshake.min.css");
 
@@ -17,6 +19,7 @@
 @import "./codeLove/js-3-ui";
 @import "./codeLove/js-4-api";
 @import "./codeLove/js-5-app";
+@import "./codeLove/_js-8-vueNote";
 
 .cap {
   background-color: rgba($color: #fff, $alpha: 0.7);

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      筆記應用程式｜JavaScript（八）不想教你 Vue，只想讓你寫有趣專案
+    </title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../../SCSS/CSS/all.css" />
+    <!-- font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body class="bg-light">
+    <header>
+      <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+        <div class="container-fluid">
+          <a
+            class="navbar-brand logo-yu shake-little"
+            href="../../../index.html"
+            >Yuchen</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../../index.html">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../../contents.html"
+                  >作業分享區</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container py-3" id="app">
+      <div class="p-3 border rounded border-dark">
+        <div class="row gy-3">
+          <div class="col-12 col-lg-8">
+            <div
+              class="d-flex flex-column justify-content-between align-items-center mb-3 flex-wrap gap-2"
+            >
+              <h3 class="display-5 font-ultra">This is HowToCode notepad</h3>
+              <button class="btn btn-secondary align-self-end" @click="newNote">
+                <i class="fa-solid fa-plus me-1"></i>New
+              </button>
+            </div>
+            <textarea
+              v-for="(item, index) in notes"
+              v-model="item.content"
+              v-show="item.isShowed"
+              placeholder="type here..."
+              class="form-control"
+              rows="15"
+            ></textarea>
+          </div>
+          <div class="col-12 col-lg-4">
+            <ul
+              class="list-unstyled border rounded py-3 px-1 border-dark-subtle notelist"
+            >
+              <li
+                v-for="(note, index) in notes"
+                class="d-flex align-items-center justify-content-between py-2 px-3 rounded gap-3 notelist-item"
+              >
+                <p
+                  class="text-truncate mb-0 link-secondary"
+                  @click="selectedNote(index)"
+                >
+                  {{note.content}}
+                </p>
+                <i
+                  class="fa-solid fa-pen ms-auto"
+                  @click="selectedNote(index)"
+                ></i>
+                <i
+                  class="fa-regular fa-trash-can"
+                  @click="deleteNote(index)"
+                ></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            notes: [
+              {
+                content: null,
+                isShowed: true,
+              },
+            ],
+          };
+        },
+        methods: {
+          chk() {
+            console.log(this.notes);
+          },
+          newNote() {
+            this.closeAllNotes();
+            if (this.notes.length == 1 && this.notes[0].content == null) {
+              this.notes[0].isShowed = true;
+              return;
+            }
+            let newItem = {
+              content: null,
+              isShowed: true,
+            };
+            this.notes.push(newItem);
+          },
+          closeAllNotes() {
+            this.notes.map((item) => {
+              item.isShowed = false;
+            });
+          },
+          selectedNote(idx) {
+            this.closeAllNotes();
+            this.notes[idx].isShowed = true;
+          },
+          deleteNote(idx) {
+            const del_confirmed = confirm("確認要刪除這則筆記嗎？");
+            if (del_confirmed) {
+              if (this.notes.length == 1) {
+                this.notes.splice(idx, 1);
+                this.newNote();
+              } else {
+                this.notes.splice(idx, 1);
+                this.closeAllNotes();
+                this.notes[this.notes.length - 1].isShowed = true;
+              }
+            } else return;
+          },
+        },
+        watch: {
+          notes: {
+            handler(newValue, oldValue) {
+              localStorage.setItem("justNote", JSON.stringify(this.notes));
+            },
+            deep: true,
+          },
+        },
+        mounted() {
+          localStorage.getItem("justNote")
+            ? (this.notes = JSON.parse(localStorage.getItem("justNote")))
+            : this.notes;
+        },
+      }).mount("#app");
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
