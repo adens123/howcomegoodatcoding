@@ -125,3 +125,23 @@ function outPut() {
   alert(x);
   //使用 y.querySelector("span") 是因剛好要選擇第一個span
 }
+
+//5-2
+//儲存
+//選li>span 0 & 1
+//let list={name:name,fin:fin}
+//每筆資料都要抓到
+function save() {
+  const listsArray = [];
+  for (let list of ul.children) {
+    let i = 0;
+    const listItem = {
+      content: list.children[1].textContent, //內容
+      importance: list.className, //重要程度
+      completed: list.children[2].textContent, //完成度
+    };
+    listsArray.push(listItem);
+  }
+  localStorage.setItem("listsArray", JSON.stringify(listsArray));
+  alert("儲存成功！");
+}
