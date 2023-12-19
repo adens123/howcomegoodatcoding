@@ -7,8 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans:wght@200;300;400;500;700&family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400&family=Playfair+Display:wght@400;500&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Indie+Flower&family=Kalam&family=Noto+Sans+TC&family=Noto+Sans:wght@500&family=Playpen+Sans&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <!-- css -->
     <link rel="stylesheet" href="../css02/lesson02-02.css">
     <script src="https://kit.fontawesome.com/2b34f8a7fa.js" crossorigin="anonymous"></script>
@@ -16,21 +16,30 @@
   </head>
   <body>
     <div class="wrap">
-        <div class="TDlist">
-          <h1 class="title">To Do List</h1>
-          <div class="itemGroup">
-            <input id="input_memo" class="item" type="text" placeholder="請輸入待辦事項..">
-            <button onclick="add()" class="item">add</button>
-          </div>
-          <p class="text-center">ー♥ー</p>
-      
-      
-          <div>
-            <ul id="list" class="listGroup">
-            </ul>
-          </div>
-        </div>
+    <div class="TDlist">
+      <h1 class="title">To Do List</h1>
+      <div class="itemGroup">
+        <input id="input_memo" class="item " type="text" placeholder="請輸入待辦事項..">
+        <select name="" id="typeSelect" class='item ' onchange='selectChange()'>
+          <option value="normal">一般</option>
+          <option value="important">重要</option>
+          <option value="urgent">緊急</option>
+        </select>
+        <button onclick="add()" class="item" title="新增">add</button>
+
       </div>
+      <p class="text-center">ー♥ー</p>
+
+      <div>
+        <ul id="list" class="listGroup">
+        </ul>
+      </div>
+      <div class="d-flex btns">
+        <button id="outputBtn" class="item opBtn">匯出</button>
+        <button onclick="save()" id="saveBtn" class="item opBtn">存檔</button>
+      </div>
+    </div>
+  </div>
       
    
     
