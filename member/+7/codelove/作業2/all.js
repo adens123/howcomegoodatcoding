@@ -62,6 +62,8 @@ function add() {
   sp.textContent = "已完成";
   sp.style.display = "none"; //(已完成)預設隱藏
 
+  //一般來說會使用ture fales，而不是預設某值後再隱藏/顯示
+
   //分程度顏色 >> 條件判斷
   if (option.value == "urgent") {
     li.classList.add("red");
@@ -124,4 +126,54 @@ function outPut() {
   }
   alert(x);
   //使用 y.querySelector("span") 是因剛好要選擇第一個span
+}
+
+//5-2
+//儲存
+function save() {
+  const listsArray = []; //建立一個空陣列，每跑完一筆迴圈就存在此陣列
+  for (let list of ul.children) {
+    //迴圈會遍歷 ul.children中的每一個元素，在每次迭代中將元素賦值給變數list
+    const listItem = {
+      done: list.children[0].value, //完成的按鈕
+      content: list.children[1].textContent, //內容
+      importance: list.className, //重要程度
+      completed: list.children[2].style.display, //完成度
+    };
+    listsArray.push(listItem); //+元素至陣列末端，並回傳陣列新長度
+  }
+  localStorage.setItem("listsArray", JSON.stringify(listsArray));
+  alert("儲存成功！");
+}
+
+//讓儲存的資料留在畫面上(取出已存檔案)
+if (localStorage.getItem("listsArray")) {
+  const getListsArray = JSON.parse(localStorage.getItem("listsArray"));
+  //將listsArray還原成原本陣列形式
+
+  for (let i = 0; i < getListsArray.length; i++) {
+    //以下先選取要用的物件、設定變數
+    let ul = document.querySelector("#ul");
+    let li = document.createElement("li"); //清單項目
+    let span = document.createElement("span"); //清單內容
+    let done = document.createElement("button"); //標示為已完成
+    let sp = document.createElement("span"); //(已完成)
+    let button = document.createElement("button"); //刪除
+
+    //讓剛才設定的變數=每次跑回圈後得到的值
+    span.textContent = getListsArray[i].content; //清單內容
+    li.className = getListsArray[i].importance; //重要程度
+    sp.style.display = getListsArray[i].completed; //完成度
+
+    done.onclick = fin;
+    done.textContent = "標示為已完成";
+
+    sp.textContent = "已完成";
+
+    button.onclick = del;
+    button.textContent = "刪除";
+
+    ul.append(li);
+    li.append(done, span, sp, button);
+  }
 }
