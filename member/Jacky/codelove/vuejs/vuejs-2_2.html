@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>不想教你 Vue，只想讓你寫有趣專案</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <style>
+      .list-group-item {
+        height: 50px;
+        display: flex;
+        align-items: center;
+      }
+      .list-group-item.active {
+        background-color: #181818;
+        color: #ffffff;
+        border-color: #333333;
+      }
+    </style>
+  </head>
+  <body class="bg-dark">
+    <header class="bg-secondary-subtle">
+      <nav class="container object-fit-contain">
+        <div class="navbar d-flex align-items-center">
+          <div class="d-flex align-items-center gap-3">
+            <h1>
+              <a
+                class="text-secondary text-decoration-none"
+                href="../../../../index.html"
+                >怎麼會-前端coding</a
+              >
+            </h1>
+            <h2>
+              <a
+                class="text-secondary text-decoration-none"
+                href="../../index.html"
+                >Jacky's Home</a
+              >
+            </h2>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container mt-5">
+      <h2 class="fs-1 text-white text-center mb-5 fw-bold">筆記應用程式</h2>
+      <div id="app" class="text-white">
+        <div class="row">
+          <div class="col-md-8">
+            <form class="d-flex flex-column mb-3">
+              <button
+                class="btn btn-secondary align-self-end mb-3"
+                type="button"
+                v-on:click="newNote">
+                建立新筆記
+              </button>
+              <textarea
+                class="form-control"
+                cols="30"
+                rows="10"
+                placeholder="這裡可以寫筆記..."
+                v-model="noteText"
+                v-on:input="updateText"></textarea>
+            </form>
+          </div>
+          <div class="col-md-4">
+            <h3 class="text-white text-center mb-3">筆記列表</h3>
+            <ul class="list-group list-unstyled">
+              <li
+                class="list-group-item list-group-item-action d-flex justify-content-between"
+                :class="{'active': index == selectedIndex}"
+                v-for="(note, index) in notes"
+                :key="index"
+                v-on:click="selectNote(index)">
+                <span class="text-truncate w-75">{{ note.text }}</span>
+                <button
+                  class="btn btn-danger btn-sm"
+                  type="button"
+                  v-on:click.stop="deleteNote(index)">
+                  刪除
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            noteText: "", // 儲存使用者輸入的筆記內容
+            notes: [], // 儲存所有筆記的陣列
+            selectedIndex: 0 // 儲存目前選取的筆記索引
+          };
+        },
+        computed: {
+          selectedNote() {
+            return this.notes[this.selectedIndex]; // 取得目前選取的筆記
+          }
+        },
+        methods: {
+          updateText() {
+            this.selectedNote.text = this.noteText; // 更新目前選取的筆記內容
+          },
+          newNote() {
+            this.notes.push({ text: "" }); // 新增一個空白筆記
+            this.selectNote(this.notes.length - 1); // 選取新增的筆記
+          },
+          selectNote(index) {
+            this.selectedIndex = index; // 選取指定索引的筆記
+            this.noteText = this.selectedNote.text; // 更新筆記內容輸入框的值
+          },
+          deleteNote(index) {
+            this.notes.splice(index, 1); // 刪除指定索引的筆記
+            if (this.notes.length == 0) {
+              this.newNote(); // 如果刪除後沒有筆記了，新增一個空白筆記
+            } else {
+              this.selectNote(Math.min(index, this.notes.length - 1)); // 選取刪除後的下一個筆記
+            }
+          }
+        },
+        watch: {
+          notes: {
+            handler() {
+              localStorage.setItem("notes", JSON.stringify(this.notes)); // 監聽筆記陣列的變化，將筆記儲存到本地端
+            },
+            deep: true,
+            immediate: false
+          }
+        },
+        mounted() {
+          this.notes = JSON.parse(localStorage.getItem("notes")) || []; // 從本地端取得儲存的筆記，如果沒有則初始化為空陣列
+          if (this.notes.length == 0) {
+            this.newNote(); // 如果沒有筆記，新增一個空白筆記
+          } else {
+            this.selectedIndex = this.notes.length - 1; // 選取最後一個筆記
+            this.noteText = this.selectedNote.text; // 更新筆記內容輸入框的值
+          }
+        }
+      }).mount("#app");
+    </script>
+  </body>
+</html>
