@@ -36,3 +36,12 @@ img {
   top: 20%;
   left: 30%;
 }
+
+.container {
+  width: 800px;
+
+  margin: 0 auto;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+}

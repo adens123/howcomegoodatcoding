@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./all.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    simple counter:
+    <button class="minus" onclick="minBtn()">-</button>
+    <span id="output">0</span>
+    <button class="plus" onclick="plusBtn()">+</button>
+  </div>
+
+  <hr />
+  <div class="container">
+    simple calculator:
+    <input class="inputA" type="text" />
+    <input class="inputB" type="text" />
+    <button onclick="countBtn()">加/減/乘/除</button>
+  </div>
+
+  <script>
+    <!-- // 5-3
+    //計數器
+    //第一次點擊 + 號按鈕，會用 alert 跳出 1
+    //第二次點擊 + 號按鈕，會用 alert 跳出 2
+    //每次點 + 都會遞增，每次點 - 都會遞減
+    //宣告一個全域變數，記錄這個累積的值，才能完成此功能
+
+    //選到兩個btn的class,才可動作
+    //設定兩個function，+、- -->
+    //設定一個基質去加減
+
+    let minus = document.querySelector(".minus");
+    let plus = document.querySelector(".plus");
+
+    let output = document.querySelector("#output"); //累積數值
+
+    let n = 0;
+    // const minBtn =() =>{if (minus.onclick) {
+    //           n--;
+    //           output.textContent = n;
+    //           // alert(n);
+    //         }}
+
+    function minBtn() {
+      if (minus.onclick) {
+        n--;
+        output.textContent = n;
+        // alert(n);
+      }
+    }
+
+    function plusBtn() {
+      if (plus.onclick) {
+        n++;
+        output.textContent = n;
+        // alert(n);
+      }
+    }
+
+    // 兩個欄位可以輸入數字
+    // 點擊按鈕，連續跳出四個 alert，分別顯示「加/減/乘/除」的計算結果
+    // 例如：輸入 6 與 2 -> alert 顯示 8 -> alert 顯示 4 -> alert 顯示 12 -> alert 顯示 3
+    // 宣告兩個區域變數，分別記錄兩個輸入的值，接著用來進行四種計算，才能完成此功能
+    //防呆：不能為空值
+    function countBtn() {
+      let inputA = document.querySelector(".inputA");
+      let inputB = document.querySelector(".inputB");
+      // console.log(inputA, inputB);
+      // inputA.value = n;
+      // inputB.value = n;
+      let A = Number(inputA.value);
+      let B = Number(inputB.value);
+
+      if (inputA.value == "" || inputB.value == "") {
+        return alert("請輸入數字");
+      } else {
+        alert(A + B);
+        alert(A - B);
+        alert(A * B);
+        alert(A / B); //要設定不能除0
+        function countBtn() {
+          let inputA = document.querySelector(".inputA");
+          let inputB = document.querySelector(".inputB");
+          let A = Number(inputA.value);
+          let B = Number(inputB.value);
+
+          if (inputA.value == "" || inputB.value == "") {
+            return alert("請輸入數字");
+          } else {
+            if (inputB.value === "0") {
+
+              return alert("除數不能為0");
+
+            } else {
+              alert(A + B);
+              alert(A - B);
+              alert(A * B);
+              alert(A / B);
+            }
+          }
+        }
+      }
+
+    }
+  </script>
+</body>
+
+</html>
