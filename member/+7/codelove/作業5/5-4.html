@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="all.css" /> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="products()">Load Products </button>
+
+    <hr>
+
+    <ul>
+        <!--   <li>
+  <span>xxx</span>
+  <button>Details</button>
+</li> -->
+
+    </ul>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        button {
+            margin-left: auto;
+        }
+    </style>
+    <script>
+        fetch('https://fakestoreapi.com/products')
+            .then(res => res.json())
+            .then(products => {
+                let ul = document.querySelector('ul');
+                ul.innerHTML = ''; // 清空 ul
+
+                for (const product of products) {
+                    let li = document.createElement('li');
+                    let img = document.createElement('img');
+                    img.src = product.image; // 設定圖片 URL
+
+                    let span = document.createElement('span');
+                    span.textContent = product.title;
+
+                    let button = document.createElement('button');
+                    button.textContent = 'Details';
+                    button.addEventListener('click', function () {
+                        alert('ID: ' + product.id);
+                        alert('Category: ' + product.category);
+                        alert('Description: ' + product.description);
+
+                        // 創建一個新的圖片元素並將其添加到頁面上
+                        let detailImg = document.createElement('img');
+                        detailImg.src = product.image;
+                        document.body.append(detailImg);
+                    });
+
+                    li.append(img, span, button); // 將圖片、標題和按鈕添加到 li
+                    ul.append(li);
+                }
+            });
+    </script>
+</body>
+
+</html>
