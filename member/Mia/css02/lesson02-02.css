@@ -29,6 +29,9 @@ select {
   border: 2px dashed transparent;
   padding: 12px 20px;
 }
+.add{
+  font-family: 'Playpen Sans', cursive;
+}
 i{
   cursor: pointer;
 }
