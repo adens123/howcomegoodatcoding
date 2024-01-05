@@ -1,43 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>成衣官網</title>
-    <link rel="stylesheet" href="all.css" />
-  </head>
-  <body>
-    <label for="" class="">顧客姓名：</label>
-    <input id="custom" type="text" />
+
+<head>
+  <meta charset="UTF-8" />
+  <title>成衣官網</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="all.css" />
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>七七七成衣 訂購單</h1>
+  </div>
+  <div class="container">
+    <label for="custom" class="">顧客姓名：</label>
+    <input id="custom" type="text" class="form-control" />
     <br />
-    <label for="" class="">服裝分類：</label>
-    <select id="classification">
+    <label for="classification" class="">服裝分類：</label>
+    <select id="classification" class="form-control">
       <option value="men">男裝</option>
       <option value="woman">女裝</option>
     </select>
     <br />
-    <label for="" class="">類型：</label>
-    <select id="cloType">
+    <label for="cloType" class="">類型：</label>
+    <select id="cloType" class="form-control">
       <option value="coat">外套</option>
       <option value="Jacket">上衣</option>
       <option value="lowerBody">下身</option>
     </select>
     <br />
-    <label for="" class="">訂購數量：</label>
-    <input id="quantityCl" type="text" />
+    <label for="quantityCl" class="">訂購數量：</label>
+    <input id="quantityCl" type="text" class="form-control" />
     <br />
     <br />
 
-    <button onclick="ibuy()">我要訂購</button>
-    <button onclick="myFunction()">認識工廠</button>
-
+    <button onclick="ibuy()" class="btn btn-primary">我要訂購</button>
+    <button onclick="myFunction()" class="btn btn-secondary">認識工廠</button>
+  </div>
+  <div class="container transparent">
     <ul class="list">
-      <li class="title">您的訂單</li>
+      <li class="title">
+        <h2>您的訂單</h2>
+      </li>
       <li class="name">顧客姓名: <span id="customName"></span></li>
       <li class="">服裝分類: <span id="classific"></span></li>
       <li class="">服裝類型: <span id="cloType3"></span></li>
       <li class="">訂購數量: <span id="quantity"></span></li>
       <li class="">初步估價: <span id="evaluate"></span></li>
     </ul>
-    <script src="./all.js"></script>
-  </body>
+  </div>
+
+  <script src="./all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
 </html>
