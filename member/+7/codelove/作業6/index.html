@@ -13,24 +13,17 @@
     <div id="root">
     </div>
 
-    <div id="root">
-    </div>
-
     <script>
         const todos = [
             {
                 title: "倒垃圾"
             },
-            {
-                title: "繳電話費"
-            },
-            {
-                title: "採買本週食材"
-            },
         ];
 
         function render() {
             const root = document.querySelector("#root");
+            root.innerHTML = "";//清空#root元素內容(不然每次都會重複顯示已存在的內容)
+
             const ul = document.createElement("ul");
             root.append(ul);
 
@@ -47,8 +40,10 @@
 
         function add() {
             // 請寫出此函式內容（更新 todos 陣列）
-            const Add = document.querySelector("input");
-
+            const toAdd = document.querySelector("input");
+            todos.push({ title: toAdd.value });//將輸入的文字加入陣列
+            // console.log(toAdd);
+            toAdd.value = "";//清空輸入框的內容(值才不會一直停留在輸入框)
             render();
         }
 
