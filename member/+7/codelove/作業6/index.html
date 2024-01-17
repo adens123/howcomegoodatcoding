@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button onclick="add()">新增</button>
+    <div id="root">
+    </div>
+
+    <div id="root">
+    </div>
+
+    <script>
+        const todos = [
+            {
+                title: "倒垃圾"
+            },
+            {
+                title: "繳電話費"
+            },
+            {
+                title: "採買本週食材"
+            },
+        ];
+
+        function render() {
+            const root = document.querySelector("#root");
+            const ul = document.createElement("ul");
+            root.append(ul);
+
+            for (let todo of todos) {
+                const li = document.createElement("li");
+                const span = document.createElement("span");
+                span.textContent = todo.title; //顯示出代辦清單文字
+                ul.append(li);
+                li.append(span);
+            }
+        }
+
+        render();
+
+        function add() {
+            // 請寫出此函式內容（更新 todos 陣列）
+            const Add = document.querySelector("input");
+
+            render();
+        }
+
+    </script>
+
+
+</body>
+
+</html>
