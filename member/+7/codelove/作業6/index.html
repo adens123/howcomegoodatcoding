@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button onclick="add()">新增</button>
+    <div id="root">
+    </div>
+
+    <script>
+        const todos = [
+            {
+                title: "倒垃圾"
+            },
+        ];
+
+        function render() {
+            const root = document.querySelector("#root");
+            root.innerHTML = "";//清空#root元素內容(不然每次都會重複顯示已存在的內容)
+
+            const ul = document.createElement("ul");
+            root.append(ul);
+
+            for (let todo of todos) {
+                const li = document.createElement("li");
+                const span = document.createElement("span");
+                span.textContent = todo.title; //顯示出代辦清單文字
+                ul.append(li);
+                li.append(span);
+            }
+        }
+
+        render();
+
+        function add() {
+            // 請寫出此函式內容（更新 todos 陣列）
+            const toAdd = document.querySelector("input");
+            todos.push({ title: toAdd.value });//將輸入的文字加入陣列
+            // console.log(toAdd);
+            toAdd.value = "";//清空輸入框的內容(值才不會一直停留在輸入框)
+            render();
+        }
+
+    </script>
+
+
+</body>
+
+</html>

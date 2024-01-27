@@ -6,68 +6,82 @@ header {
       background-color: #F5F5DC;
       padding: 10px;
     }
+    /* .wrap{
+      background-image: url("header-bg.jpg");
+      background-position: 100% 15%;
+      background-repeat: no-repeat;
+    } */
 
+    h1 {
+      font-weight: bold;
+      font-size: 2em; /* 根據需要調整大小 */
+    }
+
+  /* 導航列 */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+
+
+  .navList a {
+
+    color: #8B4513;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px;
+
+  }
+  .navList a:hover {
+    background-color: #F5F5DC; 
+    color: #8B4513; 
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px;
+  }
+
+  /* nav的列表 */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    /**/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  /* 列表的li */
+  .lessonLi {
+      background-color: rgba(0, 0, 0, 0.5); 
+      margin: 10px;
+      padding: 10px;
+      border-radius: 3em;
+  }
+
+  li a {
+    color: #43341B;
+    text-decoration: none;
+  }
 
     .container {
       /* background-color: #9E7A7A; */
-      padding: 20px;
+      padding: 100px;
       display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
     }
-
-  
-    h1 {
-        font-weight: bold;
-        font-size: 2em; /* 根據需要調整大小 */
-      }
-
-    /* 導航列 */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px;
+    .Li-title{
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #FFF;
+    }
+    .p1{
+      padding: 1em;
     }
 
   
-    .navList a {
-
-      color: #8B4513;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 15px;
-
-    }
-    .navList a:hover {
-      background-color: #F5F5DC; 
-      color: #8B4513; 
-      text-decoration: none;
-      font-weight: bold;
-      padding: 15px;
-    }
-
-    /* nav的列表 */
-    ul {
-      list-style-type: none;
-      padding: 0;
-      /**/
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    /* 列表的li */
-    .lessonLi {
-        background-color: rgba(0, 0, 0, 0.5); 
-        margin: 10px;
-        padding: 10px;
-        border-radius: 3em;
-    }
-
-    li a {
-      color: #43341B;
-      text-decoration: none;
-    }
+    
