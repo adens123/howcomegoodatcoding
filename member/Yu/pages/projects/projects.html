@@ -15,6 +15,16 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="../../SCSS/CSS/all.css" />
+    <style>
+      .details {
+        display: none;
+      }
+      .details {
+        @media (min-width: 375px) {
+          display: inline-block;
+        }
+      }
+    </style>
   </head>
   <body class="bg-dark-mode">
     <div class="bg-theme-tokyo">
@@ -58,7 +68,80 @@
       <main class="py-3">
         <div class="container">
           <div class="row">
-            <div class="col-12" data-aos="fade-up" data-aos-duration="1500">
+            <div
+              class="col-12 col-lg-6"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            >
+              <div
+                class="course border border-0 p-3 rounded cap shadow-lg mb-3"
+              >
+                <h2 class="mb-3 text-center text-dark fw-bold">
+                  Side Projects
+                </h2>
+                <table
+                  class="table table-borderless table-hover text-center align-middle shadow"
+                >
+                  <thead>
+                    <tr>
+                      <th scope="col" class="d-none d-md-table-cell">#</th>
+                      <th scope="col" class="d-none d-md-table-cell">
+                        更新日期
+                      </th>
+                      <th scope="col">名稱</th>
+                      <th scope="col">連結</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="d-none d-md-table-cell">1</th>
+                      <td class="d-none d-md-table-cell text-secondary">
+                        2024/01/15
+                      </td>
+                      <td class="fs-5">
+                        Todolist with Vue.js<br /><span
+                          class="text-secondary fs-6 details"
+                          >Vue2 CLI + Bootstrap5</span
+                        >
+                      </td>
+                      <td>
+                        <a
+                          class="btn btn-outline-secondary text-nowrap"
+                          target="_blank"
+                          href="https://yuch3nchen.github.io/vue2-cli-todolist/"
+                          >點此前往</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="d-none d-md-table-cell">1</th>
+                      <td class="d-none d-md-table-cell text-secondary">
+                        2024/01/27
+                      </td>
+                      <td class="fs-5">
+                        VueNotepad with Vue.js<br /><span
+                          class="text-secondary fs-6 details"
+                          >Vue2 CLI + Bootstrap5</span
+                        >
+                      </td>
+                      <td>
+                        <a
+                          class="btn btn-outline-secondary text-nowrap"
+                          target="_blank"
+                          href="https://yuch3nchen.github.io/vue2-notepad/"
+                          >點此前往</a
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div
+              class="col-12 col-lg-6"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            >
               <div
                 class="course border border-0 p-3 rounded cap shadow-lg mb-3"
               >
@@ -68,16 +151,20 @@
                 >
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">更新日期</th>
+                      <th scope="col" class="d-none d-md-table-cell">#</th>
+                      <th scope="col" class="d-none d-md-table-cell">
+                        更新日期
+                      </th>
                       <th scope="col">名稱</th>
                       <th scope="col">連結</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row">1</th>
-                      <td class="text-secondary">2023/10/04</td>
+                      <th scope="row" class="d-none d-md-table-cell">1</th>
+                      <td class="d-none d-md-table-cell text-secondary">
+                        2023/10/04
+                      </td>
                       <td>愛寫扣學院-幫衣服工廠做個好用表單</td>
                       <td>
                         <a
